@@ -56,7 +56,6 @@ namespace KemishMusic
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.gunaPictureBox3 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -218,7 +217,7 @@ namespace KemishMusic
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(1185, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 11;
             // 
             // guna2TrackBar1
@@ -239,7 +238,7 @@ namespace KemishMusic
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(337, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 10;
             // 
             // guna2Panel3
@@ -369,7 +368,7 @@ namespace KemishMusic
             this.gunaLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel5.Location = new System.Drawing.Point(463, 325);
             this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(179, 32);
+            this.gunaLabel5.Size = new System.Drawing.Size(189, 34);
             this.gunaLabel5.TabIndex = 11;
             this.gunaLabel5.Text = "Natanael Cano, Peso Pluma,\r\nGabito Ballesteros\r\n";
             // 
@@ -403,27 +402,12 @@ namespace KemishMusic
             this.gunaPictureBox2.TabStop = false;
             this.gunaPictureBox2.Click += new System.EventHandler(this.gunaPictureBox2_Click);
             // 
-            // guna2Button4
-            // 
-            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
-            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.Location = new System.Drawing.Point(825, 140);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button4.TabIndex = 12;
-            this.guna2Button4.Text = "gg";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1247, 683);
-            this.Controls.Add(this.guna2Button4);
             this.Controls.Add(this.gunaLabel5);
             this.Controls.Add(this.gunaLabel4);
             this.Controls.Add(this.gunaPictureBox3);
@@ -479,7 +463,6 @@ namespace KemishMusic
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private Guna.UI2.WinForms.Guna2ImageButton btnPausaPlay;
         private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
     }
 }
 
