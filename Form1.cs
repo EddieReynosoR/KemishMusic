@@ -58,6 +58,10 @@ namespace KemishMusic
 
         private void runAudio(string filepath)
         {
+            guna2TrackBar2.Value = 50;
+
+            player.settings.volume = guna2TrackBar2.Value;
+
             player.URL = filepath;
             player.controls.play();
         }
@@ -104,7 +108,6 @@ namespace KemishMusic
         {
             if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {             
-
                 player.controls.currentPosition = guna2TrackBar1.Value;
 
                 label1.Text = player.controls.currentPositionString;
@@ -147,6 +150,15 @@ namespace KemishMusic
                 btnPausaPlay.Image = Properties.Resources._16427;
 
                 isPaused = false;
+            }
+        }
+
+        private void guna2TrackBar2_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+
+                player.settings.volume = guna2TrackBar2.Value;
             }
         }
     }
