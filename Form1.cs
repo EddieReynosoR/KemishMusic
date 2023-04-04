@@ -18,6 +18,7 @@ namespace KemishMusic
         WMPLib.WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
 
 
+//ggs
 
 
 
