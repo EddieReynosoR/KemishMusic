@@ -56,13 +56,14 @@ namespace KemishMusic
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.gunaPictureBox3 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.pbBar = new Guna.UI.WinForms.GunaPictureBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBar)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaElipse1
@@ -170,6 +171,7 @@ namespace KemishMusic
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.DarkGray;
+            this.guna2Panel2.Controls.Add(this.pbBar);
             this.guna2Panel2.Controls.Add(this.guna2TrackBar2);
             this.guna2Panel2.Controls.Add(this.btnPausaPlay);
             this.guna2Panel2.Controls.Add(this.label2);
@@ -403,15 +405,19 @@ namespace KemishMusic
             this.gunaPictureBox2.TabStop = false;
             this.gunaPictureBox2.Click += new System.EventHandler(this.gunaPictureBox2_Click);
             // 
-            // checkBox1
+            // pbBar
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(787, 140);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(59, 20);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.Text = "AMG";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.pbBar.BackColor = System.Drawing.Color.Transparent;
+            this.pbBar.BaseColor = System.Drawing.Color.White;
+            this.pbBar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBar.Image = global::KemishMusic.Properties.Resources.AMG;
+            this.pbBar.Location = new System.Drawing.Point(3, 0);
+            this.pbBar.Name = "pbBar";
+            this.pbBar.Radius = 10;
+            this.pbBar.Size = new System.Drawing.Size(120, 124);
+            this.pbBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBar.TabIndex = 14;
+            this.pbBar.TabStop = false;
             // 
             // Form1
             // 
@@ -419,7 +425,6 @@ namespace KemishMusic
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1247, 683);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.gunaLabel5);
             this.Controls.Add(this.gunaLabel4);
             this.Controls.Add(this.gunaPictureBox3);
@@ -427,9 +432,9 @@ namespace KemishMusic
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.gunaPictureBox2);
             this.Controls.Add(this.gunaLabel1);
-            this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.guna2Panel2);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
@@ -442,6 +447,7 @@ namespace KemishMusic
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,7 +481,7 @@ namespace KemishMusic
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private Guna.UI2.WinForms.Guna2ImageButton btnPausaPlay;
         private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private Guna.UI.WinForms.GunaPictureBox pbBar;
     }
 }
 

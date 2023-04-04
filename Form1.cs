@@ -35,10 +35,14 @@ namespace KemishMusic
         private void gunaPictureBox2_Click(object sender, EventArgs e)
         {
 
-           
+
             if (isClicked)
             {
                 runAudio(@"C:\Users\Eddie\Desktop\KemishMusic\Canciones\BRRR.wav");
+                runAudio("C:\\Users\\yyyah\\OneDrive\\Escritorio\\Canciones\\BRRR.wav");
+
+                Image brr = new Bitmap(@"C:\Users\yyyah\OneDrive\Escritorio\KemishMusic\Resources\anuel_aa_las_leyendas_nunca_mueren_2-portada.jpg");
+                pbBar.Image = brr;
 
                 isClicked = false;
             }
@@ -123,6 +127,10 @@ namespace KemishMusic
             if (isClicked)
             {
                 runAudio(@"C:\Users\Eddie\Desktop\KemishMusic\Canciones\AMG.mp3");
+                runAudio("C:\\Users\\yyyah\\OneDrive\\Escritorio\\Canciones\\AMG.mp3");
+
+                Image amg = new Bitmap(@"C:\Users\yyyah\OneDrive\Escritorio\KemishMusic\Resources\AMG.jpg");
+                pbBar.Image = amg;
 
                 isClicked = false;
             }
