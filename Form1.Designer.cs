@@ -415,7 +415,7 @@ namespace KemishMusic
             this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
             this.guna2Button4.Size = new System.Drawing.Size(180, 45);
             this.guna2Button4.TabIndex = 12;
-            this.guna2Button4.Text = "ggs";
+            this.guna2Button4.Text = "gg";
             // 
             // Form1
             // 
