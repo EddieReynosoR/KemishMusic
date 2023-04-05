@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp">
-      <HintPath>..\Topicos Unidad 2\Interfaz Moderna\Interfaz Moderna\bin\Debug\FontAwesome.Sharp.dll</HintPath>
+      <HintPath>..\..\Downloads\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI">
       <HintPath>..\..\..\Downloads\Guna.UI.dll</HintPath>
