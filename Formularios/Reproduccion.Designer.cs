@@ -36,7 +36,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(46, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 16);
+            this.label1.Size = new System.Drawing.Size(96, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Reproduccion";
             // 
@@ -44,8 +44,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::KemishMusic.Properties.Resources._330634344_1228671984728501_5317193639878804641_n;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(770, 542);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.Name = "Reproduccion";
             this.Text = "Reproduccion";
             this.ResumeLayout(false);

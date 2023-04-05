@@ -289,14 +289,62 @@ namespace KemishMusic
 
         }
 
+        bool segundaPantalla = false;
         private void pbBar_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Formularios.Reproduccion());
+            // OpenChildForm(new Formularios.Reproduccion());
 
-            panelReproduccion.Visible = false;
-            panelMenu.Visible = false;
-            txtSearch.Visible = false;
-            btnHomeRepro.Visible = true;
+            if (!segundaPantalla)
+            {
+                guna2Panel1.BackColor = Color.Transparent;
+                guna2Panel1.FillColor = Color.Transparent;
+
+                guna2Panel1.Dock = DockStyle.Top;
+
+                panelReproduccion.Height = 683;
+
+                pbBar.Location = new Point(38, 443);
+                guna2TrackBar1.Location = new Point(50, 443);
+                btnPausaPlay.Location = new Point(120, 443);
+                guna2TrackBar2.Location = new Point(50, 500);
+
+                panelReproduccion.BackColor = Color.Transparent;
+                panelReproduccion.BackgroundImage = Properties.Resources._330634344_1228671984728501_5317193639878804641_n;
+                panelReproduccion.BackgroundImageLayout = ImageLayout.Center;
+
+
+
+                panelMenu.Visible = false;
+                panelDesktop.Visible = false;
+                txtSearch.Visible = false;
+
+                segundaPantalla = true;
+            }
+            else
+            {
+                guna2Panel1.BackColor = Color.White;
+                guna2Panel1.FillColor = Color.White;
+                panelReproduccion.Height = 128;
+                panelReproduccion.BackColor = Color.DarkGray;
+
+                guna2Panel1.Dock = DockStyle.Top;
+
+                pbBar.Location = new Point(40, 18);
+                guna2TrackBar1.Location = new Point(387, 25);
+                btnPausaPlay.Location = new Point(738, 56);
+                guna2TrackBar2.Location = new Point(899, 68);
+
+                panelMenu.Visible = true;
+                panelDesktop.Visible = true;
+                txtSearch.Visible = true;
+
+
+                panelReproduccion.BackgroundImage = null;
+
+                segundaPantalla = false;
+            }
+
+            // timerBarraMusic.Start();
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -304,6 +352,12 @@ namespace KemishMusic
             if (currentChildForm != null)
             {
                 currentChildForm.Close();
+
+                panelReproduccion.Height = 128;
+            }
+            else
+            {
+                panelReproduccion.Height = 128;
             }
             btnHomeRepro.Visible = false;
             Reset();
@@ -317,6 +371,31 @@ namespace KemishMusic
         private void Form1_Load(object sender, EventArgs e)
         {
             btnHomeRepro.Visible = false;
+        }
+
+        bool expansionBarra;
+        private void timerBarraMusic_Tick(object sender, EventArgs e)
+        {
+            if (expansionBarra)
+            {
+                panelReproduccion.Height -= 28;
+
+                if(panelReproduccion.Height == 128)
+                {
+                    expansionBarra = false;
+                    timerBarraMusic.Stop();
+                }
+            }
+            else
+            {
+                panelReproduccion.Height += 28;
+
+                if(panelReproduccion.Height >= 683)
+                {
+                    expansionBarra = true;
+                    timerBarraMusic.Stop();
+                }
+            }
         }
     }
 }
