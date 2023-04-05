@@ -32,6 +32,7 @@ namespace KemishMusic
             this.components = new System.ComponentModel.Container();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnHomeRepro = new FontAwesome.Sharp.IconButton();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaControlBox3 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaControlBox2 = new Guna.UI.WinForms.GunaControlBox();
@@ -59,7 +60,6 @@ namespace KemishMusic
             this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
             this.timerBarraMusic = new System.Windows.Forms.Timer(this.components);
             this.guna2MouseStateHandler1 = new Guna.UI2.WinForms.Guna2MouseStateHandler(this.components);
-            this.btnHomeRepro = new FontAwesome.Sharp.IconButton();
             this.guna2Panel1.SuspendLayout();
             this.panelReproduccion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBar)).BeginInit();
@@ -90,6 +90,21 @@ namespace KemishMusic
             this.guna2Panel1.Size = new System.Drawing.Size(1076, 43);
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // btnHomeRepro
+            // 
+            this.btnHomeRepro.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnHomeRepro.FlatAppearance.BorderSize = 0;
+            this.btnHomeRepro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHomeRepro.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
+            this.btnHomeRepro.IconColor = System.Drawing.Color.Black;
+            this.btnHomeRepro.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnHomeRepro.Location = new System.Drawing.Point(300, 0);
+            this.btnHomeRepro.Name = "btnHomeRepro";
+            this.btnHomeRepro.Size = new System.Drawing.Size(75, 43);
+            this.btnHomeRepro.TabIndex = 4;
+            this.btnHomeRepro.UseVisualStyleBackColor = true;
+            this.btnHomeRepro.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // txtSearch
             // 
@@ -437,21 +452,6 @@ namespace KemishMusic
             // 
             this.timerBarraMusic.Interval = 1;
             this.timerBarraMusic.Tick += new System.EventHandler(this.timerBarraMusic_Tick);
-            // 
-            // btnHomeRepro
-            // 
-            this.btnHomeRepro.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnHomeRepro.FlatAppearance.BorderSize = 0;
-            this.btnHomeRepro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHomeRepro.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
-            this.btnHomeRepro.IconColor = System.Drawing.Color.Black;
-            this.btnHomeRepro.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHomeRepro.Location = new System.Drawing.Point(300, 0);
-            this.btnHomeRepro.Name = "btnHomeRepro";
-            this.btnHomeRepro.Size = new System.Drawing.Size(75, 43);
-            this.btnHomeRepro.TabIndex = 4;
-            this.btnHomeRepro.UseVisualStyleBackColor = true;
-            this.btnHomeRepro.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // Form1
             // 

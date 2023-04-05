@@ -303,10 +303,10 @@ namespace KemishMusic
 
                 panelReproduccion.Height = 683;
 
-                pbBar.Location = new Point(38, 443);
-                guna2TrackBar1.Location = new Point(50, 443);
-                btnPausaPlay.Location = new Point(120, 443);
-                guna2TrackBar2.Location = new Point(50, 500);
+                pbBar.Location = new Point(52, 576);
+                guna2TrackBar1.Location = new Point(387, 580);
+                btnPausaPlay.Location = new Point(738, 610);
+                guna2TrackBar2.Location = new Point(899, 623);
 
                 panelReproduccion.BackColor = Color.Transparent;
                 panelReproduccion.BackgroundImage = Properties.Resources._330634344_1228671984728501_5317193639878804641_n;
@@ -319,6 +319,8 @@ namespace KemishMusic
                 txtSearch.Visible = false;
 
                 segundaPantalla = true;
+
+                timerBarraMusic.Start();
             }
             else
             {
@@ -329,7 +331,13 @@ namespace KemishMusic
 
                 guna2Panel1.Dock = DockStyle.Top;
 
-                pbBar.Location = new Point(40, 18);
+                pbBar.Location = new Point(52, 21);
+
+                guna2TrackBar1.Width = 787;
+
+                pbBar.Height = 90;
+                pbBar.Width = 90;
+
                 guna2TrackBar1.Location = new Point(387, 25);
                 btnPausaPlay.Location = new Point(738, 56);
                 guna2TrackBar2.Location = new Point(899, 68);
@@ -342,9 +350,11 @@ namespace KemishMusic
                 panelReproduccion.BackgroundImage = null;
 
                 segundaPantalla = false;
+
+                timerBarraMusic.Stop();
             }
 
-            // timerBarraMusic.Start();
+            
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -373,29 +383,38 @@ namespace KemishMusic
             btnHomeRepro.Visible = false;
         }
 
-        bool expansionBarra;
         private void timerBarraMusic_Tick(object sender, EventArgs e)
         {
-            if (expansionBarra)
-            {
-                panelReproduccion.Height -= 28;
+            
+            int X = guna2TrackBar1.Location.X;
+            int Y = guna2TrackBar1.Location.Y;
 
-                if(panelReproduccion.Height == 128)
-                {
-                    expansionBarra = false;
-                    timerBarraMusic.Stop();
-                }
-            }
-            else
-            {
-                panelReproduccion.Height += 28;
+            int XImg = pbBar.Location.X;
+            int YImg = pbBar.Location.Y;
 
-                if(panelReproduccion.Height >= 683)
-                {
-                    expansionBarra = true;
-                    timerBarraMusic.Stop();
-                }
+            int XBtn = btnPausaPlay.Location.X;
+            int YBtn = btnPausaPlay.Location.Y;
+
+            int X2 = guna2TrackBar2.Location.X;
+            int Y2 = guna2TrackBar2.Location.Y;
+            guna2TrackBar1.Location = new Point(X -= 6, Y -= 1);
+            guna2TrackBar1.Width += 5;
+
+            pbBar.Width += 3;
+            pbBar.Height += 3;
+
+            pbBar.Location = new Point(XImg, YImg -= 7);
+
+            btnPausaPlay.Location = new Point(XBtn -= 3, YBtn -= 1);
+
+            guna2TrackBar2.Location = new Point(X2 -= 2, Y2 -= 1);
+
+            if (guna2TrackBar1.Location.X == 10 || guna2TrackBar1.Location.Y == 535)
+            {
+                timerBarraMusic.Stop();
             }
+            
+            
         }
     }
 }
