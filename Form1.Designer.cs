@@ -213,10 +213,9 @@ namespace KemishMusic
             // 
             // pbBar
             // 
-            this.pbBar.BackColor = System.Drawing.Color.Transparent;
-            this.pbBar.BaseColor = System.Drawing.Color.White;
+            this.pbBar.BackColor = System.Drawing.Color.DarkGray;
+            this.pbBar.BaseColor = System.Drawing.Color.Transparent;
             this.pbBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBar.Image = global::KemishMusic.Properties.Resources.AMG;
             this.pbBar.Location = new System.Drawing.Point(52, 21);
             this.pbBar.Name = "pbBar";
             this.pbBar.Radius = 10;
@@ -258,7 +257,7 @@ namespace KemishMusic
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(1185, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 17);
+            this.label2.Size = new System.Drawing.Size(0, 16);
             this.label2.TabIndex = 11;
             // 
             // guna2TrackBar1
@@ -279,7 +278,7 @@ namespace KemishMusic
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(337, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 17);
+            this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 10;
             // 
             // panelMenu
@@ -398,7 +397,7 @@ namespace KemishMusic
             this.gunaLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel5.Location = new System.Drawing.Point(386, 281);
             this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(189, 34);
+            this.gunaLabel5.Size = new System.Drawing.Size(179, 32);
             this.gunaLabel5.TabIndex = 11;
             this.gunaLabel5.Text = "Natanael Cano, Peso Pluma,\r\nGabito Ballesteros\r\n";
             // 

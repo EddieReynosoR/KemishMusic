@@ -134,24 +134,24 @@ namespace KemishMusic
         {
 
 
-            if (isClicked)
-            {
-                runAudio(@"C:\Users\Eddie\Desktop\KemishMusic\Canciones\BRRR.wav");
-                // runAudio("C:\\Users\\yyyah\\OneDrive\\Escritorio\\Canciones\\BRRR.wav");
+            // if (isClicked)
+            //  {
+            runAudio(@"C:\Users\Eddie\Desktop\KemishMusic\Canciones\BRRR.wav");
+                runAudio(@"C:\\Users\\yyyah\\OneDrive\\Escritorio\\Canciones\\BRRR.wav");
 
                 Image brr = new Bitmap(Properties.Resources.anuel_aa_las_leyendas_nunca_mueren_2_portada);
                 pbBar.Image = brr;
 
-                isClicked = false;
-            }
-            else
-            {
-                stopAudio();
+            //      isClicked = false;
+            //   }
+            //   else
+            //   {
+            //stopAudio();
 
-                isClicked = true;
-            }
+            //   isClicked = true;
+            //     }
 
-            
+
         }
 
         private void guna2ProgressBar1_ValueChanged(object sender, EventArgs e)
@@ -222,22 +222,22 @@ namespace KemishMusic
 
         private void gunaPictureBox3_Click(object sender, EventArgs e)
         {
-            if (isClicked)
-            {
+            //if (isClicked)
+            //{
                 runAudio(@"C:\Users\Eddie\Desktop\KemishMusic\Canciones\AMG.mp3");
-                // runAudio("C:\\Users\\yyyah\\OneDrive\\Escritorio\\Canciones\\AMG.mp3");
+                runAudio(@"C:\\Users\\yyyah\\OneDrive\\Escritorio\\Canciones\\AMG.mp3");
 
                 Image amg = new Bitmap(Properties.Resources.AMG);
                 pbBar.Image = amg;
 
-                isClicked = false;
-            }
-            else
-            {
-                stopAudio();
+              //  isClicked = false;
+          //  }
+           // else
+           // {
+                //stopAudio();
 
-                isClicked = true;
-            }
+             //   isClicked = true;
+           // }
         }
 
 
