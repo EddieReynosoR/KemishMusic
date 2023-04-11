@@ -46,17 +46,22 @@ namespace KemishMusic.Formularios
                     byte[] buffer = new byte[stream.Length];
 
 
-                    
+
+                    Form1 frm1 = new Form1();
 
 
-                    
+
 
                     stream.Read(buffer, 0, buffer.Length);
 
                     string nombre = txtNombre.Text;
                     string extn = new FileInfo(archivoAudio).Extension;
 
-                    string nombreCancion = fs.Name;
+                    string nombreCancion = Path.GetFileName(archivoAudio);
+
+                    string pathCancion = frm1.getPath(nombreCancion);
+
+
 
 
                     string query = "INSERT INTO Canciones(Nombre,Imagen,Audio)VALUES(@nombre,@imagen,@audio)";
@@ -74,7 +79,7 @@ namespace KemishMusic.Formularios
 
                         cmd.Parameters.Add("@imagen", SqlDbType.Image).Value = buffer;
 
-                        cmd.Parameters.Add("@audio", SqlDbType.VarChar).Value = nombreCancion;
+                        cmd.Parameters.Add("@audio", SqlDbType.VarChar).Value = pathCancion;
 
                         cn.Open();
                         cmd.ExecuteNonQuery();
@@ -84,7 +89,9 @@ namespace KemishMusic.Formularios
 
             string[] s = { "\\bin" };
             string path = Application.StartupPath.Split(s, StringSplitOptions.None)[0] + "\\Canciones\\";
-            File.Move(@archivoAudio, path);
+
+            
+            File.Move(@archivoAudio, path + Path.GetFileName(path));
         }
 
         private SqlConnection GetConnection()
