@@ -159,16 +159,16 @@ namespace KemishMusic
                 Image brr = new Bitmap(Properties.Resources.anuel_aa_las_leyendas_nunca_mueren_2_portada);
                 pbBar.Image = brr;
 
-                isClicked = false;
-            }
-            else
-            {
-                stopAudio();
+            //      isClicked = false;
+            //   }
+            //   else
+            //   {
+            //stopAudio();
 
-                isClicked = true;
-            }
+            //   isClicked = true;
+            //     }
 
-            
+
         }
 
         private void guna2ProgressBar1_ValueChanged(object sender, EventArgs e)
@@ -250,14 +250,14 @@ namespace KemishMusic
                 Image amg = new Bitmap(Properties.Resources.AMG);
                 pbBar.Image = amg;
 
-                isClicked = false;
-            }
-            else
-            {
-                stopAudio();
+              //  isClicked = false;
+          //  }
+           // else
+           // {
+                //stopAudio();
 
-                isClicked = true;
-            }
+             //   isClicked = true;
+           // }
         }
 
 
