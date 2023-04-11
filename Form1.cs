@@ -150,7 +150,7 @@ namespace KemishMusic
 
 
 
-                string path = getPath("BRRR.wav");
+                string path = getPath("BRRR.mp3");
 
 
                 runAudio(path);

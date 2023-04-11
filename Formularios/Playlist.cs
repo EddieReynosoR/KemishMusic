@@ -90,8 +90,8 @@ namespace KemishMusic.Formularios
             string[] s = { "\\bin" };
             string path = Application.StartupPath.Split(s, StringSplitOptions.None)[0] + "\\Canciones\\";
 
-            
-            File.Move(@archivoAudio, path + Path.GetFileName(path));
+
+            File.Copy(@archivoAudio, Path.Combine(path, Path.GetFileName(archivoAudio)));
         }
 
         private SqlConnection GetConnection()
