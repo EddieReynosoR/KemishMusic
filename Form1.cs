@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 using FontAwesome.Sharp;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace KemishMusic
 {
@@ -93,6 +95,14 @@ namespace KemishMusic
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
+
+        public string getPath(string cancion)
+        {
+            string[] s = { "\\bin" };
+            string path = Application.StartupPath.Split(s, StringSplitOptions.None)[0] + "\\Canciones\\" + cancion;
+
+            return path;
+        }
         private void OpenChildForm(Form childForm)
         {
             //Condición para abrir solo un formulario
@@ -136,7 +146,14 @@ namespace KemishMusic
 
             if (isClicked)
             {
-                runAudio(@"C:\Users\Eddie\Desktop\KemishMusic\Canciones\BRRR.wav");
+
+
+
+
+                string path = getPath("BRRR.wav");
+
+
+                runAudio(path);
                 // runAudio("C:\\Users\\yyyah\\OneDrive\\Escritorio\\Canciones\\BRRR.wav");
 
                 Image brr = new Bitmap(Properties.Resources.anuel_aa_las_leyendas_nunca_mueren_2_portada);
@@ -224,7 +241,10 @@ namespace KemishMusic
         {
             if (isClicked)
             {
-                runAudio(@"C:\Users\Eddie\Desktop\KemishMusic\Canciones\AMG.mp3");
+                string path = getPath("AMG.mp3");
+
+
+                runAudio(path);
                 // runAudio("C:\\Users\\yyyah\\OneDrive\\Escritorio\\Canciones\\AMG.mp3");
 
                 Image amg = new Bitmap(Properties.Resources.AMG);
