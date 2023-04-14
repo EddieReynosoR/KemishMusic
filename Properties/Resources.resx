@@ -127,6 +127,9 @@
   <data name="AMG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AMG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="16427" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\16427.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="330634344_1228671984728501_5317193639878804641_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\330634344_1228671984728501_5317193639878804641_n.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,7 +139,7 @@
   <data name="3031293" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3031293.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="16427" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\16427.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="8c65e43892fda4e0836122115304e20b29334eac_hq" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\8c65e43892fda4e0836122115304e20b29334eac_hq.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

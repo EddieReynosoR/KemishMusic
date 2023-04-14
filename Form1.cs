@@ -40,7 +40,7 @@ namespace KemishMusic
 
             panelMenu.Controls.Add(leftBorderBtn);
 
-
+            CancionSelect.ImagenClick += new EventHandler(Clicked);
             // musicPlayer = new SoundPlayer(filepath);
         }
         private struct RGBColors
@@ -96,6 +96,13 @@ namespace KemishMusic
             }
         }
 
+        public string Path()
+        {
+            string[] s = { "\\bin" };
+            string path = Application.StartupPath.Split(s, StringSplitOptions.None)[0] + "\\Canciones\\";
+
+            return path;
+        }
         public string getPath(string cancion)
         {
             string[] s = { "\\bin" };
@@ -157,7 +164,7 @@ namespace KemishMusic
                 // runAudio("C:\\Users\\yyyah\\OneDrive\\Escritorio\\Canciones\\BRRR.wav");
 
                 Image brr = new Bitmap(Properties.Resources.anuel_aa_las_leyendas_nunca_mueren_2_portada);
-                pbBar.Image = brr;
+                //pbBar.Image = brr;
 
                 //      isClicked = false;
                 //   }
@@ -177,10 +184,9 @@ namespace KemishMusic
 
             }
 
-            private void runAudio(string filepath)
+            public void runAudio(string filepath)
             {
                 guna2TrackBar2.Value = 50;
-
                 player.settings.volume = guna2TrackBar2.Value;
 
                 player.URL = filepath;
@@ -249,7 +255,7 @@ namespace KemishMusic
                 // runAudio("C:\\Users\\yyyah\\OneDrive\\Escritorio\\Canciones\\AMG.mp3");
 
                 Image amg = new Bitmap(Properties.Resources.AMG);
-                pbBar.Image = amg;
+               // pbBar.Image = amg;
 
                 //  isClicked = false;
                 //  }
@@ -313,7 +319,7 @@ namespace KemishMusic
                 bool segundaPantalla = false;
                 private void pbBar_Click(object sender, EventArgs e)
                 {
-                    // OpenChildForm(new Formularios.Reproduccion());
+                    //OpenChildForm(new Formularios.Reproduccion());
 
                     if (!segundaPantalla)
                     {
@@ -402,7 +408,26 @@ namespace KemishMusic
                 private void Form1_Load(object sender, EventArgs e)
                 {
                     btnHomeRepro.Visible = false;
+
+                    DetallesCancion();
+                    CartasCancion();
                 }
+
+        int i;
+        public void CartasCancion()
+        {
+            foreach(Cancion cancion in Cancion.lista)
+            {
+                i++;
+                CancionSelect carta = new CancionSelect();
+
+                carta.CancionDetalles(cancion);
+
+
+                carta.Dock = DockStyle.Left;
+                guna2Panel2.Controls.Add(carta);
+            }
+        }
 
                 private void timerBarraMusic_Tick(object sender, EventArgs e)
                 {
@@ -437,7 +462,45 @@ namespace KemishMusic
 
 
                 }
-            }
-      }
+        private SqlConnection GetConnection()
+        {
+            return new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;");
+        }
+        
+
+        public void DetallesCancion()
+        {
+            Cancion cancion = new Cancion();
+            cancion.getList();
+        }
+
+        
+     
+        public void Clicked(object sender, EventArgs e)
+        {
+            Cancion obtener = new Cancion();
+
+            obtener.ReproducirCancion(CancionSelect.id);
+
+
+            pbBar.Image = (Bitmap)new ImageConverter().ConvertFrom(obtener.imagen);
+
+
+
+            runAudio(obtener.audio);
+        }
+        
+
+        private void cancionSelect1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancionSelect1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
     
 

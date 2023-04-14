@@ -113,6 +113,16 @@ namespace KemishMusic.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _8c65e43892fda4e0836122115304e20b29334eac_hq {
+            get {
+                object obj = ResourceManager.GetObject("8c65e43892fda4e0836122115304e20b29334eac_hq", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AMG {
             get {
                 object obj = ResourceManager.GetObject("AMG", resourceCulture);

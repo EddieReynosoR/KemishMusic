@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
 
+
 namespace KemishMusic.Formularios
 {
     public partial class Playlist : Form
@@ -25,6 +26,8 @@ namespace KemishMusic.Formularios
         {
             OpenFileDialog dlg = new OpenFileDialog();
 
+            dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
+
             dlg.ShowDialog();
 
             txtImagen.Text = dlg.FileName;
@@ -35,9 +38,11 @@ namespace KemishMusic.Formularios
             GuardarArchivo(txtImagen.Text, txtAudio.Text);
         }
 
-        private void GuardarArchivo(string archivoImagen, string archivoAudio)
+        public void GuardarArchivo(string archivoImagen, string archivoAudio)
         {
-            using(Stream stream = File.OpenRead(archivoImagen))
+            Form1 frm1 = new Form1();
+
+            using (Stream stream = File.OpenRead(archivoImagen))
             {
                 using (Stream stream2 = File.OpenRead(archivoAudio))
                 {
@@ -47,19 +52,22 @@ namespace KemishMusic.Formularios
 
 
 
-                    Form1 frm1 = new Form1();
 
 
 
 
                     stream.Read(buffer, 0, buffer.Length);
 
-                    string nombre = txtNombre.Text;
                     string extn = new FileInfo(archivoAudio).Extension;
 
                     string nombreCancion = Path.GetFileName(archivoAudio);
 
-                    string pathCancion = frm1.getPath(nombreCancion);
+                    Cancion guardar = new Cancion();
+
+                    guardar.nombre = txtNombre.Text;
+                    guardar.audio = frm1.getPath(nombreCancion);
+
+                    guardar.imagen = buffer;
 
 
 
@@ -75,11 +83,11 @@ namespace KemishMusic.Formularios
                     {
                         SqlCommand cmd = new SqlCommand(query, cn);
 
-                        cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = nombre;
+                        cmd.Parameters.AddWithValue("@nombre", guardar.nombre);
 
-                        cmd.Parameters.Add("@imagen", SqlDbType.Image).Value = buffer;
+                        cmd.Parameters.AddWithValue("@imagen", guardar.imagen);
 
-                        cmd.Parameters.Add("@audio", SqlDbType.VarChar).Value = pathCancion;
+                        cmd.Parameters.AddWithValue("@audio", guardar.audio);
 
                         cn.Open();
                         cmd.ExecuteNonQuery();
@@ -87,12 +95,13 @@ namespace KemishMusic.Formularios
                 }
             }
 
-            string[] s = { "\\bin" };
-            string path = Application.StartupPath.Split(s, StringSplitOptions.None)[0] + "\\Canciones\\";
+
+            string path = frm1.Path();
 
 
             File.Copy(@archivoAudio, Path.Combine(path, Path.GetFileName(archivoAudio)));
         }
+        
 
         private SqlConnection GetConnection()
         {
