@@ -409,8 +409,8 @@ namespace KemishMusic
                 {
                     btnHomeRepro.Visible = false;
 
-                    DetallesCancion();
-                    CartasCancion();
+                    //DetallesCancion();
+                    //CartasCancion();
                 }
 
         int i;
@@ -499,6 +499,17 @@ namespace KemishMusic
         private void cancionSelect1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnCancion_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new Formularios.CancionesShow());
         }
     }
 }

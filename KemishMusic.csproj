@@ -62,6 +62,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\CancionesShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\CancionesShow.Designer.cs">
+      <DependentUpon>CancionesShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Playlist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\CancionesShow.resx">
+      <DependentUpon>CancionesShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Playlist.resx">
       <DependentUpon>Playlist.cs</DependentUpon>

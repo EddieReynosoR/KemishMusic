@@ -116,5 +116,10 @@ namespace KemishMusic.Formularios
 
             txtAudio.Text = dlg.FileName;
         }
+
+        private void Playlist_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

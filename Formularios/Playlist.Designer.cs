@@ -199,6 +199,7 @@
             this.Controls.Add(this.txtNombre);
             this.Name = "Playlist";
             this.Text = "Playlist";
+            this.Load += new System.EventHandler(this.Playlist_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
