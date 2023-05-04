@@ -65,14 +65,17 @@ namespace KemishMusic.Formularios
                     Cancion guardar = new Cancion();
 
                     guardar.nombre = txtNombre.Text;
-                    guardar.audio = frm1.getPath(nombreCancion);
+                    guardar.audio = nombreCancion;
+
 
                     guardar.imagen = buffer;
 
+                    guardar.fecha = DateTime.Now.Date.ToString();
 
 
 
-                    string query = "INSERT INTO Canciones(Nombre,Imagen,Audio)VALUES(@nombre,@imagen,@audio)";
+
+                    string query = "INSERT INTO cancion(cancion_nombre,cancion_imagen,cancion_audionombre,cancion_fechaestreno)VALUES(@nombre,@imagen,@audio,@fecha)";
 
                     //var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
                     //stream.CopyTo(fileStream);
@@ -88,6 +91,8 @@ namespace KemishMusic.Formularios
                         cmd.Parameters.AddWithValue("@imagen", guardar.imagen);
 
                         cmd.Parameters.AddWithValue("@audio", guardar.audio);
+
+                        cmd.Parameters.AddWithValue("@fecha", DateTime.Now.Date);
 
                         cn.Open();
                         cmd.ExecuteNonQuery();

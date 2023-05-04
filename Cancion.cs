@@ -16,6 +16,8 @@ namespace KemishMusic
         public byte[] imagen { get; set; }
         public string audio { get; set; }
 
+        public string fecha;
+
         public static List<Cancion> lista = new List<Cancion>();
 
         public void getList()
@@ -28,7 +30,7 @@ namespace KemishMusic
 
             SqlCommand cmd = conn.CreateCommand();
 
-            string sql = "SELECT * FROM Canciones";
+            string sql = "SELECT * FROM cancion";
             cmd.CommandText = sql;
 
             SqlDataReader reader = cmd.ExecuteReader();
@@ -41,12 +43,13 @@ namespace KemishMusic
                 {
                     Cancion detalles = new Cancion
                     {
-                        nombre = reader["Nombre"].ToString(),
-                        imagen = (byte[])reader["Imagen"],
-                        audio = reader["Audio"].ToString(),
-                        id = reader["ID"].ToString(),
+                        nombre = reader["cancion_nombre"].ToString(),
+                        imagen = (byte[])reader["cancion_imagen"],
+                        audio = reader["cancion_audionombre"].ToString(),
+                        fecha = reader["cancion_fechaestreno"].ToString(),
+                        id = reader["cancion_id"].ToString()
 
-                    };
+                };
                     lista.Add(detalles);
                 }
                 conn.Close();
@@ -62,17 +65,18 @@ namespace KemishMusic
 
             SqlCommand cmd = conn.CreateCommand();
 
-            string sql = "SELECT * FROM Canciones WHERE ID = '" + id + "'";
+            string sql = "SELECT * FROM cancion WHERE cancion_id = '" + id + "'";
             cmd.CommandText = sql;
 
             SqlDataReader reader = cmd.ExecuteReader();
 
             if (reader.Read())
             {
-                nombre = reader["Nombre"].ToString();
-                imagen = (byte[])reader["Imagen"];
-                audio = reader["Audio"].ToString();
-                this.id = reader["ID"].ToString();
+                nombre = reader["cancion_nombre"].ToString();
+                imagen = (byte[])reader["cancion_imagen"];
+                audio = reader["cancion_audionombre"].ToString();
+                fecha = reader["cancion_fechaestreno"].ToString();
+                this.id = reader["cancion_id"].ToString();
 
             }
             cmd.Dispose();

@@ -189,7 +189,7 @@ namespace KemishMusic
                 guna2TrackBar2.Value = 50;
                 player.settings.volume = guna2TrackBar2.Value;
 
-                player.URL = filepath;
+                player.URL = getPath(filepath);
                 player.controls.play();
             }
 

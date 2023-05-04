@@ -34,13 +34,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp">
-      <HintPath>..\Topicos Unidad 2\Interfaz Moderna\Interfaz Moderna\bin\Debug\FontAwesome.Sharp.dll</HintPath>
+      <HintPath>..\..\Downloads\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI">
-      <HintPath>..\..\..\Downloads\Guna.UI.dll</HintPath>
+      <HintPath>..\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI WinForms\.net 2.0\Guna.UI.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2">
-      <HintPath>..\..\..\Downloads\Guna.UI2.dll</HintPath>
+      <HintPath>..\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI2 WinForms\.net 2.0\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
