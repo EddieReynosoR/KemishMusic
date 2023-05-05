@@ -25,6 +25,9 @@ namespace KemishMusic
         //Almacena el hijo actual (Form)
         private Form currentChildForm;
 
+        Login loginForm = new Login();
+        SignUp registrarForm = new SignUp();
+
         //ggs
 
 
@@ -42,6 +45,7 @@ namespace KemishMusic
 
             CancionSelect.ImagenClick += new EventHandler(Clicked);
             // musicPlayer = new SoundPlayer(filepath);
+
         }
         private struct RGBColors
         {
@@ -405,13 +409,31 @@ namespace KemishMusic
 
                 }
 
-                private void Form1_Load(object sender, EventArgs e)
-                {
-                    btnHomeRepro.Visible = false;
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            btnHomeRepro.Visible = false;
 
-                    //DetallesCancion();
-                    //CartasCancion();
-                }
+            if (Usuario.usuario != null)
+            {
+                btnNav.Text = Usuario.usuario;
+
+                btnIniciarSesion.Visible = false;
+                btnRegistrarse.Visible = false;
+
+                btnCerrarSesion.Visible = true;
+            }
+            else
+            {
+                btnNav.Text = "Sesión no iniciada";
+                btnIniciarSesion.Visible = true;
+                btnRegistrarse.Visible = true;
+
+                btnCerrarSesion.Visible = false;
+            }
+
+            //DetallesCancion();
+            //CartasCancion();
+        }
 
         int i;
         public void CartasCancion()
@@ -510,6 +532,49 @@ namespace KemishMusic
         {
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new Formularios.CancionesShow());
+        }
+
+
+        bool visible = false;
+        private void btnNav_Click(object sender, EventArgs e)
+        {
+            if (visible == false)
+            {
+                panelOpciones.Visible = true;
+                visible = true;
+            }
+            else
+            {
+                panelOpciones.Visible = false;
+                visible = false;
+            }
+        }
+
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        {
+            Hide();
+            loginForm.Show();
+
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            registrarForm.Show();
+        }
+
+        private void gunaControlBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Usuario.id = null;
+            Usuario.usuario = null;
+            Usuario.foto = null;
+
+            Hide();
+            loginForm.Show();
         }
     }
 }
