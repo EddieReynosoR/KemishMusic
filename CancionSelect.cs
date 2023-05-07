@@ -14,7 +14,9 @@ namespace KemishMusic
     {
         public static string id;
         public static event EventHandler ImagenClick;
+        public static event EventHandler CancionClick;
 
+        ToolTip tooltip1 = new ToolTip();
 
 
 
@@ -26,9 +28,12 @@ namespace KemishMusic
 
         private void picCancion_Click(object sender, EventArgs e)
         {
+            id = lblID.Text;
+
             if (ImagenClick != null)
                 ImagenClick(this, e);
 
+           
         }
 
         public void CancionDetalles(Cancion e)
@@ -51,6 +56,23 @@ namespace KemishMusic
 
         private void CancionSelect_Click(object sender, EventArgs e)
         {
+        }
+
+        private void picOpciones_Click(object sender, EventArgs e)
+        {
+            id = lblID.Text;
+
+            if (CancionClick != null)
+            {
+                CancionClick(this, e);
+            }
+
+            
+        }
+
+        private void picOpciones_MouseHover(object sender, EventArgs e)
+        {
+            tooltip1.SetToolTip(picOpciones, "Agregar cancion a la cola.");
         }
     }
 }

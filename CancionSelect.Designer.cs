@@ -32,7 +32,9 @@ namespace KemishMusic
             this.cancionNombre = new Guna.UI.WinForms.GunaLabel();
             this.picCancion = new Guna.UI.WinForms.GunaPictureBox();
             this.lblID = new System.Windows.Forms.Label();
+            this.picOpciones = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picCancion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOpciones)).BeginInit();
             this.SuspendLayout();
             // 
             // cancionNombre
@@ -69,19 +71,35 @@ namespace KemishMusic
             this.lblID.TabIndex = 9;
             this.lblID.Text = "label1";
             // 
+            // picOpciones
+            // 
+            this.picOpciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picOpciones.Image = global::KemishMusic.Properties.Resources._330634344_1228671984728501_5317193639878804641_n;
+            this.picOpciones.Location = new System.Drawing.Point(213, 284);
+            this.picOpciones.Name = "picOpciones";
+            this.picOpciones.ShadowDecoration.Parent = this.picOpciones;
+            this.picOpciones.Size = new System.Drawing.Size(33, 35);
+            this.picOpciones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picOpciones.TabIndex = 10;
+            this.picOpciones.TabStop = false;
+            this.picOpciones.Click += new System.EventHandler(this.picOpciones_Click);
+            this.picOpciones.MouseHover += new System.EventHandler(this.picOpciones_MouseHover);
+            // 
             // CancionSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.picOpciones);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.cancionNombre);
             this.Controls.Add(this.picCancion);
             this.Name = "CancionSelect";
-            this.Size = new System.Drawing.Size(310, 304);
+            this.Size = new System.Drawing.Size(310, 344);
             this.Load += new System.EventHandler(this.CancionSelect_Load);
             this.Click += new System.EventHandler(this.CancionSelect_Click);
             ((System.ComponentModel.ISupportInitialize)(this.picCancion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOpciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,5 +110,6 @@ namespace KemishMusic
         private Guna.UI.WinForms.GunaPictureBox picCancion;
         private Guna.UI.WinForms.GunaLabel cancionNombre;
         private System.Windows.Forms.Label lblID;
+        private Guna.UI2.WinForms.Guna2PictureBox picOpciones;
     }
 }
