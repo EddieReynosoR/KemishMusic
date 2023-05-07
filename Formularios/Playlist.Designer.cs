@@ -37,6 +37,8 @@
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.btnGuardar = new Guna.UI2.WinForms.Guna2Button();
+            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
+            this.txtId = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -183,11 +185,48 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // gunaLabel4
+            // 
+            this.gunaLabel4.AutoSize = true;
+            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel4.Location = new System.Drawing.Point(31, 128);
+            this.gunaLabel4.Name = "gunaLabel4";
+            this.gunaLabel4.Size = new System.Drawing.Size(22, 20);
+            this.gunaLabel4.TabIndex = 11;
+            this.gunaLabel4.Text = "Id";
+            this.gunaLabel4.Click += new System.EventHandler(this.gunaLabel4_Click);
+            // 
+            // txtId
+            // 
+            this.txtId.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtId.DefaultText = "";
+            this.txtId.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtId.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtId.DisabledState.Parent = this.txtId;
+            this.txtId.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtId.FocusedState.Parent = this.txtId;
+            this.txtId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtId.HoverState.Parent = this.txtId;
+            this.txtId.Location = new System.Drawing.Point(35, 167);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtId.Name = "txtId";
+            this.txtId.PasswordChar = '\0';
+            this.txtId.PlaceholderText = "";
+            this.txtId.SelectedText = "";
+            this.txtId.ShadowDecoration.Parent = this.txtId;
+            this.txtId.Size = new System.Drawing.Size(321, 30);
+            this.txtId.TabIndex = 10;
+            this.txtId.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            // 
             // Playlist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 513);
+            this.Controls.Add(this.gunaLabel4);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.gunaLabel3);
             this.Controls.Add(this.gunaLabel2);
@@ -216,5 +255,7 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI2.WinForms.Guna2Button btnGuardar;
+        private Guna.UI.WinForms.GunaLabel gunaLabel4;
+        private Guna.UI2.WinForms.Guna2TextBox txtId;
     }
 }

@@ -35,8 +35,9 @@ namespace KemishMusic
             string nombreUsuario = txtUsuario.Text;
             string contraUsuario = txtContra.Text;
 
-            SqlConnection cn = new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;");
 
+            //Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;
+            SqlConnection cn = new SqlConnection(@"Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
             cn.Open();
 
             string query = "SELECT * FROM usuario WHERE usuario_username = '" + nombreUsuario + "' AND usuario_contra = '" + contraUsuario + "'";

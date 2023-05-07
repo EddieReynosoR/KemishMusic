@@ -84,7 +84,11 @@ namespace KemishMusic.Formularios
 
                     using (SqlConnection cn = GetConnection())
                     {
+                        
                         SqlCommand cmd = new SqlCommand(query, cn);
+                        
+                        cn.Open();
+
 
                         cmd.Parameters.AddWithValue("@nombre", guardar.nombre);
 
@@ -94,7 +98,7 @@ namespace KemishMusic.Formularios
 
                         cmd.Parameters.AddWithValue("@fecha", DateTime.Now.Date);
 
-                        cn.Open();
+                        
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -110,7 +114,8 @@ namespace KemishMusic.Formularios
 
         private SqlConnection GetConnection()
         {
-            return new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;");
+           // Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;
+            return new SqlConnection(@"Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -123,6 +128,16 @@ namespace KemishMusic.Formularios
         }
 
         private void Playlist_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

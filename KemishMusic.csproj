@@ -92,10 +92,15 @@
     <Compile Include="ImagenCancion.Designer.cs">
       <DependentUpon>ImagenCancion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="KemishMusicDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KemishMusicDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Formularios\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -106,10 +111,10 @@
     <Compile Include="CancionSelect.Designer.cs">
       <DependentUpon>CancionSelect.cs</DependentUpon>
     </Compile>
-    <Compile Include="SignUp.cs">
+    <Compile Include="Formularios\SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignUp.Designer.cs">
+    <Compile Include="Formularios\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs" />
@@ -131,7 +136,7 @@
     <EmbeddedResource Include="ImagenCancion.resx">
       <DependentUpon>ImagenCancion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Formularios\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -147,9 +152,20 @@
     <EmbeddedResource Include="CancionSelect.resx">
       <DependentUpon>CancionSelect.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignUp.resx">
+    <EmbeddedResource Include="Formularios\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="KemishMusicDataSet.xsc">
+      <DependentUpon>KemishMusicDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="KemishMusicDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KemishMusicDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KemishMusicDataSet.xss">
+      <DependentUpon>KemishMusicDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

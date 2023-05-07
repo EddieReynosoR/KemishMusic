@@ -86,8 +86,10 @@ namespace KemishMusic
 
 
 
+                //Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;
+               
 
-                using (SqlConnection cn = new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;"))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True"))
                 {
                     SqlCommand cmd = new SqlCommand(query, cn);
 
