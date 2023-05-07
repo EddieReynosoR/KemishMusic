@@ -51,7 +51,7 @@ namespace KemishMusic
 
         private void CancionSelect_Load(object sender, EventArgs e)
         {
-
+            lblID.Hide();
         }
 
         private void CancionSelect_Click(object sender, EventArgs e)
@@ -73,6 +73,11 @@ namespace KemishMusic
         private void picOpciones_MouseHover(object sender, EventArgs e)
         {
             tooltip1.SetToolTip(picOpciones, "Agregar cancion a la cola.");
+        }
+
+        private void lblID_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

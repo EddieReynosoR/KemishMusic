@@ -67,9 +67,10 @@ namespace KemishMusic
             this.lblID.AutoSize = true;
             this.lblID.Location = new System.Drawing.Point(200, 250);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(46, 17);
+            this.lblID.Size = new System.Drawing.Size(44, 16);
             this.lblID.TabIndex = 9;
             this.lblID.Text = "label1";
+            this.lblID.Click += new System.EventHandler(this.lblID_Click);
             // 
             // picOpciones
             // 
