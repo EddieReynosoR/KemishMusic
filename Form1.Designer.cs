@@ -32,42 +32,46 @@ namespace KemishMusic
             this.components = new System.ComponentModel.Container();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnHomeRepro = new FontAwesome.Sharp.IconButton();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnNav = new Guna.UI2.WinForms.Guna2Button();
             this.gunaControlBox3 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaControlBox2 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panelReproduccion = new Guna.UI2.WinForms.Guna2Panel();
-            this.pbBar = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2TrackBar2 = new Guna.UI2.WinForms.Guna2TrackBar();
-            this.btnPausaPlay = new Guna.UI2.WinForms.Guna2ImageButton();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2TrackBar1 = new Guna.UI2.WinForms.Guna2TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMenu = new Guna.UI2.WinForms.Guna2Panel();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panelDesktop = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelOpciones = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnCerrarSesion = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRegistrarse = new Guna.UI2.WinForms.Guna2Button();
+            this.btnIniciarSesion = new Guna.UI2.WinForms.Guna2Button();
+            this.panelMusicaRe = new Guna.UI2.WinForms.Guna2Panel();
+            this.timerBarraMusic = new System.Windows.Forms.Timer(this.components);
+            this.guna2MouseStateHandler1 = new Guna.UI2.WinForms.Guna2MouseStateHandler(this.components);
+            this.btnHomeRepro = new FontAwesome.Sharp.IconButton();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnCancion = new FontAwesome.Sharp.IconButton();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.btnHome = new FontAwesome.Sharp.IconButton();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panelDesktop = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.timerBarraMusic = new System.Windows.Forms.Timer(this.components);
-            this.guna2MouseStateHandler1 = new Guna.UI2.WinForms.Guna2MouseStateHandler(this.components);
-            this.btnNav = new Guna.UI2.WinForms.Guna2Button();
-            this.btnIniciarSesion = new Guna.UI2.WinForms.Guna2Button();
-            this.panelOpciones = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnRegistrarse = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCerrarSesion = new Guna.UI2.WinForms.Guna2Button();
+            this.picMostrarCola = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pbBar = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btnPausaPlay = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.timerReproduccion = new System.Windows.Forms.Timer(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.panelReproduccion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBar)).BeginInit();
             this.panelMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.panelDesktop.SuspendLayout();
             this.panelOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMostrarCola)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBar)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaElipse1
@@ -78,6 +82,7 @@ namespace KemishMusic
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.Controls.Add(this.btnNav);
             this.guna2Panel1.Controls.Add(this.btnHomeRepro);
             this.guna2Panel1.Controls.Add(this.txtSearch);
@@ -92,49 +97,23 @@ namespace KemishMusic
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
-            // btnHomeRepro
+            // btnNav
             // 
-            this.btnHomeRepro.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnHomeRepro.FlatAppearance.BorderSize = 0;
-            this.btnHomeRepro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHomeRepro.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
-            this.btnHomeRepro.IconColor = System.Drawing.Color.Black;
-            this.btnHomeRepro.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHomeRepro.Location = new System.Drawing.Point(300, 0);
-            this.btnHomeRepro.Name = "btnHomeRepro";
-            this.btnHomeRepro.Size = new System.Drawing.Size(75, 43);
-            this.btnHomeRepro.TabIndex = 4;
-            this.btnHomeRepro.UseVisualStyleBackColor = true;
-            this.btnHomeRepro.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.BorderColor = System.Drawing.Color.Silver;
-            this.txtSearch.BorderRadius = 20;
-            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearch.DefaultText = "";
-            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.DisabledState.Parent = this.txtSearch;
-            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.FocusedState.Parent = this.txtSearch;
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.HoverState.Parent = this.txtSearch;
-            this.txtSearch.IconLeft = global::KemishMusic.Properties.Resources._3031293;
-            this.txtSearch.Location = new System.Drawing.Point(0, 0);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PasswordChar = '\0';
-            this.txtSearch.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.txtSearch.PlaceholderText = "Buscar...";
-            this.txtSearch.SelectedText = "";
-            this.txtSearch.ShadowDecoration.Parent = this.txtSearch;
-            this.txtSearch.Size = new System.Drawing.Size(300, 43);
-            this.txtSearch.TabIndex = 3;
+            this.btnNav.BorderRadius = 12;
+            this.btnNav.CheckedState.Parent = this.btnNav;
+            this.btnNav.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNav.CustomImages.Parent = this.btnNav;
+            this.btnNav.FillColor = System.Drawing.Color.Gray;
+            this.btnNav.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnNav.ForeColor = System.Drawing.Color.White;
+            this.btnNav.HoverState.Parent = this.btnNav;
+            this.btnNav.Location = new System.Drawing.Point(684, 7);
+            this.btnNav.Name = "btnNav";
+            this.btnNav.ShadowDecoration.Parent = this.btnNav;
+            this.btnNav.Size = new System.Drawing.Size(192, 29);
+            this.btnNav.TabIndex = 5;
+            this.btnNav.Text = "Sesión no iniciada";
+            this.btnNav.Click += new System.EventHandler(this.btnNav_Click);
             // 
             // gunaControlBox3
             // 
@@ -196,6 +175,7 @@ namespace KemishMusic
             // panelReproduccion
             // 
             this.panelReproduccion.BackColor = System.Drawing.Color.DarkGray;
+            this.panelReproduccion.Controls.Add(this.picMostrarCola);
             this.panelReproduccion.Controls.Add(this.pbBar);
             this.panelReproduccion.Controls.Add(this.guna2TrackBar2);
             this.panelReproduccion.Controls.Add(this.btnPausaPlay);
@@ -213,18 +193,6 @@ namespace KemishMusic
             this.panelReproduccion.Size = new System.Drawing.Size(1247, 128);
             this.panelReproduccion.TabIndex = 1;
             // 
-            // pbBar
-            // 
-            this.pbBar.BorderRadius = 5;
-            this.pbBar.Location = new System.Drawing.Point(92, 21);
-            this.pbBar.Name = "pbBar";
-            this.pbBar.ShadowDecoration.Parent = this.pbBar;
-            this.pbBar.Size = new System.Drawing.Size(90, 90);
-            this.pbBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbBar.TabIndex = 14;
-            this.pbBar.TabStop = false;
-            this.pbBar.Click += new System.EventHandler(this.pbBar_Click);
-            // 
             // guna2TrackBar2
             // 
             this.guna2TrackBar2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -236,21 +204,6 @@ namespace KemishMusic
             this.guna2TrackBar2.TabIndex = 13;
             this.guna2TrackBar2.ThumbColor = System.Drawing.Color.Black;
             this.guna2TrackBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.guna2TrackBar2_Scroll);
-            // 
-            // btnPausaPlay
-            // 
-            this.btnPausaPlay.CheckedState.Parent = this.btnPausaPlay;
-            this.btnPausaPlay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPausaPlay.HoverState.ImageSize = new System.Drawing.Size(55, 55);
-            this.btnPausaPlay.HoverState.Parent = this.btnPausaPlay;
-            this.btnPausaPlay.Image = global::KemishMusic.Properties.Resources._16427;
-            this.btnPausaPlay.ImageSize = new System.Drawing.Size(55, 55);
-            this.btnPausaPlay.Location = new System.Drawing.Point(738, 56);
-            this.btnPausaPlay.Name = "btnPausaPlay";
-            this.btnPausaPlay.PressedState.Parent = this.btnPausaPlay;
-            this.btnPausaPlay.Size = new System.Drawing.Size(55, 55);
-            this.btnPausaPlay.TabIndex = 12;
-            this.btnPausaPlay.Click += new System.EventHandler(this.btnPausaPlay_Click);
             // 
             // label2
             // 
@@ -298,6 +251,160 @@ namespace KemishMusic
             this.panelMenu.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.panelMenu.Size = new System.Drawing.Size(171, 555);
             this.panelMenu.TabIndex = 2;
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel1.Location = new System.Drawing.Point(6, 6);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(82, 25);
+            this.gunaLabel1.TabIndex = 3;
+            this.gunaLabel1.Text = "Para ti...";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
+            // panelDesktop
+            // 
+            this.panelDesktop.Controls.Add(this.panelOpciones);
+            this.panelDesktop.Controls.Add(this.panelMusicaRe);
+            this.panelDesktop.Controls.Add(this.gunaLabel1);
+            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDesktop.Location = new System.Drawing.Point(171, 43);
+            this.panelDesktop.Name = "panelDesktop";
+            this.panelDesktop.ShadowDecoration.Parent = this.panelDesktop;
+            this.panelDesktop.Size = new System.Drawing.Size(1076, 512);
+            this.panelDesktop.TabIndex = 12;
+            // 
+            // panelOpciones
+            // 
+            this.panelOpciones.Controls.Add(this.btnCerrarSesion);
+            this.panelOpciones.Controls.Add(this.btnRegistrarse);
+            this.panelOpciones.Controls.Add(this.btnIniciarSesion);
+            this.panelOpciones.Location = new System.Drawing.Point(684, 3);
+            this.panelOpciones.Name = "panelOpciones";
+            this.panelOpciones.ShadowDecoration.Parent = this.panelOpciones;
+            this.panelOpciones.Size = new System.Drawing.Size(200, 144);
+            this.panelOpciones.TabIndex = 1;
+            this.panelOpciones.Visible = false;
+            // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.CheckedState.Parent = this.btnCerrarSesion;
+            this.btnCerrarSesion.CustomImages.Parent = this.btnCerrarSesion;
+            this.btnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCerrarSesion.FillColor = System.Drawing.Color.White;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.Black;
+            this.btnCerrarSesion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnCerrarSesion.HoverState.Parent = this.btnCerrarSesion;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 93);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.ShadowDecoration.Parent = this.btnCerrarSesion;
+            this.btnCerrarSesion.Size = new System.Drawing.Size(200, 48);
+            this.btnCerrarSesion.TabIndex = 2;
+            this.btnCerrarSesion.Text = "Cerrar sesión";
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            // 
+            // btnRegistrarse
+            // 
+            this.btnRegistrarse.CheckedState.Parent = this.btnRegistrarse;
+            this.btnRegistrarse.CustomImages.Parent = this.btnRegistrarse;
+            this.btnRegistrarse.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRegistrarse.FillColor = System.Drawing.Color.White;
+            this.btnRegistrarse.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnRegistrarse.ForeColor = System.Drawing.Color.Black;
+            this.btnRegistrarse.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnRegistrarse.HoverState.Parent = this.btnRegistrarse;
+            this.btnRegistrarse.Location = new System.Drawing.Point(0, 45);
+            this.btnRegistrarse.Name = "btnRegistrarse";
+            this.btnRegistrarse.ShadowDecoration.Parent = this.btnRegistrarse;
+            this.btnRegistrarse.Size = new System.Drawing.Size(200, 48);
+            this.btnRegistrarse.TabIndex = 1;
+            this.btnRegistrarse.Text = "Registrarse";
+            this.btnRegistrarse.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
+            // btnIniciarSesion
+            // 
+            this.btnIniciarSesion.CheckedState.Parent = this.btnIniciarSesion;
+            this.btnIniciarSesion.CustomImages.Parent = this.btnIniciarSesion;
+            this.btnIniciarSesion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnIniciarSesion.FillColor = System.Drawing.Color.White;
+            this.btnIniciarSesion.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnIniciarSesion.ForeColor = System.Drawing.Color.Black;
+            this.btnIniciarSesion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnIniciarSesion.HoverState.Parent = this.btnIniciarSesion;
+            this.btnIniciarSesion.Location = new System.Drawing.Point(0, 0);
+            this.btnIniciarSesion.Name = "btnIniciarSesion";
+            this.btnIniciarSesion.ShadowDecoration.Parent = this.btnIniciarSesion;
+            this.btnIniciarSesion.Size = new System.Drawing.Size(200, 45);
+            this.btnIniciarSesion.TabIndex = 0;
+            this.btnIniciarSesion.Text = "Iniciar sesión";
+            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
+            // 
+            // panelMusicaRe
+            // 
+            this.panelMusicaRe.AutoScroll = true;
+            this.panelMusicaRe.BackColor = System.Drawing.Color.LightGray;
+            this.panelMusicaRe.Location = new System.Drawing.Point(0, 30);
+            this.panelMusicaRe.Name = "panelMusicaRe";
+            this.panelMusicaRe.ShadowDecoration.Parent = this.panelMusicaRe;
+            this.panelMusicaRe.Size = new System.Drawing.Size(1076, 482);
+            this.panelMusicaRe.TabIndex = 13;
+            this.panelMusicaRe.Visible = false;
+            this.panelMusicaRe.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
+            // 
+            // timerBarraMusic
+            // 
+            this.timerBarraMusic.Interval = 1;
+            this.timerBarraMusic.Tick += new System.EventHandler(this.timerBarraMusic_Tick);
+            // 
+            // btnHomeRepro
+            // 
+            this.btnHomeRepro.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnHomeRepro.FlatAppearance.BorderSize = 0;
+            this.btnHomeRepro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHomeRepro.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
+            this.btnHomeRepro.IconColor = System.Drawing.Color.Black;
+            this.btnHomeRepro.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnHomeRepro.Location = new System.Drawing.Point(300, 0);
+            this.btnHomeRepro.Name = "btnHomeRepro";
+            this.btnHomeRepro.Size = new System.Drawing.Size(75, 43);
+            this.btnHomeRepro.TabIndex = 4;
+            this.btnHomeRepro.UseVisualStyleBackColor = true;
+            this.btnHomeRepro.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.BorderColor = System.Drawing.Color.Silver;
+            this.txtSearch.BorderRadius = 20;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.DefaultText = "";
+            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.DisabledState.Parent = this.txtSearch;
+            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.FocusedState.Parent = this.txtSearch;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.HoverState.Parent = this.txtSearch;
+            this.txtSearch.IconLeft = global::KemishMusic.Properties.Resources._3031293;
+            this.txtSearch.Location = new System.Drawing.Point(0, 0);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PasswordChar = '\0';
+            this.txtSearch.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtSearch.PlaceholderText = "Buscar...";
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.ShadowDecoration.Parent = this.txtSearch;
+            this.txtSearch.Size = new System.Drawing.Size(300, 43);
+            this.txtSearch.TabIndex = 3;
             // 
             // btnCancion
             // 
@@ -369,130 +476,58 @@ namespace KemishMusic
             this.gunaPictureBox1.TabStop = false;
             this.gunaPictureBox1.Click += new System.EventHandler(this.gunaPictureBox1_Click);
             // 
-            // gunaLabel1
+            // picMostrarCola
             // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.Location = new System.Drawing.Point(6, 6);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(82, 25);
-            this.gunaLabel1.TabIndex = 3;
-            this.gunaLabel1.Text = "Para ti...";
+            this.picMostrarCola.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picMostrarCola.Image = global::KemishMusic.Properties.Resources._4419530;
+            this.picMostrarCola.Location = new System.Drawing.Point(1198, 6);
+            this.picMostrarCola.Name = "picMostrarCola";
+            this.picMostrarCola.ShadowDecoration.Parent = this.picMostrarCola;
+            this.picMostrarCola.Size = new System.Drawing.Size(37, 35);
+            this.picMostrarCola.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMostrarCola.TabIndex = 15;
+            this.picMostrarCola.TabStop = false;
+            this.picMostrarCola.Click += new System.EventHandler(this.picMostrarCola_Click);
             // 
-            // timer1
+            // pbBar
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            this.pbBar.BorderRadius = 5;
+            this.pbBar.Location = new System.Drawing.Point(92, 21);
+            this.pbBar.Name = "pbBar";
+            this.pbBar.ShadowDecoration.Parent = this.pbBar;
+            this.pbBar.Size = new System.Drawing.Size(90, 90);
+            this.pbBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBar.TabIndex = 14;
+            this.pbBar.TabStop = false;
+            this.pbBar.Click += new System.EventHandler(this.pbBar_Click);
             // 
-            // panelDesktop
+            // btnPausaPlay
             // 
-            this.panelDesktop.Controls.Add(this.panelOpciones);
-            this.panelDesktop.Controls.Add(this.guna2Panel2);
-            this.panelDesktop.Controls.Add(this.gunaLabel1);
-            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(171, 43);
-            this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.ShadowDecoration.Parent = this.panelDesktop;
-            this.panelDesktop.Size = new System.Drawing.Size(1076, 512);
-            this.panelDesktop.TabIndex = 12;
+            this.btnPausaPlay.CheckedState.Parent = this.btnPausaPlay;
+            this.btnPausaPlay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPausaPlay.HoverState.ImageSize = new System.Drawing.Size(55, 55);
+            this.btnPausaPlay.HoverState.Parent = this.btnPausaPlay;
+            this.btnPausaPlay.Image = global::KemishMusic.Properties.Resources._16427;
+            this.btnPausaPlay.ImageSize = new System.Drawing.Size(55, 55);
+            this.btnPausaPlay.Location = new System.Drawing.Point(738, 56);
+            this.btnPausaPlay.Name = "btnPausaPlay";
+            this.btnPausaPlay.PressedState.Parent = this.btnPausaPlay;
+            this.btnPausaPlay.Size = new System.Drawing.Size(55, 55);
+            this.btnPausaPlay.TabIndex = 12;
+            this.btnPausaPlay.Click += new System.EventHandler(this.btnPausaPlay_Click);
             // 
-            // guna2Panel2
+            // timerReproduccion
             // 
-            this.guna2Panel2.Location = new System.Drawing.Point(8, 30);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
-            this.guna2Panel2.Size = new System.Drawing.Size(1068, 482);
-            this.guna2Panel2.TabIndex = 13;
-            this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
+            this.timerReproduccion.Tick += new System.EventHandler(this.timerReproduccion_Tick);
             // 
-            // timerBarraMusic
+            // label3
             // 
-            this.timerBarraMusic.Interval = 1;
-            this.timerBarraMusic.Tick += new System.EventHandler(this.timerBarraMusic_Tick);
-            // 
-            // btnNav
-            // 
-            this.btnNav.BorderRadius = 12;
-            this.btnNav.CheckedState.Parent = this.btnNav;
-            this.btnNav.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNav.CustomImages.Parent = this.btnNav;
-            this.btnNav.FillColor = System.Drawing.Color.Gray;
-            this.btnNav.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnNav.ForeColor = System.Drawing.Color.White;
-            this.btnNav.HoverState.Parent = this.btnNav;
-            this.btnNav.Location = new System.Drawing.Point(684, 7);
-            this.btnNav.Name = "btnNav";
-            this.btnNav.ShadowDecoration.Parent = this.btnNav;
-            this.btnNav.Size = new System.Drawing.Size(192, 29);
-            this.btnNav.TabIndex = 5;
-            this.btnNav.Text = "Sesión no iniciada";
-            this.btnNav.Click += new System.EventHandler(this.btnNav_Click);
-            // 
-            // btnIniciarSesion
-            // 
-            this.btnIniciarSesion.CheckedState.Parent = this.btnIniciarSesion;
-            this.btnIniciarSesion.CustomImages.Parent = this.btnIniciarSesion;
-            this.btnIniciarSesion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnIniciarSesion.FillColor = System.Drawing.Color.White;
-            this.btnIniciarSesion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnIniciarSesion.ForeColor = System.Drawing.Color.Black;
-            this.btnIniciarSesion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnIniciarSesion.HoverState.Parent = this.btnIniciarSesion;
-            this.btnIniciarSesion.Location = new System.Drawing.Point(0, 0);
-            this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.ShadowDecoration.Parent = this.btnIniciarSesion;
-            this.btnIniciarSesion.Size = new System.Drawing.Size(200, 45);
-            this.btnIniciarSesion.TabIndex = 0;
-            this.btnIniciarSesion.Text = "Iniciar sesión";
-            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
-            // 
-            // panelOpciones
-            // 
-            this.panelOpciones.Controls.Add(this.btnCerrarSesion);
-            this.panelOpciones.Controls.Add(this.btnRegistrarse);
-            this.panelOpciones.Controls.Add(this.btnIniciarSesion);
-            this.panelOpciones.Location = new System.Drawing.Point(684, 3);
-            this.panelOpciones.Name = "panelOpciones";
-            this.panelOpciones.ShadowDecoration.Parent = this.panelOpciones;
-            this.panelOpciones.Size = new System.Drawing.Size(200, 144);
-            this.panelOpciones.TabIndex = 1;
-            this.panelOpciones.Visible = false;
-            // 
-            // btnRegistrarse
-            // 
-            this.btnRegistrarse.CheckedState.Parent = this.btnRegistrarse;
-            this.btnRegistrarse.CustomImages.Parent = this.btnRegistrarse;
-            this.btnRegistrarse.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRegistrarse.FillColor = System.Drawing.Color.White;
-            this.btnRegistrarse.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnRegistrarse.ForeColor = System.Drawing.Color.Black;
-            this.btnRegistrarse.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnRegistrarse.HoverState.Parent = this.btnRegistrarse;
-            this.btnRegistrarse.Location = new System.Drawing.Point(0, 45);
-            this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.ShadowDecoration.Parent = this.btnRegistrarse;
-            this.btnRegistrarse.Size = new System.Drawing.Size(200, 48);
-            this.btnRegistrarse.TabIndex = 1;
-            this.btnRegistrarse.Text = "Registrarse";
-            this.btnRegistrarse.Click += new System.EventHandler(this.btnAyuda_Click);
-            // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.CheckedState.Parent = this.btnCerrarSesion;
-            this.btnCerrarSesion.CustomImages.Parent = this.btnCerrarSesion;
-            this.btnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCerrarSesion.FillColor = System.Drawing.Color.White;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnCerrarSesion.ForeColor = System.Drawing.Color.Black;
-            this.btnCerrarSesion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCerrarSesion.HoverState.Parent = this.btnCerrarSesion;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 93);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.ShadowDecoration.Parent = this.btnCerrarSesion;
-            this.btnCerrarSesion.Size = new System.Drawing.Size(200, 48);
-            this.btnCerrarSesion.TabIndex = 2;
-            this.btnCerrarSesion.Text = "Cerrar sesión";
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(452, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 17);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "label3";
             // 
             // Form1
             // 
@@ -511,14 +546,16 @@ namespace KemishMusic
             this.Text = "Kemish Music";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             this.panelReproduccion.ResumeLayout(false);
             this.panelReproduccion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBar)).EndInit();
             this.panelMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.panelDesktop.ResumeLayout(false);
             this.panelDesktop.PerformLayout();
             this.panelOpciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMostrarCola)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -548,7 +585,7 @@ namespace KemishMusic
         private System.Windows.Forms.Timer timerBarraMusic;
         private Guna.UI2.WinForms.Guna2MouseStateHandler guna2MouseStateHandler1;
         private FontAwesome.Sharp.IconButton btnHomeRepro;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Panel panelMusicaRe;
         private Guna.UI2.WinForms.Guna2PictureBox pbBar;
         private FontAwesome.Sharp.IconButton btnCancion;
         private Guna.UI2.WinForms.Guna2Panel panelOpciones;
@@ -556,6 +593,9 @@ namespace KemishMusic
         private Guna.UI2.WinForms.Guna2Button btnIniciarSesion;
         private Guna.UI2.WinForms.Guna2Button btnNav;
         private Guna.UI2.WinForms.Guna2Button btnCerrarSesion;
+        private Guna.UI2.WinForms.Guna2PictureBox picMostrarCola;
+        private System.Windows.Forms.Timer timerReproduccion;
+        private System.Windows.Forms.Label label3;
     }
 }
 

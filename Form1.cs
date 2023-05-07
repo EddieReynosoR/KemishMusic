@@ -20,6 +20,8 @@ namespace KemishMusic
 
         WMPLib.WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
 
+        
+
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         //Almacena el hijo actual (Form)
@@ -27,6 +29,8 @@ namespace KemishMusic
 
         Login loginForm = new Login();
         SignUp registrarForm = new SignUp();
+
+        public Queue<Cancion> colaCanciones = new Queue<Cancion>();
 
         //ggs
 
@@ -46,7 +50,22 @@ namespace KemishMusic
             CancionSelect.ImagenClick += new EventHandler(Clicked);
             // musicPlayer = new SoundPlayer(filepath);
 
+            CancionSelect.CancionClick += new EventHandler(CancionClick);
+
+            MusicaRepr.CancionClick += new EventHandler(ClickPanelRep);
+
+            // player.PlayStateChange += TerminarCancion();
+
+
         }
+
+        public void TerminarCancion(object senver, WMPLib._WMPOCXEvents_PlayStateChangeEventHandler e)
+        {
+
+        }
+
+       
+
         private struct RGBColors
         {
             public static Color color1 = Color.FromArgb(172, 126, 241);
@@ -56,7 +75,9 @@ namespace KemishMusic
             public static Color color5 = Color.FromArgb(249, 88, 155);
             //public static Color color6 = Color.FromArgb(24, 161, 251);
         }
-        private void ActivateButton(object senderBtn, Color color)
+
+        
+            private void ActivateButton(object senderBtn, Color color)
         {
             //Condicion diferente a nulo
             if (senderBtn != null)
@@ -443,47 +464,49 @@ namespace KemishMusic
                 i++;
                 CancionSelect carta = new CancionSelect();
 
+
                 carta.CancionDetalles(cancion);
 
 
+
                 carta.Dock = DockStyle.Left;
-                guna2Panel2.Controls.Add(carta);
+                panelMusicaRe.Controls.Add(carta);
             }
         }
 
-                private void timerBarraMusic_Tick(object sender, EventArgs e)
-                {
+        private void timerBarraMusic_Tick(object sender, EventArgs e)
+        {
 
-                    int X = guna2TrackBar1.Location.X;
-                    int Y = guna2TrackBar1.Location.Y;
+            int X = guna2TrackBar1.Location.X;
+            int Y = guna2TrackBar1.Location.Y;
 
-                    int XImg = pbBar.Location.X;
-                    int YImg = pbBar.Location.Y;
+            int XImg = pbBar.Location.X;
+            int YImg = pbBar.Location.Y;
 
-                    int XBtn = btnPausaPlay.Location.X;
-                    int YBtn = btnPausaPlay.Location.Y;
+            int XBtn = btnPausaPlay.Location.X;
+            int YBtn = btnPausaPlay.Location.Y;
 
-                    int X2 = guna2TrackBar2.Location.X;
-                    int Y2 = guna2TrackBar2.Location.Y;
-                    guna2TrackBar1.Location = new Point(X -= 6, Y -= 1);
-                    guna2TrackBar1.Width += 5;
+            int X2 = guna2TrackBar2.Location.X;
+            int Y2 = guna2TrackBar2.Location.Y;
+            guna2TrackBar1.Location = new Point(X -= 6, Y -= 1);
+            guna2TrackBar1.Width += 5;
 
-                    pbBar.Width += 3;
-                    pbBar.Height += 3;
+            pbBar.Width += 3;
+            pbBar.Height += 3;
 
-                    pbBar.Location = new Point(XImg, YImg -= 7);
+            pbBar.Location = new Point(XImg, YImg -= 7);
 
-                    btnPausaPlay.Location = new Point(XBtn -= 3, YBtn -= 1);
+            btnPausaPlay.Location = new Point(XBtn -= 3, YBtn -= 1);
 
-                    guna2TrackBar2.Location = new Point(X2 -= 2, Y2 -= 1);
+            guna2TrackBar2.Location = new Point(X2 -= 2, Y2 -= 1);
 
-                    if (guna2TrackBar1.Location.X == 10 || guna2TrackBar1.Location.Y == 535)
-                    {
-                        timerBarraMusic.Stop();
-                    }
+            if (guna2TrackBar1.Location.X == 10 || guna2TrackBar1.Location.Y == 535)
+            {
+                timerBarraMusic.Stop();
+            }
 
 
-                }
+        }
         private SqlConnection GetConnection()
         {
             return new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;");
@@ -500,16 +523,84 @@ namespace KemishMusic
      
         public void Clicked(object sender, EventArgs e)
         {
+            colaCanciones.Clear();
+            
+            MusicaRepr panel = new MusicaRepr();
+
+
+            timerReproduccion.Enabled = true;
+
             Cancion obtener = new Cancion();
 
             obtener.ReproducirCancion(CancionSelect.id);
 
+            
+
+            colaCanciones.Enqueue(obtener);             
+
+            
 
             pbBar.Image = (Bitmap)new ImageConverter().ConvertFrom(obtener.imagen);
 
 
 
             runAudio(obtener.audio);
+
+
+
+            panelMusicaRe.Controls.Clear();
+
+
+
+            foreach (Cancion cancion in colaCanciones)
+            {
+                panel.CancionDetalles(cancion);
+
+
+                panel.Dock = DockStyle.Top;
+                panelMusicaRe.Controls.Add(panel);
+            }
+
+        }
+
+        public void ClickPanelRep(object sender, EventArgs e)
+        {
+
+            
+
+        }
+
+        public void CancionClick(object sender, EventArgs e)
+        {
+            Cancion obtener = new Cancion();
+
+            obtener.ReproducirCancion(CancionSelect.id);
+
+            
+
+
+            MusicaRepr panel = new MusicaRepr();
+
+            if (!colaCanciones.Any(o => o.id == CancionSelect.id))
+            {
+
+                colaCanciones.Enqueue(obtener);
+                foreach (Cancion cancion in colaCanciones)
+                {
+                    panel.CancionDetalles(cancion);
+
+
+                    panel.Dock = DockStyle.Bottom;
+                    panelMusicaRe.Controls.Add(panel);
+                }
+
+            }
+
+            
+            
+
+
+
         }
         
 
@@ -575,6 +666,84 @@ namespace KemishMusic
 
             Hide();
             loginForm.Show();
+        }
+
+        bool MostrarPanelRepro = false;
+        private void picMostrarCola_Click(object sender, EventArgs e)
+        {
+            if (!MostrarPanelRepro)
+            {
+                panelMusicaRe.Visible = true;
+                picMostrarCola.Image = Properties.Resources._4419531;
+
+                MostrarPanelRepro = true;
+            }
+            else
+            {
+                panelMusicaRe.Visible = false;
+                picMostrarCola.Image = Properties.Resources._4419530;
+
+                MostrarPanelRepro = false;
+            }
+        }
+
+        private void timerReproduccion_Tick(object sender, EventArgs e)
+        {
+            if(player.playState == WMPLib.WMPPlayState.wmppsStopped)
+            {
+
+                colaCanciones.Dequeue();
+
+                MusicaRepr panel = new MusicaRepr();
+
+                label3.Text = colaCanciones.Count().ToString();
+
+                
+
+                
+              
+
+                if (colaCanciones.Count < 1)
+                {
+                    colaCanciones.Clear();
+                    timerReproduccion.Enabled = false;
+
+                    panelMusicaRe.Controls.Clear();
+                    foreach (Cancion cancion in colaCanciones)
+                    {
+                        panel.CancionDetalles(cancion);
+
+
+                        panel.Dock = DockStyle.Top;
+                        panelMusicaRe.Controls.Add(panel);
+                    }
+                }
+                else
+                {
+
+
+                    Cancion obtener = colaCanciones.Peek();
+
+
+                    pbBar.Image = (Bitmap)new ImageConverter().ConvertFrom(obtener.imagen);
+
+
+
+                    runAudio(obtener.audio);
+
+                    panelMusicaRe.Controls.Clear();
+                    foreach (Cancion cancion in colaCanciones)
+                    {
+                        panel.CancionDetalles(cancion);
+
+
+                        panel.Dock = DockStyle.Top;
+                        panelMusicaRe.Controls.Add(panel);
+                    }
+                }
+                    
+
+            }
         }
     }
 }
