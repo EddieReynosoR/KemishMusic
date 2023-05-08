@@ -452,8 +452,7 @@ namespace KemishMusic
                 btnCerrarSesion.Visible = false;
             }
 
-            //DetallesCancion();
-            //CartasCancion();
+            btnAgregar.Visible = false;
         }
 
         int i;
@@ -744,6 +743,66 @@ namespace KemishMusic
                     
 
             }
+        }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new Formularios.Crear_Playlist());
+            btnAgregar.Visible = true;
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Formularios.AgregarCanciones());
+        }
+        int id;
+        SqlConnection conexion = new SqlConnection("Data Source=YAHIR\\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
+        
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SqlCommand consulta = new SqlCommand("select * from cancion WHERE cancion_nombre = @cancion_nombre", conexion);
+
+                conexion.Open();
+
+                consulta.Parameters.AddWithValue("@cancion_nombre", txtSearch.Text);
+
+                SqlDataReader rdr = consulta.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    label3.Text = rdr[0].ToString();
+
+                }
+                id = Convert.ToInt32(label3.Text);
+                Cancion cancion = Cancion.lista[id-1];
+
+                
+
+                CancionSelect carta = new CancionSelect();
+
+                carta.CancionDetalles(cancion);
+
+
+                carta.Dock = DockStyle.Left;
+                panelMusicaRe.Controls.Add(carta);
+                panelMusicaRe.Show();
+
+
+
+                MessageBox.Show("Consulta Realizada");
+
+
+
+                conexion.Close();
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

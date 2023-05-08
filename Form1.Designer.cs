@@ -32,6 +32,7 @@ namespace KemishMusic
             this.components = new System.ComponentModel.Container();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnNav = new Guna.UI2.WinForms.Guna2Button();
             this.gunaControlBox3 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaControlBox2 = new Guna.UI.WinForms.GunaControlBox();
@@ -53,8 +54,10 @@ namespace KemishMusic
             this.panelMusicaRe = new Guna.UI2.WinForms.Guna2Panel();
             this.timerBarraMusic = new System.Windows.Forms.Timer(this.components);
             this.guna2MouseStateHandler1 = new Guna.UI2.WinForms.Guna2MouseStateHandler(this.components);
+            this.timerReproduccion = new System.Windows.Forms.Timer(this.components);
             this.btnHomeRepro = new FontAwesome.Sharp.IconButton();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnCancion = new FontAwesome.Sharp.IconButton();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.btnHome = new FontAwesome.Sharp.IconButton();
@@ -62,8 +65,7 @@ namespace KemishMusic
             this.picMostrarCola = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pbBar = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnPausaPlay = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.timerReproduccion = new System.Windows.Forms.Timer(this.components);
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnAgregar = new FontAwesome.Sharp.IconButton();
             this.guna2Panel1.SuspendLayout();
             this.panelReproduccion.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -96,6 +98,15 @@ namespace KemishMusic
             this.guna2Panel1.Size = new System.Drawing.Size(1076, 43);
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(452, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "label3";
             // 
             // btnNav
             // 
@@ -210,7 +221,7 @@ namespace KemishMusic
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(1185, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 17);
+            this.label2.Size = new System.Drawing.Size(0, 16);
             this.label2.TabIndex = 11;
             // 
             // guna2TrackBar1
@@ -231,12 +242,14 @@ namespace KemishMusic
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(337, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 17);
+            this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 10;
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.panelMenu.Controls.Add(this.btnAgregar);
+            this.panelMenu.Controls.Add(this.iconButton1);
             this.panelMenu.Controls.Add(this.btnCancion);
             this.panelMenu.Controls.Add(this.btnSearch);
             this.panelMenu.Controls.Add(this.btnHome);
@@ -362,6 +375,10 @@ namespace KemishMusic
             this.timerBarraMusic.Interval = 1;
             this.timerBarraMusic.Tick += new System.EventHandler(this.timerBarraMusic_Tick);
             // 
+            // timerReproduccion
+            // 
+            this.timerReproduccion.Tick += new System.EventHandler(this.timerReproduccion_Tick);
+            // 
             // btnHomeRepro
             // 
             this.btnHomeRepro.Dock = System.Windows.Forms.DockStyle.Left;
@@ -405,6 +422,27 @@ namespace KemishMusic
             this.txtSearch.ShadowDecoration.Parent = this.txtSearch;
             this.txtSearch.Size = new System.Drawing.Size(300, 43);
             this.txtSearch.TabIndex = 3;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Play;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 35;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(0, 255);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(171, 45);
+            this.iconButton1.TabIndex = 15;
+            this.iconButton1.Text = "Crear Playlist";
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
             // 
             // btnCancion
             // 
@@ -516,18 +554,25 @@ namespace KemishMusic
             this.btnPausaPlay.TabIndex = 12;
             this.btnPausaPlay.Click += new System.EventHandler(this.btnPausaPlay_Click);
             // 
-            // timerReproduccion
+            // btnAgregar
             // 
-            this.timerReproduccion.Tick += new System.EventHandler(this.timerReproduccion_Tick);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(452, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "label3";
+            this.btnAgregar.BackColor = System.Drawing.Color.Gray;
+            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.IconChar = FontAwesome.Sharp.IconChar.Music;
+            this.btnAgregar.IconColor = System.Drawing.Color.Black;
+            this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregar.IconSize = 35;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(0, 510);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(171, 45);
+            this.btnAgregar.TabIndex = 16;
+            this.btnAgregar.Text = "Agregar Cancion";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // Form1
             // 
@@ -596,6 +641,8 @@ namespace KemishMusic
         private Guna.UI2.WinForms.Guna2PictureBox picMostrarCola;
         private System.Windows.Forms.Timer timerReproduccion;
         private System.Windows.Forms.Label label3;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnAgregar;
     }
 }
 

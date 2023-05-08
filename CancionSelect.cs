@@ -51,7 +51,7 @@ namespace KemishMusic
 
         private void CancionSelect_Load(object sender, EventArgs e)
         {
-            lblID.Hide();
+            //lblID.Hide();
         }
 
         private void CancionSelect_Click(object sender, EventArgs e)

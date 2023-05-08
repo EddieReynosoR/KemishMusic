@@ -96,7 +96,7 @@ namespace KemishMusic
             this.Controls.Add(this.cancionNombre);
             this.Controls.Add(this.picCancion);
             this.Name = "CancionSelect";
-            this.Size = new System.Drawing.Size(310, 344);
+            this.Size = new System.Drawing.Size(426, 379);
             this.Load += new System.EventHandler(this.CancionSelect_Load);
             this.Click += new System.EventHandler(this.CancionSelect_Click);
             ((System.ComponentModel.ISupportInitialize)(this.picCancion)).EndInit();

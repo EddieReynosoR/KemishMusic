@@ -19,10 +19,10 @@ namespace KemishMusic
         public string fecha;
 
         public static List<Cancion> lista = new List<Cancion>();
+        
 
         public void getList()
         {
-            
                 //Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;
             SqlConnection conn = new SqlConnection(@"Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
 
