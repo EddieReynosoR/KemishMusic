@@ -66,6 +66,7 @@ namespace KemishMusic
             this.pbBar = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnPausaPlay = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnAgregar = new FontAwesome.Sharp.IconButton();
+            this.label4 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.panelReproduccion.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -84,6 +85,7 @@ namespace KemishMusic
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.Controls.Add(this.btnNav);
             this.guna2Panel1.Controls.Add(this.btnHomeRepro);
@@ -574,6 +576,15 @@ namespace KemishMusic
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(516, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "label4";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -643,6 +654,7 @@ namespace KemishMusic
         private System.Windows.Forms.Label label3;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton btnAgregar;
+        private System.Windows.Forms.Label label4;
     }
 }
 

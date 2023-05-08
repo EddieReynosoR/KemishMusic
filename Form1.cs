@@ -323,10 +323,11 @@ namespace KemishMusic
 
                 private void btnHome_Click(object sender, EventArgs e)
                 {
-                    if (currentChildForm != null)
-                    {
-                        currentChildForm.Close();
-                    }
+                     panelMusicaRe.Controls.Clear();
+                     if (currentChildForm != null)
+                        {
+                            currentChildForm.Close();
+                        }
                     Reset();
                 }
 
@@ -458,7 +459,7 @@ namespace KemishMusic
         int i;
         public void CartasCancion()
         {
-            foreach(Cancion cancion in Cancion.lista)
+            /*foreach(Cancion cancion in Cancion.lista)
             {
                 i++;
                 CancionSelect carta = new CancionSelect();
@@ -470,7 +471,7 @@ namespace KemishMusic
 
                 carta.Dock = DockStyle.Left;
                 panelMusicaRe.Controls.Add(carta);
-            }
+            }*/
         }
 
         private void timerBarraMusic_Tick(object sender, EventArgs e)
@@ -756,7 +757,7 @@ namespace KemishMusic
         {
             OpenChildForm(new Formularios.AgregarCanciones());
         }
-        int id;
+        
         SqlConnection conexion = new SqlConnection("Data Source=YAHIR\\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
         
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
@@ -773,11 +774,11 @@ namespace KemishMusic
 
                 while (rdr.Read())
                 {
-                    label3.Text = rdr[0].ToString();
+                    label4.Text = rdr[0].ToString();
 
                 }
-                id = Convert.ToInt32(label3.Text);
-                Cancion cancion = Cancion.lista[id-1];
+                i = Convert.ToInt32(label4.Text);
+                Cancion cancion = Cancion.lista[i-1];
 
                 
 

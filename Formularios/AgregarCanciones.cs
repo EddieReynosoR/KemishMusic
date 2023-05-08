@@ -28,11 +28,11 @@ namespace KemishMusic.Formularios
         
         public void CartasCancion()
         {
-            Cancion cancion = Cancion.lista[1];
+           // Cancion cancion = Cancion.lista[1];
             
                 CancionSelect carta = new CancionSelect();
 
-                carta.CancionDetalles(cancion);
+               // carta.CancionDetalles(cancion);
 
 
                 carta.Dock = DockStyle.Left;
