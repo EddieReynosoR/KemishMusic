@@ -324,6 +324,7 @@ namespace KemishMusic
                 private void btnHome_Click(object sender, EventArgs e)
                 {
                      panelMusicaRe.Controls.Clear();
+                        panelMusicaRe.Hide();
                      if (currentChildForm != null)
                         {
                             currentChildForm.Close();
