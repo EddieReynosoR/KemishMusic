@@ -460,7 +460,7 @@ namespace KemishMusic
         int i;
         public void CartasCancion()
         {
-            /*foreach(Cancion cancion in Cancion.lista)
+            foreach(Cancion cancion in Cancion.lista)
             {
                 i++;
                 CancionSelect carta = new CancionSelect();
@@ -472,7 +472,7 @@ namespace KemishMusic
 
                 carta.Dock = DockStyle.Left;
                 panelMusicaRe.Controls.Add(carta);
-            }*/
+            }
         }
 
         private void timerBarraMusic_Tick(object sender, EventArgs e)
@@ -586,6 +586,8 @@ namespace KemishMusic
             {
 
                 colaCanciones.Enqueue(obtener);
+
+                panelMusicaRe.Controls.Clear();
                 foreach (Cancion cancion in colaCanciones)
                 {
                     panel.CancionDetalles(cancion);
