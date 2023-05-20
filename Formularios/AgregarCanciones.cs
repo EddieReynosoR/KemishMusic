@@ -85,7 +85,7 @@ namespace KemishMusic.Formularios
             txtImagen.Hide();
             lblCancion.Hide();
         }
-        SqlConnection conexion1 = new SqlConnection("Data Source=YAHIR\\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
+        SqlConnection conexion1 = new SqlConnection(@"Data Source=YAHIR\\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
         string datos = "SELECT cancion_audionombre, cancion_imagen,cancion_id FROM cancion WHERE cancion_nombre=@cancion_nombre";
 
         byte[] dataArray;
