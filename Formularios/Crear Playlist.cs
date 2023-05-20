@@ -16,37 +16,22 @@ namespace KemishMusic.Formularios
         {
             InitializeComponent();
         }
+        private DataClasses1DataContext conexion = new DataClasses1DataContext();
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            AgregarCanciones ag = new AgregarCanciones();
 
+            conexion.InsertarPlaylist(txtPlaylist.Text);
 
-            ag.Show();
+            MessageBox.Show("Playlist creada para poder verla ve a  Mis Playlist");
 
-            this.Hide();
-
+            txtPlaylist.Clear();
         }
-        int id;
+        
+        
 
         private void Crear_Playlist_Load(object sender, EventArgs e)
         {
-            if (label1.Text != "label1")
-            {
-                id = Convert.ToInt32(label1.Text);
-
-                Cancion cancion = Cancion.lista[id - 1];
-
-                
-
-                CancionSelect carta = new CancionSelect();
-
-                carta.CancionDetalles(cancion);
-
-
-                carta.Dock = DockStyle.Left;
-                panelAgregar.Controls.Add(carta);
-
-            }
+            
 
         }
     }

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="KemishMusic" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True" SettingsObjectName="KemishMusic.Properties.Settings" SettingsPropertyName="KemishMusicConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.LeerPlaylist" Method="LeerPlaylist">
+    <ElementType Name="LeerPlaylistResult">
+      <Column Name="playlist_nombre" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MostrarCancion" Method="MostrarCancion">
+    <ElementType Name="MostrarCancionResult">
+      <Column Name="cancion_nombre" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LlenarCancionDatos" Method="LlenarCancionDatos">
+    <Parameter Name="playlist_cancion" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="LlenarCancionDatosResult">
+      <Column Name="playlist_cancion_audionombre" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="playlist_cancion_imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.InsertarCancionPlaylist3" Method="InsertarCancionPlaylist3">
+    <Parameter Name="playlist_playlist_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cancion_cancion_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="playlist_playlist_nombre" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="cancion_cancion_nombre" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.VerCancionPlaylist2" Method="VerCancionPlaylist2">
+    <Parameter Name="playlist_playlist_nombre" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="VerCancionPlaylist2Result">
+      <Column Name="cancion_cancion_nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.InsertarPlaylist" Method="InsertarPlaylist">
+    <Parameter Name="playlist_nombre" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

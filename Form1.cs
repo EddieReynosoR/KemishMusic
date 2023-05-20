@@ -454,7 +454,7 @@ namespace KemishMusic
                 btnCerrarSesion.Visible = false;
             }
 
-            btnAgregar.Visible = false;
+            //btnAgregar.Visible = false;
         }
 
         int i;
@@ -699,7 +699,7 @@ namespace KemishMusic
 
                 MusicaRepr panel = new MusicaRepr();
 
-                label3.Text = colaCanciones.Count().ToString();
+                //label3.Text = colaCanciones.Count().ToString();
 
                 
 
@@ -809,10 +809,7 @@ namespace KemishMusic
 
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
     

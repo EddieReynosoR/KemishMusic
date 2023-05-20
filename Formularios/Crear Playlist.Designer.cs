@@ -28,22 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.lblNombre = new Guna.UI.WinForms.GunaLabel();
             this.txtPlaylist = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnAgregar = new Guna.UI2.WinForms.Guna2Button();
-            this.panelAgregar = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnCrear = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
-            // gunaLabel1
+            // lblNombre
             // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel1.Location = new System.Drawing.Point(49, 38);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(151, 20);
-            this.gunaLabel1.TabIndex = 8;
-            this.gunaLabel1.Text = "Nombre de la Playlist";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblNombre.Location = new System.Drawing.Point(423, 54);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(151, 20);
+            this.lblNombre.TabIndex = 8;
+            this.lblNombre.Text = "Nombre de la Playlist";
             // 
             // txtPlaylist
             // 
@@ -60,7 +58,7 @@
             this.txtPlaylist.FocusedState.Parent = this.txtPlaylist;
             this.txtPlaylist.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPlaylist.HoverState.Parent = this.txtPlaylist;
-            this.txtPlaylist.Location = new System.Drawing.Point(63, 78);
+            this.txtPlaylist.Location = new System.Drawing.Point(344, 87);
             this.txtPlaylist.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPlaylist.Name = "txtPlaylist";
             this.txtPlaylist.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -69,52 +67,33 @@
             this.txtPlaylist.PlaceholderText = "";
             this.txtPlaylist.SelectedText = "";
             this.txtPlaylist.ShadowDecoration.Parent = this.txtPlaylist;
-            this.txtPlaylist.Size = new System.Drawing.Size(330, 55);
+            this.txtPlaylist.Size = new System.Drawing.Size(314, 40);
             this.txtPlaylist.TabIndex = 9;
             // 
-            // btnAgregar
+            // btnCrear
             // 
-            this.btnAgregar.CheckedState.Parent = this.btnAgregar;
-            this.btnAgregar.CustomImages.Parent = this.btnAgregar;
-            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.HoverState.Parent = this.btnAgregar;
-            this.btnAgregar.Location = new System.Drawing.Point(110, 175);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.ShadowDecoration.Parent = this.btnAgregar;
-            this.btnAgregar.Size = new System.Drawing.Size(180, 45);
-            this.btnAgregar.TabIndex = 10;
-            this.btnAgregar.Text = "Agregar Canciones";
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // panelAgregar
-            // 
-            this.panelAgregar.Location = new System.Drawing.Point(95, 355);
-            this.panelAgregar.Name = "panelAgregar";
-            this.panelAgregar.ShadowDecoration.Parent = this.panelAgregar;
-            this.panelAgregar.Size = new System.Drawing.Size(980, 243);
-            this.panelAgregar.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(570, 68);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "label1";
+            this.btnCrear.CheckedState.Parent = this.btnCrear;
+            this.btnCrear.CustomImages.Parent = this.btnCrear;
+            this.btnCrear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCrear.ForeColor = System.Drawing.Color.White;
+            this.btnCrear.HoverState.Parent = this.btnCrear;
+            this.btnCrear.Location = new System.Drawing.Point(417, 134);
+            this.btnCrear.Name = "btnCrear";
+            this.btnCrear.ShadowDecoration.Parent = this.btnCrear;
+            this.btnCrear.Size = new System.Drawing.Size(175, 37);
+            this.btnCrear.TabIndex = 10;
+            this.btnCrear.Text = "Crear Playlist";
+            this.btnCrear.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // Crear_Playlist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1312, 680);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panelAgregar);
-            this.Controls.Add(this.btnAgregar);
+            this.ClientSize = new System.Drawing.Size(1147, 591);
+            this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.txtPlaylist);
-            this.Controls.Add(this.gunaLabel1);
+            this.Controls.Add(this.lblNombre);
             this.Name = "Crear_Playlist";
             this.Text = "Crear_Playlist";
             this.Load += new System.EventHandler(this.Crear_Playlist_Load);
@@ -125,10 +104,8 @@
 
         #endregion
 
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private Guna.UI.WinForms.GunaLabel lblNombre;
         private Guna.UI2.WinForms.Guna2TextBox txtPlaylist;
-        private Guna.UI2.WinForms.Guna2Button btnAgregar;
-        private Guna.UI2.WinForms.Guna2Panel panelAgregar;
-        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2Button btnCrear;
     }
 }

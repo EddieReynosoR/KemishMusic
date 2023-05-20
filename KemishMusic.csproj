@@ -34,16 +34,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp">
-      <HintPath>..\..\Downloads\FontAwesome.Sharp.dll</HintPath>
+      <HintPath>..\Topicos Unidad 2\Interfaz Moderna\Interfaz Moderna\bin\Debug\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI">
-      <HintPath>..\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI WinForms\.net 2.0\Guna.UI.dll</HintPath>
+      <HintPath>..\..\..\Downloads\Guna.UI.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2">
-      <HintPath>..\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI2 WinForms\.net 2.0\Guna.UI2.dll</HintPath>
+      <HintPath>..\..\..\Downloads\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cancion.cs" />
+    <Compile Include="DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,7 @@
     <Compile Include="Formularios\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="LeerImagen.cs" />
     <Compile Include="MusicaRepro.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -182,6 +189,14 @@
     <EmbeddedResource Include="Formularios\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
     <None Include="KemishMusicDataSet.xsc">
       <DependentUpon>KemishMusicDataSet.xsd</DependentUpon>
     </None>
@@ -242,6 +257,9 @@
     <None Include="Resources\16427.png" />
     <None Include="Resources\375.png" />
     <None Include="Resources\AMG.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
