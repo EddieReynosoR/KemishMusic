@@ -110,7 +110,6 @@
             this.DataGridView1.ThemeStyle.RowsStyle.Height = 24;
             this.DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // txtPlaylist
             // 
@@ -140,7 +139,6 @@
             this.btnMostrar.TabIndex = 2;
             this.btnMostrar.Text = "Agregar Canciones ";
             this.btnMostrar.UseVisualStyleBackColor = true;
-            this.btnMostrar.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // DataGridView2
             // 
@@ -200,7 +198,6 @@
             this.DataGridView2.ThemeStyle.RowsStyle.Height = 24;
             this.DataGridView2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.DataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView2_CellContentClick);
             // 
             // label1
             // 
@@ -262,7 +259,6 @@
             this.btnBack.Size = new System.Drawing.Size(61, 60);
             this.btnBack.TabIndex = 8;
             this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnVerPlaylist
             // 
@@ -275,7 +271,6 @@
             this.btnVerPlaylist.TabIndex = 9;
             this.btnVerPlaylist.Text = "Ver Playlist";
             this.btnVerPlaylist.UseVisualStyleBackColor = true;
-            this.btnVerPlaylist.Click += new System.EventHandler(this.btnVerPlaylist_Click);
             // 
             // txtAudio
             // 

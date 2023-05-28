@@ -36,7 +36,7 @@ namespace KemishMusic.Formularios
 
 
                 carta.Dock = DockStyle.Left;
-                panelAgregar.Controls.Add(carta);
+                //panelAgregar.Controls.Add(carta);
             
         }
 
@@ -54,20 +54,20 @@ namespace KemishMusic.Formularios
 
             conexion.Open();
 
-            consulta.Parameters.AddWithValue("@cancion_nombre", txtNombre.Text);
+            //consulta.Parameters.AddWithValue("@cancion_nombre", txtNombre.Text);
 
             SqlDataReader rdr = consulta.ExecuteReader();
 
             while (rdr.Read())
             {
-                lblID.Text = rdr[0].ToString();
+                //lblID.Text = rdr[0].ToString();
                
             }
-            id = Convert.ToInt32(lblID.Text);
+            //id = Convert.ToInt32(lblID.Text);
             Cancion cancion = Cancion.lista[id-2];
            // Cancion cancion = Cancion.lista[id - 1];
 
-            ((System.Windows.Forms.Label)cP.Controls["label1"]).Text = lblID.Text;
+            //((System.Windows.Forms.Label)cP.Controls["label1"]).Text = lblID.Text;
 
             //i++;
             CancionSelect carta = new CancionSelect();
@@ -76,7 +76,7 @@ namespace KemishMusic.Formularios
 
 
             carta.Dock = DockStyle.Left;
-            panelAgregar.Controls.Add(carta);
+            //panelAgregar.Controls.Add(carta);
 
 
 
