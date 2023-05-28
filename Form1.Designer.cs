@@ -31,16 +31,18 @@ namespace KemishMusic
         {
             this.components = new System.ComponentModel.Container();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnNav = new Guna.UI2.WinForms.Guna2Button();
-            this.btnHomeRepro = new FontAwesome.Sharp.IconButton();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaControlBox3 = new Guna.UI.WinForms.GunaControlBox();
-            this.gunaControlBox2 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panelReproduccion = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblColab = new System.Windows.Forms.Label();
+            this.lblNombreCancion = new System.Windows.Forms.Label();
+            this.btnSig = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnPrev = new Guna.UI2.WinForms.Guna2ImageButton();
             this.picMostrarCola = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pbBar = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2TrackBar2 = new Guna.UI2.WinForms.Guna2TrackBar();
@@ -49,33 +51,30 @@ namespace KemishMusic
             this.guna2TrackBar1 = new Guna.UI2.WinForms.Guna2TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMenu = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnCancion = new FontAwesome.Sharp.IconButton();
-            this.btnSearch = new FontAwesome.Sharp.IconButton();
-            this.btnHome = new FontAwesome.Sharp.IconButton();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panelDesktop = new Guna.UI2.WinForms.Guna2Panel();
-            this.panelOpciones = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnCerrarSesion = new Guna.UI2.WinForms.Guna2Button();
-            this.btnRegistrarse = new Guna.UI2.WinForms.Guna2Button();
-            this.btnIniciarSesion = new Guna.UI2.WinForms.Guna2Button();
-            this.panelMusicaRe = new Guna.UI2.WinForms.Guna2Panel();
-            this.timerBarraMusic = new System.Windows.Forms.Timer(this.components);
-            this.guna2MouseStateHandler1 = new Guna.UI2.WinForms.Guna2MouseStateHandler(this.components);
-            this.timerReproduccion = new System.Windows.Forms.Timer(this.components);
-            this.btnHomeRepro = new FontAwesome.Sharp.IconButton();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.btnAgregar = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnCancion = new FontAwesome.Sharp.IconButton();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.btnHome = new FontAwesome.Sharp.IconButton();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.picMostrarCola = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pbBar = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnPausaPlay = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.btnAgregar = new FontAwesome.Sharp.IconButton();
-            this.label4 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panelDesktop = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelMusicaRe = new Guna.UI2.WinForms.Guna2Panel();
+            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.panelOpciones = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnVerPerfil = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCerrarSesion = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRegistrarse = new Guna.UI2.WinForms.Guna2Button();
+            this.btnIniciarSesion = new Guna.UI2.WinForms.Guna2Button();
+            this.panelCancionesHome = new Guna.UI2.WinForms.Guna2Panel();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.timerBarraMusic = new System.Windows.Forms.Timer(this.components);
+            this.guna2MouseStateHandler1 = new Guna.UI2.WinForms.Guna2MouseStateHandler(this.components);
+            this.timerReproduccion = new System.Windows.Forms.Timer(this.components);
+            this.lblMensaje = new Guna.UI.WinForms.GunaLabel();
+            this.lblMensajeCola = new Guna.UI.WinForms.GunaLabel();
             this.guna2Panel1.SuspendLayout();
             this.panelReproduccion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMostrarCola)).BeginInit();
@@ -83,13 +82,20 @@ namespace KemishMusic
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.panelDesktop.SuspendLayout();
+            this.panelMusicaRe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panelOpciones.SuspendLayout();
+            this.panelCancionesHome.SuspendLayout();
             this.SuspendLayout();
             // 
             // gunaElipse1
             // 
-            this.gunaElipse1.Radius = 7;
+            this.gunaElipse1.Radius = 20;
             this.gunaElipse1.TargetControl = this;
+            // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.TargetControl = this.guna2Panel1;
             // 
             // guna2Panel1
             // 
@@ -97,10 +103,7 @@ namespace KemishMusic
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.Controls.Add(this.btnNav);
-            this.guna2Panel1.Controls.Add(this.btnHomeRepro);
-            this.guna2Panel1.Controls.Add(this.txtSearch);
             this.guna2Panel1.Controls.Add(this.gunaControlBox3);
-            this.guna2Panel1.Controls.Add(this.gunaControlBox2);
             this.guna2Panel1.Controls.Add(this.gunaControlBox1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(171, 0);
@@ -110,12 +113,21 @@ namespace KemishMusic
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(516, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 17);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "label4";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(452, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.Size = new System.Drawing.Size(46, 17);
             this.label3.TabIndex = 15;
             this.label3.Text = "label3";
             // 
@@ -137,51 +149,6 @@ namespace KemishMusic
             this.btnNav.Text = "Sesión no iniciada";
             this.btnNav.Click += new System.EventHandler(this.btnNav_Click);
             // 
-            // btnHomeRepro
-            // 
-            this.btnHomeRepro.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnHomeRepro.FlatAppearance.BorderSize = 0;
-            this.btnHomeRepro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHomeRepro.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
-            this.btnHomeRepro.IconColor = System.Drawing.Color.Black;
-            this.btnHomeRepro.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHomeRepro.Location = new System.Drawing.Point(300, 0);
-            this.btnHomeRepro.Name = "btnHomeRepro";
-            this.btnHomeRepro.Size = new System.Drawing.Size(75, 43);
-            this.btnHomeRepro.TabIndex = 4;
-            this.btnHomeRepro.UseVisualStyleBackColor = true;
-            this.btnHomeRepro.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.BorderColor = System.Drawing.Color.Silver;
-            this.txtSearch.BorderRadius = 20;
-            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearch.DefaultText = "";
-            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.DisabledState.Parent = this.txtSearch;
-            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.FocusedState.Parent = this.txtSearch;
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.HoverState.Parent = this.txtSearch;
-            this.txtSearch.IconLeft = global::KemishMusic.Properties.Resources._3031293;
-            this.txtSearch.Location = new System.Drawing.Point(0, 0);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PasswordChar = '\0';
-            this.txtSearch.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.txtSearch.PlaceholderText = "Buscar...";
-            this.txtSearch.SelectedText = "";
-            this.txtSearch.ShadowDecoration.Parent = this.txtSearch;
-            this.txtSearch.Size = new System.Drawing.Size(300, 43);
-            this.txtSearch.TabIndex = 3;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
             // gunaControlBox3
             // 
             this.gunaControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -191,31 +158,13 @@ namespace KemishMusic
             this.gunaControlBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gunaControlBox3.IconColor = System.Drawing.Color.Black;
             this.gunaControlBox3.IconSize = 15F;
-            this.gunaControlBox3.Location = new System.Drawing.Point(917, 7);
+            this.gunaControlBox3.Location = new System.Drawing.Point(971, 7);
             this.gunaControlBox3.Name = "gunaControlBox3";
             this.gunaControlBox3.OnHoverBackColor = System.Drawing.Color.White;
             this.gunaControlBox3.OnHoverIconColor = System.Drawing.Color.Black;
             this.gunaControlBox3.OnPressedColor = System.Drawing.Color.Black;
             this.gunaControlBox3.Size = new System.Drawing.Size(45, 29);
             this.gunaControlBox3.TabIndex = 2;
-            // 
-            // gunaControlBox2
-            // 
-            this.gunaControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaControlBox2.AnimationHoverSpeed = 0.07F;
-            this.gunaControlBox2.AnimationSpeed = 0.03F;
-            this.gunaControlBox2.ControlBoxType = Guna.UI.WinForms.FormControlBoxType.MaximizeBox;
-            this.gunaControlBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.gunaControlBox2.Enabled = false;
-            this.gunaControlBox2.IconColor = System.Drawing.Color.Black;
-            this.gunaControlBox2.IconSize = 15F;
-            this.gunaControlBox2.Location = new System.Drawing.Point(968, 7);
-            this.gunaControlBox2.Name = "gunaControlBox2";
-            this.gunaControlBox2.OnHoverBackColor = System.Drawing.Color.White;
-            this.gunaControlBox2.OnHoverIconColor = System.Drawing.Color.Black;
-            this.gunaControlBox2.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaControlBox2.Size = new System.Drawing.Size(45, 29);
-            this.gunaControlBox2.TabIndex = 1;
             // 
             // gunaControlBox1
             // 
@@ -235,13 +184,13 @@ namespace KemishMusic
             this.gunaControlBox1.TabIndex = 0;
             this.gunaControlBox1.Click += new System.EventHandler(this.gunaControlBox1_Click);
             // 
-            // guna2DragControl1
-            // 
-            this.guna2DragControl1.TargetControl = this.guna2Panel1;
-            // 
             // panelReproduccion
             // 
             this.panelReproduccion.BackColor = System.Drawing.Color.DarkGray;
+            this.panelReproduccion.Controls.Add(this.lblColab);
+            this.panelReproduccion.Controls.Add(this.lblNombreCancion);
+            this.panelReproduccion.Controls.Add(this.btnSig);
+            this.panelReproduccion.Controls.Add(this.btnPrev);
             this.panelReproduccion.Controls.Add(this.picMostrarCola);
             this.panelReproduccion.Controls.Add(this.pbBar);
             this.panelReproduccion.Controls.Add(this.guna2TrackBar2);
@@ -260,14 +209,62 @@ namespace KemishMusic
             this.panelReproduccion.Size = new System.Drawing.Size(1247, 128);
             this.panelReproduccion.TabIndex = 1;
             // 
+            // lblColab
+            // 
+            this.lblColab.AutoSize = true;
+            this.lblColab.Font = new System.Drawing.Font("Circular Std Book", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblColab.Location = new System.Drawing.Point(149, 71);
+            this.lblColab.Name = "lblColab";
+            this.lblColab.Size = new System.Drawing.Size(0, 22);
+            this.lblColab.TabIndex = 19;
+            // 
+            // lblNombreCancion
+            // 
+            this.lblNombreCancion.AutoSize = true;
+            this.lblNombreCancion.Font = new System.Drawing.Font("Circular Std Book", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreCancion.Location = new System.Drawing.Point(149, 28);
+            this.lblNombreCancion.Name = "lblNombreCancion";
+            this.lblNombreCancion.Size = new System.Drawing.Size(0, 22);
+            this.lblNombreCancion.TabIndex = 18;
+            // 
+            // btnSig
+            // 
+            this.btnSig.CheckedState.Parent = this.btnSig;
+            this.btnSig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSig.HoverState.ImageSize = new System.Drawing.Size(55, 55);
+            this.btnSig.HoverState.Parent = this.btnSig;
+            this.btnSig.Image = global::KemishMusic.Properties.Resources.Sig;
+            this.btnSig.ImageSize = new System.Drawing.Size(55, 55);
+            this.btnSig.Location = new System.Drawing.Point(788, 56);
+            this.btnSig.Name = "btnSig";
+            this.btnSig.PressedState.Parent = this.btnSig;
+            this.btnSig.Size = new System.Drawing.Size(55, 55);
+            this.btnSig.TabIndex = 17;
+            this.btnSig.Click += new System.EventHandler(this.btnSig_Click);
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.CheckedState.Parent = this.btnPrev;
+            this.btnPrev.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrev.HoverState.ImageSize = new System.Drawing.Size(55, 55);
+            this.btnPrev.HoverState.Parent = this.btnPrev;
+            this.btnPrev.Image = global::KemishMusic.Properties.Resources.prev;
+            this.btnPrev.ImageSize = new System.Drawing.Size(55, 55);
+            this.btnPrev.Location = new System.Drawing.Point(626, 56);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.PressedState.Parent = this.btnPrev;
+            this.btnPrev.Size = new System.Drawing.Size(55, 55);
+            this.btnPrev.TabIndex = 16;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
             // picMostrarCola
             // 
             this.picMostrarCola.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picMostrarCola.Image = global::KemishMusic.Properties.Resources._4419530;
-            this.picMostrarCola.Location = new System.Drawing.Point(1198, 6);
+            this.picMostrarCola.Location = new System.Drawing.Point(1217, 0);
             this.picMostrarCola.Name = "picMostrarCola";
             this.picMostrarCola.ShadowDecoration.Parent = this.picMostrarCola;
-            this.picMostrarCola.Size = new System.Drawing.Size(37, 35);
+            this.picMostrarCola.Size = new System.Drawing.Size(22, 21);
             this.picMostrarCola.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picMostrarCola.TabIndex = 15;
             this.picMostrarCola.TabStop = false;
@@ -276,7 +273,7 @@ namespace KemishMusic
             // pbBar
             // 
             this.pbBar.BorderRadius = 5;
-            this.pbBar.Location = new System.Drawing.Point(92, 21);
+            this.pbBar.Location = new System.Drawing.Point(40, 21);
             this.pbBar.Name = "pbBar";
             this.pbBar.ShadowDecoration.Parent = this.pbBar;
             this.pbBar.Size = new System.Drawing.Size(90, 90);
@@ -305,7 +302,7 @@ namespace KemishMusic
             this.btnPausaPlay.HoverState.Parent = this.btnPausaPlay;
             this.btnPausaPlay.Image = global::KemishMusic.Properties.Resources._16427;
             this.btnPausaPlay.ImageSize = new System.Drawing.Size(55, 55);
-            this.btnPausaPlay.Location = new System.Drawing.Point(738, 56);
+            this.btnPausaPlay.Location = new System.Drawing.Point(708, 56);
             this.btnPausaPlay.Name = "btnPausaPlay";
             this.btnPausaPlay.PressedState.Parent = this.btnPausaPlay;
             this.btnPausaPlay.Size = new System.Drawing.Size(55, 55);
@@ -315,9 +312,9 @@ namespace KemishMusic
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1185, 28);
+            this.label2.Location = new System.Drawing.Point(1186, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 11;
             // 
             // guna2TrackBar1
@@ -338,12 +335,13 @@ namespace KemishMusic
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(337, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 10;
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.panelMenu.Controls.Add(this.iconButton2);
             this.panelMenu.Controls.Add(this.btnAgregar);
             this.panelMenu.Controls.Add(this.iconButton1);
             this.panelMenu.Controls.Add(this.btnCancion);
@@ -361,37 +359,93 @@ namespace KemishMusic
             this.panelMenu.Size = new System.Drawing.Size(171, 555);
             this.panelMenu.TabIndex = 2;
             // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 35;
+            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.Location = new System.Drawing.Point(0, 190);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(171, 45);
+            this.iconButton2.TabIndex = 17;
+            this.iconButton2.Text = "   Buscar";
+            this.iconButton2.UseVisualStyleBackColor = false;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.Gray;
+            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.IconChar = FontAwesome.Sharp.IconChar.Music;
+            this.btnAgregar.IconColor = System.Drawing.Color.Black;
+            this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregar.IconSize = 35;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(0, 510);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(171, 45);
+            this.btnAgregar.TabIndex = 16;
+            this.btnAgregar.Text = "Agregar Cancion";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Visible = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Play;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 35;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(-2, 283);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(171, 45);
+            this.iconButton1.TabIndex = 15;
+            this.iconButton1.Text = "Crear Playlist";
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
+            // 
             // btnCancion
             // 
             this.btnCancion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.btnCancion.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCancion.FlatAppearance.BorderSize = 0;
             this.btnCancion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancion.IconChar = FontAwesome.Sharp.IconChar.Spotify;
+            this.btnCancion.IconChar = FontAwesome.Sharp.IconChar.Music;
             this.btnCancion.IconColor = System.Drawing.Color.Black;
             this.btnCancion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancion.IconSize = 35;
             this.btnCancion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancion.Location = new System.Drawing.Point(0, 210);
+            this.btnCancion.Location = new System.Drawing.Point(0, 235);
             this.btnCancion.Name = "btnCancion";
             this.btnCancion.Size = new System.Drawing.Size(171, 45);
             this.btnCancion.TabIndex = 14;
-            this.btnCancion.Text = "Tu Musica";
+            this.btnCancion.Text = "     Tu biblioteca";
             this.btnCancion.UseVisualStyleBackColor = false;
             this.btnCancion.Click += new System.EventHandler(this.btnCancion_Click);
             // 
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.Spotify;
+            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.Add;
             this.btnSearch.IconColor = System.Drawing.Color.Black;
             this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSearch.IconSize = 35;
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(0, 165);
+            this.btnSearch.Location = new System.Drawing.Point(0, 329);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(171, 45);
             this.btnSearch.TabIndex = 13;
@@ -410,11 +464,11 @@ namespace KemishMusic
             this.btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHome.IconSize = 35;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 120);
+            this.btnHome.Location = new System.Drawing.Point(0, 139);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(171, 45);
+            this.btnHome.Size = new System.Drawing.Size(171, 51);
             this.btnHome.TabIndex = 12;
-            this.btnHome.Text = "Home";
+            this.btnHome.Text = "       Escuchar musica";
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
@@ -425,21 +479,11 @@ namespace KemishMusic
             this.gunaPictureBox1.Image = global::KemishMusic.Properties.Resources._330634344_1228671984728501_5317193639878804641_n;
             this.gunaPictureBox1.Location = new System.Drawing.Point(0, 0);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(171, 120);
+            this.gunaPictureBox1.Size = new System.Drawing.Size(171, 139);
             this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gunaPictureBox1.TabIndex = 0;
             this.gunaPictureBox1.TabStop = false;
             this.gunaPictureBox1.Click += new System.EventHandler(this.gunaPictureBox1_Click);
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.Location = new System.Drawing.Point(6, 6);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(82, 25);
-            this.gunaLabel1.TabIndex = 3;
-            this.gunaLabel1.Text = "Para ti...";
             // 
             // timer1
             // 
@@ -448,8 +492,11 @@ namespace KemishMusic
             // 
             // panelDesktop
             // 
-            this.panelDesktop.Controls.Add(this.panelOpciones);
             this.panelDesktop.Controls.Add(this.panelMusicaRe);
+            this.panelDesktop.Controls.Add(this.gunaLabel2);
+            this.panelDesktop.Controls.Add(this.iconPictureBox1);
+            this.panelDesktop.Controls.Add(this.panelOpciones);
+            this.panelDesktop.Controls.Add(this.panelCancionesHome);
             this.panelDesktop.Controls.Add(this.gunaLabel1);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(171, 43);
@@ -458,17 +505,76 @@ namespace KemishMusic
             this.panelDesktop.Size = new System.Drawing.Size(1076, 512);
             this.panelDesktop.TabIndex = 12;
             // 
+            // panelMusicaRe
+            // 
+            this.panelMusicaRe.AutoScroll = true;
+            this.panelMusicaRe.BackColor = System.Drawing.Color.LightGray;
+            this.panelMusicaRe.Controls.Add(this.lblMensajeCola);
+            this.panelMusicaRe.Location = new System.Drawing.Point(1, 96);
+            this.panelMusicaRe.Name = "panelMusicaRe";
+            this.panelMusicaRe.ShadowDecoration.Parent = this.panelMusicaRe;
+            this.panelMusicaRe.Size = new System.Drawing.Size(1076, 417);
+            this.panelMusicaRe.TabIndex = 13;
+            this.panelMusicaRe.Visible = false;
+            this.panelMusicaRe.VisibleChanged += new System.EventHandler(this.panelMusicaRe_VisibleChanged);
+            this.panelMusicaRe.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
+            // 
+            // gunaLabel2
+            // 
+            this.gunaLabel2.AutoSize = true;
+            this.gunaLabel2.Font = new System.Drawing.Font("Circular Std Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel2.Location = new System.Drawing.Point(691, 476);
+            this.gunaLabel2.Name = "gunaLabel2";
+            this.gunaLabel2.Size = new System.Drawing.Size(352, 22);
+            this.gunaLabel2.TabIndex = 4;
+            this.gunaLabel2.Text = "Da click aquí para ver la cola de canciones";
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.White;
+            this.iconPictureBox1.ForeColor = System.Drawing.Color.Black;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.ArrowTurnDown;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.Black;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 28;
+            this.iconPictureBox1.Location = new System.Drawing.Point(1044, 485);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(30, 28);
+            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox1.TabIndex = 5;
+            this.iconPictureBox1.TabStop = false;
+            // 
             // panelOpciones
             // 
+            this.panelOpciones.Controls.Add(this.btnVerPerfil);
             this.panelOpciones.Controls.Add(this.btnCerrarSesion);
             this.panelOpciones.Controls.Add(this.btnRegistrarse);
             this.panelOpciones.Controls.Add(this.btnIniciarSesion);
             this.panelOpciones.Location = new System.Drawing.Point(684, 3);
             this.panelOpciones.Name = "panelOpciones";
             this.panelOpciones.ShadowDecoration.Parent = this.panelOpciones;
-            this.panelOpciones.Size = new System.Drawing.Size(200, 144);
+            this.panelOpciones.Size = new System.Drawing.Size(200, 209);
             this.panelOpciones.TabIndex = 1;
             this.panelOpciones.Visible = false;
+            this.panelOpciones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelOpciones_Paint);
+            // 
+            // btnVerPerfil
+            // 
+            this.btnVerPerfil.CheckedState.Parent = this.btnVerPerfil;
+            this.btnVerPerfil.CustomImages.Parent = this.btnVerPerfil;
+            this.btnVerPerfil.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVerPerfil.FillColor = System.Drawing.Color.White;
+            this.btnVerPerfil.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnVerPerfil.ForeColor = System.Drawing.Color.Black;
+            this.btnVerPerfil.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnVerPerfil.HoverState.Parent = this.btnVerPerfil;
+            this.btnVerPerfil.Location = new System.Drawing.Point(0, 144);
+            this.btnVerPerfil.Name = "btnVerPerfil";
+            this.btnVerPerfil.ShadowDecoration.Parent = this.btnVerPerfil;
+            this.btnVerPerfil.Size = new System.Drawing.Size(200, 51);
+            this.btnVerPerfil.TabIndex = 3;
+            this.btnVerPerfil.Text = "Ver perfil";
+            this.btnVerPerfil.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // btnCerrarSesion
             // 
@@ -483,7 +589,7 @@ namespace KemishMusic
             this.btnCerrarSesion.Location = new System.Drawing.Point(0, 93);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.ShadowDecoration.Parent = this.btnCerrarSesion;
-            this.btnCerrarSesion.Size = new System.Drawing.Size(200, 48);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(200, 51);
             this.btnCerrarSesion.TabIndex = 2;
             this.btnCerrarSesion.Text = "Cerrar sesión";
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
@@ -524,17 +630,26 @@ namespace KemishMusic
             this.btnIniciarSesion.Text = "Iniciar sesión";
             this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
             // 
-            // panelMusicaRe
+            // panelCancionesHome
             // 
-            this.panelMusicaRe.AutoScroll = true;
-            this.panelMusicaRe.BackColor = System.Drawing.Color.LightGray;
-            this.panelMusicaRe.Location = new System.Drawing.Point(0, 30);
-            this.panelMusicaRe.Name = "panelMusicaRe";
-            this.panelMusicaRe.ShadowDecoration.Parent = this.panelMusicaRe;
-            this.panelMusicaRe.Size = new System.Drawing.Size(1076, 482);
-            this.panelMusicaRe.TabIndex = 13;
-            this.panelMusicaRe.Visible = false;
-            this.panelMusicaRe.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
+            this.panelCancionesHome.AutoScroll = true;
+            this.panelCancionesHome.Controls.Add(this.lblMensaje);
+            this.panelCancionesHome.Location = new System.Drawing.Point(1, 35);
+            this.panelCancionesHome.Name = "panelCancionesHome";
+            this.panelCancionesHome.ShadowDecoration.Parent = this.panelCancionesHome;
+            this.panelCancionesHome.Size = new System.Drawing.Size(1067, 438);
+            this.panelCancionesHome.TabIndex = 14;
+            this.panelCancionesHome.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCancionesHome_Paint);
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel1.Location = new System.Drawing.Point(6, 6);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(253, 25);
+            this.gunaLabel1.TabIndex = 3;
+            this.gunaLabel1.Text = "Bienvenido a Kemish Music";
             // 
             // timerBarraMusic
             // 
@@ -545,209 +660,31 @@ namespace KemishMusic
             // 
             this.timerReproduccion.Tick += new System.EventHandler(this.timerReproduccion_Tick);
             // 
-            // btnHomeRepro
+            // lblMensaje
             // 
-            this.btnHomeRepro.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnHomeRepro.FlatAppearance.BorderSize = 0;
-            this.btnHomeRepro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHomeRepro.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
-            this.btnHomeRepro.IconColor = System.Drawing.Color.Black;
-            this.btnHomeRepro.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHomeRepro.Location = new System.Drawing.Point(300, 0);
-            this.btnHomeRepro.Name = "btnHomeRepro";
-            this.btnHomeRepro.Size = new System.Drawing.Size(75, 43);
-            this.btnHomeRepro.TabIndex = 4;
-            this.btnHomeRepro.UseVisualStyleBackColor = true;
-            this.btnHomeRepro.Click += new System.EventHandler(this.iconButton1_Click);
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.BackColor = System.Drawing.Color.Transparent;
+            this.lblMensaje.Font = new System.Drawing.Font("Circular Std Book", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.Location = new System.Drawing.Point(264, 205);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(599, 35);
+            this.lblMensaje.TabIndex = 4;
+            this.lblMensaje.Text = "Al parecer no hay canciones que escuchar...";
+            this.lblMensaje.Visible = false;
             // 
-            // txtSearch
+            // lblMensajeCola
             // 
-            this.txtSearch.BorderColor = System.Drawing.Color.Silver;
-            this.txtSearch.BorderRadius = 20;
-            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearch.DefaultText = "";
-            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.DisabledState.Parent = this.txtSearch;
-            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.FocusedState.Parent = this.txtSearch;
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.HoverState.Parent = this.txtSearch;
-            this.txtSearch.IconLeft = global::KemishMusic.Properties.Resources._3031293;
-            this.txtSearch.Location = new System.Drawing.Point(0, 0);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PasswordChar = '\0';
-            this.txtSearch.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.txtSearch.PlaceholderText = "Buscar...";
-            this.txtSearch.SelectedText = "";
-            this.txtSearch.ShadowDecoration.Parent = this.txtSearch;
-            this.txtSearch.Size = new System.Drawing.Size(300, 43);
-            this.txtSearch.TabIndex = 3;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Play;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 35;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 255);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(171, 45);
-            this.iconButton1.TabIndex = 15;
-            this.iconButton1.Text = "Crear Playlist";
-            this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
-            // 
-            // btnCancion
-            // 
-            this.btnCancion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.btnCancion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCancion.FlatAppearance.BorderSize = 0;
-            this.btnCancion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancion.IconChar = FontAwesome.Sharp.IconChar.Spotify;
-            this.btnCancion.IconColor = System.Drawing.Color.Black;
-            this.btnCancion.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCancion.IconSize = 35;
-            this.btnCancion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancion.Location = new System.Drawing.Point(0, 210);
-            this.btnCancion.Name = "btnCancion";
-            this.btnCancion.Size = new System.Drawing.Size(171, 45);
-            this.btnCancion.TabIndex = 14;
-            this.btnCancion.Text = "Tu Musica";
-            this.btnCancion.UseVisualStyleBackColor = false;
-            this.btnCancion.Click += new System.EventHandler(this.btnCancion_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.Spotify;
-            this.btnSearch.IconColor = System.Drawing.Color.Black;
-            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearch.IconSize = 35;
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(0, 165);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(171, 45);
-            this.btnSearch.TabIndex = 13;
-            this.btnSearch.Text = "Añadir música";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.btnHome.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
-            this.btnHome.IconColor = System.Drawing.Color.Black;
-            this.btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHome.IconSize = 35;
-            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 120);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(171, 45);
-            this.btnHome.TabIndex = 12;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // gunaPictureBox1
-            // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaPictureBox1.Image = global::KemishMusic.Properties.Resources._330634344_1228671984728501_5317193639878804641_n;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(171, 120);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBox1.TabIndex = 0;
-            this.gunaPictureBox1.TabStop = false;
-            this.gunaPictureBox1.Click += new System.EventHandler(this.gunaPictureBox1_Click);
-            // 
-            // picMostrarCola
-            // 
-            this.picMostrarCola.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picMostrarCola.Image = global::KemishMusic.Properties.Resources._4419530;
-            this.picMostrarCola.Location = new System.Drawing.Point(1198, 6);
-            this.picMostrarCola.Name = "picMostrarCola";
-            this.picMostrarCola.ShadowDecoration.Parent = this.picMostrarCola;
-            this.picMostrarCola.Size = new System.Drawing.Size(37, 35);
-            this.picMostrarCola.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picMostrarCola.TabIndex = 15;
-            this.picMostrarCola.TabStop = false;
-            this.picMostrarCola.Click += new System.EventHandler(this.picMostrarCola_Click);
-            // 
-            // pbBar
-            // 
-            this.pbBar.BorderRadius = 5;
-            this.pbBar.Location = new System.Drawing.Point(92, 21);
-            this.pbBar.Name = "pbBar";
-            this.pbBar.ShadowDecoration.Parent = this.pbBar;
-            this.pbBar.Size = new System.Drawing.Size(90, 90);
-            this.pbBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbBar.TabIndex = 14;
-            this.pbBar.TabStop = false;
-            this.pbBar.Click += new System.EventHandler(this.pbBar_Click);
-            // 
-            // btnPausaPlay
-            // 
-            this.btnPausaPlay.CheckedState.Parent = this.btnPausaPlay;
-            this.btnPausaPlay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPausaPlay.HoverState.ImageSize = new System.Drawing.Size(55, 55);
-            this.btnPausaPlay.HoverState.Parent = this.btnPausaPlay;
-            this.btnPausaPlay.Image = global::KemishMusic.Properties.Resources._16427;
-            this.btnPausaPlay.ImageSize = new System.Drawing.Size(55, 55);
-            this.btnPausaPlay.Location = new System.Drawing.Point(738, 56);
-            this.btnPausaPlay.Name = "btnPausaPlay";
-            this.btnPausaPlay.PressedState.Parent = this.btnPausaPlay;
-            this.btnPausaPlay.Size = new System.Drawing.Size(55, 55);
-            this.btnPausaPlay.TabIndex = 12;
-            this.btnPausaPlay.Click += new System.EventHandler(this.btnPausaPlay_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.Gray;
-            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.IconChar = FontAwesome.Sharp.IconChar.Music;
-            this.btnAgregar.IconColor = System.Drawing.Color.Black;
-            this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAgregar.IconSize = 35;
-            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(0, 510);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(171, 45);
-            this.btnAgregar.TabIndex = 16;
-            this.btnAgregar.Text = "Agregar Cancion";
-            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(516, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 16);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "label4";
+            this.lblMensajeCola.AutoSize = true;
+            this.lblMensajeCola.BackColor = System.Drawing.Color.Transparent;
+            this.lblMensajeCola.Font = new System.Drawing.Font("Circular Std Book", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensajeCola.Location = new System.Drawing.Point(337, 144);
+            this.lblMensajeCola.Name = "lblMensajeCola";
+            this.lblMensajeCola.Size = new System.Drawing.Size(419, 105);
+            this.lblMensajeCola.TabIndex = 5;
+            this.lblMensajeCola.Text = "Reproduce alguna canción y \r\nañade canciones a la cola para\r\nverlas en esta secci" +
+    "ón.";
+            this.lblMensajeCola.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMensajeCola.Visible = false;
             // 
             // Form1
             // 
@@ -775,7 +712,12 @@ namespace KemishMusic
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.panelDesktop.ResumeLayout(false);
             this.panelDesktop.PerformLayout();
+            this.panelMusicaRe.ResumeLayout(false);
+            this.panelMusicaRe.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.panelOpciones.ResumeLayout(false);
+            this.panelCancionesHome.ResumeLayout(false);
+            this.panelCancionesHome.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -783,16 +725,9 @@ namespace KemishMusic
         #endregion
 
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2Panel panelReproduccion;
-        private Guna.UI.WinForms.GunaControlBox gunaControlBox1;
-        private Guna.UI.WinForms.GunaControlBox gunaControlBox3;
-        private Guna.UI.WinForms.GunaControlBox gunaControlBox2;
         private Guna.UI2.WinForms.Guna2Panel panelMenu;
-        private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
-        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Timer timer1;
         private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar1;
@@ -804,21 +739,36 @@ namespace KemishMusic
         private FontAwesome.Sharp.IconButton btnHome;
         private System.Windows.Forms.Timer timerBarraMusic;
         private Guna.UI2.WinForms.Guna2MouseStateHandler guna2MouseStateHandler1;
-        private FontAwesome.Sharp.IconButton btnHomeRepro;
         private Guna.UI2.WinForms.Guna2Panel panelMusicaRe;
         private Guna.UI2.WinForms.Guna2PictureBox pbBar;
         private FontAwesome.Sharp.IconButton btnCancion;
         private Guna.UI2.WinForms.Guna2Panel panelOpciones;
         private Guna.UI2.WinForms.Guna2Button btnRegistrarse;
         private Guna.UI2.WinForms.Guna2Button btnIniciarSesion;
-        private Guna.UI2.WinForms.Guna2Button btnNav;
         private Guna.UI2.WinForms.Guna2Button btnCerrarSesion;
         private Guna.UI2.WinForms.Guna2PictureBox picMostrarCola;
         private System.Windows.Forms.Timer timerReproduccion;
-        private System.Windows.Forms.Label label3;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton btnAgregar;
+        private Guna.UI2.WinForms.Guna2ImageButton btnSig;
+        private Guna.UI2.WinForms.Guna2ImageButton btnPrev;
+        private Guna.UI2.WinForms.Guna2Button btnVerPerfil;
+        private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2Button btnNav;
+        private Guna.UI.WinForms.GunaControlBox gunaControlBox3;
+        private Guna.UI.WinForms.GunaControlBox gunaControlBox1;
+        private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private Guna.UI.WinForms.GunaLabel gunaLabel2;
+        private System.Windows.Forms.Label lblNombreCancion;
+        private System.Windows.Forms.Label lblColab;
+        private FontAwesome.Sharp.IconButton btnAgregar;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private Guna.UI2.WinForms.Guna2Panel panelCancionesHome;
+        private Guna.UI.WinForms.GunaLabel lblMensaje;
+        private Guna.UI.WinForms.GunaLabel lblMensajeCola;
     }
 }
 

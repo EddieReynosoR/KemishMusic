@@ -36,8 +36,8 @@ namespace KemishMusic
             string contraUsuario = txtContra.Text;
 
 
-            //Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;
-            SqlConnection cn = new SqlConnection(@"Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
+            
+            SqlConnection cn = Form1.GetConnection();
             cn.Open();
 
             string query = "SELECT * FROM usuario WHERE usuario_username = '" + nombreUsuario + "' AND usuario_contra = '" + contraUsuario + "'";
@@ -55,8 +55,17 @@ namespace KemishMusic
             if (reader.Read())
             {
                 Usuario.usuario = reader["usuario_username"].ToString();
+                Usuario.contra = reader["usuario_contra"].ToString();
+                Usuario.nombre = reader["usuario_nombre"].ToString();
+                Usuario.apellidop = reader["usuario_apellidop"].ToString();
+                Usuario.apellidom = reader["usuario_apellidom"].ToString();
+                Usuario.correo = reader["usuario_correo"].ToString();
+                Usuario.fechaNacimiento = (DateTime)reader["usuario_fnacimiento"];
                 Usuario.foto = (byte[])reader["usuario_fotoperfil"];
                 Usuario.id = reader["id_usuario"].ToString();
+                Usuario.fotoPortada = (byte[])reader["usuario_fportada"];
+                Usuario.descripcion = reader["usuario_descripcion"].ToString();
+                Usuario.nombreArtistico = reader["usuario_nombreartist"].ToString();
 
             }
             
@@ -65,6 +74,7 @@ namespace KemishMusic
                 MessageBox.Show("Datos correctos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Hide();
                 frm1.Show();
+                   
             }
             else
             {
@@ -79,18 +89,14 @@ namespace KemishMusic
         private void lblApp_Click(object sender, EventArgs e)
         {
             Hide();
-            Form1 frm1 = new Form1();
+            SignUp registrarse = new SignUp();
 
-            frm1.Show();
+            registrarse.Show();
         }
 
         private void gunaControlBox1_Click(object sender, EventArgs e)
         {
-            Hide();
-
-            Form1 frm1 = new Form1();
-
-            frm1.Show();
+            Application.Exit();
         }
     }
 }

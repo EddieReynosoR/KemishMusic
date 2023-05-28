@@ -23,9 +23,9 @@ namespace KemishMusic.Formularios
             Cancion cancion = new Cancion();
             cancion.getList();
         }
-        SqlConnection conexion = new SqlConnection("Data Source=YAHIR\\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
 
-        
+        SqlConnection conexion = Form1.GetConnection();
+
         public void CartasCancion()
         {
            // Cancion cancion = Cancion.lista[1];
@@ -64,7 +64,8 @@ namespace KemishMusic.Formularios
                
             }
             id = Convert.ToInt32(lblID.Text);
-            Cancion cancion = Cancion.lista[id-1];
+            Cancion cancion = Cancion.lista[id-2];
+           // Cancion cancion = Cancion.lista[id - 1];
 
             ((System.Windows.Forms.Label)cP.Controls["label1"]).Text = lblID.Text;
 

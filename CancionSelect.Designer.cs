@@ -30,11 +30,18 @@ namespace KemishMusic
         private void InitializeComponent()
         {
             this.cancionNombre = new Guna.UI.WinForms.GunaLabel();
-            this.picCancion = new Guna.UI.WinForms.GunaPictureBox();
             this.lblID = new System.Windows.Forms.Label();
-            this.picOpciones = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.panelOpciones = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnEditarCancion = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAgregarAPlaylist = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDespues = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAgregarFila = new Guna.UI2.WinForms.Guna2Button();
+            this.iconOpciones = new FontAwesome.Sharp.IconButton();
+            this.picCancion = new Guna.UI.WinForms.GunaPictureBox();
+            this.lblArtista = new System.Windows.Forms.Label();
+            this.lblIDUsuario = new System.Windows.Forms.Label();
+            this.panelOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCancion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picOpciones)).BeginInit();
             this.SuspendLayout();
             // 
             // cancionNombre
@@ -46,6 +53,115 @@ namespace KemishMusic
             this.cancionNombre.Size = new System.Drawing.Size(87, 25);
             this.cancionNombre.TabIndex = 8;
             this.cancionNombre.Text = "Nombre";
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(200, 250);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(46, 17);
+            this.lblID.TabIndex = 9;
+            this.lblID.Text = "label1";
+            this.lblID.Click += new System.EventHandler(this.lblID_Click);
+            // 
+            // panelOpciones
+            // 
+            this.panelOpciones.Controls.Add(this.btnEditarCancion);
+            this.panelOpciones.Controls.Add(this.btnAgregarAPlaylist);
+            this.panelOpciones.Controls.Add(this.btnDespues);
+            this.panelOpciones.Controls.Add(this.btnAgregarFila);
+            this.panelOpciones.Location = new System.Drawing.Point(327, 78);
+            this.panelOpciones.Name = "panelOpciones";
+            this.panelOpciones.ShadowDecoration.Parent = this.panelOpciones;
+            this.panelOpciones.Size = new System.Drawing.Size(160, 232);
+            this.panelOpciones.TabIndex = 12;
+            this.panelOpciones.Visible = false;
+            this.panelOpciones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelOpciones_Paint);
+            // 
+            // btnEditarCancion
+            // 
+            this.btnEditarCancion.CheckedState.Parent = this.btnEditarCancion;
+            this.btnEditarCancion.CustomImages.Parent = this.btnEditarCancion;
+            this.btnEditarCancion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEditarCancion.FillColor = System.Drawing.Color.White;
+            this.btnEditarCancion.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnEditarCancion.ForeColor = System.Drawing.Color.Black;
+            this.btnEditarCancion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnEditarCancion.HoverState.Parent = this.btnEditarCancion;
+            this.btnEditarCancion.Location = new System.Drawing.Point(0, 144);
+            this.btnEditarCancion.Name = "btnEditarCancion";
+            this.btnEditarCancion.ShadowDecoration.Parent = this.btnEditarCancion;
+            this.btnEditarCancion.Size = new System.Drawing.Size(160, 51);
+            this.btnEditarCancion.TabIndex = 3;
+            this.btnEditarCancion.Text = "Editar cancion";
+            this.btnEditarCancion.Visible = false;
+            this.btnEditarCancion.Click += new System.EventHandler(this.btnEditarCancion_Click);
+            // 
+            // btnAgregarAPlaylist
+            // 
+            this.btnAgregarAPlaylist.CheckedState.Parent = this.btnAgregarAPlaylist;
+            this.btnAgregarAPlaylist.CustomImages.Parent = this.btnAgregarAPlaylist;
+            this.btnAgregarAPlaylist.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAgregarAPlaylist.FillColor = System.Drawing.Color.White;
+            this.btnAgregarAPlaylist.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAgregarAPlaylist.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarAPlaylist.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAgregarAPlaylist.HoverState.Parent = this.btnAgregarAPlaylist;
+            this.btnAgregarAPlaylist.Location = new System.Drawing.Point(0, 93);
+            this.btnAgregarAPlaylist.Name = "btnAgregarAPlaylist";
+            this.btnAgregarAPlaylist.ShadowDecoration.Parent = this.btnAgregarAPlaylist;
+            this.btnAgregarAPlaylist.Size = new System.Drawing.Size(160, 51);
+            this.btnAgregarAPlaylist.TabIndex = 2;
+            this.btnAgregarAPlaylist.Text = "Agregar a playlist";
+            this.btnAgregarAPlaylist.Click += new System.EventHandler(this.btnAgregarAPlaylist_Click);
+            // 
+            // btnDespues
+            // 
+            this.btnDespues.CheckedState.Parent = this.btnDespues;
+            this.btnDespues.CustomImages.Parent = this.btnDespues;
+            this.btnDespues.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDespues.FillColor = System.Drawing.Color.White;
+            this.btnDespues.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDespues.ForeColor = System.Drawing.Color.Black;
+            this.btnDespues.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnDespues.HoverState.Parent = this.btnDespues;
+            this.btnDespues.Location = new System.Drawing.Point(0, 45);
+            this.btnDespues.Name = "btnDespues";
+            this.btnDespues.ShadowDecoration.Parent = this.btnDespues;
+            this.btnDespues.Size = new System.Drawing.Size(160, 48);
+            this.btnDespues.TabIndex = 1;
+            this.btnDespues.Text = "Reproducir después";
+            this.btnDespues.Click += new System.EventHandler(this.picOpciones_Click);
+            // 
+            // btnAgregarFila
+            // 
+            this.btnAgregarFila.CheckedState.Parent = this.btnAgregarFila;
+            this.btnAgregarFila.CustomImages.Parent = this.btnAgregarFila;
+            this.btnAgregarFila.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAgregarFila.FillColor = System.Drawing.Color.White;
+            this.btnAgregarFila.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAgregarFila.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarFila.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAgregarFila.HoverState.Parent = this.btnAgregarFila;
+            this.btnAgregarFila.Location = new System.Drawing.Point(0, 0);
+            this.btnAgregarFila.Name = "btnAgregarFila";
+            this.btnAgregarFila.ShadowDecoration.Parent = this.btnAgregarFila;
+            this.btnAgregarFila.Size = new System.Drawing.Size(160, 45);
+            this.btnAgregarFila.TabIndex = 0;
+            this.btnAgregarFila.Text = "Agregar a la fila";
+            this.btnAgregarFila.Click += new System.EventHandler(this.btnAgregarFila_Click);
+            // 
+            // iconOpciones
+            // 
+            this.iconOpciones.IconChar = FontAwesome.Sharp.IconChar.List;
+            this.iconOpciones.IconColor = System.Drawing.Color.Black;
+            this.iconOpciones.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconOpciones.Location = new System.Drawing.Point(321, 30);
+            this.iconOpciones.Name = "iconOpciones";
+            this.iconOpciones.Size = new System.Drawing.Size(52, 49);
+            this.iconOpciones.TabIndex = 11;
+            this.iconOpciones.UseVisualStyleBackColor = true;
+            this.iconOpciones.Click += new System.EventHandler(this.iconOpciones_Click);
             // 
             // picCancion
             // 
@@ -62,45 +178,43 @@ namespace KemishMusic
             this.picCancion.TabStop = false;
             this.picCancion.Click += new System.EventHandler(this.picCancion_Click);
             // 
-            // lblID
+            // lblArtista
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(200, 250);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(44, 16);
-            this.lblID.TabIndex = 9;
-            this.lblID.Text = "label1";
-            this.lblID.Click += new System.EventHandler(this.lblID_Click);
+            this.lblArtista.AutoSize = true;
+            this.lblArtista.Location = new System.Drawing.Point(54, 281);
+            this.lblArtista.Name = "lblArtista";
+            this.lblArtista.Size = new System.Drawing.Size(46, 17);
+            this.lblArtista.TabIndex = 13;
+            this.lblArtista.Text = "label1";
             // 
-            // picOpciones
+            // lblIDUsuario
             // 
-            this.picOpciones.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picOpciones.Image = global::KemishMusic.Properties.Resources._330634344_1228671984728501_5317193639878804641_n;
-            this.picOpciones.Location = new System.Drawing.Point(213, 284);
-            this.picOpciones.Name = "picOpciones";
-            this.picOpciones.ShadowDecoration.Parent = this.picOpciones;
-            this.picOpciones.Size = new System.Drawing.Size(33, 35);
-            this.picOpciones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picOpciones.TabIndex = 10;
-            this.picOpciones.TabStop = false;
-            this.picOpciones.Click += new System.EventHandler(this.picOpciones_Click);
-            this.picOpciones.MouseHover += new System.EventHandler(this.picOpciones_MouseHover);
+            this.lblIDUsuario.AutoSize = true;
+            this.lblIDUsuario.Location = new System.Drawing.Point(175, 281);
+            this.lblIDUsuario.Name = "lblIDUsuario";
+            this.lblIDUsuario.Size = new System.Drawing.Size(46, 17);
+            this.lblIDUsuario.TabIndex = 14;
+            this.lblIDUsuario.Text = "label1";
+            this.lblIDUsuario.Visible = false;
             // 
             // CancionSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.picOpciones);
+            this.Controls.Add(this.lblIDUsuario);
+            this.Controls.Add(this.lblArtista);
+            this.Controls.Add(this.panelOpciones);
+            this.Controls.Add(this.iconOpciones);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.cancionNombre);
             this.Controls.Add(this.picCancion);
             this.Name = "CancionSelect";
-            this.Size = new System.Drawing.Size(426, 379);
+            this.Size = new System.Drawing.Size(490, 379);
             this.Load += new System.EventHandler(this.CancionSelect_Load);
             this.Click += new System.EventHandler(this.CancionSelect_Click);
+            this.panelOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picCancion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picOpciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,6 +225,13 @@ namespace KemishMusic
         private Guna.UI.WinForms.GunaPictureBox picCancion;
         private Guna.UI.WinForms.GunaLabel cancionNombre;
         private System.Windows.Forms.Label lblID;
-        private Guna.UI2.WinForms.Guna2PictureBox picOpciones;
+        private FontAwesome.Sharp.IconButton iconOpciones;
+        private Guna.UI2.WinForms.Guna2Panel panelOpciones;
+        private Guna.UI2.WinForms.Guna2Button btnAgregarAPlaylist;
+        private Guna.UI2.WinForms.Guna2Button btnDespues;
+        private Guna.UI2.WinForms.Guna2Button btnAgregarFila;
+        private Guna.UI2.WinForms.Guna2Button btnEditarCancion;
+        private System.Windows.Forms.Label lblArtista;
+        private System.Windows.Forms.Label lblIDUsuario;
     }
 }

@@ -29,16 +29,62 @@ namespace KemishMusic
         /// </summary>
         private void InitializeComponent()
         {
-            this.picCancionRep = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.lblNombreCancion = new Guna.UI.WinForms.GunaLabel();
             this.lblAutor = new Guna.UI.WinForms.GunaLabel();
-            this.picReproduccion = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblID = new System.Windows.Forms.Label();
             this.MusicaRepro = new Guna.UI2.WinForms.Guna2Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.picCancionRep)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picReproduccion)).BeginInit();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.picCancionRep = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.lblNombreCancion = new Guna.UI.WinForms.GunaLabel();
             this.MusicaRepro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCancionRep)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblAutor
+            // 
+            this.lblAutor.AutoSize = true;
+            this.lblAutor.Font = new System.Drawing.Font("Circular Std Book", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAutor.Location = new System.Drawing.Point(121, 63);
+            this.lblAutor.Name = "lblAutor";
+            this.lblAutor.Size = new System.Drawing.Size(45, 18);
+            this.lblAutor.TabIndex = 2;
+            this.lblAutor.Text = "Autor";
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(986, 44);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(46, 17);
+            this.lblID.TabIndex = 4;
+            this.lblID.Text = "label1";
+            this.lblID.Click += new System.EventHandler(this.lblID_Click);
+            // 
+            // MusicaRepro
+            // 
+            this.MusicaRepro.Controls.Add(this.lblEstado);
+            this.MusicaRepro.Controls.Add(this.picCancionRep);
+            this.MusicaRepro.Controls.Add(this.lblID);
+            this.MusicaRepro.Controls.Add(this.lblNombreCancion);
+            this.MusicaRepro.Controls.Add(this.lblAutor);
+            this.MusicaRepro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MusicaRepro.Location = new System.Drawing.Point(0, 0);
+            this.MusicaRepro.Name = "MusicaRepro";
+            this.MusicaRepro.ShadowDecoration.Parent = this.MusicaRepro;
+            this.MusicaRepro.Size = new System.Drawing.Size(1060, 110);
+            this.MusicaRepro.TabIndex = 5;
+            this.MusicaRepro.Click += new System.EventHandler(this.MusicaRepro_Click_1);
+            this.MusicaRepro.Paint += new System.Windows.Forms.PaintEventHandler(this.MusicaRepro_Paint);
+            this.MusicaRepro.MouseLeave += new System.EventHandler(this.MusicaRepro_MouseLeave);
+            this.MusicaRepro.MouseHover += new System.EventHandler(this.MusicaRepro_MouseHover);
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Font = new System.Drawing.Font("Circular Std Book", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Location = new System.Drawing.Point(804, 42);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(0, 22);
+            this.lblEstado.TabIndex = 5;
             // 
             // picCancionRep
             // 
@@ -63,52 +109,6 @@ namespace KemishMusic
             this.lblNombreCancion.Text = "NombreCancion";
             this.lblNombreCancion.Click += new System.EventHandler(this.lblNombreCancion_Click);
             // 
-            // lblAutor
-            // 
-            this.lblAutor.AutoSize = true;
-            this.lblAutor.Font = new System.Drawing.Font("Circular Std Book", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAutor.Location = new System.Drawing.Point(121, 63);
-            this.lblAutor.Name = "lblAutor";
-            this.lblAutor.Size = new System.Drawing.Size(43, 16);
-            this.lblAutor.TabIndex = 2;
-            this.lblAutor.Text = "Autor";
-            // 
-            // picReproduccion
-            // 
-            this.picReproduccion.Location = new System.Drawing.Point(980, 29);
-            this.picReproduccion.Name = "picReproduccion";
-            this.picReproduccion.ShadowDecoration.Parent = this.picReproduccion;
-            this.picReproduccion.Size = new System.Drawing.Size(50, 50);
-            this.picReproduccion.TabIndex = 3;
-            this.picReproduccion.TabStop = false;
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(916, 44);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(46, 17);
-            this.lblID.TabIndex = 4;
-            this.lblID.Text = "label1";
-            // 
-            // MusicaRepro
-            // 
-            this.MusicaRepro.Controls.Add(this.picCancionRep);
-            this.MusicaRepro.Controls.Add(this.picReproduccion);
-            this.MusicaRepro.Controls.Add(this.lblID);
-            this.MusicaRepro.Controls.Add(this.lblNombreCancion);
-            this.MusicaRepro.Controls.Add(this.lblAutor);
-            this.MusicaRepro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MusicaRepro.Location = new System.Drawing.Point(0, 0);
-            this.MusicaRepro.Name = "MusicaRepro";
-            this.MusicaRepro.ShadowDecoration.Parent = this.MusicaRepro;
-            this.MusicaRepro.Size = new System.Drawing.Size(1060, 110);
-            this.MusicaRepro.TabIndex = 5;
-            this.MusicaRepro.Click += new System.EventHandler(this.MusicaRepro_Click_1);
-            this.MusicaRepro.Paint += new System.Windows.Forms.PaintEventHandler(this.MusicaRepro_Paint);
-            this.MusicaRepro.MouseLeave += new System.EventHandler(this.MusicaRepro_MouseLeave);
-            this.MusicaRepro.MouseHover += new System.EventHandler(this.MusicaRepro_MouseHover);
-            // 
             // MusicaRepr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -118,10 +118,9 @@ namespace KemishMusic
             this.Size = new System.Drawing.Size(1060, 110);
             this.Load += new System.EventHandler(this.MusicaRepro_Load);
             this.Click += new System.EventHandler(this.MusicaRepro_Click);
-            ((System.ComponentModel.ISupportInitialize)(this.picCancionRep)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picReproduccion)).EndInit();
             this.MusicaRepro.ResumeLayout(false);
             this.MusicaRepro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCancionRep)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -129,10 +128,10 @@ namespace KemishMusic
         #endregion
 
         private Guna.UI2.WinForms.Guna2PictureBox picCancionRep;
-        private Guna.UI.WinForms.GunaLabel lblNombreCancion;
         private Guna.UI.WinForms.GunaLabel lblAutor;
-        private Guna.UI2.WinForms.Guna2PictureBox picReproduccion;
         private System.Windows.Forms.Label lblID;
         private Guna.UI2.WinForms.Guna2Panel MusicaRepro;
+        private System.Windows.Forms.Label lblEstado;
+        private Guna.UI.WinForms.GunaLabel lblNombreCancion;
     }
 }

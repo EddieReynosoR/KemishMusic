@@ -6,10 +6,29 @@ using System.Threading.Tasks;
 
 namespace KemishMusic
 {
-    class Usuario
+    public class Usuario
     {
         public static string id { get; set; }
         public static string usuario { get; set; }
+
+        public static string contra { get; set; }
+
+        public static string nombre { get; set; }
+        public static string apellidop { get; set; }
+        public static string apellidom { get; set; }
+
+        public static string correo { get; set; }
+
+        public static DateTime fechaNacimiento { get; set; }
+
         public static byte[] foto { get; set; }
+
+        public static byte[] fotoPortada { get; set; }
+
+        public static string descripcion { get; set; }
+
+        public static string nombreArtistico { get; set; }
+
+
     }
 }

@@ -15,6 +15,7 @@ namespace KemishMusic.Formularios
 {
     public partial class Playlist : Form
     {
+        public List<string> listaColaboradores = new List<string>();
         public Playlist()
         {
             InitializeComponent();
@@ -31,11 +32,34 @@ namespace KemishMusic.Formularios
             dlg.ShowDialog();
 
             txtImagen.Text = dlg.FileName;
+
+            picCancion.Image = new Bitmap(dlg.FileName);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             GuardarArchivo(txtImagen.Text, txtAudio.Text);
+        }
+
+
+        public void RellenarComboBoxColaboradores()
+        {
+            SqlConnection cn = Form1.GetConnection();
+
+            cn.Open();
+
+            string query = "SELECT id_usuario, usuario_nombreartist FROM usuario WHERE id_usuario != '" + Usuario.id +"'";
+
+
+            SqlCommand cmd = new SqlCommand(query, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                cmbColaboradores.Items.Add(dr["id_usuario"].ToString()+" "+dr["usuario_nombreartist"].ToString());
+            }
+
+            cn.Close();
         }
 
         public void GuardarArchivo(string archivoImagen, string archivoAudio)
@@ -75,14 +99,14 @@ namespace KemishMusic.Formularios
 
 
 
-                    string query = "INSERT INTO cancion(cancion_nombre,cancion_imagen,cancion_audionombre,cancion_fechaestreno)VALUES(@nombre,@imagen,@audio,@fecha)";
+                    string query = "INSERT INTO cancion(cancion_nombre,cancion_imagen,cancion_audionombre,cancion_fechaestreno, usuario_id_usuario)VALUES(@nombre,@imagen,@audio,@fecha, @usuario_id_usuario)";
 
                     //var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
                     //stream.CopyTo(fileStream);
 
                     //fileStream.Dispose();
 
-                    using (SqlConnection cn = GetConnection())
+                    using (SqlConnection cn = Form1.GetConnection())
                     {
                         
                         SqlCommand cmd = new SqlCommand(query, cn);
@@ -98,25 +122,60 @@ namespace KemishMusic.Formularios
 
                         cmd.Parameters.AddWithValue("@fecha", DateTime.Now.Date);
 
-                        
+                        cmd.Parameters.AddWithValue("@usuario_id_usuario", Usuario.id);
+
+
                         cmd.ExecuteNonQuery();
+
+
+                        if (cmbColaboradores.SelectedIndex != -1)
+                        {
+
+                            using (SqlConnection cn2 = Form1.GetConnection())
+                            {
+                                string query2;
+                                query2 = "INSERT INTO colaboracion (cancion_cancion_id, usuario_usuario_id) VALUES ((SELECT MAX(cancion_id) FROM cancion), @usuario_usuario_id)";
+                                foreach (string colaborador in listaColaboradores)
+                                {
+
+                                    SqlCommand cmd2 = new SqlCommand(query2, cn2);
+
+                                    cn2.Open();
+
+
+
+                                    cmd2.Parameters.AddWithValue("@usuario_usuario_id", colaborador.Split()[0]);
+
+
+
+                                    cmd2.ExecuteNonQuery();
+                                }
+                            }
+                        }
                     }
                 }
             }
 
 
-            string path = frm1.Path();
+            string path = frm1.PathGlobal();
 
 
-            File.Copy(@archivoAudio, Path.Combine(path, Path.GetFileName(archivoAudio)));
+            File.Copy(@archivoAudio, Path.Combine(path, Path.GetFileName(archivoAudio)), true);
+            File.SetAttributes(Path.Combine(path, Path.GetFileName(archivoAudio)), FileAttributes.Normal);
+
+
+            DialogResult dialog = MessageBox.Show("Canción añadida correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            if(dialog == DialogResult.OK)
+            {
+                Application.Restart();
+            }
+            else
+                Application.Restart();
         }
         
 
-        private SqlConnection GetConnection()
-        {
-           // Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;
-            return new SqlConnection(@"Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
-        }
+        
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
@@ -129,7 +188,7 @@ namespace KemishMusic.Formularios
 
         private void Playlist_Load(object sender, EventArgs e)
         {
-
+            RellenarComboBoxColaboradores();
         }
 
         private void gunaLabel4_Click(object sender, EventArgs e)
@@ -138,6 +197,24 @@ namespace KemishMusic.Formularios
         }
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInsertarColab_Click(object sender, EventArgs e)
+        {
+            listaColaboradores.Add(cmbColaboradores.SelectedItem.ToString());
+
+            lblListaColab.Text = "";
+
+
+            foreach (string colaborador in listaColaboradores) 
+            {
+                lblListaColab.Text += colaborador.Split()[1] + "\n";
+            }
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

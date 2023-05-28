@@ -1,0 +1,394 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
+
+namespace KemishMusic
+{
+    public partial class EditarUsuario : Form
+    {
+        public static List<string> listaAudios = new List<string>();
+        public EditarUsuario()
+        {
+            InitializeComponent();
+        }
+
+        private void EditarUsuario_Load(object sender, EventArgs e)
+        {
+            txtUsuario.Text = Usuario.usuario;
+            txtNombreArtistico.Text = Usuario.nombreArtistico;
+            txtContra.Text = Usuario.contra;
+            txtNombre.Text = Usuario.nombre;
+            txtCorreo.Text = Usuario.correo;
+            txtApellidoP.Text = Usuario.apellidop;
+            txtApellidoM.Text = Usuario.apellidom;
+
+            fechaNacimientoT.Value = Usuario.fechaNacimiento;
+
+            picUsuario.Image = (Bitmap)new ImageConverter().ConvertFrom(Usuario.foto);
+
+            picPortada.Image = (Bitmap)new ImageConverter().ConvertFrom(Usuario.fotoPortada);
+        }
+
+        public void EditarUsuarioFuncion(string fotoperfil, string fotoportada)
+        {
+            using (Stream stream = File.OpenRead(fotoperfil))
+            {
+                using (Stream stream2 = File.OpenRead(fotoportada))
+                {
+                    FileStream fs = stream as FileStream;
+                    FileStream fs2 = stream2 as FileStream;
+
+                    byte[] buffer = new byte[stream.Length];
+                    byte[] buffer2 = new byte[stream2.Length];
+
+
+
+
+
+
+
+                    stream.Read(buffer, 0, buffer.Length);
+                    stream2.Read(buffer2, 0, buffer2.Length);
+                    SqlConnection cn = Form1.GetConnection();
+
+                    cn.Open();
+
+                    string query = "UPDATE usuario SET usuario_username = @usuario_username, usuario_contra = @usuario_contra, usuario_nombre = @usuario_nombre,  usuario_apellidop = @usuario_apellidop, usuario_apellidom = @usuario_apellidom, usuario_fotoperfil = @usuario_fotoperfil, usuario_correo = @usuario_correo, usuario_fnacimiento = @usuario_fnacimiento, usuario_descripcion = @usuario_descripcion, usuario_fportada = @usuario_fportada, usuario_nombreartist = @usuario_nombreartist WHERE id_usuario = '" + Usuario.id + "'";
+
+
+                    SqlCommand cmd = new SqlCommand(query, cn);
+
+                    cmd.Parameters.AddWithValue("@usuario_username", txtUsuario.Text);
+
+                    cmd.Parameters.AddWithValue("@usuario_contra", txtContra.Text);
+
+                    cmd.Parameters.AddWithValue("@usuario_nombre", txtNombre.Text);
+
+                    cmd.Parameters.AddWithValue("@usuario_apellidop", txtApellidoP.Text);
+
+                    cmd.Parameters.AddWithValue("@usuario_apellidom", txtApellidoM.Text);
+
+                    cmd.Parameters.AddWithValue("@usuario_fotoperfil", buffer);
+
+                    cmd.Parameters.AddWithValue("@usuario_correo", txtCorreo.Text);
+
+                    cmd.Parameters.AddWithValue("@usuario_fnacimiento", fechaNacimientoT.Value.Date);
+
+                    cmd.Parameters.AddWithValue("@usuario_descripcion", txtDescripcion.Text);
+
+                    cmd.Parameters.AddWithValue("@usuario_fportada", buffer2);
+
+                    cmd.Parameters.AddWithValue("@usuario_nombreartist", txtNombreArtistico.Text);
+
+                    cmd.ExecuteNonQuery();
+
+
+
+                    cn.Close();
+
+                    MessageBox.Show("Datos actualizados. Cerrando sesión...");
+
+
+                    Application.Restart();
+                }
+            }
+        }
+        public void EditarUsuarioFuncion2(string fotoportada)
+        {
+            
+            using (Stream stream2 = File.OpenRead(fotoportada))
+            {
+                FileStream fs2 = stream2 as FileStream;
+
+                byte[] buffer2 = new byte[stream2.Length];
+
+
+
+
+
+
+
+                stream2.Read(buffer2, 0, buffer2.Length);
+                SqlConnection cn = Form1.GetConnection();
+
+                cn.Open();
+
+                string query = "UPDATE usuario SET usuario_username = @usuario_username, usuario_contra = @usuario_contra, usuario_nombre = @usuario_nombre,  usuario_apellidop = @usuario_apellidop, usuario_apellidom = @usuario_apellidom, usuario_correo = @usuario_correo, usuario_fnacimiento = @usuario_fnacimiento, usuario_descripcion = @usuario_descripcion, usuario_fportada = @usuario_fportada, usuario_nombreartist = @usuario_nombreartist WHERE id_usuario = '" + Usuario.id + "'";
+
+
+                SqlCommand cmd = new SqlCommand(query, cn);
+
+                cmd.Parameters.AddWithValue("@usuario_username", txtUsuario.Text);
+
+                cmd.Parameters.AddWithValue("@usuario_contra", txtContra.Text);
+
+                cmd.Parameters.AddWithValue("@usuario_nombre", txtNombre.Text);
+
+                cmd.Parameters.AddWithValue("@usuario_apellidop", txtApellidoP.Text);
+
+                cmd.Parameters.AddWithValue("@usuario_apellidom", txtApellidoM.Text);
+
+
+                cmd.Parameters.AddWithValue("@usuario_correo", txtCorreo.Text);
+
+                cmd.Parameters.AddWithValue("@usuario_fnacimiento", fechaNacimientoT.Value.Date);
+
+                cmd.Parameters.AddWithValue("@usuario_descripcion", txtDescripcion.Text);
+
+                cmd.Parameters.AddWithValue("@usuario_fportada", buffer2);
+
+                cmd.Parameters.AddWithValue("@usuario_nombreartist", txtNombreArtistico.Text);
+
+                cmd.ExecuteNonQuery();
+
+
+
+                cn.Close();
+
+                MessageBox.Show("Datos actualizados. Cerrando sesión...");
+
+
+                Application.Restart();
+            }
+            
+        }
+        public void EditarUsuarioFuncion3(string fotoperfil)
+        {
+            using (Stream stream = File.OpenRead(fotoperfil))
+            {
+                
+                FileStream fs = stream as FileStream;
+
+                byte[] buffer = new byte[stream.Length];
+
+
+
+
+
+
+
+                stream.Read(buffer, 0, buffer.Length);
+                SqlConnection cn = Form1.GetConnection();
+
+                cn.Open();
+
+                string query = "UPDATE usuario SET usuario_username = @usuario_username, usuario_contra = @usuario_contra, usuario_nombre = @usuario_nombre,  usuario_apellidop = @usuario_apellidop, usuario_apellidom = @usuario_apellidom, usuario_fotoperfil = @usuario_fotoperfil, usuario_correo = @usuario_correo, usuario_fnacimiento = @usuario_fnacimiento, usuario_descripcion = @usuario_descripcion, usuario_nombreartist = @usuario_nombreartist WHERE id_usuario = '" + Usuario.id + "'";
+
+
+                SqlCommand cmd = new SqlCommand(query, cn);
+
+                cmd.Parameters.AddWithValue("@usuario_username", txtUsuario.Text);
+
+                cmd.Parameters.AddWithValue("@usuario_contra", txtContra.Text);
+
+                cmd.Parameters.AddWithValue("@usuario_nombre", txtNombre.Text);
+
+                cmd.Parameters.AddWithValue("@usuario_apellidop", txtApellidoP.Text);
+
+                cmd.Parameters.AddWithValue("@usuario_apellidom", txtApellidoM.Text);
+
+                cmd.Parameters.AddWithValue("@usuario_fotoperfil", buffer);
+
+                cmd.Parameters.AddWithValue("@usuario_correo", txtCorreo.Text);
+
+                cmd.Parameters.AddWithValue("@usuario_fnacimiento", fechaNacimientoT.Value.Date);
+
+                cmd.Parameters.AddWithValue("@usuario_descripcion", txtDescripcion.Text);
+
+
+                cmd.Parameters.AddWithValue("@usuario_nombreartist", txtNombreArtistico.Text);
+
+                cmd.ExecuteNonQuery();
+
+
+
+                cn.Close();
+
+                MessageBox.Show("Datos actualizados. Cerrando sesión...");
+
+
+                Application.Restart();
+                
+            }
+        }
+
+        public void EditarUsuarioFuncion4()
+        {
+            SqlConnection cn = Form1.GetConnection();
+
+            cn.Open();
+
+            string query = "UPDATE usuario SET usuario_username = @usuario_username, usuario_contra = @usuario_contra, usuario_nombre = @usuario_nombre,  usuario_apellidop = @usuario_apellidop, usuario_apellidom = @usuario_apellidom, usuario_correo = @usuario_correo, usuario_fnacimiento = @usuario_fnacimiento, usuario_descripcion = @usuario_descripcion, usuario_nombreartist = @usuario_nombreartist WHERE id_usuario = '" + Usuario.id + "'";
+
+
+            SqlCommand cmd = new SqlCommand(query, cn);
+
+            cmd.Parameters.AddWithValue("@usuario_username", txtUsuario.Text);
+
+            cmd.Parameters.AddWithValue("@usuario_contra", txtContra.Text);
+
+            cmd.Parameters.AddWithValue("@usuario_nombre", txtNombre.Text);
+
+            cmd.Parameters.AddWithValue("@usuario_apellidop", txtApellidoP.Text);
+
+            cmd.Parameters.AddWithValue("@usuario_apellidom", txtApellidoM.Text);
+
+            cmd.Parameters.AddWithValue("@usuario_correo", txtCorreo.Text);
+
+            cmd.Parameters.AddWithValue("@usuario_fnacimiento", fechaNacimientoT.Value.Date);
+
+            cmd.Parameters.AddWithValue("@usuario_descripcion", txtDescripcion.Text);
+
+
+            cmd.Parameters.AddWithValue("@usuario_nombreartist", txtNombreArtistico.Text);
+
+            cmd.ExecuteNonQuery();
+
+
+
+            cn.Close();
+
+            MessageBox.Show("Datos actualizados. Cerrando sesión...");
+
+
+            Application.Restart();
+
+            
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (label1.Text != "" && label2.Text != "")
+                EditarUsuarioFuncion(label1.Text, label2.Text);
+            else if (label1.Text == "" && label2.Text != "")
+                EditarUsuarioFuncion2(label2.Text);
+            else if (label1.Text != "" && label2.Text == "")
+                EditarUsuarioFuncion3(label1.Text);
+            else if (label1.Text == "" && label2.Text == "")
+                EditarUsuarioFuncion4();
+            
+        }
+
+        private void btnInsertarFoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+
+            dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
+
+            dlg.ShowDialog();
+
+            label1.Text = dlg.FileName;
+            picUsuario.Image = new Bitmap(dlg.FileName);
+        }
+
+        private void btnInsertarPortada_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+
+            dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
+
+            dlg.ShowDialog();
+
+            label2.Text = dlg.FileName;
+            picPortada.Image = new Bitmap(dlg.FileName);
+        }
+
+        public void ObtenerCancionParaEliminar(string idUsuario)
+        {
+            SqlConnection cn = Form1.GetConnection();
+
+            cn.Open();
+
+            string query = "SELECT cancion_audionombre FROM cancion WHERE usuario_id_usuario = '" + idUsuario + "'";
+
+
+            SqlCommand cmd = new SqlCommand(query, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                listaAudios.Add(dr["cancion_audionombre"].ToString());
+            }
+
+            cn.Close();
+        }
+
+        private void btnEliminarCuenta_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("¿Estás segur@ de que quieres eliminar tu cuenta junto con todos sus datos y canciones?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                
+
+                SqlConnection cn = Form1.GetConnection();
+                cn.Open();
+
+                SqlCommand elimina4 = new SqlCommand("DELETE FROM enlistar WHERE cancion_cancion_id IN (SELECT cancion_id FROM cancion WHERE usuario_id_usuario = '"+Usuario.id+"')", cn);
+
+                elimina4.ExecuteNonQuery();
+
+                ObtenerCancionParaEliminar(Usuario.id);
+
+
+                SqlCommand elimina3 = new SqlCommand("DELETE FROM cancion WHERE usuario_id_usuario=@usuario_id_usuario", cn);
+                elimina3.Parameters.AddWithValue("@usuario_id_usuario", Usuario.id);
+
+                elimina3.ExecuteNonQuery();
+
+                Form1 frm1 = new Form1();
+                string path = frm1.PathGlobal();
+
+                foreach (string cancionAudio in listaAudios)
+                {
+                    File.SetAttributes(Path.Combine(path, Path.GetFileName(cancionAudio)), FileAttributes.Normal);
+                    File.Delete(Path.Combine(path, Path.GetFileName(cancionAudio)));
+                }
+
+                SqlCommand elimina2 = new SqlCommand("DELETE FROM playlist WHERE usuario_id_usuario=@usuario_id_usuario", cn);
+                elimina2.Parameters.AddWithValue("@usuario_id_usuario", Usuario.id);
+
+                elimina2.ExecuteNonQuery();
+
+                
+
+                
+
+                
+
+                SqlCommand elimina = new SqlCommand("DELETE FROM colaboracion WHERE usuario_usuario_id = '"+Usuario.id+"'", cn);
+
+                elimina.ExecuteNonQuery();
+
+
+                SqlCommand elimina5 = new SqlCommand("DELETE FROM usuario WHERE id_usuario = '" + Usuario.id + "'", cn);
+
+                elimina5.ExecuteNonQuery();
+
+
+
+
+
+
+
+                MessageBox.Show("Cuenta eliminada.");
+
+                cn.Close();
+
+
+
+
+                Application.Restart();
+            }
+        }
+    }
+}

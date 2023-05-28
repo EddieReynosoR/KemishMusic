@@ -174,11 +174,11 @@ namespace KemishMusic
             // 
             this.lblApp.AutoSize = true;
             this.lblApp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblApp.Location = new System.Drawing.Point(92, 462);
+            this.lblApp.Location = new System.Drawing.Point(141, 462);
             this.lblApp.Name = "lblApp";
-            this.lblApp.Size = new System.Drawing.Size(189, 17);
+            this.lblApp.Size = new System.Drawing.Size(81, 17);
             this.lblApp.TabIndex = 25;
-            this.lblApp.Text = "Usar la app sin iniciar sesión";
+            this.lblApp.Text = "Registrarse";
             this.lblApp.Click += new System.EventHandler(this.lblApp_Click);
             // 
             // Login
@@ -198,6 +198,7 @@ namespace KemishMusic
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);

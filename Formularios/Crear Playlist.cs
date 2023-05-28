@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Data.SqlClient;
 
 namespace KemishMusic.Formularios
 {
@@ -18,36 +20,98 @@ namespace KemishMusic.Formularios
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            AgregarCanciones ag = new AgregarCanciones();
-
-
-            ag.Show();
-
-            this.Hide();
+            
 
         }
-        int id;
+        
 
         private void Crear_Playlist_Load(object sender, EventArgs e)
         {
-            if (label1.Text != "label1")
+            
+
+        }
+
+        private void btnSeleccionarImagenPlaylist_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+
+            dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
+
+            dlg.ShowDialog();
+
+            lblRutaImagen.Text = dlg.FileName;
+
+            picPlaylistNueva.Image = new Bitmap(dlg.FileName);
+        }
+
+        private void btnInsertarPlaylist_Click(object sender, EventArgs e)
+        {
+            GuardarPlaylist(lblRutaImagen.Text);
+        }
+
+        public void GuardarPlaylist(string rutaImagen)
+        {
+            using(Stream stream = File.OpenRead(rutaImagen))
             {
-                id = Convert.ToInt32(label1.Text);
-
-                Cancion cancion = Cancion.lista[id - 1];
-
-                
-
-                CancionSelect carta = new CancionSelect();
-
-                carta.CancionDetalles(cancion);
+                byte[] buffer = new byte[stream.Length];
 
 
-                carta.Dock = DockStyle.Left;
-                panelAgregar.Controls.Add(carta);
 
+
+
+
+
+                stream.Read(buffer, 0, buffer.Length);
+
+
+
+                PlaylistClase guardar = new PlaylistClase();
+
+                guardar.nombre = txtPlaylist.Text;
+
+
+                guardar.imagen = buffer;
+
+
+
+
+
+                string query = "INSERT INTO playlist(playlist_nombre, playlist_imagen, usuario_id_usuario)VALUES(@playlist_nombre, @playlist_imagen, @usuario_id_usuario)";
+
+                //var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
+                //stream.CopyTo(fileStream);
+
+                //fileStream.Dispose();
+
+                using (SqlConnection cn = Form1.GetConnection())
+                {
+
+                    SqlCommand cmd = new SqlCommand(query, cn);
+
+                    cn.Open();
+
+
+                    cmd.Parameters.AddWithValue("@playlist_nombre", guardar.nombre);
+
+                    cmd.Parameters.AddWithValue("@playlist_imagen", guardar.imagen);
+
+                    cmd.Parameters.AddWithValue("@usuario_id_usuario", Usuario.id);
+
+
+                    cmd.ExecuteNonQuery();
+
+
+                    
+                }
             }
+            DialogResult dialog = MessageBox.Show("Playlist añadida correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            if (dialog == DialogResult.OK)
+            {
+                Application.Restart();
+            }
+            else
+                Application.Restart();
         }
     }
 }

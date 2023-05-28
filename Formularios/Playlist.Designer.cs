@@ -37,6 +37,16 @@
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.btnGuardar = new Guna.UI2.WinForms.Guna2Button();
+            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
+            this.picCancion = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
+            this.cmbColaboradores = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
+            this.lblListaColab = new Guna.UI.WinForms.GunaLabel();
+            this.btnInsertarColab = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.picCancion)).BeginInit();
+            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -52,14 +62,14 @@
             this.txtNombre.FocusedState.Parent = this.txtNombre;
             this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombre.HoverState.Parent = this.txtNombre;
-            this.txtNombre.Location = new System.Drawing.Point(35, 72);
+            this.txtNombre.Location = new System.Drawing.Point(12, 55);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PasswordChar = '\0';
             this.txtNombre.PlaceholderText = "";
             this.txtNombre.SelectedText = "";
             this.txtNombre.ShadowDecoration.Parent = this.txtNombre;
-            this.txtNombre.Size = new System.Drawing.Size(267, 44);
+            this.txtNombre.Size = new System.Drawing.Size(351, 44);
             this.txtNombre.TabIndex = 0;
             // 
             // txtImagen
@@ -75,14 +85,14 @@
             this.txtImagen.FocusedState.Parent = this.txtImagen;
             this.txtImagen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtImagen.HoverState.Parent = this.txtImagen;
-            this.txtImagen.Location = new System.Drawing.Point(35, 253);
+            this.txtImagen.Location = new System.Drawing.Point(7, 147);
             this.txtImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtImagen.Name = "txtImagen";
             this.txtImagen.PasswordChar = '\0';
             this.txtImagen.PlaceholderText = "";
             this.txtImagen.SelectedText = "";
             this.txtImagen.ShadowDecoration.Parent = this.txtImagen;
-            this.txtImagen.Size = new System.Drawing.Size(659, 44);
+            this.txtImagen.Size = new System.Drawing.Size(351, 44);
             this.txtImagen.TabIndex = 2;
             // 
             // txtAudio
@@ -98,14 +108,14 @@
             this.txtAudio.FocusedState.Parent = this.txtAudio;
             this.txtAudio.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAudio.HoverState.Parent = this.txtAudio;
-            this.txtAudio.Location = new System.Drawing.Point(35, 396);
+            this.txtAudio.Location = new System.Drawing.Point(7, 290);
             this.txtAudio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAudio.Name = "txtAudio";
             this.txtAudio.PasswordChar = '\0';
             this.txtAudio.PlaceholderText = "";
             this.txtAudio.SelectedText = "";
             this.txtAudio.ShadowDecoration.Parent = this.txtAudio;
-            this.txtAudio.Size = new System.Drawing.Size(659, 44);
+            this.txtAudio.Size = new System.Drawing.Size(351, 44);
             this.txtAudio.TabIndex = 3;
             // 
             // guna2Button1
@@ -115,7 +125,7 @@
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(70, 307);
+            this.guna2Button1.Location = new System.Drawing.Point(22, 203);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
             this.guna2Button1.Size = new System.Drawing.Size(180, 45);
@@ -130,7 +140,7 @@
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Location = new System.Drawing.Point(70, 456);
+            this.guna2Button2.Location = new System.Drawing.Point(22, 348);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
             this.guna2Button2.Size = new System.Drawing.Size(180, 45);
@@ -142,40 +152,42 @@
             // 
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel1.Location = new System.Drawing.Point(31, 48);
+            this.gunaLabel1.Location = new System.Drawing.Point(18, 23);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(64, 20);
+            this.gunaLabel1.Size = new System.Drawing.Size(156, 20);
             this.gunaLabel1.TabIndex = 6;
-            this.gunaLabel1.Text = "Nombre";
+            this.gunaLabel1.Text = "Nombre de la canción";
             // 
             // gunaLabel2
             // 
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel2.Location = new System.Drawing.Point(31, 214);
+            this.gunaLabel2.Location = new System.Drawing.Point(3, 117);
             this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(59, 20);
+            this.gunaLabel2.Size = new System.Drawing.Size(149, 20);
             this.gunaLabel2.TabIndex = 7;
-            this.gunaLabel2.Text = "Imagen";
+            this.gunaLabel2.Text = "Imagen seleccionada";
             // 
             // gunaLabel3
             // 
             this.gunaLabel3.AutoSize = true;
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel3.Location = new System.Drawing.Point(36, 372);
+            this.gunaLabel3.Location = new System.Drawing.Point(8, 266);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(49, 20);
+            this.gunaLabel3.Size = new System.Drawing.Size(140, 20);
             this.gunaLabel3.TabIndex = 8;
-            this.gunaLabel3.Text = "Audio";
+            this.gunaLabel3.Text = "Audio seleccionado";
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BorderRadius = 20;
             this.btnGuardar.CheckedState.Parent = this.btnGuardar;
             this.btnGuardar.CustomImages.Parent = this.btnGuardar;
+            this.btnGuardar.FillColor = System.Drawing.Color.Gray;
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.HoverState.Parent = this.btnGuardar;
-            this.btnGuardar.Location = new System.Drawing.Point(588, 456);
+            this.btnGuardar.Location = new System.Drawing.Point(504, 389);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.ShadowDecoration.Parent = this.btnGuardar;
             this.btnGuardar.Size = new System.Drawing.Size(180, 45);
@@ -183,25 +195,131 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // gunaLabel4
+            // 
+            this.gunaLabel4.AutoSize = true;
+            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel4.Location = new System.Drawing.Point(474, 23);
+            this.gunaLabel4.Name = "gunaLabel4";
+            this.gunaLabel4.Size = new System.Drawing.Size(149, 20);
+            this.gunaLabel4.TabIndex = 10;
+            this.gunaLabel4.Text = "Imagen seleccionada";
+            // 
+            // picCancion
+            // 
+            this.picCancion.BaseColor = System.Drawing.Color.White;
+            this.picCancion.Location = new System.Drawing.Point(439, 70);
+            this.picCancion.Name = "picCancion";
+            this.picCancion.Size = new System.Drawing.Size(215, 215);
+            this.picCancion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picCancion.TabIndex = 11;
+            this.picCancion.TabStop = false;
+            // 
+            // gunaLabel5
+            // 
+            this.gunaLabel5.AutoSize = true;
+            this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel5.Location = new System.Drawing.Point(757, 70);
+            this.gunaLabel5.Name = "gunaLabel5";
+            this.gunaLabel5.Size = new System.Drawing.Size(153, 20);
+            this.gunaLabel5.TabIndex = 12;
+            this.gunaLabel5.Text = "Añadir colaboradores";
+            // 
+            // cmbColaboradores
+            // 
+            this.cmbColaboradores.BackColor = System.Drawing.Color.Transparent;
+            this.cmbColaboradores.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbColaboradores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbColaboradores.FocusedColor = System.Drawing.Color.Empty;
+            this.cmbColaboradores.FocusedState.Parent = this.cmbColaboradores;
+            this.cmbColaboradores.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbColaboradores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbColaboradores.FormattingEnabled = true;
+            this.cmbColaboradores.HoverState.Parent = this.cmbColaboradores;
+            this.cmbColaboradores.ItemHeight = 30;
+            this.cmbColaboradores.ItemsAppearance.Parent = this.cmbColaboradores;
+            this.cmbColaboradores.Location = new System.Drawing.Point(761, 112);
+            this.cmbColaboradores.Name = "cmbColaboradores";
+            this.cmbColaboradores.ShadowDecoration.Parent = this.cmbColaboradores;
+            this.cmbColaboradores.Size = new System.Drawing.Size(243, 36);
+            this.cmbColaboradores.TabIndex = 13;
+            // 
+            // gunaLabel6
+            // 
+            this.gunaLabel6.AutoSize = true;
+            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel6.Location = new System.Drawing.Point(757, 218);
+            this.gunaLabel6.Name = "gunaLabel6";
+            this.gunaLabel6.Size = new System.Drawing.Size(163, 20);
+            this.gunaLabel6.TabIndex = 14;
+            this.gunaLabel6.Text = "Lista de colaboradores:";
+            // 
+            // lblListaColab
+            // 
+            this.lblListaColab.AutoSize = true;
+            this.lblListaColab.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblListaColab.Location = new System.Drawing.Point(757, 242);
+            this.lblListaColab.Name = "lblListaColab";
+            this.lblListaColab.Size = new System.Drawing.Size(154, 20);
+            this.lblListaColab.TabIndex = 15;
+            this.lblListaColab.Text = "lblListaColaboradores";
+            // 
+            // btnInsertarColab
+            // 
+            this.btnInsertarColab.CheckedState.Parent = this.btnInsertarColab;
+            this.btnInsertarColab.CustomImages.Parent = this.btnInsertarColab;
+            this.btnInsertarColab.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnInsertarColab.ForeColor = System.Drawing.Color.White;
+            this.btnInsertarColab.HoverState.Parent = this.btnInsertarColab;
+            this.btnInsertarColab.Location = new System.Drawing.Point(765, 157);
+            this.btnInsertarColab.Name = "btnInsertarColab";
+            this.btnInsertarColab.ShadowDecoration.Parent = this.btnInsertarColab;
+            this.btnInsertarColab.Size = new System.Drawing.Size(180, 45);
+            this.btnInsertarColab.TabIndex = 16;
+            this.btnInsertarColab.Text = "Añadir colaborador";
+            this.btnInsertarColab.Click += new System.EventHandler(this.btnInsertarColab_Click);
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.AutoScroll = true;
+            this.guna2Panel1.Controls.Add(this.guna2Button1);
+            this.guna2Panel1.Controls.Add(this.btnGuardar);
+            this.guna2Panel1.Controls.Add(this.btnInsertarColab);
+            this.guna2Panel1.Controls.Add(this.txtNombre);
+            this.guna2Panel1.Controls.Add(this.lblListaColab);
+            this.guna2Panel1.Controls.Add(this.txtImagen);
+            this.guna2Panel1.Controls.Add(this.gunaLabel6);
+            this.guna2Panel1.Controls.Add(this.txtAudio);
+            this.guna2Panel1.Controls.Add(this.cmbColaboradores);
+            this.guna2Panel1.Controls.Add(this.gunaLabel5);
+            this.guna2Panel1.Controls.Add(this.guna2Button2);
+            this.guna2Panel1.Controls.Add(this.gunaLabel1);
+            this.guna2Panel1.Controls.Add(this.picCancion);
+            this.guna2Panel1.Controls.Add(this.gunaLabel2);
+            this.guna2Panel1.Controls.Add(this.gunaLabel4);
+            this.guna2Panel1.Controls.Add(this.gunaLabel3);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
+            this.guna2Panel1.Size = new System.Drawing.Size(1155, 591);
+            this.guna2Panel1.TabIndex = 17;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
             // Playlist
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 513);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.gunaLabel3);
-            this.Controls.Add(this.gunaLabel2);
-            this.Controls.Add(this.gunaLabel1);
-            this.Controls.Add(this.guna2Button2);
-            this.Controls.Add(this.guna2Button1);
-            this.Controls.Add(this.txtAudio);
-            this.Controls.Add(this.txtImagen);
-            this.Controls.Add(this.txtNombre);
+            this.ClientSize = new System.Drawing.Size(1155, 591);
+            this.Controls.Add(this.guna2Panel1);
             this.Name = "Playlist";
-            this.Text = "Playlist";
+            this.Text = "g";
             this.Load += new System.EventHandler(this.Playlist_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picCancion)).EndInit();
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -216,5 +334,13 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI2.WinForms.Guna2Button btnGuardar;
+        private Guna.UI.WinForms.GunaLabel gunaLabel4;
+        private Guna.UI.WinForms.GunaPictureBox picCancion;
+        private Guna.UI.WinForms.GunaLabel gunaLabel5;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbColaboradores;
+        private Guna.UI.WinForms.GunaLabel gunaLabel6;
+        private Guna.UI.WinForms.GunaLabel lblListaColab;
+        private Guna.UI2.WinForms.Guna2Button btnInsertarColab;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }
 }

@@ -30,16 +30,19 @@
         {
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.txtPlaylist = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnAgregar = new Guna.UI2.WinForms.Guna2Button();
-            this.panelAgregar = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
+            this.picPlaylistNueva = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btnInsertarPlaylist = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSeleccionarImagenPlaylist = new Guna.UI2.WinForms.Guna2Button();
+            this.lblRutaImagen = new Guna.UI.WinForms.GunaLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.picPlaylistNueva)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaLabel1
             // 
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel1.Location = new System.Drawing.Point(49, 38);
+            this.gunaLabel1.Location = new System.Drawing.Point(59, 43);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(151, 20);
             this.gunaLabel1.TabIndex = 8;
@@ -72,52 +75,87 @@
             this.txtPlaylist.Size = new System.Drawing.Size(330, 55);
             this.txtPlaylist.TabIndex = 9;
             // 
-            // btnAgregar
+            // gunaLabel2
             // 
-            this.btnAgregar.CheckedState.Parent = this.btnAgregar;
-            this.btnAgregar.CustomImages.Parent = this.btnAgregar;
-            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.HoverState.Parent = this.btnAgregar;
-            this.btnAgregar.Location = new System.Drawing.Point(110, 175);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.ShadowDecoration.Parent = this.btnAgregar;
-            this.btnAgregar.Size = new System.Drawing.Size(180, 45);
-            this.btnAgregar.TabIndex = 10;
-            this.btnAgregar.Text = "Agregar Canciones";
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.gunaLabel2.AutoSize = true;
+            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel2.Location = new System.Drawing.Point(59, 169);
+            this.gunaLabel2.Name = "gunaLabel2";
+            this.gunaLabel2.Size = new System.Drawing.Size(150, 20);
+            this.gunaLabel2.TabIndex = 10;
+            this.gunaLabel2.Text = "Imagen de la playlist:";
             // 
-            // panelAgregar
+            // picPlaylistNueva
             // 
-            this.panelAgregar.Location = new System.Drawing.Point(95, 355);
-            this.panelAgregar.Name = "panelAgregar";
-            this.panelAgregar.ShadowDecoration.Parent = this.panelAgregar;
-            this.panelAgregar.Size = new System.Drawing.Size(980, 243);
-            this.panelAgregar.TabIndex = 11;
+            this.picPlaylistNueva.Location = new System.Drawing.Point(63, 192);
+            this.picPlaylistNueva.Name = "picPlaylistNueva";
+            this.picPlaylistNueva.ShadowDecoration.Parent = this.picPlaylistNueva;
+            this.picPlaylistNueva.Size = new System.Drawing.Size(278, 242);
+            this.picPlaylistNueva.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPlaylistNueva.TabIndex = 11;
+            this.picPlaylistNueva.TabStop = false;
             // 
-            // label1
+            // btnInsertarPlaylist
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(570, 68);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "label1";
+            this.btnInsertarPlaylist.BorderRadius = 20;
+            this.btnInsertarPlaylist.CheckedState.Parent = this.btnInsertarPlaylist;
+            this.btnInsertarPlaylist.CustomImages.Parent = this.btnInsertarPlaylist;
+            this.btnInsertarPlaylist.FillColor = System.Drawing.Color.Gold;
+            this.btnInsertarPlaylist.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnInsertarPlaylist.ForeColor = System.Drawing.Color.White;
+            this.btnInsertarPlaylist.HoverState.Parent = this.btnInsertarPlaylist;
+            this.btnInsertarPlaylist.Location = new System.Drawing.Point(433, 456);
+            this.btnInsertarPlaylist.Name = "btnInsertarPlaylist";
+            this.btnInsertarPlaylist.ShadowDecoration.Parent = this.btnInsertarPlaylist;
+            this.btnInsertarPlaylist.Size = new System.Drawing.Size(225, 45);
+            this.btnInsertarPlaylist.TabIndex = 12;
+            this.btnInsertarPlaylist.Text = "Agregar playlist";
+            this.btnInsertarPlaylist.Click += new System.EventHandler(this.btnInsertarPlaylist_Click);
+            // 
+            // btnSeleccionarImagenPlaylist
+            // 
+            this.btnSeleccionarImagenPlaylist.BorderRadius = 20;
+            this.btnSeleccionarImagenPlaylist.CheckedState.Parent = this.btnSeleccionarImagenPlaylist;
+            this.btnSeleccionarImagenPlaylist.CustomImages.Parent = this.btnSeleccionarImagenPlaylist;
+            this.btnSeleccionarImagenPlaylist.FillColor = System.Drawing.Color.DarkGray;
+            this.btnSeleccionarImagenPlaylist.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSeleccionarImagenPlaylist.ForeColor = System.Drawing.Color.White;
+            this.btnSeleccionarImagenPlaylist.HoverState.Parent = this.btnSeleccionarImagenPlaylist;
+            this.btnSeleccionarImagenPlaylist.Location = new System.Drawing.Point(88, 456);
+            this.btnSeleccionarImagenPlaylist.Name = "btnSeleccionarImagenPlaylist";
+            this.btnSeleccionarImagenPlaylist.ShadowDecoration.Parent = this.btnSeleccionarImagenPlaylist;
+            this.btnSeleccionarImagenPlaylist.Size = new System.Drawing.Size(225, 45);
+            this.btnSeleccionarImagenPlaylist.TabIndex = 13;
+            this.btnSeleccionarImagenPlaylist.Text = "Seleccionar nueva imágen";
+            this.btnSeleccionarImagenPlaylist.Click += new System.EventHandler(this.btnSeleccionarImagenPlaylist_Click);
+            // 
+            // lblRutaImagen
+            // 
+            this.lblRutaImagen.AutoSize = true;
+            this.lblRutaImagen.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblRutaImagen.Location = new System.Drawing.Point(418, 274);
+            this.lblRutaImagen.Name = "lblRutaImagen";
+            this.lblRutaImagen.Size = new System.Drawing.Size(86, 20);
+            this.lblRutaImagen.TabIndex = 14;
+            this.lblRutaImagen.Text = "gunaLabel3";
             // 
             // Crear_Playlist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1312, 680);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panelAgregar);
-            this.Controls.Add(this.btnAgregar);
+            this.ClientSize = new System.Drawing.Size(706, 532);
+            this.Controls.Add(this.lblRutaImagen);
+            this.Controls.Add(this.btnSeleccionarImagenPlaylist);
+            this.Controls.Add(this.btnInsertarPlaylist);
+            this.Controls.Add(this.picPlaylistNueva);
+            this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.txtPlaylist);
             this.Controls.Add(this.gunaLabel1);
             this.Name = "Crear_Playlist";
             this.Text = "Crear_Playlist";
             this.Load += new System.EventHandler(this.Crear_Playlist_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picPlaylistNueva)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,8 +165,10 @@
 
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI2.WinForms.Guna2TextBox txtPlaylist;
-        private Guna.UI2.WinForms.Guna2Button btnAgregar;
-        private Guna.UI2.WinForms.Guna2Panel panelAgregar;
-        private System.Windows.Forms.Label label1;
+        private Guna.UI.WinForms.GunaLabel gunaLabel2;
+        private Guna.UI2.WinForms.Guna2PictureBox picPlaylistNueva;
+        private Guna.UI2.WinForms.Guna2Button btnInsertarPlaylist;
+        private Guna.UI2.WinForms.Guna2Button btnSeleccionarImagenPlaylist;
+        private Guna.UI.WinForms.GunaLabel lblRutaImagen;
     }
 }

@@ -18,7 +18,7 @@ namespace KemishMusic
                 SetProcessDPIAware();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Login());
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]

@@ -19,28 +19,68 @@ namespace KemishMusic.Formularios
 
         private void CancionesShow_Load(object sender, EventArgs e)
         {
+            DetallesPlaylist();
+            CartasPlaylists();
             DetallesCancion();
             CartasCancion();
         }
         public void DetallesCancion()
         {
             Cancion cancion = new Cancion();
-            cancion.getList();
+            cancion.getListaCancionesUsuario(Usuario.id);
         }
-        int i;
+        
         public void CartasCancion()
         {
-            foreach (Cancion cancion in Cancion.lista)
+            if (Cancion.lista2.Count == 0)
+                lblMensajeCancionBiblio.Visible = true;
+            else
             {
-                i++;
-                CancionSelect carta = new CancionSelect();
+                lblMensajeCancionBiblio.Visible = false;
+                foreach (Cancion cancion in Cancion.lista2)
+                {
 
-                carta.CancionDetalles(cancion);
+                    CancionSelect carta = new CancionSelect();
+
+                    carta.CancionDetalles(cancion);
 
 
-                carta.Dock = DockStyle.Left;
-                panelCancion.Controls.Add(carta);
+                    carta.Dock = DockStyle.Left;
+                    panelCancion.Controls.Add(carta);
+                }
             }
+        }
+
+        public void DetallesPlaylist()
+        {
+            PlaylistClase playlist = new PlaylistClase();
+            playlist.getListaPlaylistUsuario(Usuario.id);
+        }
+
+        public void CartasPlaylists()
+        {
+            if (PlaylistClase.lista2.Count == 0)
+                lblMensajePlaylistBiblio.Visible = true;
+            else
+            {
+                lblMensajePlaylistBiblio.Visible = false;
+                foreach (PlaylistClase playlist in PlaylistClase.lista2)
+                {
+                    PlaylistControl carta = new PlaylistControl();
+
+                    carta.PlaylistDetalles(playlist);
+
+
+                    carta.Dock = DockStyle.Left;
+                    panelPlaylist.Controls.Add(carta);
+                }
+            }
+        }
+
+
+        private void panelCancion_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

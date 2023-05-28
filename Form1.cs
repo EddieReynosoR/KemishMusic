@@ -30,7 +30,12 @@ namespace KemishMusic
         Login loginForm = new Login();
         SignUp registrarForm = new SignUp();
 
-        public Queue<Cancion> colaCanciones = new Queue<Cancion>();
+        // public Queue<Cancion> colaCanciones = new Queue<Cancion>();
+
+        public static LinkedList<Cancion> colaCanciones = new LinkedList<Cancion>();
+        public static LinkedListNode<Cancion> cancionSiguiente;
+
+        public static List<string> listaAudios = new List<string>();
 
         //ggs
 
@@ -48,17 +53,30 @@ namespace KemishMusic
             panelMenu.Controls.Add(leftBorderBtn);
 
             CancionSelect.ImagenClick += new EventHandler(Clicked);
+
+            VerContenidoPlaylist.PlaylistClick += new EventHandler(Clicked2);
             // musicPlayer = new SoundPlayer(filepath);
 
             CancionSelect.CancionClick += new EventHandler(CancionClick);
 
+            CancionSelect.AgregarFila += new EventHandler(AgregarAFila);
+
             MusicaRepr.CancionClick += new EventHandler(ClickPanelRep);
+
+            ArtistaCard.ClickArtista += new EventHandler(ClickCartaArtista);
+
+            PlaylistControl.ClickPlaylist += new EventHandler(ClickCartaPlaylist);
 
             // player.PlayStateChange += TerminarCancion();
 
 
         }
 
+        /* ** CAMBIE EL SIGUIENTE DIRECTORIO DE DATOS PARA PODER ENLAZARSE CON LA BASE DE DATOS ** */
+        public static SqlConnection GetConnection()
+        {
+            return new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;");
+        }
         public void TerminarCancion(object senver, WMPLib._WMPOCXEvents_PlayStateChangeEventHandler e)
         {
 
@@ -121,7 +139,7 @@ namespace KemishMusic
             }
         }
 
-        public string Path()
+        public string PathGlobal()
         {
             string[] s = { "\\bin" };
             string path = Application.StartupPath.Split(s, StringSplitOptions.None)[0] + "\\Canciones\\";
@@ -170,7 +188,6 @@ namespace KemishMusic
             btnHome.Text = "Home";
             panelMenu.Visible = true;
             panelReproduccion.Visible = true;
-            txtSearch.Visible = true;
         }
         private void gunaPictureBox2_Click(object sender, EventArgs e)
         {
@@ -293,148 +310,180 @@ namespace KemishMusic
             }
 
         }
-                bool isPaused = false;
-                private void btnPausaPlay_Click(object sender, EventArgs e)
+            bool isPaused = false;
+            private void btnPausaPlay_Click(object sender, EventArgs e)
+            {
+                if (!isPaused)
                 {
-                    if (!isPaused)
-                    {
-                        player.controls.pause();
-                        btnPausaPlay.Image = Properties.Resources._375;
+                    player.controls.pause();
+                    btnPausaPlay.Image = Properties.Resources._375;
 
-                        isPaused = true;
-                    }
-                    else
-                    {
-                        player.controls.play();
-                        btnPausaPlay.Image = Properties.Resources._16427;
-
-                        isPaused = false;
-                    }
+                    isPaused = true;
                 }
-
-                private void guna2TrackBar2_Scroll(object sender, ScrollEventArgs e)
+                else
                 {
-                    if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
-                    {
+                    player.controls.play();
+                    btnPausaPlay.Image = Properties.Resources._16427;
 
-                        player.settings.volume = guna2TrackBar2.Value;
-                    }
+                    isPaused = false;
                 }
+            }
 
-                private void btnHome_Click(object sender, EventArgs e)
-                {
-                     panelMusicaRe.Controls.Clear();
-                        panelMusicaRe.Hide();
-                     if (currentChildForm != null)
-                        {
-                            currentChildForm.Close();
-                        }
-                    Reset();
-                }
-
-                private void btnSearch_Click(object sender, EventArgs e)
-                {
-                    ActivateButton(sender, RGBColors.color1);
-                    OpenChildForm(new Formularios.Playlist());
-                }
-
-                private void gunaPictureBox1_Click(object sender, EventArgs e)
+            private void guna2TrackBar2_Scroll(object sender, ScrollEventArgs e)
+            {
+                if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 {
 
+                    player.settings.volume = guna2TrackBar2.Value;
                 }
+            }
 
-                bool segundaPantalla = false;
-                private void pbBar_Click(object sender, EventArgs e)
+            private void btnHome_Click(object sender, EventArgs e)
+            {
+                picMostrarCola.Enabled = true;
+                panelCancionesHome.Visible = true;
+
+                ActivateButton(sender, RGBColors.color1);
+                if (currentChildForm != null)
                 {
-                    //OpenChildForm(new Formularios.Reproduccion());
-
-                    if (!segundaPantalla)
-                    {
-                        guna2Panel1.BackColor = Color.Transparent;
-                        guna2Panel1.FillColor = Color.Transparent;
-
-                        guna2Panel1.Dock = DockStyle.Top;
-
-                        panelReproduccion.Height = 683;
-
-                        pbBar.Location = new Point(52, 576);
-                        guna2TrackBar1.Location = new Point(387, 580);
-                        btnPausaPlay.Location = new Point(738, 610);
-                        guna2TrackBar2.Location = new Point(899, 623);
-
-                        panelReproduccion.BackColor = Color.Transparent;
-                        panelReproduccion.BackgroundImage = Properties.Resources._330634344_1228671984728501_5317193639878804641_n;
-                        panelReproduccion.BackgroundImageLayout = ImageLayout.Center;
-
-
-
-                        panelMenu.Visible = false;
-                        panelDesktop.Visible = false;
-                        txtSearch.Visible = false;
-
-                        segundaPantalla = true;
-
-                        timerBarraMusic.Start();
-                    }
-                    else
-                    {
-                        guna2Panel1.BackColor = Color.White;
-                        guna2Panel1.FillColor = Color.White;
-                        panelReproduccion.Height = 128;
-                        panelReproduccion.BackColor = Color.DarkGray;
-
-                        guna2Panel1.Dock = DockStyle.Top;
-
-                        pbBar.Location = new Point(52, 21);
-
-                        guna2TrackBar1.Width = 787;
-
-                        pbBar.Height = 90;
-                        pbBar.Width = 90;
-
-                        guna2TrackBar1.Location = new Point(387, 25);
-                        btnPausaPlay.Location = new Point(738, 56);
-                        guna2TrackBar2.Location = new Point(899, 68);
-
-                        panelMenu.Visible = true;
-                        panelDesktop.Visible = true;
-                        txtSearch.Visible = true;
-
-
-                        panelReproduccion.BackgroundImage = null;
-
-                        segundaPantalla = false;
-
-                        timerBarraMusic.Stop();
-                    }
-
-
+                    currentChildForm.Close();
                 }
+            }
 
-                private void iconButton1_Click(object sender, EventArgs e)
+            private void btnSearch_Click(object sender, EventArgs e)
+            {
+                panelCancionesHome.Visible = false;
+                // panelDesktop.Controls.Clear();
+                picMostrarCola.Enabled = false;
+                ActivateButton(sender, RGBColors.color1);
+                OpenChildForm(new Formularios.Playlist());
+            }
+
+            private void gunaPictureBox1_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            bool segundaPantalla = false;
+            private void pbBar_Click(object sender, EventArgs e)
+            {
+                //OpenChildForm(new Formularios.Reproduccion());
+
+                if (!segundaPantalla)
                 {
-                    if (currentChildForm != null)
-                    {
-                        currentChildForm.Close();
+                    guna2Panel1.BackColor = Color.Transparent;
+                    guna2Panel1.FillColor = Color.Transparent;
 
-                        panelReproduccion.Height = 128;
-                    }
-                    else
-                    {
-                        panelReproduccion.Height = 128;
-                    }
-                    btnHomeRepro.Visible = false;
-                    Reset();
+                    guna2Panel1.Dock = DockStyle.Top;
+
+                    panelReproduccion.Height = 683;
+
+                    pbBar.Location = new Point(52, 576);
+                    guna2TrackBar1.Location = new Point(387, 580);
+                    btnPausaPlay.Location = new Point(738, 610);
+                    guna2TrackBar2.Location = new Point(899, 623);
+
+                    panelReproduccion.BackColor = Color.Transparent;
+                    panelReproduccion.BackgroundImage = Properties.Resources._330634344_1228671984728501_5317193639878804641_n;
+                    panelReproduccion.BackgroundImageLayout = ImageLayout.Center;
+
+
+
+                    panelMenu.Visible = false;
+                    panelDesktop.Visible = false;
+
+                    segundaPantalla = true;
+
+                    timerBarraMusic.Start();
                 }
-
-                private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+                else
                 {
+                    guna2Panel1.BackColor = Color.White;
+                    guna2Panel1.FillColor = Color.White;
+                    panelReproduccion.Height = 128;
+                    panelReproduccion.BackColor = Color.DarkGray;
 
+                    guna2Panel1.Dock = DockStyle.Top;
+
+                    pbBar.Location = new Point(52, 21);
+
+                    guna2TrackBar1.Width = 787;
+
+                    pbBar.Height = 90;
+                    pbBar.Width = 90;
+
+                    guna2TrackBar1.Location = new Point(387, 25);
+                    btnPausaPlay.Location = new Point(738, 56);
+                    guna2TrackBar2.Location = new Point(899, 68);
+
+                    panelMenu.Visible = true;
+                    panelDesktop.Visible = true;
+
+
+                    panelReproduccion.BackgroundImage = null;
+
+                    segundaPantalla = false;
+
+                    timerBarraMusic.Stop();
                 }
 
+
+            }
+
+            private void iconButton1_Click(object sender, EventArgs e)
+            {
+                if (currentChildForm != null)
+                {
+                    currentChildForm.Close();
+
+                    panelReproduccion.Height = 128;
+                }
+                else
+                {
+                    panelReproduccion.Height = 128;
+                }
+                Reset();
+            }
+
+            private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+            {
+
+            }
+
+        public void ObtenerCancionAudioGuardado()
+        {
+            SqlConnection cn = GetConnection();
+
+            cn.Open();
+
+            string query = "SELECT cancion_audionombre FROM cancion";
+
+
+            SqlCommand cmd = new SqlCommand(query, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                listaAudios.Add(dr["cancion_audionombre"].ToString());
+            }
+
+            cn.Close();
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
-            btnHomeRepro.Visible = false;
+            ObtenerCancionAudioGuardado();
+
+            string path = PathGlobal();
+
+            foreach (string cancion in listaAudios)
+            {
+                File.SetAttributes(Path.Combine(path, Path.GetFileName(cancion)), FileAttributes.Normal);
+
+            }
+
+            DetallesCancion();
+            CartasCancion();
+
 
             if (Usuario.usuario != null)
             {
@@ -442,8 +491,13 @@ namespace KemishMusic
 
                 btnIniciarSesion.Visible = false;
                 btnRegistrarse.Visible = false;
+                btnSearch.Enabled = true;
+                iconButton1.Enabled = true;
 
+                btnCancion.Enabled = true;
                 btnCerrarSesion.Visible = true;
+
+                btnVerPerfil.Visible = true;
             }
             else
             {
@@ -451,7 +505,12 @@ namespace KemishMusic
                 btnIniciarSesion.Visible = true;
                 btnRegistrarse.Visible = true;
 
+                iconButton1.Enabled = false;
+                btnCancion.Enabled = false;
+                btnSearch.Enabled = false;
+
                 btnCerrarSesion.Visible = false;
+                btnVerPerfil.Visible = false;
             }
 
             btnAgregar.Visible = false;
@@ -460,18 +519,24 @@ namespace KemishMusic
         int i;
         public void CartasCancion()
         {
-            foreach(Cancion cancion in Cancion.lista)
+            if (Cancion.lista.Count == 0)
+                lblMensaje.Visible = true;
+            else
             {
-                i++;
-                CancionSelect carta = new CancionSelect();
+                lblMensaje.Visible = false;
+                foreach (Cancion cancion in Cancion.lista)
+                {
+                    i++;
+                    CancionSelect carta = new CancionSelect();
 
 
-                carta.CancionDetalles(cancion);
+                    carta.CancionDetalles(cancion);
 
 
 
-                carta.Dock = DockStyle.Left;
-                panelMusicaRe.Controls.Add(carta);
+                    carta.Dock = DockStyle.Left;
+                    panelCancionesHome.Controls.Add(carta);
+                }
             }
         }
 
@@ -508,10 +573,7 @@ namespace KemishMusic
 
 
         }
-        private SqlConnection GetConnection()
-        {
-            return new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;");
-        }
+        
         
 
         public void DetallesCancion()
@@ -520,13 +582,51 @@ namespace KemishMusic
             cancion.getList();
         }
 
-        
-     
+        public void SeleccionarNombreArtista(string idArtista)
+        {
+            SqlConnection cn = GetConnection();
+
+            cn.Open();
+
+            string query = "SELECT usuario.usuario_nombreartist FROM cancion INNER JOIN usuario on id_usuario = cancion.usuario_id_usuario WHERE cancion.cancion_id = '"+idArtista+"'";
+
+
+            SqlCommand cmd = new SqlCommand(query, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                lblColab.Text += dr["usuario_nombreartist"].ToString();
+            }
+
+            cn.Close();
+        }
+
+        public void SeleccionarColab(string idColab)
+        {
+            SqlConnection cn = GetConnection();
+
+            cn.Open();
+
+            string query = "SELECT usuario.usuario_nombreartist FROM cancion INNER JOIN colaboracion on colaboracion.cancion_cancion_id = cancion_id INNER JOIN usuario on id_usuario = colaboracion.usuario_usuario_id WHERE cancion.cancion_id = '"+idColab+"'";
+
+
+            SqlCommand cmd = new SqlCommand(query, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                lblColab.Text += ", " + dr["usuario_nombreartist"].ToString();
+            }
+
+            cn.Close();
+        }
+
         public void Clicked(object sender, EventArgs e)
         {
             colaCanciones.Clear();
-            
-            MusicaRepr panel = new MusicaRepr();
+            panelMusicaRe.Controls.Clear();
+
 
 
             timerReproduccion.Enabled = true;
@@ -535,68 +635,120 @@ namespace KemishMusic
 
             obtener.ReproducirCancion(CancionSelect.id);
 
-            
 
-            colaCanciones.Enqueue(obtener);             
 
-            
+            colaCanciones.AddFirst(obtener);
+            cancionSiguiente = colaCanciones.First;
+
+            lblColab.Text = "";
+
+            lblNombreCancion.Text = obtener.nombre;
+
+            SeleccionarNombreArtista(obtener.id);
+            SeleccionarColab(obtener.id);
 
             pbBar.Image = (Bitmap)new ImageConverter().ConvertFrom(obtener.imagen);
+
+
+
 
 
 
             runAudio(obtener.audio);
 
 
-
-            panelMusicaRe.Controls.Clear();
-
+            
 
 
-            foreach (Cancion cancion in colaCanciones)
-            {
-                panel.CancionDetalles(cancion);
-
-
-                panel.Dock = DockStyle.Top;
-                panelMusicaRe.Controls.Add(panel);
-            }
+            
 
         }
 
-        public void ClickPanelRep(object sender, EventArgs e)
+        public void Clicked2(object sender, EventArgs e)
         {
+            panelMusicaRe.Controls.Clear();
+
+
+            timerReproduccion.Enabled = true;
 
             
+            cancionSiguiente = colaCanciones.First;
+
+            lblColab.Text = "";
+
+            lblNombreCancion.Text = cancionSiguiente.Value.nombre;
+
+            SeleccionarNombreArtista(cancionSiguiente.Value.id);
+            SeleccionarColab(cancionSiguiente.Value.id);
+
+            pbBar.Image = (Bitmap)new ImageConverter().ConvertFrom(cancionSiguiente.Value.imagen);
+
+
+
+
+
+
+            runAudio(cancionSiguiente.Value.audio);
+
+
+
+
+
+
+
+        }
+
+
+
+        public void ClickPanelRep(object sender, EventArgs e)
+        {
+            
+            Cancion obtener = new Cancion();
+
+            obtener.ReproducirCancion(MusicaRepr.id);
+
+
+            LinkedListNode<Cancion> cancion = colaCanciones.Find(obtener);
+
+            cancionSiguiente = cancion;
+
+            RefreshCola();
+
+            pbBar.Image = (Bitmap)new ImageConverter().ConvertFrom(cancionSiguiente.Value.imagen);
+
+
+            runAudio(cancionSiguiente.Value.audio);
+
+
+
 
         }
 
         public void CancionClick(object sender, EventArgs e)
         {
-            Cancion obtener = new Cancion();
 
-            obtener.ReproducirCancion(CancionSelect.id);
-
-            
-
-
-            MusicaRepr panel = new MusicaRepr();
-
-            if (!colaCanciones.Any(o => o.id == CancionSelect.id))
+            if (colaCanciones.Count != 0)
             {
+                Cancion obtener = new Cancion();
 
-                colaCanciones.Enqueue(obtener);
+                obtener.ReproducirCancion(CancionSelect.id);
 
-                panelMusicaRe.Controls.Clear();
-                foreach (Cancion cancion in colaCanciones)
+
+
+
+                MusicaRepr panel = new MusicaRepr();
+
+                if (!colaCanciones.Any(o => o.id == CancionSelect.id))
                 {
-                    panel.CancionDetalles(cancion);
+
+                    colaCanciones.AddAfter(cancionSiguiente, obtener);
+
+                    panelMusicaRe.Controls.Clear();
 
 
-                    panel.Dock = DockStyle.Bottom;
-                    panelMusicaRe.Controls.Add(panel);
+
+
                 }
-
             }
 
             
@@ -605,7 +757,32 @@ namespace KemishMusic
 
 
         }
-        
+
+        public void AgregarAFila(object sender, EventArgs e)
+        {
+            if(colaCanciones.Count != 0)
+            {
+                Cancion obtener = new Cancion();
+
+                obtener.ReproducirCancion(CancionSelect.id);
+
+
+
+
+                MusicaRepr panel = new MusicaRepr();
+
+                if (!colaCanciones.Any(o => o.id == CancionSelect.id))
+                {
+
+
+                    colaCanciones.AddLast(obtener);
+
+                    panelMusicaRe.Controls.Clear();
+                }
+            }
+            
+        }
+
 
         private void cancionSelect1_Load(object sender, EventArgs e)
         {
@@ -624,6 +801,9 @@ namespace KemishMusic
 
         private void btnCancion_Click(object sender, EventArgs e)
         {
+            panelCancionesHome.Visible = false;
+            // panelDesktop.Controls.Clear();
+            picMostrarCola.Enabled = false;
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new Formularios.CancionesShow());
         }
@@ -646,10 +826,14 @@ namespace KemishMusic
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            Hide();
             loginForm.Show();
 
+
+            Hide();
+
         }
+
+        
 
         private void btnAyuda_Click(object sender, EventArgs e)
         {
@@ -658,6 +842,10 @@ namespace KemishMusic
 
         private void gunaControlBox1_Click(object sender, EventArgs e)
         {
+            Usuario.id = null;
+            Usuario.usuario = null;
+            Usuario.foto = null;
+
             Application.Exit();
         }
 
@@ -667,17 +855,22 @@ namespace KemishMusic
             Usuario.usuario = null;
             Usuario.foto = null;
 
-            Hide();
-            loginForm.Show();
+            
+
+            Application.Restart();
         }
 
         bool MostrarPanelRepro = false;
+
+        
         private void picMostrarCola_Click(object sender, EventArgs e)
         {
+            RefreshCola();
             if (!MostrarPanelRepro)
             {
                 panelMusicaRe.Visible = true;
                 picMostrarCola.Image = Properties.Resources._4419531;
+
 
                 MostrarPanelRepro = true;
             }
@@ -690,42 +883,35 @@ namespace KemishMusic
             }
         }
 
+
         private void timerReproduccion_Tick(object sender, EventArgs e)
         {
             if(player.playState == WMPLib.WMPPlayState.wmppsStopped)
             {
 
-                colaCanciones.Dequeue();
+                // colaCanciones.Dequeue()
 
-                MusicaRepr panel = new MusicaRepr();
+                
 
                 label3.Text = colaCanciones.Count().ToString();
 
-                
 
-                
-              
+                LinkedListNode<Cancion> cancionNext = cancionSiguiente.Next;
 
-                if (colaCanciones.Count < 1)
+                if (cancionNext != null)
                 {
-                    colaCanciones.Clear();
-                    timerReproduccion.Enabled = false;
+                    cancionSiguiente = cancionNext;
 
-                    panelMusicaRe.Controls.Clear();
-                    foreach (Cancion cancion in colaCanciones)
-                    {
-                        panel.CancionDetalles(cancion);
+                    RefreshCola();
 
+                    Cancion obtener = cancionNext.Value;
 
-                        panel.Dock = DockStyle.Top;
-                        panelMusicaRe.Controls.Add(panel);
-                    }
-                }
-                else
-                {
+                    lblNombreCancion.Text = "";
+                    lblNombreCancion.Text = obtener.nombre;
 
-
-                    Cancion obtener = colaCanciones.Peek();
+                    lblColab.Text = "";
+                    SeleccionarNombreArtista(obtener.id);
+                    SeleccionarColab(obtener.id);
 
 
                     pbBar.Image = (Bitmap)new ImageConverter().ConvertFrom(obtener.imagen);
@@ -733,27 +919,75 @@ namespace KemishMusic
 
 
                     runAudio(obtener.audio);
-
-                    panelMusicaRe.Controls.Clear();
-                    foreach (Cancion cancion in colaCanciones)
-                    {
-                        panel.CancionDetalles(cancion);
-
-
-                        panel.Dock = DockStyle.Top;
-                        panelMusicaRe.Controls.Add(panel);
-                    }
                 }
+
+                else
+                {
+                    cancionSiguiente = colaCanciones.First;
+
+                    RefreshCola();
+
+                    Cancion obtener = cancionSiguiente.Value;
+
+
+                    lblNombreCancion.Text = "";
+                    lblNombreCancion.Text = obtener.nombre;
+
+                    lblColab.Text = "";
+                    SeleccionarNombreArtista(obtener.id);
+                    SeleccionarColab(obtener.id);
+
+
+                    pbBar.Image = (Bitmap)new ImageConverter().ConvertFrom(obtener.imagen);
+
+
+
+                    runAudio(obtener.audio);
+                }
+                    
+
+
+
+                
+                    
+                
+
+
+                
                     
 
             }
         }
 
+        public void RefreshCola()
+        {
+
+            if (colaCanciones.Count == 0)
+                lblMensajeCola.Visible = true;
+            else
+            {
+                panelMusicaRe.Controls.Clear();
+                foreach (Cancion cancion in colaCanciones.Reverse())
+                {
+                    MusicaRepr panel = new MusicaRepr();
+                    panel.CancionDetalles(cancion);
+
+
+                    panel.Dock = DockStyle.Top;
+                    panelMusicaRe.Controls.Add(panel);
+                }
+            }
+            
+        }
+
         private void iconButton1_Click_1(object sender, EventArgs e)
         {
+            panelCancionesHome.Visible = false;
+            // panelDesktop.Controls.Clear();
+            picMostrarCola.Enabled = false;
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new Formularios.Crear_Playlist());
-            btnAgregar.Visible = true;
+            // btnAgregar.Visible = true;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -761,57 +995,186 @@ namespace KemishMusic
             OpenChildForm(new Formularios.AgregarCanciones());
         }
         
-        SqlConnection conexion = new SqlConnection("Data Source=YAHIR\\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
-        
-        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+         
+
+       
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            
+
+
+            if (cancionSiguiente.Previous != null)
             {
-                SqlCommand consulta = new SqlCommand("select * from cancion WHERE cancion_nombre = @cancion_nombre", conexion);
+                LinkedListNode<Cancion> cancionNext = cancionSiguiente.Previous;
+                cancionSiguiente = cancionNext;
 
-                conexion.Open();
+                RefreshCola();
+                Cancion obtener = cancionNext.Value;
 
-                consulta.Parameters.AddWithValue("@cancion_nombre", txtSearch.Text);
+                lblColab.Text = "";
+                SeleccionarNombreArtista(obtener.id);
+                SeleccionarColab(obtener.id);
 
-                SqlDataReader rdr = consulta.ExecuteReader();
+                lblNombreCancion.Text = obtener.nombre;
+                pbBar.Image = (Bitmap)new ImageConverter().ConvertFrom(obtener.imagen);
 
-                while (rdr.Read())
-                {
-                    label4.Text = rdr[0].ToString();
 
-                }
-                i = Convert.ToInt32(label4.Text);
-                Cancion cancion = Cancion.lista[i-1];
 
+                runAudio(obtener.audio);
+            }
+            else
+            {
+                cancionSiguiente = colaCanciones.First;
+                Cancion obtener = cancionSiguiente.Value;
+
+                RefreshCola();
+
+                lblColab.Text = "";
+                SeleccionarNombreArtista(obtener.id);
+                SeleccionarColab(obtener.id);
+
+                lblNombreCancion.Text = obtener.nombre;
+                pbBar.Image = (Bitmap)new ImageConverter().ConvertFrom(obtener.imagen);
+
+
+
+                runAudio(obtener.audio);
+            }
                 
 
-                CancionSelect carta = new CancionSelect();
-
-                carta.CancionDetalles(cancion);
-
-
-                carta.Dock = DockStyle.Left;
-                panelMusicaRe.Controls.Add(carta);
-                panelMusicaRe.Show();
 
 
 
-                MessageBox.Show("Consulta Realizada");
+
+
+            
+
+        }
+
+        private void btnSig_Click(object sender, EventArgs e)
+        {
+            
+            label3.Text = colaCanciones.Count().ToString();
+
+
+            
+
+            if (cancionSiguiente.Next != null)
+            {
+
+
+                LinkedListNode<Cancion> cancionNext = cancionSiguiente.Next;
+
+                cancionSiguiente = cancionNext;
+
+                RefreshCola();
+              
+
+                Cancion obtener = cancionNext.Value;
+
+                lblColab.Text = "";
+                SeleccionarNombreArtista(obtener.id);
+                SeleccionarColab(obtener.id);
+
+                lblNombreCancion.Text = obtener.nombre;
+                pbBar.Image = (Bitmap)new ImageConverter().ConvertFrom(obtener.imagen);
 
 
 
-                conexion.Close();
+                runAudio(obtener.audio);
+            }              
+            else
+            {
+                cancionSiguiente = colaCanciones.First;
+                Cancion obtener = cancionSiguiente.Value;
+
+                RefreshCola();
+
+                lblColab.Text = "";
+                SeleccionarNombreArtista(obtener.id);
+                SeleccionarColab(obtener.id);
+
+                lblNombreCancion.Text = obtener.nombre;
+                pbBar.Image = (Bitmap)new ImageConverter().ConvertFrom(obtener.imagen);
+
+
+
+                runAudio(obtener.audio);
             }
+
+
+
+
+
+           
+
+            
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            // ActivateButton(sender, RGBColors.color1);
+            verArtista.id = Usuario.id;
+            verArtista.usuario = Usuario.usuario;
+            verArtista.nombreArtistico = Usuario.nombreArtistico;
+            verArtista.descripcion = Usuario.descripcion;
+            verArtista.foto = Usuario.foto;
+            verArtista.fotoPortada = Usuario.fotoPortada;
+
+            OpenChildForm(new Perfil());
+        }
+
+        private void panelOpciones_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            panelCancionesHome.Visible = false;
+
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new Buscar());
+        }
+
+        public void ClickCartaArtista(object sender, EventArgs e)
+        {
+            Artista artista = new Artista();
+            artista.getArtista(ArtistaCard.id);
+
+            verArtista.id = artista.id;
+            verArtista.usuario = artista.usuario;
+            verArtista.nombreArtistico = artista.nombreArtistico;
+            verArtista.descripcion = artista.descripcion;
+            verArtista.foto = artista.foto;
+            verArtista.fotoPortada = artista.fotoPortada;
+
+            OpenChildForm(new Perfil());
+        }
+
+        public void ClickCartaPlaylist(object sender, EventArgs e)
+        {
+            
+
+            OpenChildForm(new VerContenidoPlaylist());
+        }
+
+        private void panelCancionesHome_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panelMusicaRe_VisibleChanged(object sender, EventArgs e)
+        {
+            if (colaCanciones.Count == 0)
+                lblMensajeCola.Visible = true;
+            else
+                lblMensajeCola.Visible = false;
         }
     }
 }

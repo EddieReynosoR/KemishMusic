@@ -13,6 +13,7 @@ namespace KemishMusic
     public partial class MusicaRepr : UserControl
     {
         public static string id;
+        public string estatus;
         public static event EventHandler CancionClick;
 
         public MusicaRepr()
@@ -26,6 +27,10 @@ namespace KemishMusic
             lblID.Text = e.id;
 
             id = lblID.Text;
+
+
+            if(e == Form1.cancionSiguiente.Value)
+                lblEstado.Text = "Reproduciendo";
 
             picCancionRep.Image = (Bitmap)new ImageConverter().ConvertFrom(e.imagen);
 
@@ -65,10 +70,16 @@ namespace KemishMusic
         private void MusicaRepro_Click_1(object sender, EventArgs e)
         {
             id = lblID.Text;
+            // estatus = lblEstado.Text;
             if (CancionClick != null)
             {
                 CancionClick(this, e);
             }
+        }
+
+        private void lblID_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
