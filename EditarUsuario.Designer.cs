@@ -58,7 +58,6 @@ namespace KemishMusic
             this.txtCorreo = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
-            this.txtContraConf = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtUsuario = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtContra = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
@@ -149,7 +148,6 @@ namespace KemishMusic
             this.panelRegistro.Controls.Add(this.txtCorreo);
             this.panelRegistro.Controls.Add(this.txtNombre);
             this.panelRegistro.Controls.Add(this.gunaLabel4);
-            this.panelRegistro.Controls.Add(this.txtContraConf);
             this.panelRegistro.Controls.Add(this.txtUsuario);
             this.panelRegistro.Controls.Add(this.txtContra);
             this.panelRegistro.Controls.Add(this.gunaLabel2);
@@ -175,8 +173,9 @@ namespace KemishMusic
             this.txtDescripcion.FocusedState.Parent = this.txtDescripcion;
             this.txtDescripcion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDescripcion.HoverState.Parent = this.txtDescripcion;
-            this.txtDescripcion.Location = new System.Drawing.Point(47, 1066);
+            this.txtDescripcion.Location = new System.Drawing.Point(47, 990);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcion.MaxLength = 99;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -187,12 +186,13 @@ namespace KemishMusic
             this.txtDescripcion.ShadowDecoration.Parent = this.txtDescripcion;
             this.txtDescripcion.Size = new System.Drawing.Size(330, 109);
             this.txtDescripcion.TabIndex = 29;
+            this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcion_KeyPress);
             // 
             // gunaLabel1
             // 
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Circular Std Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.Location = new System.Drawing.Point(42, 1037);
+            this.gunaLabel1.Location = new System.Drawing.Point(42, 961);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(124, 25);
             this.gunaLabel1.TabIndex = 28;
@@ -215,6 +215,7 @@ namespace KemishMusic
             this.txtNombreArtistico.HoverState.Parent = this.txtNombreArtistico;
             this.txtNombreArtistico.Location = new System.Drawing.Point(23, 151);
             this.txtNombreArtistico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombreArtistico.MaxLength = 29;
             this.txtNombreArtistico.Name = "txtNombreArtistico";
             this.txtNombreArtistico.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtNombreArtistico.PasswordChar = '\0';
@@ -224,6 +225,7 @@ namespace KemishMusic
             this.txtNombreArtistico.ShadowDecoration.Parent = this.txtNombreArtistico;
             this.txtNombreArtistico.Size = new System.Drawing.Size(679, 55);
             this.txtNombreArtistico.TabIndex = 27;
+            this.txtNombreArtistico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreArtistico_KeyPress);
             // 
             // gunaLabel10
             // 
@@ -246,7 +248,7 @@ namespace KemishMusic
             // picPortada
             // 
             this.picPortada.BorderRadius = 20;
-            this.picPortada.Location = new System.Drawing.Point(442, 750);
+            this.picPortada.Location = new System.Drawing.Point(442, 674);
             this.picPortada.Name = "picPortada";
             this.picPortada.ShadowDecoration.Parent = this.picPortada;
             this.picPortada.Size = new System.Drawing.Size(250, 250);
@@ -258,7 +260,7 @@ namespace KemishMusic
             // 
             this.gunaLabel9.AutoSize = true;
             this.gunaLabel9.Font = new System.Drawing.Font("Circular Std Book Italic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel9.Location = new System.Drawing.Point(439, 729);
+            this.gunaLabel9.Location = new System.Drawing.Point(439, 653);
             this.gunaLabel9.Name = "gunaLabel9";
             this.gunaLabel9.Size = new System.Drawing.Size(126, 18);
             this.gunaLabel9.TabIndex = 23;
@@ -273,7 +275,7 @@ namespace KemishMusic
             this.btnInsertarPortada.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnInsertarPortada.ForeColor = System.Drawing.Color.White;
             this.btnInsertarPortada.HoverState.Parent = this.btnInsertarPortada;
-            this.btnInsertarPortada.Location = new System.Drawing.Point(442, 669);
+            this.btnInsertarPortada.Location = new System.Drawing.Point(442, 593);
             this.btnInsertarPortada.Name = "btnInsertarPortada";
             this.btnInsertarPortada.ShadowDecoration.Parent = this.btnInsertarPortada;
             this.btnInsertarPortada.Size = new System.Drawing.Size(223, 46);
@@ -285,7 +287,7 @@ namespace KemishMusic
             // 
             this.gunaLabel8.AutoSize = true;
             this.gunaLabel8.Font = new System.Drawing.Font("Circular Std Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel8.Location = new System.Drawing.Point(437, 623);
+            this.gunaLabel8.Location = new System.Drawing.Point(437, 547);
             this.gunaLabel8.Name = "gunaLabel8";
             this.gunaLabel8.Size = new System.Drawing.Size(159, 25);
             this.gunaLabel8.TabIndex = 21;
@@ -308,7 +310,7 @@ namespace KemishMusic
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.HoverState.Parent = this.btnEditar;
-            this.btnEditar.Location = new System.Drawing.Point(545, 1166);
+            this.btnEditar.Location = new System.Drawing.Point(545, 1090);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.ShadowDecoration.Parent = this.btnEditar;
             this.btnEditar.Size = new System.Drawing.Size(223, 46);
@@ -320,7 +322,7 @@ namespace KemishMusic
             // 
             this.gunaLabel7.AutoSize = true;
             this.gunaLabel7.Font = new System.Drawing.Font("Circular Std Book Italic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel7.Location = new System.Drawing.Point(30, 729);
+            this.gunaLabel7.Location = new System.Drawing.Point(30, 653);
             this.gunaLabel7.Name = "gunaLabel7";
             this.gunaLabel7.Size = new System.Drawing.Size(126, 18);
             this.gunaLabel7.TabIndex = 18;
@@ -329,7 +331,7 @@ namespace KemishMusic
             // picUsuario
             // 
             this.picUsuario.BorderRadius = 20;
-            this.picUsuario.Location = new System.Drawing.Point(23, 748);
+            this.picUsuario.Location = new System.Drawing.Point(23, 672);
             this.picUsuario.Name = "picUsuario";
             this.picUsuario.ShadowDecoration.Parent = this.picUsuario;
             this.picUsuario.Size = new System.Drawing.Size(250, 250);
@@ -346,7 +348,7 @@ namespace KemishMusic
             this.btnInsertarFoto.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnInsertarFoto.ForeColor = System.Drawing.Color.White;
             this.btnInsertarFoto.HoverState.Parent = this.btnInsertarFoto;
-            this.btnInsertarFoto.Location = new System.Drawing.Point(23, 669);
+            this.btnInsertarFoto.Location = new System.Drawing.Point(23, 593);
             this.btnInsertarFoto.Name = "btnInsertarFoto";
             this.btnInsertarFoto.ShadowDecoration.Parent = this.btnInsertarFoto;
             this.btnInsertarFoto.Size = new System.Drawing.Size(223, 46);
@@ -358,7 +360,7 @@ namespace KemishMusic
             // 
             this.gunaLabel6.AutoSize = true;
             this.gunaLabel6.Font = new System.Drawing.Font("Circular Std Book Italic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel6.Location = new System.Drawing.Point(35, 551);
+            this.gunaLabel6.Location = new System.Drawing.Point(35, 475);
             this.gunaLabel6.Name = "gunaLabel6";
             this.gunaLabel6.Size = new System.Drawing.Size(143, 18);
             this.gunaLabel6.TabIndex = 15;
@@ -370,7 +372,7 @@ namespace KemishMusic
             this.fechaNacimientoT.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.fechaNacimientoT.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.fechaNacimientoT.HoverState.Parent = this.fechaNacimientoT;
-            this.fechaNacimientoT.Location = new System.Drawing.Point(38, 570);
+            this.fechaNacimientoT.Location = new System.Drawing.Point(38, 494);
             this.fechaNacimientoT.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.fechaNacimientoT.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.fechaNacimientoT.Name = "fechaNacimientoT";
@@ -383,7 +385,7 @@ namespace KemishMusic
             // 
             this.gunaLabel5.AutoSize = true;
             this.gunaLabel5.Font = new System.Drawing.Font("Circular Std Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel5.Location = new System.Drawing.Point(18, 623);
+            this.gunaLabel5.Location = new System.Drawing.Point(18, 547);
             this.gunaLabel5.Name = "gunaLabel5";
             this.gunaLabel5.Size = new System.Drawing.Size(136, 25);
             this.gunaLabel5.TabIndex = 12;
@@ -404,8 +406,9 @@ namespace KemishMusic
             this.txtApellidoM.FocusedState.Parent = this.txtApellidoM;
             this.txtApellidoM.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtApellidoM.HoverState.Parent = this.txtApellidoM;
-            this.txtApellidoM.Location = new System.Drawing.Point(372, 477);
+            this.txtApellidoM.Location = new System.Drawing.Point(372, 401);
             this.txtApellidoM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtApellidoM.MaxLength = 29;
             this.txtApellidoM.Name = "txtApellidoM";
             this.txtApellidoM.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtApellidoM.PasswordChar = '\0';
@@ -415,6 +418,7 @@ namespace KemishMusic
             this.txtApellidoM.ShadowDecoration.Parent = this.txtApellidoM;
             this.txtApellidoM.Size = new System.Drawing.Size(330, 55);
             this.txtApellidoM.TabIndex = 11;
+            this.txtApellidoM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoM_KeyPress);
             // 
             // txtApellidoP
             // 
@@ -431,8 +435,9 @@ namespace KemishMusic
             this.txtApellidoP.FocusedState.Parent = this.txtApellidoP;
             this.txtApellidoP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtApellidoP.HoverState.Parent = this.txtApellidoP;
-            this.txtApellidoP.Location = new System.Drawing.Point(23, 477);
+            this.txtApellidoP.Location = new System.Drawing.Point(23, 401);
             this.txtApellidoP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtApellidoP.MaxLength = 29;
             this.txtApellidoP.Name = "txtApellidoP";
             this.txtApellidoP.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtApellidoP.PasswordChar = '\0';
@@ -442,6 +447,7 @@ namespace KemishMusic
             this.txtApellidoP.ShadowDecoration.Parent = this.txtApellidoP;
             this.txtApellidoP.Size = new System.Drawing.Size(330, 55);
             this.txtApellidoP.TabIndex = 10;
+            this.txtApellidoP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoP_KeyPress);
             // 
             // txtCorreo
             // 
@@ -458,8 +464,9 @@ namespace KemishMusic
             this.txtCorreo.FocusedState.Parent = this.txtCorreo;
             this.txtCorreo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCorreo.HoverState.Parent = this.txtCorreo;
-            this.txtCorreo.Location = new System.Drawing.Point(372, 412);
+            this.txtCorreo.Location = new System.Drawing.Point(372, 336);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCorreo.MaxLength = 29;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtCorreo.PasswordChar = '\0';
@@ -469,6 +476,7 @@ namespace KemishMusic
             this.txtCorreo.ShadowDecoration.Parent = this.txtCorreo;
             this.txtCorreo.Size = new System.Drawing.Size(330, 55);
             this.txtCorreo.TabIndex = 9;
+            this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreo_KeyPress);
             // 
             // txtNombre
             // 
@@ -485,8 +493,9 @@ namespace KemishMusic
             this.txtNombre.FocusedState.Parent = this.txtNombre;
             this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombre.HoverState.Parent = this.txtNombre;
-            this.txtNombre.Location = new System.Drawing.Point(23, 412);
+            this.txtNombre.Location = new System.Drawing.Point(23, 336);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.MaxLength = 29;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtNombre.PasswordChar = '\0';
@@ -496,43 +505,17 @@ namespace KemishMusic
             this.txtNombre.ShadowDecoration.Parent = this.txtNombre;
             this.txtNombre.Size = new System.Drawing.Size(330, 55);
             this.txtNombre.TabIndex = 8;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // gunaLabel4
             // 
             this.gunaLabel4.AutoSize = true;
             this.gunaLabel4.Font = new System.Drawing.Font("Circular Std Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel4.Location = new System.Drawing.Point(18, 383);
+            this.gunaLabel4.Location = new System.Drawing.Point(18, 307);
             this.gunaLabel4.Name = "gunaLabel4";
             this.gunaLabel4.Size = new System.Drawing.Size(171, 25);
             this.gunaLabel4.TabIndex = 7;
             this.gunaLabel4.Text = "Datos personales";
-            // 
-            // txtContraConf
-            // 
-            this.txtContraConf.BorderRadius = 26;
-            this.txtContraConf.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtContraConf.DefaultText = "";
-            this.txtContraConf.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtContraConf.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtContraConf.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtContraConf.DisabledState.Parent = this.txtContraConf;
-            this.txtContraConf.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtContraConf.FillColor = System.Drawing.Color.Gainsboro;
-            this.txtContraConf.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtContraConf.FocusedState.Parent = this.txtContraConf;
-            this.txtContraConf.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtContraConf.HoverState.Parent = this.txtContraConf;
-            this.txtContraConf.Location = new System.Drawing.Point(23, 306);
-            this.txtContraConf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtContraConf.Name = "txtContraConf";
-            this.txtContraConf.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.txtContraConf.PasswordChar = '\0';
-            this.txtContraConf.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.txtContraConf.PlaceholderText = "Confirma la contraseña";
-            this.txtContraConf.SelectedText = "";
-            this.txtContraConf.ShadowDecoration.Parent = this.txtContraConf;
-            this.txtContraConf.Size = new System.Drawing.Size(679, 55);
-            this.txtContraConf.TabIndex = 5;
             // 
             // txtUsuario
             // 
@@ -551,6 +534,7 @@ namespace KemishMusic
             this.txtUsuario.HoverState.Parent = this.txtUsuario;
             this.txtUsuario.Location = new System.Drawing.Point(23, 51);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsuario.MaxLength = 29;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtUsuario.PasswordChar = '\0';
@@ -560,6 +544,7 @@ namespace KemishMusic
             this.txtUsuario.ShadowDecoration.Parent = this.txtUsuario;
             this.txtUsuario.Size = new System.Drawing.Size(679, 55);
             this.txtUsuario.TabIndex = 1;
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // txtContra
             // 
@@ -578,6 +563,7 @@ namespace KemishMusic
             this.txtContra.HoverState.Parent = this.txtContra;
             this.txtContra.Location = new System.Drawing.Point(23, 239);
             this.txtContra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtContra.MaxLength = 49;
             this.txtContra.Name = "txtContra";
             this.txtContra.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtContra.PasswordChar = '\0';
@@ -587,6 +573,7 @@ namespace KemishMusic
             this.txtContra.ShadowDecoration.Parent = this.txtContra;
             this.txtContra.Size = new System.Drawing.Size(679, 55);
             this.txtContra.TabIndex = 4;
+            this.txtContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContra_KeyPress);
             // 
             // gunaLabel2
             // 
@@ -674,7 +661,6 @@ namespace KemishMusic
         private Guna.UI2.WinForms.Guna2TextBox txtCorreo;
         private Guna.UI2.WinForms.Guna2TextBox txtNombre;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
-        private Guna.UI2.WinForms.Guna2TextBox txtContraConf;
         private Guna.UI2.WinForms.Guna2TextBox txtUsuario;
         private Guna.UI2.WinForms.Guna2TextBox txtContra;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;

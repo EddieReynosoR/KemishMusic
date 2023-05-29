@@ -65,15 +65,17 @@
             this.txtPlaylist.HoverState.Parent = this.txtPlaylist;
             this.txtPlaylist.Location = new System.Drawing.Point(63, 78);
             this.txtPlaylist.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPlaylist.MaxLength = 29;
             this.txtPlaylist.Name = "txtPlaylist";
             this.txtPlaylist.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtPlaylist.PasswordChar = '\0';
             this.txtPlaylist.PlaceholderForeColor = System.Drawing.Color.Transparent;
-            this.txtPlaylist.PlaceholderText = "";
+            this.txtPlaylist.PlaceholderText = "Nombre para la playlist";
             this.txtPlaylist.SelectedText = "";
             this.txtPlaylist.ShadowDecoration.Parent = this.txtPlaylist;
             this.txtPlaylist.Size = new System.Drawing.Size(330, 55);
             this.txtPlaylist.TabIndex = 9;
+            this.txtPlaylist.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlaylist_KeyPress);
             // 
             // gunaLabel2
             // 
@@ -135,9 +137,8 @@
             this.lblRutaImagen.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblRutaImagen.Location = new System.Drawing.Point(418, 274);
             this.lblRutaImagen.Name = "lblRutaImagen";
-            this.lblRutaImagen.Size = new System.Drawing.Size(86, 20);
+            this.lblRutaImagen.Size = new System.Drawing.Size(0, 20);
             this.lblRutaImagen.TabIndex = 14;
-            this.lblRutaImagen.Text = "gunaLabel3";
             // 
             // Crear_Playlist
             // 

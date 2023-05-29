@@ -150,6 +150,9 @@ namespace KemishMusic
         }
         private void btnEditarPlaylist_Click(object sender, EventArgs e)
         {
+            if(txtPlaylistEditar.Text == "")
+                    MessageBox.Show("Debes de asignarle un nombre a la playlist.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
             DialogResult result = MessageBox.Show("¿Estás seguro que quieres guardar los cambios realizados?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
@@ -183,15 +186,23 @@ namespace KemishMusic
 
         private void btnSeleccionarImagenPlaylistEditar_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
+            try
+            {
+                OpenFileDialog dlg = new OpenFileDialog();
 
-            dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
+                dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
 
-            dlg.ShowDialog();
+                dlg.ShowDialog();
 
-            lblRutaImagen.Text = dlg.FileName;
+                lblRutaImagen.Text = dlg.FileName;
 
-            picPlaylistEditar.Image = new Bitmap(dlg.FileName);
+                picPlaylistEditar.Image = new Bitmap(dlg.FileName);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("No has seleccionado ninguna imágen para la playlist.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void btnEliminarPlaylist_Click(object sender, EventArgs e)

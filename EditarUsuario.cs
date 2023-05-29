@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using System.ComponentModel.DataAnnotations;
 
 namespace KemishMusic
 {
@@ -37,8 +38,15 @@ namespace KemishMusic
             picPortada.Image = (Bitmap)new ImageConverter().ConvertFrom(Usuario.fotoPortada);
         }
 
+        public bool ValidateUsingEmailAddressAttribute(string emailAddress)
+        {
+            var emailValidation = new EmailAddressAttribute();
+            return emailValidation.IsValid(emailAddress);
+        }
+
         public void EditarUsuarioFuncion(string fotoperfil, string fotoportada)
         {
+            
             using (Stream stream = File.OpenRead(fotoperfil))
             {
                 using (Stream stream2 = File.OpenRead(fotoportada))
@@ -63,7 +71,7 @@ namespace KemishMusic
 
                     string query = "UPDATE usuario SET usuario_username = @usuario_username, usuario_contra = @usuario_contra, usuario_nombre = @usuario_nombre,  usuario_apellidop = @usuario_apellidop, usuario_apellidom = @usuario_apellidom, usuario_fotoperfil = @usuario_fotoperfil, usuario_correo = @usuario_correo, usuario_fnacimiento = @usuario_fnacimiento, usuario_descripcion = @usuario_descripcion, usuario_fportada = @usuario_fportada, usuario_nombreartist = @usuario_nombreartist WHERE id_usuario = '" + Usuario.id + "'";
 
-
+                    
                     SqlCommand cmd = new SqlCommand(query, cn);
 
                     cmd.Parameters.AddWithValue("@usuario_username", txtUsuario.Text);
@@ -98,8 +106,10 @@ namespace KemishMusic
 
 
                     Application.Restart();
+                    
                 }
             }
+            
         }
         public void EditarUsuarioFuncion2(string fotoportada)
         {
@@ -266,39 +276,60 @@ namespace KemishMusic
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (label1.Text != "" && label2.Text != "")
-                EditarUsuarioFuncion(label1.Text, label2.Text);
-            else if (label1.Text == "" && label2.Text != "")
-                EditarUsuarioFuncion2(label2.Text);
-            else if (label1.Text != "" && label2.Text == "")
-                EditarUsuarioFuncion3(label1.Text);
-            else if (label1.Text == "" && label2.Text == "")
-                EditarUsuarioFuncion4();
+            if (txtUsuario.Text == "" || txtNombreArtistico.Text == "" || txtContra.Text == "" || txtNombre.Text == "" || txtCorreo.Text == "" || txtApellidoP.Text == "" || txtApellidoM.Text == "" || txtContra.Text == "")
+                MessageBox.Show("Debes de llenar todos tus datos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);           
+            else if (!ValidateUsingEmailAddressAttribute(txtCorreo.Text))
+                MessageBox.Show("Tu correo electrónico no es válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                if (label1.Text != "" && label2.Text != "")
+                    EditarUsuarioFuncion(label1.Text, label2.Text);
+                else if (label1.Text == "" && label2.Text != "")
+                    EditarUsuarioFuncion2(label2.Text);
+                else if (label1.Text != "" && label2.Text == "")
+                    EditarUsuarioFuncion3(label1.Text);
+                else if (label1.Text == "" && label2.Text == "")
+                    EditarUsuarioFuncion4();
+            }
             
         }
 
         private void btnInsertarFoto_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
+            try
+            {
+                OpenFileDialog dlg = new OpenFileDialog();
 
-            dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
+                dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
 
-            dlg.ShowDialog();
+                dlg.ShowDialog();
 
-            label1.Text = dlg.FileName;
-            picUsuario.Image = new Bitmap(dlg.FileName);
+                label1.Text = dlg.FileName;
+                picUsuario.Image = new Bitmap(dlg.FileName);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("No seleccionaste ninguna imágen.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnInsertarPortada_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
+            try
+            {
+                OpenFileDialog dlg = new OpenFileDialog();
 
-            dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
+                dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
 
-            dlg.ShowDialog();
+                dlg.ShowDialog();
 
-            label2.Text = dlg.FileName;
-            picPortada.Image = new Bitmap(dlg.FileName);
+                label2.Text = dlg.FileName;
+                picPortada.Image = new Bitmap(dlg.FileName);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("No seleccionaste ninguna imágen.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         public void ObtenerCancionParaEliminar(string idUsuario)
@@ -323,72 +354,180 @@ namespace KemishMusic
 
         private void btnEliminarCuenta_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DialogResult result = MessageBox.Show("¿Estás segur@ de que quieres eliminar tu cuenta junto con todos sus datos y canciones?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            DialogResult result = MessageBox.Show("¿Estás segur@ de que quieres eliminar tu cuenta junto con todos sus datos y canciones?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
 
-            if (result == DialogResult.Yes)
+
+                    SqlConnection cn = Form1.GetConnection();
+                    cn.Open();
+
+                    SqlCommand elimina4 = new SqlCommand("DELETE FROM enlistar WHERE cancion_cancion_id IN (SELECT cancion_id FROM cancion WHERE usuario_id_usuario = '" + Usuario.id + "')", cn);
+
+                    elimina4.ExecuteNonQuery();
+
+                    ObtenerCancionParaEliminar(Usuario.id);
+
+
+                    SqlCommand elimina3 = new SqlCommand("DELETE FROM cancion WHERE usuario_id_usuario=@usuario_id_usuario", cn);
+                    elimina3.Parameters.AddWithValue("@usuario_id_usuario", Usuario.id);
+
+                    elimina3.ExecuteNonQuery();
+
+                    Form1 frm1 = new Form1();
+                    string path = frm1.PathGlobal();
+
+                    foreach (string cancionAudio in listaAudios)
+                    {
+                        File.SetAttributes(Path.Combine(path, Path.GetFileName(cancionAudio)), FileAttributes.Normal);
+                        File.Delete(Path.Combine(path, Path.GetFileName(cancionAudio)));
+                    }
+
+                    SqlCommand elimina2 = new SqlCommand("DELETE FROM playlist WHERE usuario_id_usuario=@usuario_id_usuario", cn);
+                    elimina2.Parameters.AddWithValue("@usuario_id_usuario", Usuario.id);
+
+                    elimina2.ExecuteNonQuery();
+
+
+
+
+
+
+
+                    SqlCommand elimina = new SqlCommand("DELETE FROM colaboracion WHERE usuario_usuario_id = '" + Usuario.id + "'", cn);
+
+                    elimina.ExecuteNonQuery();
+
+
+                    SqlCommand elimina5 = new SqlCommand("DELETE FROM usuario WHERE id_usuario = '" + Usuario.id + "'", cn);
+
+                    elimina5.ExecuteNonQuery();
+
+
+
+
+
+
+
+                    MessageBox.Show("Cuenta eliminada.");
+
+                    cn.Close();
+
+
+
+
+                    Application.Restart();
+                }
+            }
+            catch (UnauthorizedAccessException)
             {
                 
-
-                SqlConnection cn = Form1.GetConnection();
-                cn.Open();
-
-                SqlCommand elimina4 = new SqlCommand("DELETE FROM enlistar WHERE cancion_cancion_id IN (SELECT cancion_id FROM cancion WHERE usuario_id_usuario = '"+Usuario.id+"')", cn);
-
-                elimina4.ExecuteNonQuery();
-
-                ObtenerCancionParaEliminar(Usuario.id);
-
-
-                SqlCommand elimina3 = new SqlCommand("DELETE FROM cancion WHERE usuario_id_usuario=@usuario_id_usuario", cn);
-                elimina3.Parameters.AddWithValue("@usuario_id_usuario", Usuario.id);
-
-                elimina3.ExecuteNonQuery();
-
-                Form1 frm1 = new Form1();
-                string path = frm1.PathGlobal();
-
-                foreach (string cancionAudio in listaAudios)
-                {
-                    File.SetAttributes(Path.Combine(path, Path.GetFileName(cancionAudio)), FileAttributes.Normal);
-                    File.Delete(Path.Combine(path, Path.GetFileName(cancionAudio)));
-                }
-
-                SqlCommand elimina2 = new SqlCommand("DELETE FROM playlist WHERE usuario_id_usuario=@usuario_id_usuario", cn);
-                elimina2.Parameters.AddWithValue("@usuario_id_usuario", Usuario.id);
-
-                elimina2.ExecuteNonQuery();
-
-                
-
-                
-
-                
-
-                SqlCommand elimina = new SqlCommand("DELETE FROM colaboracion WHERE usuario_usuario_id = '"+Usuario.id+"'", cn);
-
-                elimina.ExecuteNonQuery();
-
-
-                SqlCommand elimina5 = new SqlCommand("DELETE FROM usuario WHERE id_usuario = '" + Usuario.id + "'", cn);
-
-                elimina5.ExecuteNonQuery();
-
-
-
-
-
-
-
-                MessageBox.Show("Cuenta eliminada.");
-
-                cn.Close();
-
-
-
-
-                Application.Restart();
+                MessageBox.Show("Hubo un problema al tratar de eliminar tu cuenta. Intentalo de nuevo más tarde.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
             }
+        }
+        private bool HasSpecialChars(string yourString)
+        {
+            string specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,";
+            foreach (var item in specialChar)
+            {
+                if (yourString.Contains(item)) return true;
+            }
+
+            return false;
+        }
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtUsuario.Text.Length > 29)
+                MessageBox.Show("Tu nombre de usuario no puede tener más de 30 carácteres de largo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (HasSpecialChars(e.KeyChar.ToString()))
+            {
+                MessageBox.Show("No puedes incluir carácteres especiales en tu nombre de usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombreArtistico_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtNombreArtistico.Text.Length > 29)
+                MessageBox.Show("Tu nombre de usuario artístico no puede tener más de 30 carácteres de largo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (HasSpecialChars(e.KeyChar.ToString()))
+            {
+                MessageBox.Show("No puedes incluir carácteres especiales en tu nombre artístico.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+            }
+        }
+
+        private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (HasSpecialChars(e.KeyChar.ToString()))
+            {
+                MessageBox.Show("No puedes incluir carácteres especiales en tu contraseña.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtNombre.Text.Length > 29)
+                MessageBox.Show("Tus nombres no pueden tener más de 30 carácteres de largo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (HasSpecialChars(e.KeyChar.ToString()))
+            {
+                MessageBox.Show("No puedes incluir carácteres especiales en tus nombres.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+            }
+            else if (Char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("No puedes incluir números en tus nombres.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+            }
+        }
+
+        private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtCorreo.Text.Length > 49)
+                MessageBox.Show("Tus correo electrónico no puede tener más de 50 carácteres de largo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void txtApellidoP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtApellidoP.Text.Length > 29)
+                MessageBox.Show("Tus apellido paterno no puede tener más de 30 carácteres de largo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (HasSpecialChars(e.KeyChar.ToString()))
+            {
+                MessageBox.Show("No puedes incluir carácteres especiales en tu apellido paterno.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+            }
+            else if (Char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("No puedes incluir números en tu apellido paterno.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+            }
+        }
+
+        private void txtApellidoM_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtApellidoM.Text.Length > 29)
+                MessageBox.Show("Tus apellido paterno no puede tener más de 30 carácteres de largo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (HasSpecialChars(e.KeyChar.ToString()))
+            {
+                MessageBox.Show("No puedes incluir carácteres especiales en tu apellido materno.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+            }
+            else if (Char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("No puedes incluir números en tu apellido materno.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtApellidoM.Text.Length > 99)
+                MessageBox.Show("La descripción de tu perfil no puede ser mayor a 100 carácteres.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

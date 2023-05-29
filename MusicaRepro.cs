@@ -71,10 +71,7 @@ namespace KemishMusic
         {
             id = lblID.Text;
             // estatus = lblEstado.Text;
-            if (CancionClick != null)
-            {
-                CancionClick(this, e);
-            }
+            
         }
 
         private void lblID_Click(object sender, EventArgs e)

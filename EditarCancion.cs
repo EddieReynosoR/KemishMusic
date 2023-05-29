@@ -87,51 +87,71 @@ namespace KemishMusic
         {
             string query = "INSERT INTO colaboracion (cancion_cancion_id, usuario_usuario_id) VALUES (@cancion_cancion_id, @usuario_usuario_id)";
 
-            using (SqlConnection cn = Form1.GetConnection())
+            if (cmbColabsEditar.SelectedIndex == -1)
+                MessageBox.Show("No se ha seleccionado a ningún artista.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
             {
-                string idColab = cmbColabsEditar.SelectedItem.ToString().Split()[0];
-                SqlCommand cmd = new SqlCommand(query, cn);
+                using (SqlConnection cn = Form1.GetConnection())
+                {
+                    string idColab = cmbColabsEditar.SelectedItem.ToString().Split()[0];
+                    SqlCommand cmd = new SqlCommand(query, cn);
 
-                cmd.Parameters.AddWithValue("@cancion_cancion_id", CancionSelect.id);
+                    cmd.Parameters.AddWithValue("@cancion_cancion_id", CancionSelect.id);
 
-                cmd.Parameters.AddWithValue("@usuario_usuario_id", idColab);
+                    cmd.Parameters.AddWithValue("@usuario_usuario_id", idColab);
 
 
 
-                cn.Open();
-                cmd.ExecuteNonQuery();
-            }
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                }
 
-            DialogResult result = MessageBox.Show("Se registro la nueva colaboración con éxito. Cambios guardados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult result = MessageBox.Show("Se registro la nueva colaboración con éxito. Cambios guardados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            if (result == DialogResult.OK)
-            {
-                Application.Restart();
+                if (result == DialogResult.OK)
+                {
+                    Application.Restart();
+                }
             }
         }
 
         private void btnSeleccionarAudio_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
+            try
+            {
+                OpenFileDialog dlg = new OpenFileDialog();
 
-            dlg.ShowDialog();
+                dlg.ShowDialog();
 
-            txtAudioEditar.Text = dlg.FileName;
+                txtAudioEditar.Text = dlg.FileName;
 
-            btnEditarCancion.Enabled = true;
+                btnEditarCancion.Enabled = true;
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("No seleccionaste ningun archivo de audio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void btnSeleccionarImagen_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
+            try
+            {
+                OpenFileDialog dlg = new OpenFileDialog();
 
-            dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
+                dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
 
-            dlg.ShowDialog();
+                dlg.ShowDialog();
 
-            lblRutaImagen.Text = dlg.FileName;
+                lblRutaImagen.Text = dlg.FileName;
 
-            picCancionEditar.Image = new Bitmap(dlg.FileName);
+                picCancionEditar.Image = new Bitmap(dlg.FileName);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("No seleccionaste ninguna imágen.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
 
@@ -450,66 +470,87 @@ namespace KemishMusic
 
         private void btnEditarCancion_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Estás seguro que quieres guardar los cambios realizados?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            try
             {
-                if (lblRutaImagen.Text != "" && txtAudioEditar.Text != cancionAnteior)
-                    EditarCancionFuncion(txtAudioEditar.Text, lblRutaImagen.Text);
-                else if (lblRutaImagen.Text == ""  && txtAudioEditar.Text != cancionAnteior)
-                    EditarCancionFuncion2(txtAudioEditar.Text);
-                else if (txtNombreCancionEditar.Text != nombreCancion && lblRutaImagen.Text == "" && txtAudioEditar.Text == cancionAnteior)
-                    EditarCancionFuncion3();
-                else if (lblRutaImagen.Text != "" && txtAudioEditar.Text == cancionAnteior)
-                    EditarCancionFuncion4(lblRutaImagen.Text);
+                if (txtNombreCancionEditar.Text == "")
+                    MessageBox.Show("El nombre no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (txtAudioEditar.Text == "")
+                    MessageBox.Show("No se ha seleccionado ningún audio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
-                    MessageBox.Show("No hay cambios realizados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                {
+                    DialogResult result = MessageBox.Show("¿Estás seguro que quieres guardar los cambios realizados?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        if (lblRutaImagen.Text != "" && txtAudioEditar.Text != cancionAnteior)
+                            EditarCancionFuncion(txtAudioEditar.Text, lblRutaImagen.Text);
+                        else if (lblRutaImagen.Text == "" && txtAudioEditar.Text != cancionAnteior)
+                            EditarCancionFuncion2(txtAudioEditar.Text);
+                        else if (txtNombreCancionEditar.Text != nombreCancion && lblRutaImagen.Text == "" && txtAudioEditar.Text == cancionAnteior)
+                            EditarCancionFuncion3();
+                        else if (lblRutaImagen.Text != "" && txtAudioEditar.Text == cancionAnteior)
+                            EditarCancionFuncion4(lblRutaImagen.Text);
+                        else
+                            MessageBox.Show("No hay cambios realizados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("Hubo un problema al tratar de editar la canción. Intentalo de nuevo más tarde.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-                
         }
 
         private void btnEliminarCancion_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Estás segur@ de que quieres eliminar esta canción?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
+            try
             {
-                SqlConnection cn = Form1.GetConnection();
-                cn.Open();
-
-                SqlCommand elimina3 = new SqlCommand("DELETE FROM enlistar WHERE cancion_cancion_id=@cancion_cancion_id", cn);
-                elimina3.Parameters.AddWithValue("@cancion_cancion_id", CancionSelect.id);
-
-                elimina3.ExecuteNonQuery();
-
-                SqlCommand elimina2 = new SqlCommand("DELETE FROM cancion WHERE cancion_id=@cancion_id", cn);
-                elimina2.Parameters.AddWithValue("@cancion_id", CancionSelect.id);
-
-                elimina2.ExecuteNonQuery();
-
-                SqlCommand elimina = new SqlCommand("DELETE FROM colaboracion WHERE cancion_cancion_id=@cancion_cancion_id", cn);
-                elimina.Parameters.AddWithValue("@cancion_cancion_id", CancionSelect.id);
-
-                elimina.ExecuteNonQuery();
-
-                Form1 frm1 = new Form1();
-                string path = frm1.PathGlobal();
-
-                File.SetAttributes(Path.Combine(path, Path.GetFileName(txtAudioEditar.Text)), FileAttributes.Normal);
-                File.Delete(Path.Combine(path, Path.GetFileName(txtAudioEditar.Text)));
-
-                MessageBox.Show("Canción eliminada.");
-
-                cn.Close();
+                DialogResult result = MessageBox.Show("¿Estás segur@ de que quieres eliminar esta canción?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
 
-                
+                if (result == DialogResult.Yes)
+                {
 
-                Application.Restart();
+                    SqlConnection cn = Form1.GetConnection();
+                    cn.Open();
+
+                    SqlCommand elimina3 = new SqlCommand("DELETE FROM enlistar WHERE cancion_cancion_id=@cancion_cancion_id", cn);
+                    elimina3.Parameters.AddWithValue("@cancion_cancion_id", CancionSelect.id);
+
+                    elimina3.ExecuteNonQuery();
+
+                    SqlCommand elimina2 = new SqlCommand("DELETE FROM cancion WHERE cancion_id=@cancion_id", cn);
+                    elimina2.Parameters.AddWithValue("@cancion_id", CancionSelect.id);
+
+                    elimina2.ExecuteNonQuery();
+
+                    SqlCommand elimina = new SqlCommand("DELETE FROM colaboracion WHERE cancion_cancion_id=@cancion_cancion_id", cn);
+                    elimina.Parameters.AddWithValue("@cancion_cancion_id", CancionSelect.id);
+
+                    elimina.ExecuteNonQuery();
+
+                    Form1 frm1 = new Form1();
+                    string path = frm1.PathGlobal();
+
+                    File.SetAttributes(Path.Combine(path, Path.GetFileName(txtAudioEditar.Text)), FileAttributes.Normal);
+                    File.Delete(Path.Combine(path, Path.GetFileName(txtAudioEditar.Text)));
+
+                    MessageBox.Show("Canción eliminada.");
+
+                    cn.Close();
+
+
+
+
+                    Application.Restart();
+                }
+
             }
-
-            
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("Hubo un problema al tratar de eliminar la canción. Intentalo de nuevo más tarde.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void panelColaboradoresEdit_Paint(object sender, PaintEventArgs e)
@@ -518,6 +559,16 @@ namespace KemishMusic
         }
 
         private void txtAudioEditar_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void gunaControlBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             
         }

@@ -161,6 +161,15 @@ namespace KemishMusic
                 Artista.lista.Clear();
                 Cancion.lista3.Clear();
                 PlaylistClase.lista3.Clear();
+
+                DetallesArtista(where);
+                ArtistaPanel();
+
+                DetallesCancion(where2);
+                CancionPanel();
+
+                DetallesPlaylist(where3);
+                PlaylistPanel();
             }
             panelArtistasBusqueda.Controls.Clear();
             panelCancionBusqueda.Controls.Clear();

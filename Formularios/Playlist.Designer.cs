@@ -64,6 +64,7 @@
             this.txtNombre.HoverState.Parent = this.txtNombre;
             this.txtNombre.Location = new System.Drawing.Point(12, 55);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.MaxLength = 29;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PasswordChar = '\0';
             this.txtNombre.PlaceholderText = "";
@@ -71,6 +72,7 @@
             this.txtNombre.ShadowDecoration.Parent = this.txtNombre;
             this.txtNombre.Size = new System.Drawing.Size(351, 44);
             this.txtNombre.TabIndex = 0;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtImagen
             // 
@@ -81,6 +83,7 @@
             this.txtImagen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtImagen.DisabledState.Parent = this.txtImagen;
             this.txtImagen.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtImagen.Enabled = false;
             this.txtImagen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtImagen.FocusedState.Parent = this.txtImagen;
             this.txtImagen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -104,6 +107,7 @@
             this.txtAudio.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtAudio.DisabledState.Parent = this.txtAudio;
             this.txtAudio.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAudio.Enabled = false;
             this.txtAudio.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAudio.FocusedState.Parent = this.txtAudio;
             this.txtAudio.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -187,7 +191,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.HoverState.Parent = this.btnGuardar;
-            this.btnGuardar.Location = new System.Drawing.Point(504, 389);
+            this.btnGuardar.Location = new System.Drawing.Point(833, 414);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.ShadowDecoration.Parent = this.btnGuardar;
             this.btnGuardar.Size = new System.Drawing.Size(180, 45);
@@ -247,10 +251,10 @@
             // gunaLabel6
             // 
             this.gunaLabel6.AutoSize = true;
-            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel6.Location = new System.Drawing.Point(757, 218);
             this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(163, 20);
+            this.gunaLabel6.Size = new System.Drawing.Size(166, 20);
             this.gunaLabel6.TabIndex = 14;
             this.gunaLabel6.Text = "Lista de colaboradores:";
             // 
@@ -260,9 +264,9 @@
             this.lblListaColab.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblListaColab.Location = new System.Drawing.Point(757, 242);
             this.lblListaColab.Name = "lblListaColab";
-            this.lblListaColab.Size = new System.Drawing.Size(154, 20);
+            this.lblListaColab.Size = new System.Drawing.Size(256, 20);
             this.lblListaColab.TabIndex = 15;
-            this.lblListaColab.Text = "lblListaColaboradores";
+            this.lblListaColab.Text = "No hay colaboradores seleccionados.";
             // 
             // btnInsertarColab
             // 
@@ -302,7 +306,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(1155, 591);
+            this.guna2Panel1.Size = new System.Drawing.Size(1060, 483);
             this.guna2Panel1.TabIndex = 17;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -311,7 +315,7 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 591);
+            this.ClientSize = new System.Drawing.Size(1060, 483);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "Playlist";
             this.Text = "g";

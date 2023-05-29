@@ -98,5 +98,13 @@ namespace KemishMusic
         {
             Application.Exit();
         }
+
+        private void chkMostrarContra_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMostrarContra.Checked)
+                txtContra.PasswordChar = '\0';
+            else
+                txtContra.PasswordChar = '*';
+        }
     }
 }

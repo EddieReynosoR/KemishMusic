@@ -65,113 +65,122 @@ namespace KemishMusic.Formularios
         public void GuardarArchivo(string archivoImagen, string archivoAudio)
         {
             Form1 frm1 = new Form1();
-
-            using (Stream stream = File.OpenRead(archivoImagen))
+            if(txtNombre.Text == "")
+                MessageBox.Show("La canción debe de tener un nombre.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (archivoAudio == "")
+                MessageBox.Show("Debes seleccionar un archivo de audio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (archivoImagen == "")
+                MessageBox.Show("Debes seleccionar un archivo para la imagen de portada para la canción.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
             {
-                using (Stream stream2 = File.OpenRead(archivoAudio))
+                using (Stream stream = File.OpenRead(archivoImagen))
                 {
-                    FileStream fs = stream2 as FileStream;
-
-                    byte[] buffer = new byte[stream.Length];
-
-
-
-
-
-
-
-                    stream.Read(buffer, 0, buffer.Length);
-
-                    string extn = new FileInfo(archivoAudio).Extension;
-
-                    string nombreCancion = Path.GetFileName(archivoAudio);
-
-                    Cancion guardar = new Cancion();
-
-                    guardar.nombre = txtNombre.Text;
-                    guardar.audio = nombreCancion;
-
-
-                    guardar.imagen = buffer;
-
-                    guardar.fecha = DateTime.Now.Date.ToString();
-
-
-
-
-                    string query = "INSERT INTO cancion(cancion_nombre,cancion_imagen,cancion_audionombre,cancion_fechaestreno, usuario_id_usuario)VALUES(@nombre,@imagen,@audio,@fecha, @usuario_id_usuario)";
-
-                    //var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
-                    //stream.CopyTo(fileStream);
-
-                    //fileStream.Dispose();
-
-                    using (SqlConnection cn = Form1.GetConnection())
+                    using (Stream stream2 = File.OpenRead(archivoAudio))
                     {
-                        
-                        SqlCommand cmd = new SqlCommand(query, cn);
-                        
-                        cn.Open();
+                        FileStream fs = stream2 as FileStream;
+
+                        byte[] buffer = new byte[stream.Length];
 
 
-                        cmd.Parameters.AddWithValue("@nombre", guardar.nombre);
-
-                        cmd.Parameters.AddWithValue("@imagen", guardar.imagen);
-
-                        cmd.Parameters.AddWithValue("@audio", guardar.audio);
-
-                        cmd.Parameters.AddWithValue("@fecha", DateTime.Now.Date);
-
-                        cmd.Parameters.AddWithValue("@usuario_id_usuario", Usuario.id);
 
 
-                        cmd.ExecuteNonQuery();
 
 
-                        if (cmbColaboradores.SelectedIndex != -1)
+
+                        stream.Read(buffer, 0, buffer.Length);
+
+                        string extn = new FileInfo(archivoAudio).Extension;
+
+                        string nombreCancion = Path.GetFileName(archivoAudio);
+
+                        Cancion guardar = new Cancion();
+
+                        guardar.nombre = txtNombre.Text;
+                        guardar.audio = nombreCancion;
+
+
+                        guardar.imagen = buffer;
+
+                        guardar.fecha = DateTime.Now.Date.ToString();
+
+
+
+
+                        string query = "INSERT INTO cancion(cancion_nombre,cancion_imagen,cancion_audionombre,cancion_fechaestreno, usuario_id_usuario)VALUES(@nombre,@imagen,@audio,@fecha, @usuario_id_usuario)";
+
+                        //var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
+                        //stream.CopyTo(fileStream);
+
+                        //fileStream.Dispose();
+
+                        using (SqlConnection cn = Form1.GetConnection())
                         {
 
-                            using (SqlConnection cn2 = Form1.GetConnection())
+                            SqlCommand cmd = new SqlCommand(query, cn);
+
+                            cn.Open();
+
+
+                            cmd.Parameters.AddWithValue("@nombre", guardar.nombre);
+
+                            cmd.Parameters.AddWithValue("@imagen", guardar.imagen);
+
+                            cmd.Parameters.AddWithValue("@audio", guardar.audio);
+
+                            cmd.Parameters.AddWithValue("@fecha", DateTime.Now.Date);
+
+                            cmd.Parameters.AddWithValue("@usuario_id_usuario", Usuario.id);
+
+
+                            cmd.ExecuteNonQuery();
+
+
+                            if (cmbColaboradores.SelectedIndex != -1)
                             {
-                                string query2;
-                                query2 = "INSERT INTO colaboracion (cancion_cancion_id, usuario_usuario_id) VALUES ((SELECT MAX(cancion_id) FROM cancion), @usuario_usuario_id)";
-                                foreach (string colaborador in listaColaboradores)
+
+                                using (SqlConnection cn2 = Form1.GetConnection())
                                 {
+                                    string query2;
+                                    query2 = "INSERT INTO colaboracion (cancion_cancion_id, usuario_usuario_id) VALUES ((SELECT MAX(cancion_id) FROM cancion), @usuario_usuario_id)";
+                                    foreach (string colaborador in listaColaboradores)
+                                    {
 
-                                    SqlCommand cmd2 = new SqlCommand(query2, cn2);
+                                        SqlCommand cmd2 = new SqlCommand(query2, cn2);
 
-                                    cn2.Open();
-
-
-
-                                    cmd2.Parameters.AddWithValue("@usuario_usuario_id", colaborador.Split()[0]);
+                                        cn2.Open();
 
 
 
-                                    cmd2.ExecuteNonQuery();
+                                        cmd2.Parameters.AddWithValue("@usuario_usuario_id", colaborador.Split()[0]);
+
+
+
+                                        cmd2.ExecuteNonQuery();
+                                    }
                                 }
                             }
                         }
                     }
                 }
+
+
+
+                string path = frm1.PathGlobal();
+
+
+                File.Copy(@archivoAudio, Path.Combine(path, Path.GetFileName(archivoAudio)), true);
+                File.SetAttributes(Path.Combine(path, Path.GetFileName(archivoAudio)), FileAttributes.Normal);
+
+
+                DialogResult dialog = MessageBox.Show("Canción añadida correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (dialog == DialogResult.OK)
+                {
+                    Application.Restart();
+                }
+                else
+                    Application.Restart();
             }
-
-
-            string path = frm1.PathGlobal();
-
-
-            File.Copy(@archivoAudio, Path.Combine(path, Path.GetFileName(archivoAudio)), true);
-            File.SetAttributes(Path.Combine(path, Path.GetFileName(archivoAudio)), FileAttributes.Normal);
-
-
-            DialogResult dialog = MessageBox.Show("Canción añadida correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if(dialog == DialogResult.OK)
-            {
-                Application.Restart();
-            }
-            else
-                Application.Restart();
         }
         
 
@@ -203,20 +212,31 @@ namespace KemishMusic.Formularios
 
         private void btnInsertarColab_Click(object sender, EventArgs e)
         {
-            listaColaboradores.Add(cmbColaboradores.SelectedItem.ToString());
-
-            lblListaColab.Text = "";
-
-
-            foreach (string colaborador in listaColaboradores) 
+            if (cmbColaboradores.SelectedIndex == -1)
+                MessageBox.Show("No se ha seleccionado a ningún artista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
-                lblListaColab.Text += colaborador.Split()[1] + "\n";
+                listaColaboradores.Add(cmbColaboradores.SelectedItem.ToString());
+
+                lblListaColab.Text = "";
+
+
+                foreach (string colaborador in listaColaboradores)
+                {
+                    lblListaColab.Text += colaborador.Split()[1] + "\n";
+                }
             }
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtNombre.Text.Length > 29)
+                MessageBox.Show("El nombre de la canción no puede mayor de 30 carácteres de largo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

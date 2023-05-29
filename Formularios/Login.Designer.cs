@@ -40,6 +40,7 @@ namespace KemishMusic
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.lblApp = new System.Windows.Forms.Label();
+            this.chkMostrarContra = new Guna.UI2.WinForms.Guna2CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +104,7 @@ namespace KemishMusic
             this.txtContra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtContra.Name = "txtContra";
             this.txtContra.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.txtContra.PasswordChar = '\0';
+            this.txtContra.PasswordChar = '*';
             this.txtContra.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtContra.PlaceholderText = "Ingresa tu nueva contraseña";
             this.txtContra.SelectedText = "";
@@ -181,12 +182,32 @@ namespace KemishMusic
             this.lblApp.Text = "Registrarse";
             this.lblApp.Click += new System.EventHandler(this.lblApp_Click);
             // 
+            // chkMostrarContra
+            // 
+            this.chkMostrarContra.AutoSize = true;
+            this.chkMostrarContra.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkMostrarContra.CheckedState.BorderRadius = 2;
+            this.chkMostrarContra.CheckedState.BorderThickness = 0;
+            this.chkMostrarContra.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkMostrarContra.Location = new System.Drawing.Point(108, 345);
+            this.chkMostrarContra.Name = "chkMostrarContra";
+            this.chkMostrarContra.Size = new System.Drawing.Size(153, 21);
+            this.chkMostrarContra.TabIndex = 26;
+            this.chkMostrarContra.Text = "Mostrar contraseña";
+            this.chkMostrarContra.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkMostrarContra.UncheckedState.BorderRadius = 2;
+            this.chkMostrarContra.UncheckedState.BorderThickness = 0;
+            this.chkMostrarContra.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkMostrarContra.UseVisualStyleBackColor = true;
+            this.chkMostrarContra.CheckedChanged += new System.EventHandler(this.chkMostrarContra_CheckedChanged);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(382, 509);
+            this.Controls.Add(this.chkMostrarContra);
             this.Controls.Add(this.lblApp);
             this.Controls.Add(this.gunaControlBox1);
             this.Controls.Add(this.btnLogin);
@@ -218,5 +239,6 @@ namespace KemishMusic
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI.WinForms.GunaControlBox gunaControlBox1;
         private System.Windows.Forms.Label lblApp;
+        private Guna.UI2.WinForms.Guna2CheckBox chkMostrarContra;
     }
 }

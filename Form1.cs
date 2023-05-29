@@ -381,7 +381,9 @@ namespace KemishMusic
                     pbBar.Location = new Point(52, 576);
                     guna2TrackBar1.Location = new Point(387, 580);
                     btnPausaPlay.Location = new Point(738, 610);
-                    guna2TrackBar2.Location = new Point(899, 623);
+                lblNombreCancion.Location = new Point(149, 610);
+                lblNombreCancion.Font = new Font("Circular Std Book", 16, FontStyle.Bold);
+                guna2TrackBar2.Location = new Point(899, 623);
 
                     panelReproduccion.BackColor = Color.Transparent;
                     panelReproduccion.BackgroundImage = Properties.Resources._330634344_1228671984728501_5317193639878804641_n;
@@ -414,6 +416,8 @@ namespace KemishMusic
 
                     guna2TrackBar1.Location = new Point(387, 25);
                     btnPausaPlay.Location = new Point(738, 56);
+                lblNombreCancion.Location = new Point(149, 28);
+                lblNombreCancion.Font = new Font("Circular Std Book", 10, FontStyle.Bold);
                     guna2TrackBar2.Location = new Point(899, 68);
 
                     panelMenu.Visible = true;
@@ -471,6 +475,7 @@ namespace KemishMusic
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            /*
             ObtenerCancionAudioGuardado();
 
             string path = PathGlobal();
@@ -479,7 +484,8 @@ namespace KemishMusic
             {
                 File.SetAttributes(Path.Combine(path, Path.GetFileName(cancion)), FileAttributes.Normal);
 
-            }
+            } 
+            */
 
             DetallesCancion();
             CartasCancion();
@@ -552,6 +558,9 @@ namespace KemishMusic
             int XBtn = btnPausaPlay.Location.X;
             int YBtn = btnPausaPlay.Location.Y;
 
+            int XNombre = lblNombreCancion.Location.X;
+            int YNombre = lblNombreCancion.Location.Y;
+
             int X2 = guna2TrackBar2.Location.X;
             int Y2 = guna2TrackBar2.Location.Y;
             guna2TrackBar1.Location = new Point(X -= 6, Y -= 1);
@@ -563,6 +572,8 @@ namespace KemishMusic
             pbBar.Location = new Point(XImg, YImg -= 7);
 
             btnPausaPlay.Location = new Point(XBtn -= 3, YBtn -= 1);
+
+            lblNombreCancion.Location = new Point(XNombre += 5, YNombre -= 3);
 
             guna2TrackBar2.Location = new Point(X2 -= 2, Y2 -= 1);
 
