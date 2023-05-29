@@ -23,8 +23,7 @@ namespace KemishMusic
         private void VerContenidoPlaylist_Load(object sender, EventArgs e)
         {           
             DetallesPlaylist();
-            DetallesCancion();
-            CartasCancion();
+            RefrescarPlaylist();
         }
 
         public void DetallesPlaylist()
@@ -39,6 +38,13 @@ namespace KemishMusic
 
             if (obtener.usuarioID == Usuario.id)
                 btnInsertarCancion.Visible = true;
+        }
+
+        public void RefrescarPlaylist()
+        {
+            panelCancionesPlaylist.Controls.Clear();
+            DetallesCancion();
+            CartasCancion();
         }
 
         public void CartasCancion()

@@ -25,17 +25,23 @@ namespace KemishMusic
 
         public void CartasCancion()
         {
-            foreach (PlaylistClase playlist in PlaylistClase.lista4)
+            if (PlaylistClase.lista4.Count == 0)
+                lblMensajeCancion.Visible = true;
+            else
             {
-                PlaylistParaCancion carta = new PlaylistParaCancion();
+                lblMensajeCancion.Visible = false;
+                foreach (PlaylistClase playlist in PlaylistClase.lista4)
+                {
+                    PlaylistParaCancion carta = new PlaylistParaCancion();
 
 
-                carta.PlaylistDetalles(playlist);
+                    carta.PlaylistDetalles(playlist);
 
 
 
-                carta.Dock = DockStyle.Top;
-                panelPlaylistNOAsignadas.Controls.Add(carta);
+                    carta.Dock = DockStyle.Top;
+                    panelPlaylistNOAsignadas.Controls.Add(carta);
+                }
             }
 
             

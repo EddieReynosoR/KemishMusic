@@ -61,10 +61,14 @@ namespace KemishMusic
 
                 MessageBox.Show("Canción eliminada de la playlist.");
 
+                VerContenidoPlaylist contenido = new VerContenidoPlaylist();
+                contenido.RefrescarPlaylist();
+
+
                 cn.Close();
 
 
-
+                
 
             }
 

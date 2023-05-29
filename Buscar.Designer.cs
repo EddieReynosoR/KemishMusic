@@ -43,8 +43,6 @@ namespace KemishMusic
             this.lblMensajePlaylist = new System.Windows.Forms.Label();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
             this.panelArtistasBusqueda.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -52,7 +50,6 @@ namespace KemishMusic
             this.guna2Panel3.SuspendLayout();
             this.panelPlaylistBusqueda.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -63,7 +60,7 @@ namespace KemishMusic
             // 
             this.panelArtistasBusqueda.AutoScroll = true;
             this.panelArtistasBusqueda.Controls.Add(this.lblMensajeArtista);
-            this.panelArtistasBusqueda.Location = new System.Drawing.Point(28, 499);
+            this.panelArtistasBusqueda.Location = new System.Drawing.Point(28, 566);
             this.panelArtistasBusqueda.Name = "panelArtistasBusqueda";
             this.panelArtistasBusqueda.ShadowDecoration.Parent = this.panelArtistasBusqueda;
             this.panelArtistasBusqueda.Size = new System.Drawing.Size(922, 429);
@@ -107,7 +104,7 @@ namespace KemishMusic
             this.panelCancionBusqueda.Location = new System.Drawing.Point(25, 134);
             this.panelCancionBusqueda.Name = "panelCancionBusqueda";
             this.panelCancionBusqueda.ShadowDecoration.Parent = this.panelCancionBusqueda;
-            this.panelCancionBusqueda.Size = new System.Drawing.Size(925, 305);
+            this.panelCancionBusqueda.Size = new System.Drawing.Size(925, 373);
             this.panelCancionBusqueda.TabIndex = 3;
             // 
             // lblMensajeCancion
@@ -124,7 +121,7 @@ namespace KemishMusic
             // guna2Panel3
             // 
             this.guna2Panel3.Controls.Add(this.gunaLabel2);
-            this.guna2Panel3.Location = new System.Drawing.Point(26, 439);
+            this.guna2Panel3.Location = new System.Drawing.Point(26, 506);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
             this.guna2Panel3.Size = new System.Drawing.Size(925, 61);
@@ -145,7 +142,7 @@ namespace KemishMusic
             // 
             this.panelPlaylistBusqueda.AutoScroll = true;
             this.panelPlaylistBusqueda.Controls.Add(this.lblMensajePlaylist);
-            this.panelPlaylistBusqueda.Location = new System.Drawing.Point(29, 988);
+            this.panelPlaylistBusqueda.Location = new System.Drawing.Point(29, 1055);
             this.panelPlaylistBusqueda.Name = "panelPlaylistBusqueda";
             this.panelPlaylistBusqueda.ShadowDecoration.Parent = this.panelPlaylistBusqueda;
             this.panelPlaylistBusqueda.Size = new System.Drawing.Size(922, 429);
@@ -165,7 +162,7 @@ namespace KemishMusic
             // guna2Panel5
             // 
             this.guna2Panel5.Controls.Add(this.gunaLabel3);
-            this.guna2Panel5.Location = new System.Drawing.Point(28, 927);
+            this.guna2Panel5.Location = new System.Drawing.Point(28, 994);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.ShadowDecoration.Parent = this.guna2Panel5;
             this.guna2Panel5.Size = new System.Drawing.Size(925, 61);
@@ -181,26 +178,6 @@ namespace KemishMusic
             this.gunaLabel3.Size = new System.Drawing.Size(123, 35);
             this.gunaLabel3.TabIndex = 5;
             this.gunaLabel3.Text = "Playlists";
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaLabel1.Font = new System.Drawing.Font("Circular Std Book", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.Location = new System.Drawing.Point(12, 12);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(123, 35);
-            this.gunaLabel1.TabIndex = 5;
-            this.gunaLabel1.Text = "Playlists";
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Controls.Add(this.gunaLabel1);
-            this.guna2Panel2.Location = new System.Drawing.Point(25, 439);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
-            this.guna2Panel2.Size = new System.Drawing.Size(925, 61);
-            this.guna2Panel2.TabIndex = 6;
             // 
             // txtBuscar
             // 
@@ -241,7 +218,6 @@ namespace KemishMusic
             this.Controls.Add(this.guna2Panel5);
             this.Controls.Add(this.panelArtistasBusqueda);
             this.Controls.Add(this.guna2Panel3);
-            this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panelCancionBusqueda);
             this.Controls.Add(this.txtBuscar);
@@ -261,8 +237,6 @@ namespace KemishMusic
             this.panelPlaylistBusqueda.PerformLayout();
             this.guna2Panel5.ResumeLayout(false);
             this.guna2Panel5.PerformLayout();
-            this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -277,8 +251,6 @@ namespace KemishMusic
         private Guna.UI2.WinForms.Guna2Panel panelArtistasBusqueda;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI.WinForms.GunaLabel lblNombreUsuario;
         private Guna.UI2.WinForms.Guna2Panel panelCancionBusqueda;

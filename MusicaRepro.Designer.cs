@@ -66,7 +66,7 @@ namespace KemishMusic
             this.MusicaRepro.Controls.Add(this.lblID);
             this.MusicaRepro.Controls.Add(this.lblNombreCancion);
             this.MusicaRepro.Controls.Add(this.lblAutor);
-            this.MusicaRepro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MusicaRepro.Cursor = System.Windows.Forms.Cursors.Default;
             this.MusicaRepro.Location = new System.Drawing.Point(0, 0);
             this.MusicaRepro.Name = "MusicaRepro";
             this.MusicaRepro.ShadowDecoration.Parent = this.MusicaRepro;

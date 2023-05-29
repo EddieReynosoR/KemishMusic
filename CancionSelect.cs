@@ -74,8 +74,29 @@ namespace KemishMusic
             cancionNombre.Text = e.nombre;
 
             lblArtista.Text = SeleccionarNombreArtista(e.usuarioID);
+            SeleccionarColab(e.id);
 
             lblIDUsuario.Text = e.usuarioID;
+        }
+
+        public void SeleccionarColab(string idColab)
+        {
+            SqlConnection cn = Form1.GetConnection();
+
+            cn.Open();
+
+            string query = "SELECT usuario.usuario_nombreartist FROM cancion INNER JOIN colaboracion on colaboracion.cancion_cancion_id = cancion_id INNER JOIN usuario on id_usuario = colaboracion.usuario_usuario_id WHERE cancion.cancion_id = '" + idColab + "'";
+
+
+            SqlCommand cmd = new SqlCommand(query, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                lblArtista.Text += ", " + dr["usuario_nombreartist"].ToString();
+            }
+
+            cn.Close();
         }
 
         private void CancionSelect_Load(object sender, EventArgs e)

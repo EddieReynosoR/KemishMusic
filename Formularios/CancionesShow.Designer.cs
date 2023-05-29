@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panelCancion = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblMensajeCancionBiblio = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblNombreUsuario = new Guna.UI.WinForms.GunaLabel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.panelPlaylist = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblMensajeCancionBiblio = new System.Windows.Forms.Label();
             this.lblMensajePlaylistBiblio = new System.Windows.Forms.Label();
             this.panelCancion.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -49,9 +49,20 @@
             this.panelCancion.Location = new System.Drawing.Point(0, 61);
             this.panelCancion.Name = "panelCancion";
             this.panelCancion.ShadowDecoration.Parent = this.panelCancion;
-            this.panelCancion.Size = new System.Drawing.Size(925, 305);
+            this.panelCancion.Size = new System.Drawing.Size(925, 342);
             this.panelCancion.TabIndex = 0;
             this.panelCancion.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCancion_Paint);
+            // 
+            // lblMensajeCancionBiblio
+            // 
+            this.lblMensajeCancionBiblio.AutoSize = true;
+            this.lblMensajeCancionBiblio.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensajeCancionBiblio.Location = new System.Drawing.Point(299, 138);
+            this.lblMensajeCancionBiblio.Name = "lblMensajeCancionBiblio";
+            this.lblMensajeCancionBiblio.Size = new System.Drawing.Size(357, 29);
+            this.lblMensajeCancionBiblio.TabIndex = 2;
+            this.lblMensajeCancionBiblio.Text = "No tienes canciones registradas";
+            this.lblMensajeCancionBiblio.Visible = false;
             // 
             // guna2Panel1
             // 
@@ -76,7 +87,7 @@
             // guna2Panel2
             // 
             this.guna2Panel2.Controls.Add(this.gunaLabel1);
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 366);
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 403);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
             this.guna2Panel2.Size = new System.Drawing.Size(925, 61);
@@ -97,22 +108,11 @@
             // 
             this.panelPlaylist.AutoScroll = true;
             this.panelPlaylist.Controls.Add(this.lblMensajePlaylistBiblio);
-            this.panelPlaylist.Location = new System.Drawing.Point(3, 426);
+            this.panelPlaylist.Location = new System.Drawing.Point(3, 463);
             this.panelPlaylist.Name = "panelPlaylist";
             this.panelPlaylist.ShadowDecoration.Parent = this.panelPlaylist;
             this.panelPlaylist.Size = new System.Drawing.Size(922, 429);
             this.panelPlaylist.TabIndex = 1;
-            // 
-            // lblMensajeCancionBiblio
-            // 
-            this.lblMensajeCancionBiblio.AutoSize = true;
-            this.lblMensajeCancionBiblio.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensajeCancionBiblio.Location = new System.Drawing.Point(299, 138);
-            this.lblMensajeCancionBiblio.Name = "lblMensajeCancionBiblio";
-            this.lblMensajeCancionBiblio.Size = new System.Drawing.Size(357, 29);
-            this.lblMensajeCancionBiblio.TabIndex = 2;
-            this.lblMensajeCancionBiblio.Text = "No tienes canciones registradas";
-            this.lblMensajeCancionBiblio.Visible = false;
             // 
             // lblMensajePlaylistBiblio
             // 

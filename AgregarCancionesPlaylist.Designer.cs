@@ -38,8 +38,10 @@ namespace KemishMusic
             this.lblNombreUsuario = new Guna.UI.WinForms.GunaLabel();
             this.panelCancionesNOAgregadas = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.lblMensajeCancion = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
+            this.panelCancionesNOAgregadas.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -118,6 +120,7 @@ namespace KemishMusic
             // panelCancionesNOAgregadas
             // 
             this.panelCancionesNOAgregadas.AutoScroll = true;
+            this.panelCancionesNOAgregadas.Controls.Add(this.lblMensajeCancion);
             this.panelCancionesNOAgregadas.Location = new System.Drawing.Point(54, 98);
             this.panelCancionesNOAgregadas.Name = "panelCancionesNOAgregadas";
             this.panelCancionesNOAgregadas.ShadowDecoration.Parent = this.panelCancionesNOAgregadas;
@@ -128,6 +131,17 @@ namespace KemishMusic
             // guna2DragControl1
             // 
             this.guna2DragControl1.TargetControl = this.guna2Panel1;
+            // 
+            // lblMensajeCancion
+            // 
+            this.lblMensajeCancion.AutoSize = true;
+            this.lblMensajeCancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensajeCancion.Location = new System.Drawing.Point(143, 141);
+            this.lblMensajeCancion.Name = "lblMensajeCancion";
+            this.lblMensajeCancion.Size = new System.Drawing.Size(334, 29);
+            this.lblMensajeCancion.TabIndex = 4;
+            this.lblMensajeCancion.Text = "No hay canciones disponibles";
+            this.lblMensajeCancion.Visible = false;
             // 
             // AgregarCancionesPlaylist
             // 
@@ -143,6 +157,8 @@ namespace KemishMusic
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
+            this.panelCancionesNOAgregadas.ResumeLayout(false);
+            this.panelCancionesNOAgregadas.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -157,5 +173,6 @@ namespace KemishMusic
         private Guna.UI.WinForms.GunaControlBox gunaControlBox1;
         private Guna.UI.WinForms.GunaLabel lblNombreUsuario;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private System.Windows.Forms.Label lblMensajeCancion;
     }
 }

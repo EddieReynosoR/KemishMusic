@@ -30,11 +30,11 @@ namespace KemishMusic
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label label3;
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnNav = new Guna.UI2.WinForms.Guna2Button();
             this.gunaControlBox3 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
@@ -61,6 +61,7 @@ namespace KemishMusic
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelDesktop = new Guna.UI2.WinForms.Guna2Panel();
             this.panelMusicaRe = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblMensajeCola = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.panelOpciones = new Guna.UI2.WinForms.Guna2Panel();
@@ -69,12 +70,12 @@ namespace KemishMusic
             this.btnRegistrarse = new Guna.UI2.WinForms.Guna2Button();
             this.btnIniciarSesion = new Guna.UI2.WinForms.Guna2Button();
             this.panelCancionesHome = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblMensaje = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.timerBarraMusic = new System.Windows.Forms.Timer(this.components);
             this.guna2MouseStateHandler1 = new Guna.UI2.WinForms.Guna2MouseStateHandler(this.components);
             this.timerReproduccion = new System.Windows.Forms.Timer(this.components);
-            this.lblMensaje = new Guna.UI.WinForms.GunaLabel();
-            this.lblMensajeCola = new Guna.UI.WinForms.GunaLabel();
+            label3 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.panelReproduccion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMostrarCola)).BeginInit();
@@ -100,8 +101,8 @@ namespace KemishMusic
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(label3);
             this.guna2Panel1.Controls.Add(this.label4);
-            this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.Controls.Add(this.btnNav);
             this.guna2Panel1.Controls.Add(this.gunaControlBox3);
             this.guna2Panel1.Controls.Add(this.gunaControlBox1);
@@ -121,30 +122,26 @@ namespace KemishMusic
             this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 16;
             this.label4.Text = "label4";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(452, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "label3";
+            this.label4.Visible = false;
             // 
             // btnNav
             // 
+            this.btnNav.BackColor = System.Drawing.Color.Transparent;
             this.btnNav.BorderRadius = 12;
             this.btnNav.CheckedState.Parent = this.btnNav;
             this.btnNav.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNav.CustomImages.Parent = this.btnNav;
-            this.btnNav.FillColor = System.Drawing.Color.Gray;
+            this.btnNav.FillColor = System.Drawing.Color.White;
             this.btnNav.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnNav.ForeColor = System.Drawing.Color.White;
+            this.btnNav.ForeColor = System.Drawing.Color.Black;
             this.btnNav.HoverState.Parent = this.btnNav;
-            this.btnNav.Location = new System.Drawing.Point(684, 7);
+            this.btnNav.Location = new System.Drawing.Point(698, 7);
             this.btnNav.Name = "btnNav";
+            this.btnNav.ShadowDecoration.BorderRadius = 12;
+            this.btnNav.ShadowDecoration.Depth = 10;
+            this.btnNav.ShadowDecoration.Enabled = true;
             this.btnNav.ShadowDecoration.Parent = this.btnNav;
-            this.btnNav.Size = new System.Drawing.Size(192, 29);
+            this.btnNav.Size = new System.Drawing.Size(164, 29);
             this.btnNav.TabIndex = 5;
             this.btnNav.Text = "Sesión no iniciada";
             this.btnNav.Click += new System.EventHandler(this.btnNav_Click);
@@ -413,7 +410,7 @@ namespace KemishMusic
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(171, 45);
             this.iconButton1.TabIndex = 15;
-            this.iconButton1.Text = "Crear Playlist";
+            this.iconButton1.Text = "  Crear Playlist";
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
             // 
@@ -449,7 +446,7 @@ namespace KemishMusic
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(171, 45);
             this.btnSearch.TabIndex = 13;
-            this.btnSearch.Text = "Añadir música";
+            this.btnSearch.Text = "  Añadir música";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -459,7 +456,7 @@ namespace KemishMusic
             this.btnHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
+            this.btnHome.IconChar = FontAwesome.Sharp.IconChar.Headphones;
             this.btnHome.IconColor = System.Drawing.Color.Black;
             this.btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHome.IconSize = 35;
@@ -468,7 +465,7 @@ namespace KemishMusic
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(171, 51);
             this.btnHome.TabIndex = 12;
-            this.btnHome.Text = "       Escuchar musica";
+            this.btnHome.Text = "      Escuchar \r\nmusica";
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
@@ -518,6 +515,20 @@ namespace KemishMusic
             this.panelMusicaRe.Visible = false;
             this.panelMusicaRe.VisibleChanged += new System.EventHandler(this.panelMusicaRe_VisibleChanged);
             this.panelMusicaRe.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
+            // 
+            // lblMensajeCola
+            // 
+            this.lblMensajeCola.AutoSize = true;
+            this.lblMensajeCola.BackColor = System.Drawing.Color.Transparent;
+            this.lblMensajeCola.Font = new System.Drawing.Font("Circular Std Book", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensajeCola.Location = new System.Drawing.Point(337, 144);
+            this.lblMensajeCola.Name = "lblMensajeCola";
+            this.lblMensajeCola.Size = new System.Drawing.Size(419, 105);
+            this.lblMensajeCola.TabIndex = 5;
+            this.lblMensajeCola.Text = "Reproduce alguna canción y \r\nañade canciones a la cola para\r\nverlas en esta secci" +
+    "ón.";
+            this.lblMensajeCola.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMensajeCola.Visible = false;
             // 
             // gunaLabel2
             // 
@@ -637,9 +648,21 @@ namespace KemishMusic
             this.panelCancionesHome.Location = new System.Drawing.Point(1, 35);
             this.panelCancionesHome.Name = "panelCancionesHome";
             this.panelCancionesHome.ShadowDecoration.Parent = this.panelCancionesHome;
-            this.panelCancionesHome.Size = new System.Drawing.Size(1067, 438);
+            this.panelCancionesHome.Size = new System.Drawing.Size(1067, 478);
             this.panelCancionesHome.TabIndex = 14;
             this.panelCancionesHome.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCancionesHome_Paint);
+            // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.BackColor = System.Drawing.Color.Transparent;
+            this.lblMensaje.Font = new System.Drawing.Font("Circular Std Book", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.Location = new System.Drawing.Point(264, 205);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(599, 35);
+            this.lblMensaje.TabIndex = 4;
+            this.lblMensaje.Text = "Al parecer no hay canciones que escuchar...";
+            this.lblMensaje.Visible = false;
             // 
             // gunaLabel1
             // 
@@ -660,31 +683,15 @@ namespace KemishMusic
             // 
             this.timerReproduccion.Tick += new System.EventHandler(this.timerReproduccion_Tick);
             // 
-            // lblMensaje
+            // label3
             // 
-            this.lblMensaje.AutoSize = true;
-            this.lblMensaje.BackColor = System.Drawing.Color.Transparent;
-            this.lblMensaje.Font = new System.Drawing.Font("Circular Std Book", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(264, 205);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(599, 35);
-            this.lblMensaje.TabIndex = 4;
-            this.lblMensaje.Text = "Al parecer no hay canciones que escuchar...";
-            this.lblMensaje.Visible = false;
-            // 
-            // lblMensajeCola
-            // 
-            this.lblMensajeCola.AutoSize = true;
-            this.lblMensajeCola.BackColor = System.Drawing.Color.Transparent;
-            this.lblMensajeCola.Font = new System.Drawing.Font("Circular Std Book", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensajeCola.Location = new System.Drawing.Point(337, 144);
-            this.lblMensajeCola.Name = "lblMensajeCola";
-            this.lblMensajeCola.Size = new System.Drawing.Size(419, 105);
-            this.lblMensajeCola.TabIndex = 5;
-            this.lblMensajeCola.Text = "Reproduce alguna canción y \r\nañade canciones a la cola para\r\nverlas en esta secci" +
-    "ón.";
-            this.lblMensajeCola.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblMensajeCola.Visible = false;
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(398, 13);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(46, 17);
+            label3.TabIndex = 17;
+            label3.Text = "label3";
+            label3.Visible = false;
             // 
             // Form1
             // 
@@ -755,7 +762,6 @@ namespace KemishMusic
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Button btnNav;
         private Guna.UI.WinForms.GunaControlBox gunaControlBox3;
         private Guna.UI.WinForms.GunaControlBox gunaControlBox1;

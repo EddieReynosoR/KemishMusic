@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace KemishMusic
 {
@@ -36,6 +37,50 @@ namespace KemishMusic
 
             lblNombreCancion.Text = e.nombre;
 
+            SeleccionarColab(e.id);
+            lblAutor.Text = SeleccionarNombreArtista(e.usuarioID);
+
+        }
+        public string SeleccionarNombreArtista(string idArtista)
+        {
+            string nombreArtista = "";
+            SqlConnection cn = Form1.GetConnection();
+
+            cn.Open();
+
+            string query = "SELECT usuario_nombreartist FROM usuario WHERE id_usuario = '" + idArtista + "'";
+
+
+            SqlCommand cmd = new SqlCommand(query, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                nombreArtista = dr["usuario_nombreartist"].ToString();
+            }
+
+            cn.Close();
+
+            return nombreArtista;
+        }
+        public void SeleccionarColab(string idColab)
+        {
+            SqlConnection cn = Form1.GetConnection();
+
+            cn.Open();
+
+            string query = "SELECT usuario.usuario_nombreartist FROM cancion INNER JOIN colaboracion on colaboracion.cancion_cancion_id = cancion_id INNER JOIN usuario on id_usuario = colaboracion.usuario_usuario_id WHERE cancion.cancion_id = '" + idColab + "'";
+
+
+            SqlCommand cmd = new SqlCommand(query, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                lblAutor.Text += ", " + dr["usuario_nombreartist"].ToString();
+            }
+
+            cn.Close();
         }
         private void MusicaRepro_Load(object sender, EventArgs e)
         {
@@ -54,12 +99,12 @@ namespace KemishMusic
 
         private void MusicaRepro_MouseHover(object sender, EventArgs e)
         {
-            MusicaRepro.BackColor = Color.Gray;
+            //MusicaRepro.BackColor = Color.Gray;
         }
 
         private void MusicaRepro_MouseLeave(object sender, EventArgs e)
         {
-            MusicaRepro.BackColor = Color.LightGray;
+            //MusicaRepro.BackColor = Color.LightGray;
         }
 
         private void MusicaRepro_Paint(object sender, PaintEventArgs e)

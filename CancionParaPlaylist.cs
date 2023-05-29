@@ -54,6 +54,10 @@ namespace KemishMusic
 
 
             DialogResult dialog = MessageBox.Show("Canción añadida correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            VerContenidoPlaylist contenido = new VerContenidoPlaylist();
+            AgregarCancionesPlaylist agregar = new AgregarCancionesPlaylist();
+            agregar.Hide();
+            contenido.RefrescarPlaylist();
 
             if (dialog == DialogResult.OK)
             {

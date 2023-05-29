@@ -134,6 +134,7 @@ namespace KemishMusic
             // 
             // btnLogin
             // 
+            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
             this.btnLogin.BorderRadius = 22;
             this.btnLogin.CheckedState.Parent = this.btnLogin;
             this.btnLogin.CustomImages.Parent = this.btnLogin;
@@ -143,7 +144,11 @@ namespace KemishMusic
             this.btnLogin.HoverState.Parent = this.btnLogin;
             this.btnLogin.Location = new System.Drawing.Point(68, 385);
             this.btnLogin.Name = "btnLogin";
+            this.btnLogin.ShadowDecoration.BorderRadius = 22;
+            this.btnLogin.ShadowDecoration.Depth = 4;
+            this.btnLogin.ShadowDecoration.Enabled = true;
             this.btnLogin.ShadowDecoration.Parent = this.btnLogin;
+            this.btnLogin.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(8, 0, 8, 8);
             this.btnLogin.Size = new System.Drawing.Size(223, 46);
             this.btnLogin.TabIndex = 20;
             this.btnLogin.Text = "Iniciar sesión";

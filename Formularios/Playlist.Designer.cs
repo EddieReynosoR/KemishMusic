@@ -51,6 +51,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.BorderRadius = 20;
             this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNombre.DefaultText = "";
             this.txtNombre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -62,9 +63,8 @@
             this.txtNombre.FocusedState.Parent = this.txtNombre;
             this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombre.HoverState.Parent = this.txtNombre;
-            this.txtNombre.Location = new System.Drawing.Point(12, 55);
+            this.txtNombre.Location = new System.Drawing.Point(35, 56);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtNombre.MaxLength = 29;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PasswordChar = '\0';
             this.txtNombre.PlaceholderText = "";
@@ -76,6 +76,7 @@
             // 
             // txtImagen
             // 
+            this.txtImagen.BorderRadius = 20;
             this.txtImagen.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtImagen.DefaultText = "";
             this.txtImagen.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -88,7 +89,7 @@
             this.txtImagen.FocusedState.Parent = this.txtImagen;
             this.txtImagen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtImagen.HoverState.Parent = this.txtImagen;
-            this.txtImagen.Location = new System.Drawing.Point(7, 147);
+            this.txtImagen.Location = new System.Drawing.Point(30, 148);
             this.txtImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtImagen.Name = "txtImagen";
             this.txtImagen.PasswordChar = '\0';
@@ -100,6 +101,7 @@
             // 
             // txtAudio
             // 
+            this.txtAudio.BorderRadius = 20;
             this.txtAudio.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAudio.DefaultText = "";
             this.txtAudio.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -112,7 +114,7 @@
             this.txtAudio.FocusedState.Parent = this.txtAudio;
             this.txtAudio.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAudio.HoverState.Parent = this.txtAudio;
-            this.txtAudio.Location = new System.Drawing.Point(7, 290);
+            this.txtAudio.Location = new System.Drawing.Point(30, 291);
             this.txtAudio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAudio.Name = "txtAudio";
             this.txtAudio.PasswordChar = '\0';
@@ -129,7 +131,7 @@
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(22, 203);
+            this.guna2Button1.Location = new System.Drawing.Point(45, 204);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
             this.guna2Button1.Size = new System.Drawing.Size(180, 45);
@@ -144,7 +146,7 @@
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Location = new System.Drawing.Point(22, 348);
+            this.guna2Button2.Location = new System.Drawing.Point(45, 349);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
             this.guna2Button2.Size = new System.Drawing.Size(180, 45);
@@ -156,7 +158,7 @@
             // 
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel1.Location = new System.Drawing.Point(18, 23);
+            this.gunaLabel1.Location = new System.Drawing.Point(41, 24);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(156, 20);
             this.gunaLabel1.TabIndex = 6;
@@ -166,7 +168,7 @@
             // 
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel2.Location = new System.Drawing.Point(3, 117);
+            this.gunaLabel2.Location = new System.Drawing.Point(26, 118);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(149, 20);
             this.gunaLabel2.TabIndex = 7;
@@ -176,7 +178,7 @@
             // 
             this.gunaLabel3.AutoSize = true;
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel3.Location = new System.Drawing.Point(8, 266);
+            this.gunaLabel3.Location = new System.Drawing.Point(31, 267);
             this.gunaLabel3.Name = "gunaLabel3";
             this.gunaLabel3.Size = new System.Drawing.Size(140, 20);
             this.gunaLabel3.TabIndex = 8;
@@ -184,6 +186,7 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
             this.btnGuardar.BorderRadius = 20;
             this.btnGuardar.CheckedState.Parent = this.btnGuardar;
             this.btnGuardar.CustomImages.Parent = this.btnGuardar;
@@ -193,7 +196,11 @@
             this.btnGuardar.HoverState.Parent = this.btnGuardar;
             this.btnGuardar.Location = new System.Drawing.Point(833, 414);
             this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.ShadowDecoration.BorderRadius = 20;
+            this.btnGuardar.ShadowDecoration.Depth = 4;
+            this.btnGuardar.ShadowDecoration.Enabled = true;
             this.btnGuardar.ShadowDecoration.Parent = this.btnGuardar;
+            this.btnGuardar.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(8, 0, 8, 8);
             this.btnGuardar.Size = new System.Drawing.Size(180, 45);
             this.btnGuardar.TabIndex = 9;
             this.btnGuardar.Text = "Guardar";
@@ -203,7 +210,7 @@
             // 
             this.gunaLabel4.AutoSize = true;
             this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel4.Location = new System.Drawing.Point(474, 23);
+            this.gunaLabel4.Location = new System.Drawing.Point(470, 35);
             this.gunaLabel4.Name = "gunaLabel4";
             this.gunaLabel4.Size = new System.Drawing.Size(149, 20);
             this.gunaLabel4.TabIndex = 10;

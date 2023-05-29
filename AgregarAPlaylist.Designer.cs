@@ -36,7 +36,9 @@ namespace KemishMusic
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.label1 = new Guna.UI.WinForms.GunaLabel();
             this.panelPlaylistNOAsignadas = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblMensajeCancion = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
+            this.panelPlaylistNOAsignadas.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -52,7 +54,7 @@ namespace KemishMusic
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(990, 43);
+            this.guna2Panel1.Size = new System.Drawing.Size(802, 43);
             this.guna2Panel1.TabIndex = 4;
             // 
             // gunaControlBox3
@@ -64,7 +66,7 @@ namespace KemishMusic
             this.gunaControlBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gunaControlBox3.IconColor = System.Drawing.Color.Black;
             this.gunaControlBox3.IconSize = 15F;
-            this.gunaControlBox3.Location = new System.Drawing.Point(885, 7);
+            this.gunaControlBox3.Location = new System.Drawing.Point(697, 7);
             this.gunaControlBox3.Name = "gunaControlBox3";
             this.gunaControlBox3.OnHoverBackColor = System.Drawing.Color.White;
             this.gunaControlBox3.OnHoverIconColor = System.Drawing.Color.Black;
@@ -81,7 +83,7 @@ namespace KemishMusic
             this.gunaControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gunaControlBox1.IconColor = System.Drawing.Color.Black;
             this.gunaControlBox1.IconSize = 30F;
-            this.gunaControlBox1.Location = new System.Drawing.Point(933, 7);
+            this.gunaControlBox1.Location = new System.Drawing.Point(745, 7);
             this.gunaControlBox1.Name = "gunaControlBox1";
             this.gunaControlBox1.OnHoverBackColor = System.Drawing.Color.White;
             this.gunaControlBox1.OnHoverIconColor = System.Drawing.Color.Black;
@@ -103,17 +105,29 @@ namespace KemishMusic
             // panelPlaylistNOAsignadas
             // 
             this.panelPlaylistNOAsignadas.AutoScroll = true;
+            this.panelPlaylistNOAsignadas.Controls.Add(this.lblMensajeCancion);
             this.panelPlaylistNOAsignadas.Location = new System.Drawing.Point(64, 135);
             this.panelPlaylistNOAsignadas.Name = "panelPlaylistNOAsignadas";
             this.panelPlaylistNOAsignadas.ShadowDecoration.Parent = this.panelPlaylistNOAsignadas;
             this.panelPlaylistNOAsignadas.Size = new System.Drawing.Size(583, 302);
             this.panelPlaylistNOAsignadas.TabIndex = 5;
             // 
+            // lblMensajeCancion
+            // 
+            this.lblMensajeCancion.AutoSize = true;
+            this.lblMensajeCancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensajeCancion.Location = new System.Drawing.Point(141, 138);
+            this.lblMensajeCancion.Name = "lblMensajeCancion";
+            this.lblMensajeCancion.Size = new System.Drawing.Size(299, 29);
+            this.lblMensajeCancion.TabIndex = 3;
+            this.lblMensajeCancion.Text = "No hay playlist disponibles";
+            this.lblMensajeCancion.Visible = false;
+            // 
             // AgregarAPlaylist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(990, 535);
+            this.ClientSize = new System.Drawing.Size(802, 535);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panelPlaylistNOAsignadas);
             this.Controls.Add(this.guna2Panel1);
@@ -122,6 +136,8 @@ namespace KemishMusic
             this.Text = "AgregarAPlaylist";
             this.Load += new System.EventHandler(this.AgregarAPlaylist_Load);
             this.guna2Panel1.ResumeLayout(false);
+            this.panelPlaylistNOAsignadas.ResumeLayout(false);
+            this.panelPlaylistNOAsignadas.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +151,6 @@ namespace KemishMusic
         private Guna.UI.WinForms.GunaControlBox gunaControlBox1;
         private Guna.UI.WinForms.GunaLabel label1;
         private Guna.UI2.WinForms.Guna2Panel panelPlaylistNOAsignadas;
+        private System.Windows.Forms.Label lblMensajeCancion;
     }
 }

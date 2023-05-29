@@ -86,7 +86,7 @@ namespace KemishMusic
 
         private struct RGBColors
         {
-            public static Color color1 = Color.FromArgb(172, 126, 241);
+            public static Color color1 = Color.FromArgb(118, 118, 118);
             public static Color color2 = Color.FromArgb(249, 118, 176);
             public static Color color3 = Color.FromArgb(253, 138, 114);
             public static Color color4 = Color.FromArgb(95, 77, 221);
@@ -106,7 +106,7 @@ namespace KemishMusic
                 //Button
                 currentBtn = (IconButton)senderBtn;
                 //Cambiar el color de fondo del boton y el texto
-                currentBtn.BackColor = Color.FromArgb(37, 36, 81);
+                currentBtn.BackColor = Color.FromArgb(255, 255, 255);
                 currentBtn.ForeColor = color;
                 //Se alinea el texto al centro
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
@@ -132,7 +132,7 @@ namespace KemishMusic
                 //Se regresa la configuración por defecto del boton
                 currentBtn.BackColor = Color.FromArgb(217, 217, 217);
                 currentBtn.ForeColor = Color.Black;
-                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
+                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.IconColor = Color.Black;
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
@@ -904,7 +904,7 @@ namespace KemishMusic
 
                 
 
-                label3.Text = colaCanciones.Count().ToString();
+                // label3.Text = colaCanciones.Count().ToString();
 
 
                 LinkedListNode<Cancion> cancionNext = cancionSiguiente.Next;
@@ -1070,7 +1070,7 @@ namespace KemishMusic
         private void btnSig_Click(object sender, EventArgs e)
         {
             
-            label3.Text = colaCanciones.Count().ToString();
+            //label3.Text = colaCanciones.Count().ToString();
 
 
             

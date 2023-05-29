@@ -35,14 +35,12 @@ namespace KemishMusic
             this.lblID = new Guna.UI.WinForms.GunaLabel();
             this.btnReproducirPlaylist = new FontAwesome.Sharp.IconPictureBox();
             this.btnInsertarCancion = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAtras = new FontAwesome.Sharp.IconPictureBox();
             this.lblPropietario = new Guna.UI.WinForms.GunaLabel();
             this.lblNombrePlaylist = new Guna.UI.WinForms.GunaLabel();
             this.picPlaylistSelect = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panelCancionesPlaylist = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnReproducirPlaylist)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlaylistSelect)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,15 +53,17 @@ namespace KemishMusic
             this.guna2Panel1.Controls.Add(this.lblID);
             this.guna2Panel1.Controls.Add(this.btnReproducirPlaylist);
             this.guna2Panel1.Controls.Add(this.btnInsertarCancion);
-            this.guna2Panel1.Controls.Add(this.btnAtras);
             this.guna2Panel1.Controls.Add(this.lblPropietario);
             this.guna2Panel1.Controls.Add(this.lblNombrePlaylist);
             this.guna2Panel1.Controls.Add(this.picPlaylistSelect);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.BorderRadius = 0;
+            this.guna2Panel1.ShadowDecoration.Enabled = true;
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(1076, 277);
+            this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.guna2Panel1.Size = new System.Drawing.Size(1076, 290);
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -106,31 +106,16 @@ namespace KemishMusic
             this.btnInsertarCancion.HoverState.Parent = this.btnInsertarCancion;
             this.btnInsertarCancion.Location = new System.Drawing.Point(868, 217);
             this.btnInsertarCancion.Name = "btnInsertarCancion";
+            this.btnInsertarCancion.ShadowDecoration.BorderRadius = 20;
+            this.btnInsertarCancion.ShadowDecoration.Depth = 8;
             this.btnInsertarCancion.ShadowDecoration.Enabled = true;
             this.btnInsertarCancion.ShadowDecoration.Parent = this.btnInsertarCancion;
-            this.btnInsertarCancion.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(10);
+            this.btnInsertarCancion.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(10, 0, 10, 10);
             this.btnInsertarCancion.Size = new System.Drawing.Size(180, 45);
             this.btnInsertarCancion.TabIndex = 8;
             this.btnInsertarCancion.Text = "Añadir canciones";
             this.btnInsertarCancion.Visible = false;
             this.btnInsertarCancion.Click += new System.EventHandler(this.btnInsertarCancion_Click);
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAtras.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAtras.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.btnAtras.IconColor = System.Drawing.SystemColors.ControlText;
-            this.btnAtras.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAtras.IconSize = 40;
-            this.btnAtras.Location = new System.Drawing.Point(12, 4);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(40, 40);
-            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnAtras.TabIndex = 7;
-            this.btnAtras.TabStop = false;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // lblPropietario
             // 
@@ -167,11 +152,11 @@ namespace KemishMusic
             // 
             // panelCancionesPlaylist
             // 
-            this.panelCancionesPlaylist.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCancionesPlaylist.Location = new System.Drawing.Point(0, 277);
+            this.panelCancionesPlaylist.AutoScroll = true;
+            this.panelCancionesPlaylist.Location = new System.Drawing.Point(0, 318);
             this.panelCancionesPlaylist.Name = "panelCancionesPlaylist";
             this.panelCancionesPlaylist.ShadowDecoration.Parent = this.panelCancionesPlaylist;
-            this.panelCancionesPlaylist.Size = new System.Drawing.Size(1076, 275);
+            this.panelCancionesPlaylist.Size = new System.Drawing.Size(1076, 234);
             this.panelCancionesPlaylist.TabIndex = 1;
             this.panelCancionesPlaylist.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCancionesPlaylist_Paint);
             // 
@@ -189,7 +174,6 @@ namespace KemishMusic
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnReproducirPlaylist)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlaylistSelect)).EndInit();
             this.ResumeLayout(false);
 
@@ -203,7 +187,6 @@ namespace KemishMusic
         private Guna.UI.WinForms.GunaLabel lblNombrePlaylist;
         private FontAwesome.Sharp.IconPictureBox btnReproducirPlaylist;
         private Guna.UI2.WinForms.Guna2Button btnInsertarCancion;
-        private FontAwesome.Sharp.IconPictureBox btnAtras;
         private Guna.UI.WinForms.GunaLabel lblPropietario;
         private Guna.UI2.WinForms.Guna2Panel panelCancionesPlaylist;
         private Guna.UI.WinForms.GunaLabel lblID;
