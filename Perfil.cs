@@ -42,17 +42,23 @@ namespace KemishMusic
 
         public void CartasCancion()
         {
-            foreach (Cancion cancion in Cancion.lista2)
+            if (Cancion.lista2.Count == 0)
+                lblMensajeCancion.Visible = true;
+            else
             {
-                CancionSelect carta = new CancionSelect();
+                lblMensajeCancion.Visible = false;
+                foreach (Cancion cancion in Cancion.lista2)
+                {
+                    CancionSelect carta = new CancionSelect();
 
 
-                carta.CancionDetalles(cancion);
+                    carta.CancionDetalles(cancion);
 
 
 
-                carta.Dock = DockStyle.Left;
-                panelCanciones.Controls.Add(carta);
+                    carta.Dock = DockStyle.Left;
+                    panelCanciones.Controls.Add(carta);
+                }
             }
         }
 
@@ -64,14 +70,20 @@ namespace KemishMusic
 
         public void CartasPlaylist()
         {
-            foreach(PlaylistClase playlist in PlaylistClase.lista2)
+            if (PlaylistClase.lista2.Count == 0)
+                lblPlaylist.Visible = true;
+            else
             {
-                PlaylistControl carta = new PlaylistControl();
+                lblPlaylist.Visible = false;
+                foreach (PlaylistClase playlist in PlaylistClase.lista2)
+                {
+                    PlaylistControl carta = new PlaylistControl();
 
-                carta.PlaylistDetalles(playlist);
+                    carta.PlaylistDetalles(playlist);
 
-                carta.Dock = DockStyle.Left;
-                panelPlaylist.Controls.Add(carta);
+                    carta.Dock = DockStyle.Left;
+                    panelPlaylist.Controls.Add(carta);
+                }
             }
         }
 

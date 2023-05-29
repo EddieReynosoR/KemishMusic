@@ -53,7 +53,7 @@ namespace KemishMusic
                
 
                 SqlCommand elimina = new SqlCommand("DELETE FROM enlistar WHERE cancion_cancion_id=@cancion_cancion_id", cn);
-                elimina.Parameters.AddWithValue("@cancion_cancion_id", id);
+                elimina.Parameters.AddWithValue("@cancion_cancion_id", lblID.Text);
 
                 elimina.ExecuteNonQuery();             
 

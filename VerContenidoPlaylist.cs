@@ -35,6 +35,7 @@ namespace KemishMusic
             lblNombrePlaylist.Text = obtener.nombre;
             picPlaylistSelect.Image = (Bitmap)new ImageConverter().ConvertFrom(obtener.imagen);
             lblPropietario.Text = ObtenerNombrePropietario(obtener.id);
+            lblID.Text = obtener.id;
 
             if (obtener.usuarioID == Usuario.id)
                 btnInsertarCancion.Visible = true;
@@ -94,7 +95,6 @@ namespace KemishMusic
 
         private void btnInsertarCancion_Click(object sender, EventArgs e)
         {
-            lblID.Text = PlaylistControl.id;
             panelCancionesPlaylist.Visible = false;
             id = lblID.Text;
 
@@ -115,6 +115,16 @@ namespace KemishMusic
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelCancionesPlaylist_Paint(object sender, PaintEventArgs e)
         {
 
         }

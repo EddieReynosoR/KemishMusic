@@ -49,5 +49,10 @@ namespace KemishMusic
         {
 
         }
+
+        private void panelCancionesNOAgregadas_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

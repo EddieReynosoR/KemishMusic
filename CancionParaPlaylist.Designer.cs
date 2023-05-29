@@ -95,7 +95,6 @@ namespace KemishMusic
             this.lblID.Size = new System.Drawing.Size(22, 18);
             this.lblID.TabIndex = 21;
             this.lblID.Text = "ID";
-            this.lblID.Visible = false;
             // 
             // CancionParaPlaylist
             // 

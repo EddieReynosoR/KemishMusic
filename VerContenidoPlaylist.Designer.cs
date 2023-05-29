@@ -32,14 +32,14 @@ namespace KemishMusic
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblNombrePlaylist = new Guna.UI.WinForms.GunaLabel();
-            this.lblPropietario = new Guna.UI.WinForms.GunaLabel();
-            this.btnInsertarCancion = new Guna.UI2.WinForms.Guna2Button();
-            this.panelCancionesPlaylist = new Guna.UI2.WinForms.Guna2Panel();
             this.lblID = new Guna.UI.WinForms.GunaLabel();
             this.btnReproducirPlaylist = new FontAwesome.Sharp.IconPictureBox();
+            this.btnInsertarCancion = new Guna.UI2.WinForms.Guna2Button();
             this.btnAtras = new FontAwesome.Sharp.IconPictureBox();
+            this.lblPropietario = new Guna.UI.WinForms.GunaLabel();
+            this.lblNombrePlaylist = new Guna.UI.WinForms.GunaLabel();
             this.picPlaylistSelect = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.panelCancionesPlaylist = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnReproducirPlaylist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
@@ -65,27 +65,34 @@ namespace KemishMusic
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(1076, 277);
             this.guna2Panel1.TabIndex = 0;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
-            // lblNombrePlaylist
+            // lblID
             // 
-            this.lblNombrePlaylist.AutoSize = true;
-            this.lblNombrePlaylist.BackColor = System.Drawing.Color.Transparent;
-            this.lblNombrePlaylist.Font = new System.Drawing.Font("Circular Std Book", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombrePlaylist.Location = new System.Drawing.Point(267, 143);
-            this.lblNombrePlaylist.Name = "lblNombrePlaylist";
-            this.lblNombrePlaylist.Size = new System.Drawing.Size(251, 35);
-            this.lblNombrePlaylist.TabIndex = 4;
-            this.lblNombrePlaylist.Text = "lblNombrePlaylist";
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblID.Location = new System.Drawing.Point(269, 230);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(86, 20);
+            this.lblID.TabIndex = 10;
+            this.lblID.Text = "gunaLabel1";
             // 
-            // lblPropietario
+            // btnReproducirPlaylist
             // 
-            this.lblPropietario.AutoSize = true;
-            this.lblPropietario.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblPropietario.Location = new System.Drawing.Point(269, 191);
-            this.lblPropietario.Name = "lblPropietario";
-            this.lblPropietario.Size = new System.Drawing.Size(100, 20);
-            this.lblPropietario.TabIndex = 6;
-            this.lblPropietario.Text = "lblPropietario";
+            this.btnReproducirPlaylist.BackColor = System.Drawing.SystemColors.Control;
+            this.btnReproducirPlaylist.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReproducirPlaylist.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReproducirPlaylist.IconChar = FontAwesome.Sharp.IconChar.Play;
+            this.btnReproducirPlaylist.IconColor = System.Drawing.SystemColors.ControlText;
+            this.btnReproducirPlaylist.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReproducirPlaylist.IconSize = 65;
+            this.btnReproducirPlaylist.Location = new System.Drawing.Point(560, 129);
+            this.btnReproducirPlaylist.Name = "btnReproducirPlaylist";
+            this.btnReproducirPlaylist.Size = new System.Drawing.Size(65, 65);
+            this.btnReproducirPlaylist.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnReproducirPlaylist.TabIndex = 9;
+            this.btnReproducirPlaylist.TabStop = false;
+            this.btnReproducirPlaylist.Click += new System.EventHandler(this.btnReproducirPlaylist_Click);
             // 
             // btnInsertarCancion
             // 
@@ -108,43 +115,6 @@ namespace KemishMusic
             this.btnInsertarCancion.Visible = false;
             this.btnInsertarCancion.Click += new System.EventHandler(this.btnInsertarCancion_Click);
             // 
-            // panelCancionesPlaylist
-            // 
-            this.panelCancionesPlaylist.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCancionesPlaylist.Location = new System.Drawing.Point(0, 277);
-            this.panelCancionesPlaylist.Name = "panelCancionesPlaylist";
-            this.panelCancionesPlaylist.ShadowDecoration.Parent = this.panelCancionesPlaylist;
-            this.panelCancionesPlaylist.Size = new System.Drawing.Size(1076, 275);
-            this.panelCancionesPlaylist.TabIndex = 1;
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblID.Location = new System.Drawing.Point(269, 230);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(86, 20);
-            this.lblID.TabIndex = 10;
-            this.lblID.Text = "gunaLabel1";
-            this.lblID.Visible = false;
-            // 
-            // btnReproducirPlaylist
-            // 
-            this.btnReproducirPlaylist.BackColor = System.Drawing.SystemColors.Control;
-            this.btnReproducirPlaylist.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReproducirPlaylist.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnReproducirPlaylist.IconChar = FontAwesome.Sharp.IconChar.Play;
-            this.btnReproducirPlaylist.IconColor = System.Drawing.SystemColors.ControlText;
-            this.btnReproducirPlaylist.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReproducirPlaylist.IconSize = 65;
-            this.btnReproducirPlaylist.Location = new System.Drawing.Point(560, 129);
-            this.btnReproducirPlaylist.Name = "btnReproducirPlaylist";
-            this.btnReproducirPlaylist.Size = new System.Drawing.Size(65, 65);
-            this.btnReproducirPlaylist.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnReproducirPlaylist.TabIndex = 9;
-            this.btnReproducirPlaylist.TabStop = false;
-            this.btnReproducirPlaylist.Click += new System.EventHandler(this.btnReproducirPlaylist_Click);
-            // 
             // btnAtras
             // 
             this.btnAtras.BackColor = System.Drawing.SystemColors.Control;
@@ -162,6 +132,27 @@ namespace KemishMusic
             this.btnAtras.TabStop = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
+            // lblPropietario
+            // 
+            this.lblPropietario.AutoSize = true;
+            this.lblPropietario.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblPropietario.Location = new System.Drawing.Point(269, 191);
+            this.lblPropietario.Name = "lblPropietario";
+            this.lblPropietario.Size = new System.Drawing.Size(100, 20);
+            this.lblPropietario.TabIndex = 6;
+            this.lblPropietario.Text = "lblPropietario";
+            // 
+            // lblNombrePlaylist
+            // 
+            this.lblNombrePlaylist.AutoSize = true;
+            this.lblNombrePlaylist.BackColor = System.Drawing.Color.Transparent;
+            this.lblNombrePlaylist.Font = new System.Drawing.Font("Circular Std Book", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombrePlaylist.Location = new System.Drawing.Point(267, 143);
+            this.lblNombrePlaylist.Name = "lblNombrePlaylist";
+            this.lblNombrePlaylist.Size = new System.Drawing.Size(251, 35);
+            this.lblNombrePlaylist.TabIndex = 4;
+            this.lblNombrePlaylist.Text = "lblNombrePlaylist";
+            // 
             // picPlaylistSelect
             // 
             this.picPlaylistSelect.BorderRadius = 20;
@@ -173,6 +164,16 @@ namespace KemishMusic
             this.picPlaylistSelect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPlaylistSelect.TabIndex = 0;
             this.picPlaylistSelect.TabStop = false;
+            // 
+            // panelCancionesPlaylist
+            // 
+            this.panelCancionesPlaylist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCancionesPlaylist.Location = new System.Drawing.Point(0, 277);
+            this.panelCancionesPlaylist.Name = "panelCancionesPlaylist";
+            this.panelCancionesPlaylist.ShadowDecoration.Parent = this.panelCancionesPlaylist;
+            this.panelCancionesPlaylist.Size = new System.Drawing.Size(1076, 275);
+            this.panelCancionesPlaylist.TabIndex = 1;
+            this.panelCancionesPlaylist.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCancionesPlaylist_Paint);
             // 
             // VerContenidoPlaylist
             // 

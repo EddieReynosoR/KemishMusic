@@ -383,7 +383,7 @@ namespace KemishMusic
                     guna2TrackBar1.Location = new Point(387, 580);
                     btnPausaPlay.Location = new Point(738, 610);
                 lblNombreCancion.Location = new Point(149, 610);
-                lblNombreCancion.Font = new Font("Circular Std Book", 16, FontStyle.Bold);
+                lblNombreCancion.Font = new Font("Circular Std Book", 20, FontStyle.Bold);
                 guna2TrackBar2.Location = new Point(899, 623);
 
                     panelReproduccion.BackColor = Color.Transparent;

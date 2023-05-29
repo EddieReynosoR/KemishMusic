@@ -181,7 +181,7 @@ namespace KemishMusic
             // lblArtista
             // 
             this.lblArtista.AutoSize = true;
-            this.lblArtista.Location = new System.Drawing.Point(54, 281);
+            this.lblArtista.Location = new System.Drawing.Point(58, 274);
             this.lblArtista.Name = "lblArtista";
             this.lblArtista.Size = new System.Drawing.Size(46, 17);
             this.lblArtista.TabIndex = 13;

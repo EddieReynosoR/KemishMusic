@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace KemishMusic
 {
@@ -38,6 +39,29 @@ namespace KemishMusic
            
         }
 
+        public string SeleccionarNombreArtista(string idArtista)
+        {
+            string nombreArtista = "";
+            SqlConnection cn = Form1.GetConnection();
+
+            cn.Open();
+
+            string query = "SELECT usuario_nombreartist FROM usuario WHERE id_usuario = '" + idArtista + "'";
+
+
+            SqlCommand cmd = new SqlCommand(query, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                nombreArtista = dr["usuario_nombreartist"].ToString();
+            }
+
+            cn.Close();
+
+            return nombreArtista;
+        }
+
         public void CancionDetalles(Cancion e)
         {
 
@@ -48,6 +72,8 @@ namespace KemishMusic
             picCancion.Image = (Bitmap)new ImageConverter().ConvertFrom(e.imagen);
 
             cancionNombre.Text = e.nombre;
+
+            lblArtista.Text = SeleccionarNombreArtista(e.usuarioID);
 
             lblIDUsuario.Text = e.usuarioID;
         }
