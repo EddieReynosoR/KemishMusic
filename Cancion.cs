@@ -68,7 +68,7 @@ namespace KemishMusic
 
         public void getListaCancion(string where)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;");
+            SqlConnection conn = Form1.GetConnection();
             //SqlConnection conn = new SqlConnection(@"Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
 
             conn.Open();
@@ -105,7 +105,7 @@ namespace KemishMusic
 
         public void ReproducirCancion(string id)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;");
+            SqlConnection conn = Form1.GetConnection();
             //SqlConnection conn = new SqlConnection(@"Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
             conn.Open();
 
@@ -134,7 +134,7 @@ namespace KemishMusic
 
         public void getListaCancionesUsuario(string usuarioID)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;");
+            SqlConnection conn = Form1.GetConnection();
             //SqlConnection conn = new SqlConnection(@"Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
 
             conn.Open();
@@ -171,7 +171,7 @@ namespace KemishMusic
 
         public void getListaCancionesPlaylist(string playlistID)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;");
+            SqlConnection conn = Form1.GetConnection();
             //SqlConnection conn = new SqlConnection(@"Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
 
             conn.Open();
@@ -208,7 +208,7 @@ namespace KemishMusic
 
         public void getListaCancionesNoEnPlaylist(string playlistID)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;");
+            SqlConnection conn = Form1.GetConnection();
             //SqlConnection conn = new SqlConnection(@"Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
 
             conn.Open();
