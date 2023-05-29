@@ -79,6 +79,7 @@ namespace KemishMusic
             else
             {
                 MessageBox.Show("Datos incorrectos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Application.Restart();
             }
 
             cmd.Dispose();

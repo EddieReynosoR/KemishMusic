@@ -42,8 +42,12 @@ namespace KemishMusic
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.lblNombreUsuario = new Guna.UI.WinForms.GunaLabel();
             this.lblID = new Guna.UI.WinForms.GunaLabel();
+            this.lblMensajeCancion = new System.Windows.Forms.Label();
+            this.lblPlaylist = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picFotoPerfil)).BeginInit();
             this.guna2Panel1.SuspendLayout();
+            this.panelPlaylist.SuspendLayout();
+            this.panelCanciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -98,6 +102,7 @@ namespace KemishMusic
             // panelPlaylist
             // 
             this.panelPlaylist.AutoScroll = true;
+            this.panelPlaylist.Controls.Add(this.lblPlaylist);
             this.panelPlaylist.Location = new System.Drawing.Point(12, 481);
             this.panelPlaylist.Name = "panelPlaylist";
             this.panelPlaylist.ShadowDecoration.Parent = this.panelPlaylist;
@@ -118,6 +123,7 @@ namespace KemishMusic
             // panelCanciones
             // 
             this.panelCanciones.AutoScroll = true;
+            this.panelCanciones.Controls.Add(this.lblMensajeCancion);
             this.panelCanciones.Location = new System.Drawing.Point(1, 136);
             this.panelCanciones.Name = "panelCanciones";
             this.panelCanciones.ShadowDecoration.Parent = this.panelCanciones;
@@ -177,6 +183,28 @@ namespace KemishMusic
             this.lblID.TabIndex = 9;
             this.lblID.Text = "lblID";
             // 
+            // lblMensajeCancion
+            // 
+            this.lblMensajeCancion.AutoSize = true;
+            this.lblMensajeCancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensajeCancion.Location = new System.Drawing.Point(325, 126);
+            this.lblMensajeCancion.Name = "lblMensajeCancion";
+            this.lblMensajeCancion.Size = new System.Drawing.Size(353, 29);
+            this.lblMensajeCancion.TabIndex = 2;
+            this.lblMensajeCancion.Text = "Este usuario no tiene canciones";
+            this.lblMensajeCancion.Visible = false;
+            // 
+            // lblPlaylist
+            // 
+            this.lblPlaylist.AutoSize = true;
+            this.lblPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaylist.Location = new System.Drawing.Point(330, 183);
+            this.lblPlaylist.Name = "lblPlaylist";
+            this.lblPlaylist.Size = new System.Drawing.Size(318, 29);
+            this.lblPlaylist.TabIndex = 2;
+            this.lblPlaylist.Text = "Este usuario no tiene playlist";
+            this.lblPlaylist.Visible = false;
+            // 
             // Perfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -193,6 +221,10 @@ namespace KemishMusic
             ((System.ComponentModel.ISupportInitialize)(this.picFotoPerfil)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            this.panelPlaylist.ResumeLayout(false);
+            this.panelPlaylist.PerformLayout();
+            this.panelCanciones.ResumeLayout(false);
+            this.panelCanciones.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +244,7 @@ namespace KemishMusic
         private Guna.UI.WinForms.GunaLabel lblID;
         private Guna.UI2.WinForms.Guna2Button btnEditarPerfil;
         private Guna.UI2.WinForms.Guna2Panel panelCanciones;
+        private System.Windows.Forms.Label lblPlaylist;
+        private System.Windows.Forms.Label lblMensajeCancion;
     }
 }

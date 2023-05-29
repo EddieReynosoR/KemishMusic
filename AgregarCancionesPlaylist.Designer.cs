@@ -123,6 +123,7 @@ namespace KemishMusic
             this.panelCancionesNOAgregadas.ShadowDecoration.Parent = this.panelCancionesNOAgregadas;
             this.panelCancionesNOAgregadas.Size = new System.Drawing.Size(583, 302);
             this.panelCancionesNOAgregadas.TabIndex = 0;
+            this.panelCancionesNOAgregadas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCancionesNOAgregadas_Paint);
             // 
             // guna2DragControl1
             // 

@@ -526,8 +526,8 @@ namespace KemishMusic
 
         private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtApellidoM.Text.Length > 99)
-                MessageBox.Show("La descripción de tu perfil no puede ser mayor a 100 carácteres.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (txtApellidoM.Text.Length > 49)
+                MessageBox.Show("La descripción de tu perfil no puede ser mayor a 50 carácteres.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }
