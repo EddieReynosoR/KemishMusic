@@ -75,7 +75,8 @@ namespace KemishMusic
         /* ** CAMBIE EL SIGUIENTE DIRECTORIO DE DATOS PARA PODER ENLAZARSE CON LA BASE DE DATOS ** */
         public static SqlConnection GetConnection()
         {
-            return new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;");
+            //new SqlConnection(@"Data Source=LAPTOP-QS54F2AD\MSSQLSERVER01;Database=KemishMusic;Integrated Security=true;");
+            return new SqlConnection(@"Data Source = YAHIR\SQLEXPRESS; Initial Catalog = KemishMusic; Integrated Security = True"); 
         }
         public void TerminarCancion(object senver, WMPLib._WMPOCXEvents_PlayStateChangeEventHandler e)
         {
