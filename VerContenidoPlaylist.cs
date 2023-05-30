@@ -120,14 +120,21 @@ namespace KemishMusic
         // Evento del boton para reproducir todas las canciones de la playlist
         private void btnReproducirPlaylist_Click(object sender, EventArgs e)
         {
-            Form1.colaCanciones.Clear();
-            foreach(Cancion cancion in Cancion.lista4)
+            try
             {
-                Form1.colaCanciones.AddLast(cancion);
-            }
+                Form1.colaCanciones.Clear();
+                foreach (Cancion cancion in Cancion.lista4)
+                {
+                    Form1.colaCanciones.AddLast(cancion);
+                }
 
-            if (PlaylistClick != null)
-                PlaylistClick(this, e);
+                if (PlaylistClick != null)
+                    PlaylistClick(this, e);
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("No hay canciones para reproducir.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
     }

@@ -54,6 +54,8 @@ namespace KemishMusic
                 MessageBox.Show("Colaboración eliminada.");
 
                 cn.Close();
+
+                Application.Restart();
             }
         }
 

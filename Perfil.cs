@@ -26,6 +26,11 @@ namespace KemishMusic
             CartasCancion();
             DetallesPlaylist();
             CartasPlaylist();
+
+            if (verArtista.id == Usuario.id)
+                btnEditarPerfil.Visible = true;
+            else
+                btnEditarPerfil.Visible = false;
         }
 
         // Obtener los datos del usuario

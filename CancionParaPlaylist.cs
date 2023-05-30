@@ -41,7 +41,7 @@ namespace KemishMusic
                 cn.Open();
 
 
-                cmd.Parameters.AddWithValue("@cancion_cancion_id", id);
+                cmd.Parameters.AddWithValue("@cancion_cancion_id", lblID.Text);
 
                 cmd.Parameters.AddWithValue("@playlist_playlist_id", VerContenidoPlaylist.id);
 

@@ -104,6 +104,7 @@ namespace KemishMusic
             this.btnEditarPerfil.Size = new System.Drawing.Size(180, 45);
             this.btnEditarPerfil.TabIndex = 9;
             this.btnEditarPerfil.Text = "Editar perfil";
+            this.btnEditarPerfil.Visible = false;
             this.btnEditarPerfil.Click += new System.EventHandler(this.btnEditarPerfil_Click);
             // 
             // panelPlaylist
