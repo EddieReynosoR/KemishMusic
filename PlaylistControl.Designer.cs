@@ -49,7 +49,6 @@ namespace KemishMusic
             this.panelOpcionesPlaylist.Size = new System.Drawing.Size(160, 85);
             this.panelOpcionesPlaylist.TabIndex = 16;
             this.panelOpcionesPlaylist.Visible = false;
-            this.panelOpcionesPlaylist.Paint += new System.Windows.Forms.PaintEventHandler(this.panelOpcionesPlaylist_Paint);
             // 
             // btnEditarPlaylist
             // 

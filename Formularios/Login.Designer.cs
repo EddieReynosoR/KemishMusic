@@ -85,6 +85,7 @@ namespace KemishMusic
             this.txtUsuario.ShadowDecoration.Parent = this.txtUsuario;
             this.txtUsuario.Size = new System.Drawing.Size(331, 55);
             this.txtUsuario.TabIndex = 5;
+            this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
             // txtContra
             // 
@@ -111,6 +112,7 @@ namespace KemishMusic
             this.txtContra.ShadowDecoration.Parent = this.txtContra;
             this.txtContra.Size = new System.Drawing.Size(331, 55);
             this.txtContra.TabIndex = 8;
+            this.txtContra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContra_KeyDown);
             // 
             // gunaLabel2
             // 

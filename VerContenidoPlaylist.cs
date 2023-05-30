@@ -13,6 +13,7 @@ namespace KemishMusic
 {
     public partial class VerContenidoPlaylist : Form
     {
+        // ID respectivo de la playlist y evento del formulario
         public static string id;
         public static event EventHandler PlaylistClick;
         public VerContenidoPlaylist()
@@ -20,12 +21,14 @@ namespace KemishMusic
             InitializeComponent();
         }
 
+        // Cargar datos de la playlist y sus respectivas canciones 
         private void VerContenidoPlaylist_Load(object sender, EventArgs e)
         {           
             DetallesPlaylist();
             RefrescarPlaylist();
         }
 
+        // Cargar los datos de la playlist
         public void DetallesPlaylist()
         {
             PlaylistClase obtener = new PlaylistClase();
@@ -40,6 +43,7 @@ namespace KemishMusic
                 btnInsertarCancion.Visible = true;
         }
 
+        // Refrescar canciones en la playlist
         public void RefrescarPlaylist()
         {
             panelCancionesPlaylist.Controls.Clear();
@@ -47,6 +51,7 @@ namespace KemishMusic
             CartasCancion();
         }
 
+        // Cargar controles de usuario de cada cancion en la playlist
         public void CartasCancion()
         {
             foreach (Cancion cancion in Cancion.lista4)
@@ -63,12 +68,14 @@ namespace KemishMusic
             }
         }
 
+        // Cargar detalles de cada cancion
         public void DetallesCancion()
         {
             Cancion cancion = new Cancion();
             cancion.getListaCancionesPlaylist(PlaylistControl.id);
         }
 
+        // Obtener el nombre del propietario de la playlist
         public string ObtenerNombrePropietario(string idPropietario)
         {
             string admin = "";
@@ -99,6 +106,7 @@ namespace KemishMusic
             return admin;
         }
 
+        // Evento click para agregar una cancion a la playlist
         private void btnInsertarCancion_Click(object sender, EventArgs e)
         {
             panelCancionesPlaylist.Visible = false;
@@ -108,6 +116,8 @@ namespace KemishMusic
             editar.Show();
         }
 
+
+        // Evento del boton para reproducir todas las canciones de la playlist
         private void btnReproducirPlaylist_Click(object sender, EventArgs e)
         {
             Form1.colaCanciones.Clear();
@@ -120,19 +130,5 @@ namespace KemishMusic
                 PlaylistClick(this, e);
         }
 
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelCancionesPlaylist_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

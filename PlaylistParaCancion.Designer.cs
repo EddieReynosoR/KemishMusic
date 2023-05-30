@@ -108,7 +108,6 @@ namespace KemishMusic
             this.Controls.Add(this.picCancionAPlaylist);
             this.Name = "PlaylistParaCancion";
             this.Size = new System.Drawing.Size(583, 112);
-            this.Load += new System.EventHandler(this.PlaylistParaCancion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picCancionAPlaylist)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

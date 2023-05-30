@@ -9,17 +9,21 @@ namespace KemishMusic
 {
     public class PlaylistClase
     {
+        // Atributos de la clase PlaylistClase
         public string id { get; set; }
         public string nombre { get; set; }
         public byte[] imagen { get; set; }
         public string usuarioID { get; set; }
 
+        // Listas respectivas para la seleccion de playlist
         public static List<PlaylistClase> lista = new List<PlaylistClase>();
 
         public static List<PlaylistClase> lista2 = new List<PlaylistClase>();
         public static List<PlaylistClase> lista3 = new List<PlaylistClase>();
         public static List<PlaylistClase> lista4 = new List<PlaylistClase>();
 
+
+        // Obtener todas las playlist registradas
         public void getListPlaylist()
         {
             SqlConnection conn = Form1.GetConnection();
@@ -55,6 +59,7 @@ namespace KemishMusic
             }
         }
 
+        // Obtener las playlist del usuario
         public void getListaPlaylistUsuario(string usuarioID)
         {
             SqlConnection conn = Form1.GetConnection();
@@ -90,6 +95,7 @@ namespace KemishMusic
             }
         }
 
+        // Obtener playlist por su id
         public void GetDatosPlaylist(string id)
         {
             SqlConnection conn = Form1.GetConnection();
@@ -116,6 +122,7 @@ namespace KemishMusic
             conn.Close();
         }
 
+        // Obtener playlist mediante busqueda
         public void getListaPlaylist(string where)
         {
             SqlConnection conn = Form1.GetConnection();
@@ -151,7 +158,8 @@ namespace KemishMusic
             }
         }
 
-        public void getListaCancionesNoEnPlaylist(string cancionID)
+        // Obtener playlist que no tengan ciertas canciones
+        public void getListaCancionesNoEnPlaylist(string cancionID, string userID)
         {
             SqlConnection conn = Form1.GetConnection();
             //SqlConnection conn = new SqlConnection(@"Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
@@ -160,7 +168,7 @@ namespace KemishMusic
 
             SqlCommand cmd = conn.CreateCommand();
 
-            string sql = "SELECT * FROM playlist WHERE playlist_id NOT IN(SELECT playlist_playlist_id FROM enlistar WHERE cancion_cancion_id = '" + cancionID + "');";
+            string sql = "SELECT * FROM playlist WHERE playlist_id NOT IN(SELECT playlist_playlist_id FROM enlistar WHERE cancion_cancion_id = '" + cancionID + "') AND usuario_id_usuario = '"+userID+"';";
             cmd.CommandText = sql;
 
             SqlDataReader reader = cmd.ExecuteReader();

@@ -104,7 +104,6 @@ namespace KemishMusic
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
             this.guna2Panel2.Size = new System.Drawing.Size(892, 447);
             this.guna2Panel2.TabIndex = 4;
-            this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
             // lblNombreUsuario
             // 
@@ -126,7 +125,6 @@ namespace KemishMusic
             this.panelCancionesNOAgregadas.ShadowDecoration.Parent = this.panelCancionesNOAgregadas;
             this.panelCancionesNOAgregadas.Size = new System.Drawing.Size(583, 302);
             this.panelCancionesNOAgregadas.TabIndex = 0;
-            this.panelCancionesNOAgregadas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCancionesNOAgregadas_Paint);
             // 
             // guna2DragControl1
             // 

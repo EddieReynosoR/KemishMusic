@@ -60,19 +60,19 @@ namespace KemishMusic
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnAtras = new FontAwesome.Sharp.IconPictureBox();
             this.gunaControlBox3 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaControlBox2 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnAtras = new FontAwesome.Sharp.IconPictureBox();
             this.guna2Panel1.SuspendLayout();
             this.panelRegistro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPortada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUsuario)).BeginInit();
             this.guna2Panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -90,7 +90,6 @@ namespace KemishMusic
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(908, 683);
             this.guna2Panel1.TabIndex = 1;
-            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // panelRegistro
             // 
@@ -143,7 +142,6 @@ namespace KemishMusic
             this.txtNombreArtistico.HoverState.Parent = this.txtNombreArtistico;
             this.txtNombreArtistico.Location = new System.Drawing.Point(23, 151);
             this.txtNombreArtistico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtNombreArtistico.MaxLength = 29;
             this.txtNombreArtistico.Name = "txtNombreArtistico";
             this.txtNombreArtistico.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtNombreArtistico.PasswordChar = '\0';
@@ -153,7 +151,6 @@ namespace KemishMusic
             this.txtNombreArtistico.ShadowDecoration.Parent = this.txtNombreArtistico;
             this.txtNombreArtistico.Size = new System.Drawing.Size(679, 55);
             this.txtNombreArtistico.TabIndex = 27;
-            this.txtNombreArtistico.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreArtistico_KeyDown);
             this.txtNombreArtistico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreArtistico_KeyPress);
             // 
             // gunaLabel10
@@ -173,6 +170,7 @@ namespace KemishMusic
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 25;
+            this.label2.Visible = false;
             // 
             // picPortada
             // 
@@ -229,6 +227,7 @@ namespace KemishMusic
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 20;
+            this.label1.Visible = false;
             // 
             // btnRegistrarse
             // 
@@ -337,7 +336,6 @@ namespace KemishMusic
             this.txtApellidoM.HoverState.Parent = this.txtApellidoM;
             this.txtApellidoM.Location = new System.Drawing.Point(372, 477);
             this.txtApellidoM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtApellidoM.MaxLength = 29;
             this.txtApellidoM.Name = "txtApellidoM";
             this.txtApellidoM.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtApellidoM.PasswordChar = '\0';
@@ -366,7 +364,6 @@ namespace KemishMusic
             this.txtApellidoP.HoverState.Parent = this.txtApellidoP;
             this.txtApellidoP.Location = new System.Drawing.Point(23, 477);
             this.txtApellidoP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtApellidoP.MaxLength = 29;
             this.txtApellidoP.Name = "txtApellidoP";
             this.txtApellidoP.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtApellidoP.PasswordChar = '\0';
@@ -376,7 +373,6 @@ namespace KemishMusic
             this.txtApellidoP.ShadowDecoration.Parent = this.txtApellidoP;
             this.txtApellidoP.Size = new System.Drawing.Size(330, 55);
             this.txtApellidoP.TabIndex = 10;
-            this.txtApellidoP.TextChanged += new System.EventHandler(this.txtApellidoP_TextChanged);
             this.txtApellidoP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoP_KeyPress);
             // 
             // txtCorreo
@@ -396,7 +392,6 @@ namespace KemishMusic
             this.txtCorreo.HoverState.Parent = this.txtCorreo;
             this.txtCorreo.Location = new System.Drawing.Point(372, 412);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtCorreo.MaxLength = 49;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtCorreo.PasswordChar = '\0';
@@ -406,7 +401,6 @@ namespace KemishMusic
             this.txtCorreo.ShadowDecoration.Parent = this.txtCorreo;
             this.txtCorreo.Size = new System.Drawing.Size(330, 55);
             this.txtCorreo.TabIndex = 9;
-            this.txtCorreo.TextChanged += new System.EventHandler(this.txtCorreo_TextChanged);
             this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreo_KeyPress);
             // 
             // txtNombre
@@ -426,7 +420,6 @@ namespace KemishMusic
             this.txtNombre.HoverState.Parent = this.txtNombre;
             this.txtNombre.Location = new System.Drawing.Point(23, 412);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtNombre.MaxLength = 29;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtNombre.PasswordChar = '\0';
@@ -436,7 +429,6 @@ namespace KemishMusic
             this.txtNombre.ShadowDecoration.Parent = this.txtNombre;
             this.txtNombre.Size = new System.Drawing.Size(330, 55);
             this.txtNombre.TabIndex = 8;
-            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // gunaLabel4
@@ -448,7 +440,6 @@ namespace KemishMusic
             this.gunaLabel4.Size = new System.Drawing.Size(171, 25);
             this.gunaLabel4.TabIndex = 7;
             this.gunaLabel4.Text = "Datos personales";
-            this.gunaLabel4.Click += new System.EventHandler(this.gunaLabel4_Click);
             // 
             // txtContraConf
             // 
@@ -476,7 +467,6 @@ namespace KemishMusic
             this.txtContraConf.ShadowDecoration.Parent = this.txtContraConf;
             this.txtContraConf.Size = new System.Drawing.Size(679, 55);
             this.txtContraConf.TabIndex = 5;
-            this.txtContraConf.TextChanged += new System.EventHandler(this.txtContraConf_TextChanged);
             // 
             // txtUsuario
             // 
@@ -495,7 +485,6 @@ namespace KemishMusic
             this.txtUsuario.HoverState.Parent = this.txtUsuario;
             this.txtUsuario.Location = new System.Drawing.Point(23, 51);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtUsuario.MaxLength = 29;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtUsuario.PasswordChar = '\0';
@@ -505,8 +494,6 @@ namespace KemishMusic
             this.txtUsuario.ShadowDecoration.Parent = this.txtUsuario;
             this.txtUsuario.Size = new System.Drawing.Size(679, 55);
             this.txtUsuario.TabIndex = 1;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
-            this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // txtContra
@@ -526,7 +513,6 @@ namespace KemishMusic
             this.txtContra.HoverState.Parent = this.txtContra;
             this.txtContra.Location = new System.Drawing.Point(23, 239);
             this.txtContra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtContra.MaxLength = 49;
             this.txtContra.Name = "txtContra";
             this.txtContra.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.txtContra.PasswordChar = '\0';
@@ -536,8 +522,6 @@ namespace KemishMusic
             this.txtContra.ShadowDecoration.Parent = this.txtContra;
             this.txtContra.Size = new System.Drawing.Size(679, 55);
             this.txtContra.TabIndex = 4;
-            this.txtContra.TextChanged += new System.EventHandler(this.txtContra_TextChanged);
-            this.txtContra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContra_KeyDown);
             this.txtContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContra_KeyPress);
             // 
             // gunaLabel2
@@ -549,7 +533,6 @@ namespace KemishMusic
             this.gunaLabel2.Size = new System.Drawing.Size(191, 25);
             this.gunaLabel2.TabIndex = 2;
             this.gunaLabel2.Text = "Nombre de usuario";
-            this.gunaLabel2.Click += new System.EventHandler(this.gunaLabel2_Click);
             // 
             // gunaLabel3
             // 
@@ -560,7 +543,6 @@ namespace KemishMusic
             this.gunaLabel3.Size = new System.Drawing.Size(120, 25);
             this.gunaLabel3.TabIndex = 3;
             this.gunaLabel3.Text = "Contraseña";
-            this.gunaLabel3.Click += new System.EventHandler(this.gunaLabel3_Click);
             // 
             // gunaLabel1
             // 
@@ -584,6 +566,23 @@ namespace KemishMusic
             this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
             this.guna2Panel3.Size = new System.Drawing.Size(905, 43);
             this.guna2Panel3.TabIndex = 1;
+            // 
+            // btnAtras
+            // 
+            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtras.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAtras.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.btnAtras.IconColor = System.Drawing.SystemColors.ControlText;
+            this.btnAtras.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAtras.IconSize = 34;
+            this.btnAtras.Location = new System.Drawing.Point(3, 4);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(34, 36);
+            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAtras.TabIndex = 8;
+            this.btnAtras.TabStop = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // gunaControlBox3
             // 
@@ -652,23 +651,6 @@ namespace KemishMusic
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // btnAtras
-            // 
-            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
-            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAtras.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAtras.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.btnAtras.IconColor = System.Drawing.SystemColors.ControlText;
-            this.btnAtras.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAtras.IconSize = 34;
-            this.btnAtras.Location = new System.Drawing.Point(3, 4);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(34, 36);
-            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnAtras.TabIndex = 8;
-            this.btnAtras.TabStop = false;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
-            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -687,8 +669,8 @@ namespace KemishMusic
             ((System.ComponentModel.ISupportInitialize)(this.picPortada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUsuario)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

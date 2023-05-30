@@ -13,6 +13,7 @@ namespace KemishMusic
 {
     public partial class Login : Form
     {
+        // Instancia al form de registro
         SignUp registrarseForm = new SignUp();
        
         
@@ -21,13 +22,8 @@ namespace KemishMusic
             InitializeComponent();
         }
        
-
-        private void lblRegistrarse_Click(object sender, EventArgs e)
-        {
-            Close();
-           registrarseForm.Show();
-        }
-
+        
+        // Inicio de sesion usando la base de datos
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Form1 frm1 = new Form1();
@@ -87,6 +83,7 @@ namespace KemishMusic
             cn.Close();
         }
 
+        // Mostrar formulario de registro si es que se necesita
         private void lblApp_Click(object sender, EventArgs e)
         {
             Hide();
@@ -95,11 +92,13 @@ namespace KemishMusic
             registrarse.Show();
         }
 
+        // Salir de la app
         private void gunaControlBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // Mostrar y ocultar password
         private void chkMostrarContra_CheckedChanged(object sender, EventArgs e)
         {
             if (chkMostrarContra.Checked)
@@ -107,5 +106,20 @@ namespace KemishMusic
             else
                 txtContra.PasswordChar = '*';
         }
+
+        // Si se presiona ENTER, salta al siguiente textbox
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtContra.Focus();
+        }
+
+        private void txtContra_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnLogin_Click(this, new EventArgs());
+        }
+
+        
     }
 }

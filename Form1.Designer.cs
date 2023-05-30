@@ -89,6 +89,16 @@ namespace KemishMusic
             this.panelCancionesHome.SuspendLayout();
             this.SuspendLayout();
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(398, 13);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(46, 17);
+            label3.TabIndex = 17;
+            label3.Text = "label3";
+            label3.Visible = false;
+            // 
             // gunaElipse1
             // 
             this.gunaElipse1.Radius = 20;
@@ -112,7 +122,6 @@ namespace KemishMusic
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(1076, 43);
             this.guna2Panel1.TabIndex = 0;
-            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // label4
             // 
@@ -219,7 +228,7 @@ namespace KemishMusic
             // 
             this.lblNombreCancion.AutoSize = true;
             this.lblNombreCancion.Font = new System.Drawing.Font("Circular Std Book", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreCancion.Location = new System.Drawing.Point(149, 28);
+            this.lblNombreCancion.Location = new System.Drawing.Point(149, 50);
             this.lblNombreCancion.Name = "lblNombreCancion";
             this.lblNombreCancion.Size = new System.Drawing.Size(0, 22);
             this.lblNombreCancion.TabIndex = 18;
@@ -270,6 +279,7 @@ namespace KemishMusic
             // pbBar
             // 
             this.pbBar.BorderRadius = 5;
+            this.pbBar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbBar.Location = new System.Drawing.Point(40, 21);
             this.pbBar.Name = "pbBar";
             this.pbBar.ShadowDecoration.Parent = this.pbBar;
@@ -394,7 +404,6 @@ namespace KemishMusic
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Visible = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // iconButton1
             // 
@@ -480,7 +489,6 @@ namespace KemishMusic
             this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gunaPictureBox1.TabIndex = 0;
             this.gunaPictureBox1.TabStop = false;
-            this.gunaPictureBox1.Click += new System.EventHandler(this.gunaPictureBox1_Click);
             // 
             // timer1
             // 
@@ -510,11 +518,10 @@ namespace KemishMusic
             this.panelMusicaRe.Location = new System.Drawing.Point(1, 96);
             this.panelMusicaRe.Name = "panelMusicaRe";
             this.panelMusicaRe.ShadowDecoration.Parent = this.panelMusicaRe;
-            this.panelMusicaRe.Size = new System.Drawing.Size(1076, 417);
+            this.panelMusicaRe.Size = new System.Drawing.Size(1076, 416);
             this.panelMusicaRe.TabIndex = 13;
             this.panelMusicaRe.Visible = false;
             this.panelMusicaRe.VisibleChanged += new System.EventHandler(this.panelMusicaRe_VisibleChanged);
-            this.panelMusicaRe.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
             // lblMensajeCola
             // 
@@ -534,7 +541,7 @@ namespace KemishMusic
             // 
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Circular Std Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel2.Location = new System.Drawing.Point(691, 476);
+            this.gunaLabel2.Location = new System.Drawing.Point(691, 464);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(352, 22);
             this.gunaLabel2.TabIndex = 4;
@@ -567,7 +574,6 @@ namespace KemishMusic
             this.panelOpciones.Size = new System.Drawing.Size(200, 209);
             this.panelOpciones.TabIndex = 1;
             this.panelOpciones.Visible = false;
-            this.panelOpciones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelOpciones_Paint);
             // 
             // btnVerPerfil
             // 
@@ -650,7 +656,6 @@ namespace KemishMusic
             this.panelCancionesHome.ShadowDecoration.Parent = this.panelCancionesHome;
             this.panelCancionesHome.Size = new System.Drawing.Size(1067, 478);
             this.panelCancionesHome.TabIndex = 14;
-            this.panelCancionesHome.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCancionesHome_Paint);
             // 
             // lblMensaje
             // 
@@ -682,16 +687,6 @@ namespace KemishMusic
             // timerReproduccion
             // 
             this.timerReproduccion.Tick += new System.EventHandler(this.timerReproduccion_Tick);
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(398, 13);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(46, 17);
-            label3.TabIndex = 17;
-            label3.Text = "label3";
-            label3.Visible = false;
             // 
             // Form1
             // 

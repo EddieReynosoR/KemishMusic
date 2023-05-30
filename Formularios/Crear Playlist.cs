@@ -18,37 +18,36 @@ namespace KemishMusic.Formularios
         {
             InitializeComponent();
         }
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            
-
-        }
         
 
-        private void Crear_Playlist_Load(object sender, EventArgs e)
-        {
-            
-
-        }
-
+        // Seleccionar una imagen de tus archivos
         private void btnSeleccionarImagenPlaylist_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
+            try
+            {
+                OpenFileDialog dlg = new OpenFileDialog();
 
-            dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
+                dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
 
-            dlg.ShowDialog();
+                dlg.ShowDialog();
 
-            lblRutaImagen.Text = dlg.FileName;
+                lblRutaImagen.Text = dlg.FileName;
 
-            picPlaylistNueva.Image = new Bitmap(dlg.FileName);
+                picPlaylistNueva.Image = new Bitmap(dlg.FileName);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("No seleccionaste ninguna imágen.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
+        // Guardar playlist
         private void btnInsertarPlaylist_Click(object sender, EventArgs e)
         {
             GuardarPlaylist(lblRutaImagen.Text);
         }
 
+        // Metodo para guardar la playlist en la base de datos
         public void GuardarPlaylist(string rutaImagen)
         {
             if (rutaImagen == "")
@@ -121,6 +120,7 @@ namespace KemishMusic.Formularios
             }
         }
 
+        // Validacion
         private void txtPlaylist_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (txtPlaylist.Text.Length > 29)

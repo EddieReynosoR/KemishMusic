@@ -107,7 +107,6 @@ namespace KemishMusic
             this.Controls.Add(this.lblAutor);
             this.Name = "PlaylistRepro";
             this.Size = new System.Drawing.Size(1060, 110);
-            this.Load += new System.EventHandler(this.PlaylistRepro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picCancionRep)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

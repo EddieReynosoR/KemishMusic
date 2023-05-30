@@ -17,12 +17,14 @@ namespace KemishMusic
             InitializeComponent();
         }
 
+        // Cargar canciones en el form
         private void AgregarCancionesPlaylist_Load(object sender, EventArgs e)
         {
             DetallesCancion();
             CartasCancion();
         }
 
+        // Mostrar canciones disponibles para agregar a la playlist
         public void CartasCancion()
         {
             if (Cancion.lista5.Count == 0)
@@ -45,20 +47,13 @@ namespace KemishMusic
             }
         }
 
+        // Cargas detalles de la cancion
         public void DetallesCancion()
         {
             Cancion cancion = new Cancion();
             cancion.getListaCancionesNoEnPlaylist(PlaylistControl.id);
         }
 
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void panelCancionesNOAgregadas_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

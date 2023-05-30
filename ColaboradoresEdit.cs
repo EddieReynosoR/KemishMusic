@@ -13,12 +13,14 @@ namespace KemishMusic
 {
     public partial class ColaboradoresEdit : UserControl
     {
+        // ID respectivo
         public static string id;
         public ColaboradoresEdit()
         {
             InitializeComponent();
         }
 
+        // Obtener detalles del colaborador
         public void ColabDetalles(Artista e)
         {
             lblID.Text = e.id;
@@ -27,6 +29,8 @@ namespace KemishMusic
             id = lblID.Text;         
 
         }
+
+        // Boton para eliminar colab
         private void btnEliminarColab_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Estás segur@ de que quieres eliminar esta colaboración?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -53,9 +57,5 @@ namespace KemishMusic
             }
         }
 
-        private void ColaboradoresEdit_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

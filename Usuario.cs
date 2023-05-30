@@ -8,6 +8,8 @@ namespace KemishMusic
 {
     public class Usuario
     {
+
+        // Atributos correspondientes del usuario que inicie sesion en la app
         public static string id { get; set; }
         public static string usuario { get; set; }
 

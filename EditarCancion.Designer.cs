@@ -106,7 +106,6 @@ namespace KemishMusic
             this.gunaControlBox1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaControlBox1.Size = new System.Drawing.Size(45, 29);
             this.gunaControlBox1.TabIndex = 0;
-            this.gunaControlBox1.Click += new System.EventHandler(this.gunaControlBox1_Click);
             // 
             // guna2DragControl1
             // 
@@ -200,7 +199,6 @@ namespace KemishMusic
             this.txtAudioEditar.ShadowDecoration.Parent = this.txtAudioEditar;
             this.txtAudioEditar.Size = new System.Drawing.Size(292, 44);
             this.txtAudioEditar.TabIndex = 8;
-            this.txtAudioEditar.TextChanged += new System.EventHandler(this.txtAudioEditar_TextChanged);
             // 
             // btnSeleccionarAudio
             // 
@@ -288,7 +286,6 @@ namespace KemishMusic
             this.panelColaboradoresEdit.ShadowDecoration.Parent = this.panelColaboradoresEdit;
             this.panelColaboradoresEdit.Size = new System.Drawing.Size(395, 211);
             this.panelColaboradoresEdit.TabIndex = 14;
-            this.panelColaboradoresEdit.Paint += new System.Windows.Forms.PaintEventHandler(this.panelColaboradoresEdit_Paint);
             // 
             // cmbColabsEditar
             // 

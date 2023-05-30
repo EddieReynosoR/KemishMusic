@@ -139,6 +139,7 @@
             this.lblRutaImagen.Name = "lblRutaImagen";
             this.lblRutaImagen.Size = new System.Drawing.Size(0, 20);
             this.lblRutaImagen.TabIndex = 14;
+            this.lblRutaImagen.Visible = false;
             // 
             // gunaLabel3
             // 
@@ -168,7 +169,6 @@
             this.Controls.Add(this.gunaLabel1);
             this.Name = "Crear_Playlist";
             this.Text = "Crear_Playlist";
-            this.Load += new System.EventHandler(this.Crear_Playlist_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picPlaylistNueva)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

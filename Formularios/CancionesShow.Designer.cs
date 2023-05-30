@@ -51,7 +51,6 @@
             this.panelCancion.ShadowDecoration.Parent = this.panelCancion;
             this.panelCancion.Size = new System.Drawing.Size(925, 342);
             this.panelCancion.TabIndex = 0;
-            this.panelCancion.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCancion_Paint);
             // 
             // lblMensajeCancionBiblio
             // 

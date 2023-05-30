@@ -17,6 +17,7 @@ namespace KemishMusic.Formularios
             InitializeComponent();
         }
 
+        // Cargar las canciones registradas
         private void CancionesShow_Load(object sender, EventArgs e)
         {
             DetallesPlaylist();
@@ -24,12 +25,15 @@ namespace KemishMusic.Formularios
             DetallesCancion();
             CartasCancion();
         }
+
+        // Obtener las canciones de la lista correspondiente del usuario
         public void DetallesCancion()
         {
             Cancion cancion = new Cancion();
             cancion.getListaCancionesUsuario(Usuario.id);
         }
         
+        // Se seleccionan las canciones, si no hay, se muestra un mensaje
         public void CartasCancion()
         {
             if (Cancion.lista2.Count == 0)
@@ -51,12 +55,15 @@ namespace KemishMusic.Formularios
             }
         }
 
+
+        // Obtener las playlist registradas del usuario
         public void DetallesPlaylist()
         {
             PlaylistClase playlist = new PlaylistClase();
             playlist.getListaPlaylistUsuario(Usuario.id);
         }
 
+        // Generacion de controles de usuario
         public void CartasPlaylists()
         {
             if (PlaylistClase.lista2.Count == 0)
@@ -78,9 +85,6 @@ namespace KemishMusic.Formularios
         }
 
 
-        private void panelCancion_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
     }
 }

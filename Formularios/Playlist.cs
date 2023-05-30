@@ -15,6 +15,7 @@ namespace KemishMusic.Formularios
 {
     public partial class Playlist : Form
     {
+        // Lista de colaboradores
         public List<string> listaColaboradores = new List<string>();
         public Playlist()
         {
@@ -22,26 +23,35 @@ namespace KemishMusic.Formularios
         }
 
         
-
+        // Elegir una imagen de tus archivos
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
+            try
+            {
+                OpenFileDialog dlg = new OpenFileDialog();
 
-            dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
+                dlg.Filter = "Image | *.jpg;*.png;*.jpeg";
 
-            dlg.ShowDialog();
+                dlg.ShowDialog();
 
-            txtImagen.Text = dlg.FileName;
+                txtImagen.Text = dlg.FileName;
 
-            picCancion.Image = new Bitmap(dlg.FileName);
+                picCancion.Image = new Bitmap(dlg.FileName);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("No seleccionaste ninguna imágen.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
         }
 
+        // Click boton de guardar
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             GuardarArchivo(txtImagen.Text, txtAudio.Text);
         }
 
-
+        // Rellenar el combo box de posibles artistas que puedan ser colaboradores en la cancion
         public void RellenarComboBoxColaboradores()
         {
             SqlConnection cn = Form1.GetConnection();
@@ -62,6 +72,7 @@ namespace KemishMusic.Formularios
             cn.Close();
         }
 
+        // Guardar cancion
         public void GuardarArchivo(string archivoImagen, string archivoAudio)
         {
             Form1 frm1 = new Form1();
@@ -185,7 +196,7 @@ namespace KemishMusic.Formularios
         
 
         
-
+        // Seleccionar audio de tus archivos
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
@@ -195,21 +206,14 @@ namespace KemishMusic.Formularios
             txtAudio.Text = dlg.FileName;
         }
 
+        // Rellenar combo box
         private void Playlist_Load(object sender, EventArgs e)
         {
             RellenarComboBoxColaboradores();
         }
 
-        private void gunaLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
+        // Agregar como colaborador a artista seleccionado
         private void btnInsertarColab_Click(object sender, EventArgs e)
         {
             if (cmbColaboradores.SelectedIndex == -1)
@@ -228,11 +232,8 @@ namespace KemishMusic.Formularios
             }
         }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        
+        // Validacion
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (txtNombre.Text.Length > 29)

@@ -13,17 +13,40 @@ namespace KemishMusic
 {
     public partial class PlaylistRepro : UserControl
     {
+        // ID correspondiente a cada control de usuario
         public static string id;
         public PlaylistRepro()
         {
             InitializeComponent();
         }
 
-        private void PlaylistRepro_Load(object sender, EventArgs e)
+
+
+        // Cargar el nombre del artista correspondiente a la cancion
+        public string SeleccionarNombreArtista(string idArtista)
         {
-            
+            string nombre = "";
+            SqlConnection cn = Form1.GetConnection();
+
+            cn.Open();
+
+            string query = "SELECT usuario_nombreartist FROM usuario WHERE id_usuario = '" + idArtista + "'";
+
+
+            SqlCommand cmd = new SqlCommand(query, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                nombre = dr["usuario_nombreartist"].ToString();
+            }
+
+            cn.Close();
+
+            return nombre;
         }
 
+        // Cargar datos de la cancion
         public void CancionDetalles(Cancion e)
         {
 
@@ -36,11 +59,17 @@ namespace KemishMusic
 
             lblNombreCancion.Text = e.nombre;
 
-            if (e.usuarioID == Usuario.id)
+            lblAutor.Text = SeleccionarNombreArtista(e.usuarioID);
+
+            PlaylistClase obtener = new PlaylistClase();
+            obtener.GetDatosPlaylist(PlaylistControl.id);
+
+            if (obtener.usuarioID == Usuario.id)
                 btnEliminarDEPlaylist.Visible = true;
 
         }
 
+        // Eliminar cancion correspondiente de la playlist
         private void btnEliminarDEPlaylist_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Estás segur@ de que quieres eliminar esta canción?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);

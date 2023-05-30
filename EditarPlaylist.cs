@@ -19,6 +19,7 @@ namespace KemishMusic
             InitializeComponent();
         }
         
+        // FUNCIONES PARA EDITAR LA PLAYLIST
         public void EditarPlaylistFuncion(string archivoImagen)
         {
             using (Stream stream = File.OpenRead(archivoImagen))
@@ -148,6 +149,9 @@ namespace KemishMusic
                 Application.Restart();
             
         }
+
+
+        // Boton editar Playlist, tomando en cuenta, posibles ediciones
         private void btnEditarPlaylist_Click(object sender, EventArgs e)
         {
             if(txtPlaylistEditar.Text == "")
@@ -173,6 +177,7 @@ namespace KemishMusic
             DetallesPlaylist();
         }
 
+        // Obtener datos de la playlist
         public void DetallesPlaylist()
         {
             PlaylistClase playlist = new PlaylistClase();

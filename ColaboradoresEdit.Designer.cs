@@ -80,7 +80,6 @@ namespace KemishMusic
             this.Controls.Add(this.lblNombreColab);
             this.Name = "ColaboradoresEdit";
             this.Size = new System.Drawing.Size(395, 67);
-            this.Load += new System.EventHandler(this.ColaboradoresEdit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

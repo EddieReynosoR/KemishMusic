@@ -11,6 +11,7 @@ namespace KemishMusic
 {
     public class Cancion
     {
+        // Atributos clase Cancion
         public string id { get; set; }
         public string nombre { get; set; }
         public byte[] imagen { get; set; }
@@ -20,6 +21,8 @@ namespace KemishMusic
 
         public string usuarioID { get; set; }
 
+
+        // Listas correspondientes para seleccion de canciones
         public static List<Cancion> lista = new List<Cancion>();
 
         public static List<Cancion> lista2 = new List<Cancion>();
@@ -28,7 +31,7 @@ namespace KemishMusic
         public static List<Cancion> lista4 = new List<Cancion>();
         public static List<Cancion> lista5 = new List<Cancion>();
 
-
+        // Obtener lista de canciones
         public void getList()
         {
             SqlConnection conn = Form1.GetConnection();
@@ -66,6 +69,7 @@ namespace KemishMusic
             }
         }
 
+        // Obtener lista de canciones buscadas
         public void getListaCancion(string where)
         {
             SqlConnection conn = Form1.GetConnection();
@@ -103,6 +107,7 @@ namespace KemishMusic
             }
         }
 
+        // Obtener cancion para reproducirla
         public void ReproducirCancion(string id)
         {
             SqlConnection conn = Form1.GetConnection();
@@ -131,7 +136,7 @@ namespace KemishMusic
             conn.Close();
         }
 
-
+        // Obtener lista de canciones registradas por cierto usuario
         public void getListaCancionesUsuario(string usuarioID)
         {
             SqlConnection conn = Form1.GetConnection();
@@ -169,6 +174,7 @@ namespace KemishMusic
             }
         }
 
+        // Obtener canciones registradas en una playlist
         public void getListaCancionesPlaylist(string playlistID)
         {
             SqlConnection conn = Form1.GetConnection();
@@ -206,6 +212,7 @@ namespace KemishMusic
             }
         }
 
+        // Checar canciones que no esten en la playlist
         public void getListaCancionesNoEnPlaylist(string playlistID)
         {
             SqlConnection conn = Form1.GetConnection();

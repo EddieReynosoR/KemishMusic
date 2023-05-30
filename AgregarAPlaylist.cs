@@ -17,12 +17,14 @@ namespace KemishMusic
             InitializeComponent();
         }
 
+        // Cargar playlist a las que se puede insertar la cancion
         private void AgregarAPlaylist_Load(object sender, EventArgs e)
         {
             DetallesCancion();
             CartasCancion();
         }
 
+        // Cargar los controles de usuario correspondientes
         public void CartasCancion()
         {
             if (PlaylistClase.lista4.Count == 0)
@@ -47,10 +49,11 @@ namespace KemishMusic
             
         }
 
+        // Obtener detalles de la playlist
         public void DetallesCancion()
         {
             PlaylistClase playlist = new PlaylistClase();
-            playlist.getListaCancionesNoEnPlaylist(CancionSelect.id);
+            playlist.getListaCancionesNoEnPlaylist(CancionSelect.id, Usuario.id);
         }
     }
 }

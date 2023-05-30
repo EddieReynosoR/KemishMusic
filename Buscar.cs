@@ -16,16 +16,20 @@ namespace KemishMusic
         {
             InitializeComponent();
         }
-
+        
+        // Instrucciones WHERE para realizar busquedas
         string where = "";
         string where2 = "";
         string where3 = "";
+
+        // Checar ENTER para salir del textbox
         private void guna2TextBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 13)
                 panelCancionBusqueda.Focus();
         }
 
+        // Obtener detalles de los artistas buscados
         public void DetallesArtista(string where)
         {
             Artista artista = new Artista();
@@ -33,12 +37,14 @@ namespace KemishMusic
             artista.getListaArtista(where);
         }
 
+        // Obtener detalles de las canciones buscadas
         public void DetallesCancion(string where)
         {
             Cancion cancion = new Cancion();
             cancion.getListaCancion(where);
         }
 
+        // Cargar artistas
         public void ArtistaPanel()
         {
             if(Artista.lista.Count == 0)
@@ -59,12 +65,16 @@ namespace KemishMusic
                 }
             }
         }
+
+        // Obtener playlist buscadas
         public void DetallesPlaylist(string where)
         {
             PlaylistClase playlist = new PlaylistClase();
 
             playlist.getListaPlaylist(where);
         }
+
+        // Cargar playlist
         public void PlaylistPanel()
         {
             if (PlaylistClase.lista3.Count == 0)
@@ -85,6 +95,8 @@ namespace KemishMusic
                 }
             }
         }
+
+        // Cargar canciones
         public void CancionPanel()
         {
             if (Cancion.lista3.Count == 0)
@@ -106,7 +118,7 @@ namespace KemishMusic
             }
         }
 
-
+        // Busqueda dinamica al presionar teclas en el textbox de Busqueda
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (txtBuscar.Text.Length > 0)
@@ -151,6 +163,7 @@ namespace KemishMusic
             }
         }
 
+        // Refrescar resultados al dejar el txtBuscar
         private void txtBuscar_Leave(object sender, EventArgs e)
         {
             if (txtBuscar.Text.Length < 1)
@@ -188,6 +201,7 @@ namespace KemishMusic
             // ArtistaPanel();
         }
 
+        // Cargar controles de usuario
         private void Buscar_Load(object sender, EventArgs e)
         {
             DetallesArtista(where);

@@ -13,12 +13,14 @@ namespace KemishMusic
 {
     public partial class CancionParaPlaylist : UserControl
     {
+        // ID correspondiente al control de usuario
         public static string id;
         public CancionParaPlaylist()
         {
             InitializeComponent();
         }
 
+        // Agregar cancion seleccionada a una playlist
         private void btnAgregarCancionAPlaylist_Click(object sender, EventArgs e)
         {
                    
@@ -65,11 +67,31 @@ namespace KemishMusic
             }
         }
 
-        private void CancionParaPlaylist_Load(object sender, EventArgs e)
+        // Obtener el nombre del artista de la cancion
+        public string SeleccionarNombreArtista(string idArtista)
         {
+            string nombre = "";
+            SqlConnection cn = Form1.GetConnection();
 
+            cn.Open();
+
+            string query = "SELECT usuario.usuario_nombreartist FROM cancion INNER JOIN usuario on id_usuario = cancion.usuario_id_usuario WHERE cancion.cancion_id = '" + idArtista + "'";
+
+
+            SqlCommand cmd = new SqlCommand(query, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                nombre = dr["usuario_nombreartist"].ToString();
+            }
+
+            cn.Close();
+
+            return nombre;
         }
 
+        // Desplegar datos de la cancion
         public void CancionDetalles(Cancion e)
         {
             lblID.Text = e.id;
@@ -78,6 +100,8 @@ namespace KemishMusic
             picCancionAPlaylist.Image = (Bitmap)new ImageConverter().ConvertFrom(e.imagen);
 
             lblNombreCancion.Text = e.nombre;
+
+            lblAutor.Text = SeleccionarNombreArtista(e.id);
         }
     }
 }

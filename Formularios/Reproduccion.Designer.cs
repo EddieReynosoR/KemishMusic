@@ -51,6 +51,7 @@
             this.DoubleBuffered = true;
             this.Name = "Reproduccion";
             this.Text = "Reproduccion";
+            this.Load += new System.EventHandler(this.Reproduccion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

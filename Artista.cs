@@ -9,6 +9,7 @@ namespace KemishMusic
 {
     public class Artista
     {
+        // Atributos clase Artista
         public string id { get; set; }
         public string usuario { get; set; }
         public byte[] foto { get; set; }
@@ -19,14 +20,15 @@ namespace KemishMusic
 
         public string nombreArtistico { get; set; }
 
+        // Listas para consultas
         public static List<Artista> lista = new List<Artista>();
 
         public static List<Artista> lista2 = new List<Artista>();
 
+        // Obtener datos del artista seleccionado
         public void getArtista(string id)
         {
             SqlConnection conn = Form1.GetConnection();
-            //SqlConnection conn = new SqlConnection(@"Data Source=YAHIR\SQLEXPRESS;Initial Catalog=KemishMusic;Integrated Security=True");
 
             conn.Open();
 
@@ -58,6 +60,7 @@ namespace KemishMusic
             reader.Close();
         }
 
+        // Obtener colaboraciones
         public void getListaColab(string idColab)
         {
             SqlConnection conn = Form1.GetConnection();
@@ -95,6 +98,8 @@ namespace KemishMusic
                 conn.Dispose();
             }
         }
+
+        // Obtener lista de artista en la busqueda
         public void getListaArtista(string where)
         {
             SqlConnection conn = Form1.GetConnection();

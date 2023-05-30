@@ -19,6 +19,7 @@ namespace KemishMusic
             InitializeComponent();
         }
 
+        // Evento al dar click a la carta del artista
         private void picArtistaCarta_Click(object sender, EventArgs e)
         {
             id = lblID.Text;
@@ -27,11 +28,7 @@ namespace KemishMusic
                 ClickArtista(this, e);
         }
 
-        private void ArtistaCard_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        // Obtener datos del artista
         public void ArtistaDetalles(Artista e)
         {
             lblID.Text = e.id;
@@ -43,6 +40,7 @@ namespace KemishMusic
             lblArtistaNombre.Text = e.nombreArtistico;
         }
 
+        // Evento del click de la carta artista
         private void ArtistaCard_Click(object sender, EventArgs e)
         {
             id = lblID.Text;

@@ -18,6 +18,7 @@ namespace KemishMusic
             InitializeComponent();
         }
 
+        // Cargar los datos del usuario que haya iniciado sesion
         private void Perfil_Load(object sender, EventArgs e)
         {
             DetallesUsuario();
@@ -27,6 +28,7 @@ namespace KemishMusic
             CartasPlaylist();
         }
 
+        // Obtener los datos del usuario
         public void DetallesUsuario()
         {
             lblID.Text = verArtista.id;
@@ -40,6 +42,7 @@ namespace KemishMusic
             picFotoPerfil.Image = (Image)converter.ConvertFrom(verArtista.foto);
         }
 
+        // Cargar canciones del usuario
         public void CartasCancion()
         {
             if (Cancion.lista2.Count == 0)
@@ -62,12 +65,14 @@ namespace KemishMusic
             }
         }
 
+        // Obtener los datos de las canciones del usuario
         public void DetallesCancion()
         {
             Cancion cancion = new Cancion();
             cancion.getListaCancionesUsuario(verArtista.id);
         }
 
+        // Cargar las playlist del usuario
         public void CartasPlaylist()
         {
             if (PlaylistClase.lista2.Count == 0)
@@ -87,17 +92,14 @@ namespace KemishMusic
             }
         }
 
+        // Obtener los datos de las playlist del usuario
         public void DetallesPlaylist()
         {
             PlaylistClase playlist = new PlaylistClase();
             playlist.getListaPlaylistUsuario(verArtista.id);
         }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        // Boton editar perfil
         private void btnEditarPerfil_Click(object sender, EventArgs e)
         {
             EditarUsuario editar = new EditarUsuario();

@@ -13,13 +13,13 @@ namespace KemishMusic
 {
     public partial class CancionSelect : UserControl
     {
-
+        // ID y eventos correspondientes a cada control de usuario de la cancion
         public static string id;
         public static event EventHandler ImagenClick;
         public static event EventHandler CancionClick;
         public static event EventHandler AgregarFila;
 
-        ToolTip tooltip1 = new ToolTip();
+        
 
 
 
@@ -28,7 +28,7 @@ namespace KemishMusic
             InitializeComponent();
         }
 
-
+        // Evento al dar click a la cancion
         private void picCancion_Click(object sender, EventArgs e)
         {
             id = lblID.Text;
@@ -39,6 +39,7 @@ namespace KemishMusic
            
         }
 
+        // Obtener nombres del usuario
         public string SeleccionarNombreArtista(string idArtista)
         {
             string nombreArtista = "";
@@ -62,6 +63,7 @@ namespace KemishMusic
             return nombreArtista;
         }
 
+        // Obtener detalles de la cancion
         public void CancionDetalles(Cancion e)
         {
 
@@ -79,6 +81,7 @@ namespace KemishMusic
             lblIDUsuario.Text = e.usuarioID;
         }
 
+        // Obtener colaboraciones
         public void SeleccionarColab(string idColab)
         {
             SqlConnection cn = Form1.GetConnection();
@@ -99,6 +102,7 @@ namespace KemishMusic
             cn.Close();
         }
 
+        // Capacidad de editar una cancion solo si el ususario es dueño de esta
         private void CancionSelect_Load(object sender, EventArgs e)
         {
             //lblID.Hide();           
@@ -109,10 +113,8 @@ namespace KemishMusic
 
         }
 
-        private void CancionSelect_Click(object sender, EventArgs e)
-        {
-        }
 
+        // Mostrar opciones de la cancion
         private void picOpciones_Click(object sender, EventArgs e)
         {
             id = lblID.Text;
@@ -127,16 +129,7 @@ namespace KemishMusic
 
         }
 
-        private void picOpciones_MouseHover(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void lblID_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // Evento agregar a la cola
         private void btnAgregarFila_Click(object sender, EventArgs e)
         {
             id = lblID.Text;            
@@ -146,6 +139,8 @@ namespace KemishMusic
 
             panelOpciones.Visible = false;
         }
+
+        // Mostrar y ocultar opciones
 
         bool showOpciones = false;
         private void iconOpciones_Click(object sender, EventArgs e)
@@ -163,11 +158,7 @@ namespace KemishMusic
             
         }
 
-        private void panelOpciones_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        // Boton editar cancion
         private void btnEditarCancion_Click(object sender, EventArgs e)
         {
             panelOpciones.Visible = false;
@@ -177,6 +168,7 @@ namespace KemishMusic
             editar.Show();
         }
 
+        // Evento para agregar cancion a una playlist
         private void btnAgregarAPlaylist_Click(object sender, EventArgs e)
         {
             panelOpciones.Visible = false;

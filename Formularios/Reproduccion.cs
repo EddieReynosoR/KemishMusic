@@ -17,7 +17,7 @@ namespace KemishMusic.Formularios
             InitializeComponent();
         }
 
-        private void gunaPictureBox1_Click(object sender, EventArgs e)
+        private void Reproduccion_Load(object sender, EventArgs e)
         {
 
         }

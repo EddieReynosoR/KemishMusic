@@ -62,7 +62,7 @@ namespace KemishMusic
             this.lblID.Size = new System.Drawing.Size(46, 17);
             this.lblID.TabIndex = 9;
             this.lblID.Text = "label1";
-            this.lblID.Click += new System.EventHandler(this.lblID_Click);
+            this.lblID.Visible = false;
             // 
             // panelOpciones
             // 
@@ -76,7 +76,6 @@ namespace KemishMusic
             this.panelOpciones.Size = new System.Drawing.Size(160, 232);
             this.panelOpciones.TabIndex = 12;
             this.panelOpciones.Visible = false;
-            this.panelOpciones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelOpciones_Paint);
             // 
             // btnEditarCancion
             // 
@@ -212,7 +211,6 @@ namespace KemishMusic
             this.Name = "CancionSelect";
             this.Size = new System.Drawing.Size(490, 379);
             this.Load += new System.EventHandler(this.CancionSelect_Load);
-            this.Click += new System.EventHandler(this.CancionSelect_Click);
             this.panelOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picCancion)).EndInit();
             this.ResumeLayout(false);

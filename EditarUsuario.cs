@@ -15,12 +15,14 @@ namespace KemishMusic
 {
     public partial class EditarUsuario : Form
     {
+        // Obtener lista de audios de las canciones del usuario
         public static List<string> listaAudios = new List<string>();
         public EditarUsuario()
         {
             InitializeComponent();
         }
 
+        // Cargar datos del usuario a editar
         private void EditarUsuario_Load(object sender, EventArgs e)
         {
             txtUsuario.Text = Usuario.usuario;
@@ -38,12 +40,14 @@ namespace KemishMusic
             picPortada.Image = (Bitmap)new ImageConverter().ConvertFrom(Usuario.fotoPortada);
         }
 
+        // Validar correo email
         public bool ValidateUsingEmailAddressAttribute(string emailAddress)
         {
             var emailValidation = new EmailAddressAttribute();
             return emailValidation.IsValid(emailAddress);
         }
 
+        // FUNCIONES PARA EDITAR USUARIO
         public void EditarUsuarioFuncion(string fotoperfil, string fotoportada)
         {
             
@@ -274,6 +278,7 @@ namespace KemishMusic
             
         }
 
+        // Boton para editar usuario, con validacion y posibles opciones de edicion
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (txtUsuario.Text == "" || txtNombreArtistico.Text == "" || txtContra.Text == "" || txtNombre.Text == "" || txtCorreo.Text == "" || txtApellidoP.Text == "" || txtApellidoM.Text == "" || txtContra.Text == "")
@@ -294,6 +299,7 @@ namespace KemishMusic
             
         }
 
+        // Insertar nueva foto desde los archivos
         private void btnInsertarFoto_Click(object sender, EventArgs e)
         {
             try
@@ -313,6 +319,7 @@ namespace KemishMusic
             }
         }
 
+        // Insertar nueva foto desde los archivos
         private void btnInsertarPortada_Click(object sender, EventArgs e)
         {
             try
@@ -332,6 +339,7 @@ namespace KemishMusic
             }
         }
 
+        // Obtener una lista de las canciones del usuario que se va a eliminar
         public void ObtenerCancionParaEliminar(string idUsuario)
         {
             SqlConnection cn = Form1.GetConnection();
@@ -352,6 +360,7 @@ namespace KemishMusic
             cn.Close();
         }
 
+        // Eliminar usuario evento click
         private void btnEliminarCuenta_Click(object sender, EventArgs e)
         {
             try
@@ -364,10 +373,9 @@ namespace KemishMusic
 
                     SqlConnection cn = Form1.GetConnection();
                     cn.Open();
+                    
 
-                    SqlCommand elimina4 = new SqlCommand("DELETE FROM enlistar WHERE cancion_cancion_id IN (SELECT cancion_id FROM cancion WHERE usuario_id_usuario = '" + Usuario.id + "')", cn);
-
-                    elimina4.ExecuteNonQuery();
+                    
 
                     ObtenerCancionParaEliminar(Usuario.id);
 
@@ -386,10 +394,19 @@ namespace KemishMusic
                         File.Delete(Path.Combine(path, Path.GetFileName(cancionAudio)));
                     }
 
-                    SqlCommand elimina2 = new SqlCommand("DELETE FROM playlist WHERE usuario_id_usuario=@usuario_id_usuario", cn);
+
+
+
+                    SqlCommand elimina4 = new SqlCommand("DELETE FROM enlistar WHERE playlist_playlist_id IN (SELECT playlist_id FROM playlist WHERE usuario_id_usuario = '" + Usuario.id + "')", cn);
+
+                    elimina4.ExecuteNonQuery();
+
+                    SqlCommand elimina2 = new SqlCommand("DELETE FROM playlist WHERE playlist_id IN (SELECT playlist_id FROM playlist WHERE usuario_id_usuario = @usuario_id_usuario)", cn);
                     elimina2.Parameters.AddWithValue("@usuario_id_usuario", Usuario.id);
 
                     elimina2.ExecuteNonQuery();
+
+
 
 
 
@@ -428,7 +445,13 @@ namespace KemishMusic
                 MessageBox.Show("Hubo un problema al tratar de eliminar tu cuenta. Intentalo de nuevo más tarde.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             
             }
+            catch (SqlException)
+            {
+                MessageBox.Show("Hubo un problema al tratar de eliminar tu cuenta. Intentalo de nuevo más tarde.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        // Checar si se insertan simbolos especiales en un textbox
         private bool HasSpecialChars(string yourString)
         {
             string specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,";
@@ -439,6 +462,8 @@ namespace KemishMusic
 
             return false;
         }
+
+        // VALIDACION DE LOS TEXTBOX
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (txtUsuario.Text.Length > 29)

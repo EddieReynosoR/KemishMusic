@@ -19,6 +19,7 @@ namespace KemishMusic
             InitializeComponent();
         }
 
+        // Cargas datos necesarios
         private void EditarCancion_Load(object sender, EventArgs e)
         {
             DetallesCancion();
@@ -27,6 +28,7 @@ namespace KemishMusic
             MostrarColabs();
         }
 
+        // Rellenar combobox
         public void RellenarComboBoxColab()
         {
             SqlConnection cn = Form1.GetConnection();
@@ -47,9 +49,11 @@ namespace KemishMusic
             cn.Close();
         }
 
+        // Obtener y guardar datos de los datos anteriores por editar
         string cancionAnteior;
         string nombreCancion;
         
+        // Obtener detalles de la cancion
         public void DetallesCancion()
         {
             Cancion cancion = new Cancion();
@@ -64,11 +68,15 @@ namespace KemishMusic
 
             picCancionEditar.Image = (Bitmap)new ImageConverter().ConvertFrom(cancion.imagen);
         }
+
+        // Obtener detalles de los colaboradores registrados
         public void DetallesColaborador()
         {
             Artista colab = new Artista();
             colab.getListaColab(CancionSelect.id);
         }
+
+        // Mostrar colaboraciones correspondientes
         public void MostrarColabs()
         {
             foreach (Artista colab in Artista.lista2)
@@ -83,6 +91,7 @@ namespace KemishMusic
             }
         }
 
+        // Insertar nueva colaboracion
         private void btnInsertarColaborador_Click(object sender, EventArgs e)
         {
             string query = "INSERT INTO colaboracion (cancion_cancion_id, usuario_usuario_id) VALUES (@cancion_cancion_id, @usuario_usuario_id)";
@@ -115,6 +124,7 @@ namespace KemishMusic
             }
         }
 
+        // Seleccionar audio de tus archivos
         private void btnSeleccionarAudio_Click(object sender, EventArgs e)
         {
             try
@@ -134,6 +144,7 @@ namespace KemishMusic
             
         }
 
+        // Seleccionar imagen de tus archivos
         private void btnSeleccionarImagen_Click(object sender, EventArgs e)
         {
             try
@@ -155,6 +166,7 @@ namespace KemishMusic
         }
 
 
+        // Funciones editar cancion
         public void EditarCancionFuncion(string archivoAudio, string archivoImagen)
         {          
             Form1 frm1 = new Form1();
@@ -249,7 +261,7 @@ namespace KemishMusic
             
         }
 
-
+        
         public void EditarCancionFuncion2(string archivoAudio)
         {
             Form1 frm1 = new Form1();
@@ -341,6 +353,7 @@ namespace KemishMusic
             
         }
 
+        
         public void EditarCancionFuncion3()
         {
 
@@ -396,7 +409,6 @@ namespace KemishMusic
 
         public void EditarCancionFuncion4(string archivoImagen)
         {
-            Form1 frm1 = new Form1();
             using (Stream stream = File.OpenRead(archivoImagen))
             {
                 
@@ -467,7 +479,7 @@ namespace KemishMusic
             
         }
 
-
+        // Boton para editar cancion, tomando en cuenta los 4 posibles tipos de edicion
         private void btnEditarCancion_Click(object sender, EventArgs e)
         {
             try
@@ -502,6 +514,7 @@ namespace KemishMusic
 
         }
 
+        // Boton para eliminar cancion
         private void btnEliminarCancion_Click(object sender, EventArgs e)
         {
             try
@@ -553,24 +566,6 @@ namespace KemishMusic
             }
         }
 
-        private void panelColaboradoresEdit_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtAudioEditar_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void gunaControlBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
     }
 }

@@ -8,6 +8,8 @@ namespace KemishMusic
 {
     public class verArtista
     {
+
+        // Atributos para poder ver los datos de un usuario que no sea el que haya iniciado sesion
         public static string id { get; set; }
         public static string usuario { get; set; }
         public static byte[] foto { get; set; }

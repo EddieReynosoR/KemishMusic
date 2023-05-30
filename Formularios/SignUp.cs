@@ -22,20 +22,7 @@ namespace KemishMusic
             
         }
 
-        private void scrollVertical_Scroll(object sender, ScrollEventArgs e)
-        {
-        }
-
-        private void lblLogin_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void gunaLabel8_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // Agregar foto de perfil
         private void btnInsertarFoto_Click(object sender, EventArgs e)
         {
             try
@@ -54,11 +41,15 @@ namespace KemishMusic
                 MessageBox.Show("No seleccionaste ninguna imágen.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        // Validar correo email
         public bool ValidateUsingEmailAddressAttribute(string emailAddress)
         {
             var emailValidation = new EmailAddressAttribute();
             return emailValidation.IsValid(emailAddress);
         }
+
+        // Registro de usuario
         public void Registrarse(string archivoImagen, string archivoPortada)
         {
             if (archivoImagen == "")
@@ -163,11 +154,13 @@ namespace KemishMusic
             
         }
 
+        // Click boton de registrarse
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
             Registrarse(label1.Text, label2.Text);
         }
 
+        // Elegir foto de portada de tus archivos
         private void btnInsertarPortada_Click(object sender, EventArgs e)
         {
             try
@@ -187,67 +180,7 @@ namespace KemishMusic
             }
         }
 
-        private void gunaLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gunaLabel3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtContra_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtContraConf_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gunaLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCorreo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtApellidoP_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-                
-
-        }
-
-        private void txtNombreArtistico_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-        }
+        // Detectar simbolos especiales en los textbox
         private bool HasSpecialChars(string yourString)
         {
             string specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,";
@@ -258,10 +191,8 @@ namespace KemishMusic
 
             return false;
         }
-        private void txtContra_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-        }
+
+        // VALIDACION DE LOS TEXTBOX
 
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -348,6 +279,7 @@ namespace KemishMusic
             }
         }
 
+        // Regresar al Login
         private void btnAtras_Click(object sender, EventArgs e)
         {
             Hide();

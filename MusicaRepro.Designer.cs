@@ -57,7 +57,6 @@ namespace KemishMusic
             this.lblID.Size = new System.Drawing.Size(46, 17);
             this.lblID.TabIndex = 4;
             this.lblID.Text = "label1";
-            this.lblID.Click += new System.EventHandler(this.lblID_Click);
             // 
             // MusicaRepro
             // 
@@ -73,9 +72,6 @@ namespace KemishMusic
             this.MusicaRepro.Size = new System.Drawing.Size(1060, 110);
             this.MusicaRepro.TabIndex = 5;
             this.MusicaRepro.Click += new System.EventHandler(this.MusicaRepro_Click_1);
-            this.MusicaRepro.Paint += new System.Windows.Forms.PaintEventHandler(this.MusicaRepro_Paint);
-            this.MusicaRepro.MouseLeave += new System.EventHandler(this.MusicaRepro_MouseLeave);
-            this.MusicaRepro.MouseHover += new System.EventHandler(this.MusicaRepro_MouseHover);
             // 
             // lblEstado
             // 
@@ -107,7 +103,6 @@ namespace KemishMusic
             this.lblNombreCancion.Size = new System.Drawing.Size(140, 22);
             this.lblNombreCancion.TabIndex = 1;
             this.lblNombreCancion.Text = "NombreCancion";
-            this.lblNombreCancion.Click += new System.EventHandler(this.lblNombreCancion_Click);
             // 
             // MusicaRepr
             // 
@@ -116,8 +111,6 @@ namespace KemishMusic
             this.Controls.Add(this.MusicaRepro);
             this.Name = "MusicaRepr";
             this.Size = new System.Drawing.Size(1060, 110);
-            this.Load += new System.EventHandler(this.MusicaRepro_Load);
-            this.Click += new System.EventHandler(this.MusicaRepro_Click);
             this.MusicaRepro.ResumeLayout(false);
             this.MusicaRepro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCancionRep)).EndInit();

@@ -13,6 +13,7 @@ namespace KemishMusic
 {
     public partial class MusicaRepr : UserControl
     {
+        // ID y estatus respectivo de la cancion en la cola
         public static string id;
         public string estatus;
         public static event EventHandler CancionClick;
@@ -21,9 +22,11 @@ namespace KemishMusic
         {
             InitializeComponent();
         }
-
+        
+        // Obtener datos correspondientes de la cancion en la cola
         public void CancionDetalles(Cancion e)
         {
+            
 
             lblID.Text = e.id;
 
@@ -41,6 +44,8 @@ namespace KemishMusic
             lblAutor.Text = SeleccionarNombreArtista(e.usuarioID);
 
         }
+
+        // Obtener el nombre del artista de la cancion
         public string SeleccionarNombreArtista(string idArtista)
         {
             string nombreArtista = "";
@@ -63,6 +68,8 @@ namespace KemishMusic
 
             return nombreArtista;
         }
+
+        // Obtener las colaboraciones de la cancion
         public void SeleccionarColab(string idColab)
         {
             SqlConnection cn = Form1.GetConnection();
@@ -82,46 +89,13 @@ namespace KemishMusic
 
             cn.Close();
         }
-        private void MusicaRepro_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MusicaRepro_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void lblNombreCancion_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MusicaRepro_MouseHover(object sender, EventArgs e)
-        {
-            //MusicaRepro.BackColor = Color.Gray;
-        }
-
-        private void MusicaRepro_MouseLeave(object sender, EventArgs e)
-        {
-            //MusicaRepro.BackColor = Color.LightGray;
-        }
-
-        private void MusicaRepro_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        
+        // Obtener ID
         private void MusicaRepro_Click_1(object sender, EventArgs e)
         {
             id = lblID.Text;
             // estatus = lblEstado.Text;
             
-        }
-
-        private void lblID_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

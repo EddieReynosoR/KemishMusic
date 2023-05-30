@@ -92,7 +92,6 @@ namespace KemishMusic
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "ArtistaCard";
             this.Size = new System.Drawing.Size(378, 311);
-            this.Load += new System.EventHandler(this.ArtistaCard_Load);
             this.Click += new System.EventHandler(this.ArtistaCard_Click);
             ((System.ComponentModel.ISupportInitialize)(this.picArtistaCarta)).EndInit();
             this.ResumeLayout(false);
